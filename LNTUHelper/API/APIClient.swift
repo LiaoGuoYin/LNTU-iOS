@@ -1,0 +1,25 @@
+//
+//  APIClient.swift
+//  LNTUHelper
+//
+//  Created by LiaoGuoYin on 2020/10/25.
+//
+
+import Alamofire
+import Foundation
+
+class APIClient {
+    
+    @discardableResult
+    private static func performRequest<T:Decodable>(route:APIEducationRouter, decoder: JSONDecoder = JSONDecoder(), completion:@escaping (Result<T, AFError>)->Void) -> DataRequest {
+        return AF.request(route)
+            .responseDecodable (decoder: decoder){ (response: DataResponse<T, AFError>) in
+                completion(response.result)
+            }
+    }
+    
+    static func classroom(week: Int, buildingName: String, completion: @escaping (Result<ClassroomResponse, AFError>) -> Void) {
+        performRequest(route: APIEducationRouter.classroom(week: week, buildingName: buildingName), completion: completion)
+    }
+    
+}
