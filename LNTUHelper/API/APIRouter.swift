@@ -9,6 +9,7 @@ import Alamofire
 import Foundation
 
 enum APIEducationRouter: URLRequestConvertible {
+    static var defaultParams = ["IMEICode": "nil"] // set the default params
     
     case notice
     case classroom(week: Int, buildingName: String)
@@ -37,7 +38,6 @@ enum APIEducationRouter: URLRequestConvertible {
             return "/education/notice"
         case .classroom:
             return "/education/classroom"
-            
         case .data:
             return "/education/data"
         case .info:
@@ -51,14 +51,22 @@ enum APIEducationRouter: URLRequestConvertible {
         }
     }
     
-    // MARK: - Parameters
-    private var parameters: Parameters? {
+    // MARK: - Query Parameters
+    private var queryParameters: Parameters? {
+        var params = APIEducationRouter.defaultParams
         switch self {
         case .classroom(let week, let buildingName):
-            return [
-                K.Education.week: week,
-                K.Education.buildingName: buildingName
-            ]
+            params.updateValue(String(week), forKey: K.Education.week)
+            params.updateValue(AllBuildingEnum(rawValue: buildingName)?.varName ?? "", forKey: K.Education.buildingName)
+        default:
+            print("TODO")
+        }
+        return params
+    }
+    
+    // MARK: - POST Body Parameters
+    private var parameters: Parameters? {
+        switch self {
         case .grade(let username, let password, let semester):
             return [
                 K.Education.username: username,
@@ -83,7 +91,16 @@ enum APIEducationRouter: URLRequestConvertible {
         urlRequest.setValue(ContentType.json.rawValue, forHTTPHeaderField: HTTPHeaderField.acceptType.rawValue)
         urlRequest.setValue(ContentType.json.rawValue, forHTTPHeaderField: HTTPHeaderField.contentType.rawValue)
         
-        // Parameters
+        // Query Parameters
+        if let actualQueryParameters = queryParameters {
+            do {
+                urlRequest = try URLEncoding.default.encode(urlRequest, with: actualQueryParameters)
+            } catch {
+                throw AFError.parameterEncodingFailed(reason: .jsonEncodingFailed(error: error))
+            }
+        }
+        
+        // Body Parameters
         if let parameters = parameters {
             do {
                 urlRequest.httpBody = try JSONSerialization.data(withJSONObject: parameters)
@@ -91,6 +108,7 @@ enum APIEducationRouter: URLRequestConvertible {
                 throw AFError.parameterEncodingFailed(reason: .jsonEncodingFailed(error: error))
             }
         }
+        
         return urlRequest
     }
 }

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,17 @@
 		AF3053A225455A6800F849A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF3053A025455A6800F849A9 /* LaunchScreen.storyboard */; };
 		AF3053AD25455A6800F849A9 /* LNTUHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3053AC25455A6800F849A9 /* LNTUHelperTests.swift */; };
 		AF3053B825455A6800F849A9 /* LNTUHelperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3053B725455A6800F849A9 /* LNTUHelperUITests.swift */; };
+		AF3053C825455ADC00F849A9 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3053C725455ADC00F849A9 /* APIRouter.swift */; };
+		AF3053CA25455AE400F849A9 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3053C925455AE400F849A9 /* APIClient.swift */; };
+		AF3053CD25455B0C00F849A9 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = AF3053CC25455B0C00F849A9 /* Alamofire */; };
+		AF3053CF25455D6700F849A9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3053CE25455D6700F849A9 /* Constants.swift */; };
+		AF3053D125456E2000F849A9 /* AppErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3053D025456E2000F849A9 /* AppErrors.swift */; };
+		AF3053D4254570CD00F849A9 /* ClassroomModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3053D3254570CD00F849A9 /* ClassroomModel.swift */; };
+		AF3053D62545710300F849A9 /* ClassroomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3053D52545710300F849A9 /* ClassroomView.swift */; };
+		AF3053D82545711300F849A9 /* ClassroomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3053D72545711300F849A9 /* ClassroomViewModel.swift */; };
+		AF79D2852545A0C000C962AE /* BannerModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF79D2842545A0C000C962AE /* BannerModifier.swift */; };
+		AF79D2872545B5DF00C962AE /* ClassroomDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF79D2862545B5DF00C962AE /* ClassroomDetailView.swift */; };
+		AF7BD6F42545BDAF00771CDA /* ClassroomDetailRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7BD6F32545BDAF00771CDA /* ClassroomDetailRowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +60,16 @@
 		AF3053B325455A6800F849A9 /* LNTUHelperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LNTUHelperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF3053B725455A6800F849A9 /* LNTUHelperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LNTUHelperUITests.swift; sourceTree = "<group>"; };
 		AF3053B925455A6800F849A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF3053C725455ADC00F849A9 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
+		AF3053C925455AE400F849A9 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		AF3053CE25455D6700F849A9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		AF3053D025456E2000F849A9 /* AppErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppErrors.swift; sourceTree = "<group>"; };
+		AF3053D3254570CD00F849A9 /* ClassroomModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomModel.swift; sourceTree = "<group>"; };
+		AF3053D52545710300F849A9 /* ClassroomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomView.swift; sourceTree = "<group>"; };
+		AF3053D72545711300F849A9 /* ClassroomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomViewModel.swift; sourceTree = "<group>"; };
+		AF79D2842545A0C000C962AE /* BannerModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerModifier.swift; sourceTree = "<group>"; };
+		AF79D2862545B5DF00C962AE /* ClassroomDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomDetailView.swift; sourceTree = "<group>"; };
+		AF7BD6F32545BDAF00771CDA /* ClassroomDetailRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomDetailRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF3053CD25455B0C00F849A9 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,13 +121,14 @@
 		AF30539425455A6600F849A9 /* LNTUHelper */ = {
 			isa = PBXGroup;
 			children = (
-				AF30539525455A6600F849A9 /* AppDelegate.swift */,
-				AF30539725455A6600F849A9 /* SceneDelegate.swift */,
+				AF79D2832545A0B400C962AE /* Common */,
+				AF3053D2254570C200F849A9 /* Classroom */,
+				AF3053C625455AC600F849A9 /* API */,
+				AF30539D25455A6800F849A9 /* Preview Content */,
+				AF3053C525455A7F00F849A9 /* Supportings */,
 				AF30539925455A6600F849A9 /* ContentView.swift */,
 				AF30539B25455A6800F849A9 /* Assets.xcassets */,
-				AF3053A025455A6800F849A9 /* LaunchScreen.storyboard */,
 				AF3053A325455A6800F849A9 /* Info.plist */,
-				AF30539D25455A6800F849A9 /* Preview Content */,
 			);
 			path = LNTUHelper;
 			sourceTree = "<group>";
@@ -136,6 +159,47 @@
 			path = LNTUHelperUITests;
 			sourceTree = "<group>";
 		};
+		AF3053C525455A7F00F849A9 /* Supportings */ = {
+			isa = PBXGroup;
+			children = (
+				AF3053A025455A6800F849A9 /* LaunchScreen.storyboard */,
+				AF30539525455A6600F849A9 /* AppDelegate.swift */,
+				AF30539725455A6600F849A9 /* SceneDelegate.swift */,
+			);
+			path = Supportings;
+			sourceTree = "<group>";
+		};
+		AF3053C625455AC600F849A9 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				AF3053C725455ADC00F849A9 /* APIRouter.swift */,
+				AF3053C925455AE400F849A9 /* APIClient.swift */,
+				AF3053CE25455D6700F849A9 /* Constants.swift */,
+				AF3053D025456E2000F849A9 /* AppErrors.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		AF3053D2254570C200F849A9 /* Classroom */ = {
+			isa = PBXGroup;
+			children = (
+				AF3053D3254570CD00F849A9 /* ClassroomModel.swift */,
+				AF3053D72545711300F849A9 /* ClassroomViewModel.swift */,
+				AF3053D52545710300F849A9 /* ClassroomView.swift */,
+				AF79D2862545B5DF00C962AE /* ClassroomDetailView.swift */,
+				AF7BD6F32545BDAF00771CDA /* ClassroomDetailRowView.swift */,
+			);
+			path = Classroom;
+			sourceTree = "<group>";
+		};
+		AF79D2832545A0B400C962AE /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				AF79D2842545A0C000C962AE /* BannerModifier.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -152,6 +216,9 @@
 			dependencies = (
 			);
 			name = LNTUHelper;
+			packageProductDependencies = (
+				AF3053CC25455B0C00F849A9 /* Alamofire */,
+			);
 			productName = LNTUHelper;
 			productReference = AF30539225455A6600F849A9 /* LNTUHelper.app */;
 			productType = "com.apple.product-type.application";
@@ -223,6 +290,9 @@
 				Base,
 			);
 			mainGroup = AF30538925455A6600F849A9;
+			packageReferences = (
+				AF3053CB25455B0C00F849A9 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = AF30539325455A6600F849A9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -267,7 +337,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF30539625455A6600F849A9 /* AppDelegate.swift in Sources */,
+				AF79D2872545B5DF00C962AE /* ClassroomDetailView.swift in Sources */,
+				AF3053C825455ADC00F849A9 /* APIRouter.swift in Sources */,
+				AF3053D62545710300F849A9 /* ClassroomView.swift in Sources */,
+				AF79D2852545A0C000C962AE /* BannerModifier.swift in Sources */,
+				AF3053CF25455D6700F849A9 /* Constants.swift in Sources */,
+				AF3053D82545711300F849A9 /* ClassroomViewModel.swift in Sources */,
+				AF3053D4254570CD00F849A9 /* ClassroomModel.swift in Sources */,
+				AF7BD6F42545BDAF00771CDA /* ClassroomDetailRowView.swift in Sources */,
 				AF30539825455A6600F849A9 /* SceneDelegate.swift in Sources */,
+				AF3053CA25455AE400F849A9 /* APIClient.swift in Sources */,
+				AF3053D125456E2000F849A9 /* AppErrors.swift in Sources */,
 				AF30539A25455A6600F849A9 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -441,6 +521,7 @@
 				DEVELOPMENT_TEAM = 9U62MV7448;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = LNTUHelper/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -462,6 +543,7 @@
 				DEVELOPMENT_TEAM = 9U62MV7448;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = LNTUHelper/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -597,6 +679,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AF3053CB25455B0C00F849A9 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AF3053CC25455B0C00F849A9 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AF3053CB25455B0C00F849A9 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AF30538A25455A6600F849A9 /* Project object */;
 }
