@@ -11,7 +11,7 @@ import Foundation
 struct CourseTableResponse: Codable {
     let code: Int
     let message: String
-    let data: [CourseTableResponseData]
+    let data: [CourseTableResponseData]?
 }
 
 // MARK: - CourseTableResponseData

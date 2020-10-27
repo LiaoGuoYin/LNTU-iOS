@@ -11,22 +11,26 @@ struct ClassroomDetailRowView: View {
     @Binding var weekdayStatusList: ClassroomResponseData.ClassroomDetail
     var body: some View {
         HStack {
-            Image(systemName: (weekdayStatusList.a != 0) ? "checkmark.seal.fill" : "xmark.seal")
-                .foregroundColor((weekdayStatusList.a != 0) ? .blue : .red)
-            Image(systemName: (weekdayStatusList.b != 0) ? "checkmark.seal.fill" : "xmark.seal")
-                .foregroundColor((weekdayStatusList.b != 0) ? .blue : .red)
-            Image(systemName: (weekdayStatusList.c != 0) ? "checkmark.seal.fill" : "xmark.seal")
-                .foregroundColor((weekdayStatusList.c != 0) ? .blue : .red)
-            Image(systemName: (weekdayStatusList.d != 0) ? "checkmark.seal.fill" : "xmark.seal")
-                .foregroundColor((weekdayStatusList.d != 0) ? .blue : .red)
-            Image(systemName: (weekdayStatusList.e != 0) ? "checkmark.seal.fill" : "xmark.seal")
-                .foregroundColor((weekdayStatusList.e != 0) ? .blue : .red)
+            Image(systemName: (weekdayStatusList.a == 0) ? "square" : "square.fill")
+                .foregroundColor((weekdayStatusList.a == 0) ? .blue : .pink)
+            
+            Image(systemName: (weekdayStatusList.b == 0) ? "square" : "square.fill")
+                .foregroundColor((weekdayStatusList.b == 0) ? .blue : .pink)
+            
+            Image(systemName: (weekdayStatusList.c == 0) ? "square" : "square.fill")
+                .foregroundColor((weekdayStatusList.c == 0) ? .blue : .pink)
+            
+            Image(systemName: (weekdayStatusList.d == 0) ? "square" : "square.fill")
+                .foregroundColor((weekdayStatusList.d == 0) ? .blue : .pink)
+            
+            Image(systemName: (weekdayStatusList.e == 0) ? "square" : "square.fill")
+                .foregroundColor((weekdayStatusList.e == 0) ? .blue : .pink)
         }
     }
 }
 
-//struct ClassroomDetailRowView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ClassroomDetailRowView()
-//    }
-//}
+struct ClassroomDetailRowView_Previews: PreviewProvider {
+    static var previews: some View {
+        ClassroomDetailRowView(weekdayStatusList: .constant(ClassroomResponseData.ClassroomDetail(a: 1, b: 1, c: 0, d: 0, e: 1)))
+    }
+}

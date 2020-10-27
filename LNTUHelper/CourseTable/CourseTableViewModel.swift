@@ -38,7 +38,7 @@ class CourseTableViewModel: ObservableObject {
 
     init(courseTableList: [CourseTableResponseData]) {
         self.message  = BannerModifier.Data(title: "Result", content: "Content")
-        self.user = User(username: 0, password: "")
+        self.user = User(username: "0", password: "")
         self.courseTableResponseList = courseTableList
         
         var tmpCellList: [CourseTableCell] = []
@@ -57,9 +57,12 @@ extension CourseTableViewModel {
                 self.message.title = "拉取课表失败"
                 self.message.content = error.localizedDescription
             case .success(let courseResponse):
-                self.courseTableResponseList = courseResponse.data
+                guard courseResponse.data != nil else {
+                    return
+                }
+                self.courseTableResponseList = courseResponse.data!
                 self.message.title = "拉取课表成功"
-                self.message.content = courseResponse.data.description
+                self.message.content = courseResponse.data!.description
             }
         }
     }

@@ -9,9 +9,13 @@ import Foundation
 
 class ClassroomViewModel: ObservableObject {
     
-    @Published var message: String = ""
     @Published var isShowBanner: Bool = false
-
+    @Published var message: String = "" {
+        willSet {
+            isShowBanner = true
+        }
+    }
+    
     @Published var form: ClassroomForm
     @Published var classroomList: [ClassroomResponseData] = []
     
@@ -24,11 +28,9 @@ class ClassroomViewModel: ObservableObject {
             switch response {
             case .failure(let error):
                 self.message = error.localizedDescription
-                self.isShowBanner.toggle()
             case .success(let classroomResponse):
                 self.message = classroomResponse.data.description
                 self.classroomList = classroomResponse.data
-                self.isShowBanner.toggle()
             }
         }
     }

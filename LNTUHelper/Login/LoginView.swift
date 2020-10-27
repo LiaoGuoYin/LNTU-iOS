@@ -10,6 +10,7 @@ import SwiftUI
 
 struct LoginView: View {
     @ObservedObject var viewModel: LoginViewModel
+    @EnvironmentObject var router: ViewRouter
     var body: some View {
         NavigationView {
             ScrollView {
@@ -50,7 +51,12 @@ struct LoginView: View {
     
     var loginButton: some View {
         Button(action: {
-            self.viewModel.login()
+            viewModel.login {
+                if $0 {
+                    router.user = viewModel.user
+                    router.isLogin = true
+                }
+            }
         }) {
             HStack {
                 Spacer()

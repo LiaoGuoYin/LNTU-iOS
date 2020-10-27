@@ -10,14 +10,15 @@ import SwiftUI
 struct CourseTableView: View {
     
     @ObservedObject var viewModel: CourseTableViewModel
+    @EnvironmentObject var router: ViewRouter
     @State var teachingWeek: Int = 9
     
     var body: some View {
         NavigationView {
             CourseTableBodyView(courseTableMatrix: $viewModel.martrix)
-            .padding()
-            .navigationBarTitle(Text("课表"), displayMode: .large)
-            .navigationBarItems(trailing: refreshButton)
+                .padding()
+                .navigationBarTitle(Text("课表"), displayMode: .large)
+                .navigationBarItems(leading: logoutButton, trailing: refreshButton)
         }
         .banner(data: $viewModel.message, isShow: $viewModel.isShowBanner)
     }
@@ -27,11 +28,19 @@ struct CourseTableView: View {
             Text("刷新")
         }
     }
+    
+    var logoutButton: some View {
+        Button(action: {
+            router.isLogin = false
+        }) {
+            Text("Logout")
+        }
+    }
 }
 
 struct CourseTableView_Previews: PreviewProvider {
     static var previews: some View {
-        CourseTableView(viewModel: CourseTableViewModel(courseTableList: courseTableDemo!.data))
+        CourseTableView(viewModel: CourseTableViewModel(courseTableList: courseTableDemo!.data!))
     }
 }
 
