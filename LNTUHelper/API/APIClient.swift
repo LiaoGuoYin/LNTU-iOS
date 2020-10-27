@@ -26,4 +26,8 @@ class APIClient {
         performRequest(route: APIEducationRouter.courseTable(user: user, semester: semester), completion: completion)
     }
     
+    static func info(user: User, completion: @escaping (Result<EducationInfoResponse, AFError>) -> Void) {
+        performRequest(route: APIEducationRouter.info(user: user), completion: completion)
+    }
+    
 }

@@ -23,6 +23,11 @@
 		AF3053D4254570CD00F849A9 /* ClassroomModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3053D3254570CD00F849A9 /* ClassroomModel.swift */; };
 		AF3053D62545710300F849A9 /* ClassroomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3053D52545710300F849A9 /* ClassroomView.swift */; };
 		AF3053D82545711300F849A9 /* ClassroomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3053D72545711300F849A9 /* ClassroomViewModel.swift */; };
+		AF525B31254804EC006A2CC9 /* CommonModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF525B30254804EC006A2CC9 /* CommonModifiers.swift */; };
+		AF599BEE2547E4B000E8D769 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF599BED2547E4B000E8D769 /* ViewRouter.swift */; };
+		AF599BF02547E57800E8D769 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF599BEF2547E57800E8D769 /* LoginView.swift */; };
+		AF599BF22547EBD400E8D769 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF599BF12547EBD400E8D769 /* LoginViewModel.swift */; };
+		AF599BF52547EDE200E8D769 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF599BF42547EDE200E8D769 /* LoginModel.swift */; };
 		AF79D2852545A0C000C962AE /* BannerModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF79D2842545A0C000C962AE /* BannerModifier.swift */; };
 		AF79D2872545B5DF00C962AE /* ClassroomDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF79D2862545B5DF00C962AE /* ClassroomDetailView.swift */; };
 		AF7BD6F42545BDAF00771CDA /* ClassroomDetailRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7BD6F32545BDAF00771CDA /* ClassroomDetailRowView.swift */; };
@@ -73,6 +78,11 @@
 		AF3053D3254570CD00F849A9 /* ClassroomModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomModel.swift; sourceTree = "<group>"; };
 		AF3053D52545710300F849A9 /* ClassroomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomView.swift; sourceTree = "<group>"; };
 		AF3053D72545711300F849A9 /* ClassroomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomViewModel.swift; sourceTree = "<group>"; };
+		AF525B30254804EC006A2CC9 /* CommonModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonModifiers.swift; sourceTree = "<group>"; };
+		AF599BED2547E4B000E8D769 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
+		AF599BEF2547E57800E8D769 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		AF599BF12547EBD400E8D769 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		AF599BF42547EDE200E8D769 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		AF79D2842545A0C000C962AE /* BannerModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerModifier.swift; sourceTree = "<group>"; };
 		AF79D2862545B5DF00C962AE /* ClassroomDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomDetailView.swift; sourceTree = "<group>"; };
 		AF7BD6F32545BDAF00771CDA /* ClassroomDetailRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomDetailRowView.swift; sourceTree = "<group>"; };
@@ -135,11 +145,13 @@
 			children = (
 				AF3053C625455AC600F849A9 /* API */,
 				AF79D2832545A0B400C962AE /* Common */,
+				AF599BF32547EBD800E8D769 /* Login */,
 				AF7BD6F62546BB7B00771CDA /* CourseTable */,
 				AF3053D2254570C200F849A9 /* Classroom */,
 				AF30539D25455A6800F849A9 /* Preview Content */,
 				AF3053C525455A7F00F849A9 /* Supportings */,
 				AF30539925455A6600F849A9 /* ContentView.swift */,
+				AF599BED2547E4B000E8D769 /* ViewRouter.swift */,
 				AF30539B25455A6800F849A9 /* Assets.xcassets */,
 				AF3053A325455A6800F849A9 /* Info.plist */,
 			);
@@ -205,11 +217,22 @@
 			path = Classroom;
 			sourceTree = "<group>";
 		};
+		AF599BF32547EBD800E8D769 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				AF599BF42547EDE200E8D769 /* LoginModel.swift */,
+				AF599BEF2547E57800E8D769 /* LoginView.swift */,
+				AF599BF12547EBD400E8D769 /* LoginViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		AF79D2832545A0B400C962AE /* Common */ = {
 			isa = PBXGroup;
 			children = (
 				AF79D2842545A0C000C962AE /* BannerModifier.swift */,
 				AF7BD6FD2546BD1F00771CDA /* CommonModels.swift */,
+				AF525B30254804EC006A2CC9 /* CommonModifiers.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -364,6 +387,7 @@
 			files = (
 				AF30539625455A6600F849A9 /* AppDelegate.swift in Sources */,
 				AF79D2872545B5DF00C962AE /* ClassroomDetailView.swift in Sources */,
+				AF599BF22547EBD400E8D769 /* LoginViewModel.swift in Sources */,
 				AF7BD6F82546BB9900771CDA /* CourseTableView.swift in Sources */,
 				AF3053C825455ADC00F849A9 /* APIRouter.swift in Sources */,
 				AF3053D62545710300F849A9 /* ClassroomView.swift in Sources */,
@@ -374,9 +398,13 @@
 				AF7BD7002546E38200771CDA /* CourseCellView.swift in Sources */,
 				AF3053CF25455D6700F849A9 /* Constants.swift in Sources */,
 				AF3053D82545711300F849A9 /* ClassroomViewModel.swift in Sources */,
+				AF599BF52547EDE200E8D769 /* LoginModel.swift in Sources */,
 				AF3053D4254570CD00F849A9 /* ClassroomModel.swift in Sources */,
 				AF7BD7022546F18400771CDA /* CourseTableBodyView.swift in Sources */,
 				AF7BD6F42545BDAF00771CDA /* ClassroomDetailRowView.swift in Sources */,
+				AF599BF02547E57800E8D769 /* LoginView.swift in Sources */,
+				AF599BEE2547E4B000E8D769 /* ViewRouter.swift in Sources */,
+				AF525B31254804EC006A2CC9 /* CommonModifiers.swift in Sources */,
 				AF30539825455A6600F849A9 /* SceneDelegate.swift in Sources */,
 				AF3053CA25455AE400F849A9 /* APIClient.swift in Sources */,
 				AF3053D125456E2000F849A9 /* AppErrors.swift in Sources */,
