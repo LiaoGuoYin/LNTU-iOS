@@ -9,17 +9,19 @@ import Foundation
 import SwiftUI
 
 struct LoginView: View {
+    
     @ObservedObject var viewModel: LoginViewModel
     @EnvironmentObject var router: ViewRouter
+    
     var body: some View {
         NavigationView {
             ScrollView {
-                VStack(spacing:10) {
+                VStack(spacing: 10) {
                     HStack {
                         Text("学号")
                             .padding()
                             .foregroundColor(.white)
-                            .background(Color(.systemBlue))
+                            .background(navyBlue)
                             .cornerRadius(8)
                         
                         TextField("1710030215", text: $viewModel.user.username)
@@ -32,7 +34,7 @@ struct LoginView: View {
                         Text("密码")
                             .padding()
                             .foregroundColor(.white)
-                            .background(Color(.systemBlue))
+                            .background(navyBlue)
                             .cornerRadius(8)
                         SecureField("*", text: $viewModel.user.password)
                             .padding()
@@ -45,8 +47,8 @@ struct LoginView: View {
             }
             .padding()
         }
-        .banner(data: .constant(BannerModifier.Data(title: "操作结果", content: viewModel.message)), isShow: $viewModel.isShowBanner)
         .resignKeyboardOnDragGesture()
+        .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
     }
     
     var loginButton: some View {
@@ -55,6 +57,9 @@ struct LoginView: View {
                 if $0 {
                     router.user = viewModel.user
                     router.isLogin = true
+                } else {
+                    router.banner = viewModel.banner
+                    router.isLogin = false
                 }
             }
         }) {
@@ -65,10 +70,11 @@ struct LoginView: View {
             }
             .padding()
             .foregroundColor(.white)
-            .background(Color(.systemBlue))
+            .background(navyBlue)
             .cornerRadius(8)
         }
     }
+    
 }
 
 struct LoginView_PreViews: PreviewProvider {

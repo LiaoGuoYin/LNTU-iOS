@@ -150,8 +150,8 @@
 				AF3053D2254570C200F849A9 /* Classroom */,
 				AF30539D25455A6800F849A9 /* Preview Content */,
 				AF3053C525455A7F00F849A9 /* Supportings */,
-				AF30539925455A6600F849A9 /* ContentView.swift */,
 				AF599BED2547E4B000E8D769 /* ViewRouter.swift */,
+				AF30539925455A6600F849A9 /* ContentView.swift */,
 				AF30539B25455A6800F849A9 /* Assets.xcassets */,
 				AF3053A325455A6800F849A9 /* Info.plist */,
 			);
@@ -211,8 +211,7 @@
 				AF3053D3254570CD00F849A9 /* ClassroomModel.swift */,
 				AF3053D72545711300F849A9 /* ClassroomViewModel.swift */,
 				AF3053D52545710300F849A9 /* ClassroomView.swift */,
-				AF79D2862545B5DF00C962AE /* ClassroomDetailView.swift */,
-				AF7BD6F32545BDAF00771CDA /* ClassroomDetailRowView.swift */,
+				AFE3553C25486A1C0099B1CB /* SubViews */,
 			);
 			path = Classroom;
 			sourceTree = "<group>";
@@ -243,10 +242,27 @@
 				AF7BD6F92546BBA200771CDA /* CourseTableModel.swift */,
 				AF7BD6F72546BB9900771CDA /* CourseTableView.swift */,
 				AF7BD6FB2546BBAD00771CDA /* CourseTableViewModel.swift */,
-				AF7BD6FF2546E38200771CDA /* CourseCellView.swift */,
-				AF7BD7012546F18400771CDA /* CourseTableBodyView.swift */,
+				AFE3553B25486A0F0099B1CB /* SubViews */,
 			);
 			path = CourseTable;
+			sourceTree = "<group>";
+		};
+		AFE3553B25486A0F0099B1CB /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				AF7BD7012546F18400771CDA /* CourseTableBodyView.swift */,
+				AF7BD6FF2546E38200771CDA /* CourseCellView.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		AFE3553C25486A1C0099B1CB /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				AF79D2862545B5DF00C962AE /* ClassroomDetailView.swift */,
+				AF7BD6F32545BDAF00771CDA /* ClassroomDetailRowView.swift */,
+			);
+			path = SubViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

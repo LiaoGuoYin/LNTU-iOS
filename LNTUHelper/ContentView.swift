@@ -28,6 +28,10 @@ struct ContentView: View {
                         }
                     }.tag(1)
             }
+            .banner(data: $router.banner, isShow: $router.isShowBanner)
+            .onAppear(perform: {
+                router.banner.content = "\(router.user.username) 登录成功"
+            })
         } else {
             LoginView(viewModel: LoginViewModel(user: router.user))
         }

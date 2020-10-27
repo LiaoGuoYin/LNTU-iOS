@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct User: Codable {
     var username: String
@@ -25,3 +26,5 @@ func loadLocalUser() -> User? {
         return nil
     }
 }
+
+let navyBlue = Color(red: 66/255, green: 99/255, blue: 144/255)

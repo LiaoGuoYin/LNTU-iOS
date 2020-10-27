@@ -9,9 +9,7 @@ import Foundation
 import SwiftUI
 
 struct CourseCellView: View {
-    
     @Binding var cell: CourseTableCell
-    
     var body: some View {
         VStack(spacing: 10) {
             Text(cell.name)
@@ -22,7 +20,7 @@ struct CourseCellView: View {
         .padding(10)
         .foregroundColor(.white)
         .frame(width: UIScreen.main.bounds.width / 5 - 1, height: UIScreen.main.bounds.height / 7)
-        .background(Color(.systemBlue))
+        .background(navyBlue)
         .cornerRadius(7)
         .multilineTextAlignment(.center)
     }

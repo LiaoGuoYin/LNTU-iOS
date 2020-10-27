@@ -20,7 +20,7 @@ struct CourseTableView: View {
                 .navigationBarTitle(Text("课表"), displayMode: .large)
                 .navigationBarItems(leading: logoutButton, trailing: refreshButton)
         }
-        .banner(data: $viewModel.message, isShow: $viewModel.isShowBanner)
+        .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
     }
     
     var refreshButton: some View {
@@ -36,6 +36,7 @@ struct CourseTableView: View {
             Text("Logout")
         }
     }
+    
 }
 
 struct CourseTableView_Previews: PreviewProvider {

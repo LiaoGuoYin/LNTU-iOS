@@ -10,12 +10,34 @@ import SwiftUI
 struct BannerModifier: ViewModifier {
     
     struct Data {
-        var title: String
+        var title: String = "操作结果"
         var content: String
+        var type: BannerType = .Success
+    }
+    
+    enum BannerType {
+        case Info
+        case Warning
+        case Success
+        case Error
+        
+        var tintColor: Color {
+            switch self {
+            case .Info:
+                //                return Color(red: 67/255, green: 154/255, blue: 215/255)
+                return Color.green
+            case .Success:
+                return navyBlue
+            case .Warning:
+                return Color.yellow
+            case .Error:
+                return Color.red
+            }
+        }
     }
     
     @Binding var data: Data
-    @Binding var isShow: Bool
+    @Binding var isShow:Bool
     
     func body(content: Content) -> some View {
         ZStack {
@@ -23,38 +45,38 @@ struct BannerModifier: ViewModifier {
             if isShow {
                 VStack {
                     HStack {
-                        VStack(alignment: .leading) {
+                        VStack(alignment: .leading, spacing: 8) {
                             Text(data.title)
-                                .font(.headline)
+                                .bold()
                             Text(data.content)
-                                .font(.subheadline)
-                            Text("")
-                                .frame(maxWidth: .infinity)
+                                .font(Font.system(size: 15, weight: Font.Weight.light, design: Font.Design.default))
                         }
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(Color(red: 67/255, green: 154/255, blue: 215/255))
-                        .cornerRadius(8)
-                        .padding()
                         Spacer()
                     }
+                    .foregroundColor(Color.white)
+                    .padding()
+                    .background(data.type.tintColor)
+                    .cornerRadius(8)
                     Spacer()
                 }
-                .animation(.easeInOut(duration: 0.3))
+                .padding()
+                .animation(.easeInOut)
                 .transition(AnyTransition.move(edge: .top).combined(with: .opacity))
-                .onTapGesture(perform: {
+                .onTapGesture {
                     withAnimation {
-                        isShow = false
+                        self.isShow = false
+                    }
+                }.onAppear(perform: {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                        withAnimation {
+                            self.isShow = false
+                        }
                     }
                 })
-//                .onAppear(perform: {
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-//                        isShow = false
-//                    }
-//                })
             }
         }
     }
+    
 }
 
 extension View {
@@ -62,6 +84,7 @@ extension View {
         return self.modifier(BannerModifier(data: data, isShow: isShow))
     }
 }
+
 struct BannerDemoView: View {
     @State var isShow: Bool = true
     @State var data: BannerModifier.Data = BannerModifier.Data(title: "DEMO", content: "This is description.")
@@ -73,6 +96,7 @@ struct BannerDemoView: View {
             })
     }
 }
+
 struct BannerModifier_Previews: PreviewProvider {
     static var previews: some View {
         BannerDemoView()

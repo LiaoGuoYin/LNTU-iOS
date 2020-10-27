@@ -10,7 +10,7 @@ import Foundation
 class ClassroomViewModel: ObservableObject {
     
     @Published var isShowBanner: Bool = false
-    @Published var message: String = "" {
+    @Published var banner: BannerModifier.Data = BannerModifier.Data(content: "") {
         willSet {
             isShowBanner = true
         }
@@ -27,10 +27,16 @@ class ClassroomViewModel: ObservableObject {
         APIClient.classroom(week: form.week, buildingName: form.selectedBuilding) { (response) in
             switch response {
             case .failure(let error):
-                self.message = error.localizedDescription
+                self.banner.content = error.localizedDescription
             case .success(let classroomResponse):
-                self.message = classroomResponse.data.description
-                self.classroomList = classroomResponse.data
+                if classroomResponse.code == 200 {
+                    self.banner.type = .Success
+                    self.banner.content = "刷新空教室列表成功"
+                    self.classroomList = classroomResponse.data
+                } else {
+                    self.banner.type = .Error
+                    self.banner.content = "刷新空教室列表失败: \(classroomResponse.message)"
+                }
             }
         }
     }

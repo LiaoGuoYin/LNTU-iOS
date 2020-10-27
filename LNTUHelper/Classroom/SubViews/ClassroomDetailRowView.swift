@@ -12,19 +12,19 @@ struct ClassroomDetailRowView: View {
     var body: some View {
         HStack {
             Image(systemName: (weekdayStatusList.a == 0) ? "square" : "square.fill")
-                .foregroundColor((weekdayStatusList.a == 0) ? .blue : .pink)
+                .foregroundColor((weekdayStatusList.a == 0) ? navyBlue : .pink)
             
             Image(systemName: (weekdayStatusList.b == 0) ? "square" : "square.fill")
-                .foregroundColor((weekdayStatusList.b == 0) ? .blue : .pink)
+                .foregroundColor((weekdayStatusList.b == 0) ? navyBlue : .pink)
             
             Image(systemName: (weekdayStatusList.c == 0) ? "square" : "square.fill")
-                .foregroundColor((weekdayStatusList.c == 0) ? .blue : .pink)
+                .foregroundColor((weekdayStatusList.c == 0) ? navyBlue : .pink)
             
             Image(systemName: (weekdayStatusList.d == 0) ? "square" : "square.fill")
-                .foregroundColor((weekdayStatusList.d == 0) ? .blue : .pink)
+                .foregroundColor((weekdayStatusList.d == 0) ? navyBlue : .pink)
             
             Image(systemName: (weekdayStatusList.e == 0) ? "square" : "square.fill")
-                .foregroundColor((weekdayStatusList.e == 0) ? .blue : .pink)
+                .foregroundColor((weekdayStatusList.e == 0) ? navyBlue : .pink)
         }
     }
 }
