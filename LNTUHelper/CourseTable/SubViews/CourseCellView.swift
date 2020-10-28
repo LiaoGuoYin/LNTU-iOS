@@ -11,17 +11,19 @@ import SwiftUI
 struct CourseCellView: View {
     @Binding var cell: CourseTableCell
     var body: some View {
-        VStack(spacing: 10) {
+        VStack(spacing: 3) {
             Text(cell.name)
             Text(cell.teacher)
+            Text(cell.weeksString)
+                .padding(.top, 3)
             Text(cell.room)
         }
-        .font(.footnote)
-        .padding(10)
+        .font(.caption)
+        .padding(8)
         .foregroundColor(.white)
-        .frame(width: UIScreen.main.bounds.width / 5 - 1, height: UIScreen.main.bounds.height / 7)
+        .frame(width: UIScreen.main.bounds.width / 6, height: UIScreen.main.bounds.height / 6)
         .background(navyBlue)
-        .cornerRadius(7)
+        .cornerRadius(6)
         .multilineTextAlignment(.center)
     }
 }

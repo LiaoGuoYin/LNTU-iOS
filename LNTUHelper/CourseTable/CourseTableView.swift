@@ -48,7 +48,7 @@ struct CourseTableView_Previews: PreviewProvider {
 let courseTableDemoData = """
 {
   "code": 200,
-  "message": "success",
+  "message": "Success",
   "data": [
     {
       "code": "H101750002032.01",
@@ -57,7 +57,10 @@ let courseTableDemoData = """
       "credit": "2",
       "schedules": [
         {
-          "room": "静远楼 344 (JY344)",
+          "room": "静远楼 344",
+          "weekday": 4,
+          "index": 2,
+          "weeksString": "4-11",
           "weeks": [
             4,
             5,
@@ -67,12 +70,13 @@ let courseTableDemoData = """
             9,
             10,
             11
-          ],
-          "weekday": 4,
-          "index": 2
+          ]
         },
         {
-          "room": "静远楼 344 (JY344)",
+          "room": "静远楼 344",
+          "weekday": 2,
+          "index": 2,
+          "weeksString": "4-11",
           "weeks": [
             4,
             5,
@@ -82,9 +86,7 @@ let courseTableDemoData = """
             9,
             10,
             11
-          ],
-          "weekday": 2,
-          "index": 2
+          ]
         }
       ]
     },
@@ -95,7 +97,10 @@ let courseTableDemoData = """
       "credit": "2",
       "schedules": [
         {
-          "room": "静远楼 345 (JY345)",
+          "room": "静远楼 345",
+          "weekday": 5,
+          "index": 2,
+          "weeksString": "4-5 7-11",
           "weeks": [
             4,
             5,
@@ -104,20 +109,22 @@ let courseTableDemoData = """
             9,
             10,
             11
-          ],
-          "weekday": 5,
-          "index": 2
+          ]
         },
         {
-          "room": "耘慧楼 312 (YH312)",
+          "room": "耘慧楼 312",
+          "weekday": 6,
+          "index": 2,
+          "weeksString": "6",
           "weeks": [
             6
-          ],
-          "weekday": 6,
-          "index": 2
+          ]
         },
         {
-          "room": "静远楼 345 (JY345)",
+          "room": "静远楼 345",
+          "weekday": 2,
+          "index": 1,
+          "weeksString": "4-11",
           "weeks": [
             4,
             5,
@@ -127,9 +134,7 @@ let courseTableDemoData = """
             9,
             10,
             11
-          ],
-          "weekday": 2,
-          "index": 1
+          ]
         }
       ]
     },
@@ -140,7 +145,10 @@ let courseTableDemoData = """
       "credit": "2",
       "schedules": [
         {
-          "room": "静远楼 342 (JY342)",
+          "room": "静远楼 342",
+          "weekday": 1,
+          "index": 2,
+          "weeksString": "4-9 11",
           "weeks": [
             4,
             5,
@@ -148,14 +156,14 @@ let courseTableDemoData = """
             7,
             8,
             9,
-            10,
             11
-          ],
-          "weekday": 1,
-          "index": 2
+          ]
         },
         {
-          "room": "静远楼 342 (JY342)",
+          "room": "静远楼 342",
+          "weekday": 1,
+          "index": 3,
+          "weeksString": "4-9 11",
           "weeks": [
             4,
             5,
@@ -163,11 +171,26 @@ let courseTableDemoData = """
             7,
             8,
             9,
-            10,
             11
-          ],
+          ]
+        },
+        {
+          "room": "静远楼 242",
           "weekday": 1,
-          "index": 3
+          "index": 2,
+          "weeksString": "12",
+          "weeks": [
+            12
+          ]
+        },
+        {
+          "room": "静远楼 242",
+          "weekday": 1,
+          "index": 3,
+          "weeksString": "12",
+          "weeks": [
+            12
+          ]
         }
       ]
     },
@@ -178,7 +201,10 @@ let courseTableDemoData = """
       "credit": "2.5",
       "schedules": [
         {
-          "room": "静远楼 313 (JY313)",
+          "room": "静远楼 313",
+          "weekday": 3,
+          "index": 1,
+          "weeksString": "双 4-16",
           "weeks": [
             4,
             6,
@@ -187,12 +213,13 @@ let courseTableDemoData = """
             12,
             14,
             16
-          ],
-          "weekday": 3,
-          "index": 1
+          ]
         },
         {
-          "room": "静远楼 313 (JY313)",
+          "room": "静远楼 313",
+          "weekday": 1,
+          "index": 1,
+          "weeksString": "4-16",
           "weeks": [
             4,
             5,
@@ -207,9 +234,7 @@ let courseTableDemoData = """
             14,
             15,
             16
-          ],
-          "weekday": 1,
-          "index": 1
+          ]
         }
       ]
     },
@@ -220,7 +245,10 @@ let courseTableDemoData = """
       "credit": "2",
       "schedules": [
         {
-          "room": "静远楼 315 (JY315)",
+          "room": "静远楼 315",
+          "weekday": 3,
+          "index": 2,
+          "weeksString": "4-9",
           "weeks": [
             4,
             5,
@@ -228,9 +256,7 @@ let courseTableDemoData = """
             7,
             8,
             9
-          ],
-          "weekday": 3,
-          "index": 2
+          ]
         }
       ]
     },
@@ -255,12 +281,13 @@ let courseTableDemoData = """
       "credit": "2",
       "schedules": [
         {
-          "room": "尔雅楼 101 (EY101)",
+          "room": "尔雅楼 101",
+          "weekday": 1,
+          "index": 5,
+          "weeksString": "8",
           "weeks": [
             8
-          ],
-          "weekday": 1,
-          "index": 5
+          ]
         }
       ]
     }

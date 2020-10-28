@@ -21,21 +21,24 @@ struct CourseTableResponseData: Codable {
     
     struct Schedule: Codable {
         let room: String
-        let weeks: [Int]
         let weekday, index: Int
+        let weeksString: String
+        let weeks: [Int]
     }
 }
 
 extension CourseTableResponseData {
     init() {
-        self.init(code: "H101750002032.01", name: "信息系统安全", teacher: "毛志勇", credit: "2", schedules: [Schedule(room: "静远楼", weeks: [1,2,3,4,5], weekday: 4, index: 3)])
+        self.init(code: "H101750002032.01", name: "信息系统安全", teacher: "毛志勇", credit: "2", schedules: [Schedule(room: "静远楼", weekday: 4, index: 3, weeksString: "1-5", weeks: [1,2,3,4,5])])
     }
     
     func exportToCellList() -> [CourseTableCell] {
         var courseTableCellList: [CourseTableCell] = []
         if schedules.count != 0 {
             for i in schedules.indices {
-                courseTableCellList.append(CourseTableCell(code: code, name: name, teacher: teacher, credit: credit, room: schedules[i].room, weeks: schedules[i].weeks, weekday: schedules[i].weekday, index: schedules[i].index))
+                courseTableCellList.append(
+                    CourseTableCell(code: code, name: name, teacher: teacher, credit: credit, room: schedules[i].room, weekday: schedules[i].weekday, index: schedules[i].index, weeksString: schedules[i].weeksString, weeks: schedules[i].weeks)
+                )
             }
         }
         return courseTableCellList
@@ -46,22 +49,19 @@ struct CourseTableCell: Codable {
     let code, name, teacher, credit: String
     
     let room: String
-    let weeks: [Int]
     let weekday, index: Int
+    let weeksString: String
+    let weeks: [Int]
 }
 
 extension CourseTableCell {
     
     init() {
-        self.init(code: "H101750002032.01", name: "信息系统安全", teacher: "毛志勇", credit: "2", room: "静远楼", weeks: [1,2,3,4,5], weekday: 4, index: 3)
-    }
-    
-    init(credit: String) {
-        self.init(code: "H101750002032.01", name: "信息系统安全", teacher: "毛志勇", credit: credit, room: "静远楼", weeks: [1,2,3,4,5], weekday: 4, index: 3)
+        self.init(code: "H101750002032.01", name: "信息系统安全", teacher: "毛志勇", credit: "2", room: "静远楼342", weekday: 4, index: 3,weeksString: "1-5", weeks: [1,2,3,4,5])
     }
     
     init(row: Int, column: Int) {
-        self.init(code: "", name: "", teacher: "", credit: "", room: "", weeks: [], weekday: column, index: row)
+        self.init(code: "", name: "", teacher: "", credit: "", room: "", weekday: column, index: row, weeksString: "", weeks: [])
     }
     
 }

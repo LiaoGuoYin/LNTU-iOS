@@ -47,9 +47,9 @@ struct BannerModifier: ViewModifier {
                     HStack {
                         VStack(alignment: .leading, spacing: 8) {
                             Text(data.title)
-                                .bold()
+                                .font(Font.system(size: 15, weight: Font.Weight.bold, design: Font.Design.rounded))
                             Text(data.content)
-                                .font(Font.system(size: 15, weight: Font.Weight.light, design: Font.Design.default))
+                                .font(Font.system(size: 11, weight: Font.Weight.regular, design: Font.Design.rounded))
                         }
                         Spacer()
                     }

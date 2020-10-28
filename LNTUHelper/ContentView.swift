@@ -27,13 +27,39 @@ struct ContentView: View {
                             Text("空教室")
                         }
                     }.tag(1)
+                
+                Text("通知")
+                    .tabItem {
+                        VStack {
+                            Image(systemName: "square")
+                            Text("通知")
+                        }
+                    }.tag(2)
+                
+                Text("成绩")
+                    .tabItem {
+                        VStack {
+                            Image(systemName: "square")
+                            Text("成绩")
+                        }
+                    }.tag(3)
+                
+                Text("账户中心")
+                    .tabItem {
+                        VStack {
+                            Image(systemName: "square")
+                            Text("账户中心")
+                        }
+                    }.tag(4)
             }
+            .accentColor(navyBlue)
             .banner(data: $router.banner, isShow: $router.isShowBanner)
             .onAppear(perform: {
                 router.banner.content = "\(router.user.username) 登录成功"
             })
         } else {
             LoginView(viewModel: LoginViewModel(user: router.user))
+                .accentColor(navyBlue)
         }
     }
 }

@@ -15,11 +15,6 @@ struct ClassroomView: View {
     var body: some View {
         NavigationView {
             ScrollView(showsIndicators: false) {
-                Stepper(value: $viewModel.form.week, in: 1...22) {
-                    Text("第 \(viewModel.form.week) 周")
-                }
-                .padding(6)
-                
                 Picker("校区", selection: $viewModel.form.campus) {
                     ForEach(CampusEnum.allCases) {
                         Text($0.rawValue).tag($0)
@@ -27,10 +22,14 @@ struct ClassroomView: View {
                 }
                 .pickerStyle(SegmentedPickerStyle())
                 
-                Picker(LocalizedStringKey.init("教学楼"), selection: $viewModel.form.selectedBuilding) {
+                Picker("教学楼", selection: $viewModel.form.selectedBuilding) {
                     ForEach(viewModel.form.buildingList, id: \.self) { building in
                         Text(building)
                     }
+                }
+                
+                Stepper(value: $viewModel.form.week, in: 1...22) {
+                    Text("第 \(viewModel.form.week) 周")
                 }
                 
                 ClassroomDetailView(classroomList: $viewModel.classroomList)

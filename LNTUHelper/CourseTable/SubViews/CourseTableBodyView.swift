@@ -14,9 +14,9 @@ struct CourseTableBodyView: View {
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             ScrollView(.vertical, showsIndicators: false) {
-                VStack(spacing: 1) {
+                VStack(spacing: 2) {
                     ForEach(1...5, id: \.self) { row in
-                        HStack(spacing: 1) {
+                        HStack(spacing: 2) {
                             ForEach(1...7, id: \.self) { column in
                                 CourseCellView(cell: $courseTableMatrix.matrix[(row-1)*7+column])
                             }
