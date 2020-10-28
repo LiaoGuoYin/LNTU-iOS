@@ -37,6 +37,8 @@
 		AF7BD6FE2546BD1F00771CDA /* CommonModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7BD6FD2546BD1F00771CDA /* CommonModels.swift */; };
 		AF7BD7002546E38200771CDA /* CourseCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7BD6FF2546E38200771CDA /* CourseCellView.swift */; };
 		AF7BD7022546F18400771CDA /* CourseTableBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7BD7012546F18400771CDA /* CourseTableBodyView.swift */; };
+		AFA91CCA2549C07200769B1B /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = AFA91CC92549C07200769B1B /* .gitignore */; };
+		AFE3553F25491E370099B1CB /* UserCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE3553E25491E370099B1CB /* UserCenterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +94,9 @@
 		AF7BD6FD2546BD1F00771CDA /* CommonModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonModels.swift; sourceTree = "<group>"; };
 		AF7BD6FF2546E38200771CDA /* CourseCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCellView.swift; sourceTree = "<group>"; };
 		AF7BD7012546F18400771CDA /* CourseTableBodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseTableBodyView.swift; sourceTree = "<group>"; };
+		AFA91CC92549C07200769B1B /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		AFA91CCB2549C09A00769B1B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		AFE3553E25491E370099B1CB /* UserCenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCenterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,12 +153,14 @@
 				AF599BF32547EBD800E8D769 /* Login */,
 				AF7BD6F62546BB7B00771CDA /* CourseTable */,
 				AF3053D2254570C200F849A9 /* Classroom */,
+				AFE3553D25491E180099B1CB /* UserCenter */,
 				AF30539D25455A6800F849A9 /* Preview Content */,
 				AF3053C525455A7F00F849A9 /* Supportings */,
-				AF599BED2547E4B000E8D769 /* ViewRouter.swift */,
 				AF30539925455A6600F849A9 /* ContentView.swift */,
-				AF30539B25455A6800F849A9 /* Assets.xcassets */,
+				AF599BED2547E4B000E8D769 /* ViewRouter.swift */,
 				AF3053A325455A6800F849A9 /* Info.plist */,
+				AFA91CC92549C07200769B1B /* .gitignore */,
+				AFA91CCB2549C09A00769B1B /* README.md */,
 			);
 			path = LNTUHelper;
 			sourceTree = "<group>";
@@ -162,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				AF30539E25455A6800F849A9 /* Preview Assets.xcassets */,
+				AF30539B25455A6800F849A9 /* Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -263,6 +271,14 @@
 				AF7BD6F32545BDAF00771CDA /* ClassroomDetailRowView.swift */,
 			);
 			path = SubViews;
+			sourceTree = "<group>";
+		};
+		AFE3553D25491E180099B1CB /* UserCenter */ = {
+			isa = PBXGroup;
+			children = (
+				AFE3553E25491E370099B1CB /* UserCenterView.swift */,
+			);
+			path = UserCenter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,6 +390,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFA91CCA2549C07200769B1B /* .gitignore in Resources */,
 				AF3053A225455A6800F849A9 /* LaunchScreen.storyboard in Resources */,
 				AF30539F25455A6800F849A9 /* Preview Assets.xcassets in Resources */,
 				AF30539C25455A6800F849A9 /* Assets.xcassets in Resources */,
@@ -403,6 +420,7 @@
 			files = (
 				AF30539625455A6600F849A9 /* AppDelegate.swift in Sources */,
 				AF79D2872545B5DF00C962AE /* ClassroomDetailView.swift in Sources */,
+				AFE3553F25491E370099B1CB /* UserCenterView.swift in Sources */,
 				AF599BF22547EBD400E8D769 /* LoginViewModel.swift in Sources */,
 				AF7BD6F82546BB9900771CDA /* CourseTableView.swift in Sources */,
 				AF3053C825455ADC00F849A9 /* APIRouter.swift in Sources */,
