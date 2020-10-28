@@ -15,30 +15,34 @@ struct ClassroomView: View {
     var body: some View {
         NavigationView {
             ScrollView(showsIndicators: false) {
-                Picker("校区", selection: $viewModel.form.campus) {
-                    ForEach(CampusEnum.allCases) {
-                        Text($0.rawValue).tag($0)
+                VStack {
+                    Picker("校区", selection: $viewModel.form.campus) {
+                        ForEach(CampusEnum.allCases) {
+                            Text($0.rawValue).tag($0)
+                        }
                     }
-                }
-                .pickerStyle(SegmentedPickerStyle())
-                
-                Picker("教学楼", selection: $viewModel.form.selectedBuilding) {
-                    ForEach(viewModel.form.buildingList, id: \.self) { building in
-                        Text(building)
+                    .pickerStyle(SegmentedPickerStyle())
+                    
+                    Picker("教学楼", selection: $viewModel.form.selectedBuilding) {
+                        ForEach(viewModel.form.buildingList, id: \.self) { building in
+                            Text(building)
+                        }
                     }
+                    
+                    Stepper(value: $viewModel.form.week, in: 1...22) {
+                        Text("第 \(viewModel.form.week) 周")
+                    }
+                    ClassroomDetailView(classroomList: $viewModel.classroomList)
                 }
-                
-                Stepper(value: $viewModel.form.week, in: 1...22) {
-                    Text("第 \(viewModel.form.week) 周")
-                }
-                
-                ClassroomDetailView(classroomList: $viewModel.classroomList)
+                .padding()
             }
-            .padding()
             .navigationBarTitle(Text("自习室查询"), displayMode: .large)
             .navigationBarItems(trailing: queryButton)
         }
         .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
+        .onAppear(perform: {
+            viewModel.refreshClassroomList()
+        })
     }
     
     var queryButton: some View {

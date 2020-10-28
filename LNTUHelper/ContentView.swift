@@ -44,7 +44,7 @@ struct ContentView: View {
                         }
                     }.tag(3)
                 
-                Text("账户中心")
+                UserCenterView()
                     .tabItem {
                         VStack {
                             Image(systemName: "square")
@@ -52,14 +52,14 @@ struct ContentView: View {
                         }
                     }.tag(4)
             }
-            .accentColor(navyBlue)
+            .accentColor(Color("navyBlue"))
             .banner(data: $router.banner, isShow: $router.isShowBanner)
             .onAppear(perform: {
                 router.banner.content = "\(router.user.username) 登录成功"
             })
         } else {
             LoginView(viewModel: LoginViewModel(user: router.user))
-                .accentColor(navyBlue)
+                .accentColor(Color("navyBlue"))
         }
     }
 }

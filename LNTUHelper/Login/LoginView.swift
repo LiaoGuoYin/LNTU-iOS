@@ -21,7 +21,7 @@ struct LoginView: View {
                         Text("学号")
                             .padding()
                             .foregroundColor(.white)
-                            .background(navyBlue)
+                            .background(Color("navyBlue"))
                             .cornerRadius(8)
                         
                         TextField("1710030215", text: $viewModel.user.username)
@@ -34,7 +34,7 @@ struct LoginView: View {
                         Text("密码")
                             .padding()
                             .foregroundColor(.white)
-                            .background(navyBlue)
+                            .background(Color("navyBlue"))
                             .cornerRadius(8)
                         SecureField("*", text: $viewModel.user.password)
                             .padding()
@@ -70,7 +70,7 @@ struct LoginView: View {
             }
             .padding()
             .foregroundColor(.white)
-            .background(navyBlue)
+            .background(Color("navyBlue"))
             .cornerRadius(8)
         }
     }

@@ -27,7 +27,7 @@ struct BannerModifier: ViewModifier {
                 //                return Color(red: 67/255, green: 154/255, blue: 215/255)
                 return Color.green
             case .Success:
-                return navyBlue
+                return Color("navyBlue")
             case .Warning:
                 return Color.yellow
             case .Error:
@@ -67,7 +67,7 @@ struct BannerModifier: ViewModifier {
                         self.isShow = false
                     }
                 }.onAppear(perform: {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.14) {
                         withAnimation {
                             self.isShow = false
                         }

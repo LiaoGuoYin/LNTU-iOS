@@ -27,4 +27,3 @@ func loadLocalUser() -> User? {
     }
 }
 
-let navyBlue = Color(red: 66/255, green: 99/255, blue: 144/255)

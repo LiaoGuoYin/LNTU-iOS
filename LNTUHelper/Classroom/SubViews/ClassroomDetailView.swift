@@ -21,7 +21,7 @@ struct ClassroomDetailView: View {
                 Text("类别")
                 Stepper(value: $selectedWeekday, in: 1...7) {
                     Text("周\(selectedWeekday)")
-                        .foregroundColor(navyBlue)
+                        .foregroundColor(Color("navyBlue"))
                 }
             }
             ForEach(classroomList, id: \.self) { each in
