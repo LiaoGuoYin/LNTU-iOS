@@ -9,16 +9,16 @@ import Foundation
 
 class LoginViewModel: ObservableObject {
     
-    @Published var isLogin: Bool = false
     @Published var user: User
-    @Published var userInfo: EducationInfoResponseData?
-    
     @Published var isShowBanner: Bool = false
     @Published var banner: BannerModifier.Data = BannerModifier.Data(content: "") {
         willSet {
             self.isShowBanner = true
         }
     }
+    
+    @Published var isLogin: Bool = false
+    @Published var userInfo: EducationInfoResponseData?
     
     init(user: User) {
         self.user = user
@@ -31,16 +31,17 @@ extension LoginViewModel {
         APIClient.info(user: self.user) { (result) in
             switch result {
             case .failure(let error):
+                self.banner.type = .Error
                 self.banner.content = error.localizedDescription
-            case .success(let info):
-                self.banner.content = info.message
-                self.userInfo = info.data
-                if info.code == 200 {
-                    self.banner.type = .Success
+                completion(false)
+            case .success(let response):
+                self.banner.type = .Success
+                self.banner.content = response.message
+                if response.code == 200 {
+                    self.userInfo = response.data
                     backupUserToLocal(user: self.user)
                     completion(true)
                 } else {
-                    self.banner.type = .Error
                     completion(false)
                 }
             }

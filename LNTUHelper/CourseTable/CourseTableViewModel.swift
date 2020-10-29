@@ -33,6 +33,7 @@ class CourseTableViewModel: ObservableObject {
         self.user = user
         self.courseTableResponseList = []
         self.martrix = CourseTableMatrix(courseTableCellList: courseTableCellList)
+        self.refreshCourseTable()
     }
     
     init(courseTableList: [CourseTableResponseData]) {

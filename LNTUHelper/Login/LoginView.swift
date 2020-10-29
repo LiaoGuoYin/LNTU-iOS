@@ -16,7 +16,7 @@ struct LoginView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                VStack(spacing: 10) {
+                VStack {
                     HStack {
                         Text("学号")
                             .padding()
@@ -41,14 +41,14 @@ struct LoginView: View {
                             .background(Color(.systemFill))
                             .cornerRadius(8)
                     }
+                    loginButton
                 }
                 .navigationBarTitle(Text("Login"), displayMode: .large)
-                loginButton
+                .padding()
             }
-            .padding()
         }
         .resignKeyboardOnDragGesture()
-        .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
+        .banner(data: $router.banner, isShow: $router.isShowBanner)
     }
     
     var loginButton: some View {

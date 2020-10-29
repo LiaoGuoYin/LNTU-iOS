@@ -33,8 +33,8 @@ struct GradeResponseDataGrade: Codable {
 // MARK: - GPA
 struct GradeResponseDataGPA: Codable {
     let semester: String
-    let gradePointAverage, weightedAverage, gradePointTotal, scoreTotal: Double
-    let creditTotal, courseCount: Int
+    let gradePointAverage, weightedAverage, gradePointTotal, scoreTotal, creditTotal: Double
+    let courseCount: Int
 }
 
 

@@ -18,8 +18,8 @@ struct GradePointAverageView: View {
             
             HStack(spacing: 28) {
                 Text("科目：\(gpa.courseCount)")
-                Text("学分：\(gpa.creditTotal)")
-                Text("绩点：\(gpa.gradePointAverage)")
+                Text("学分：\(String(format: "%.1f", gpa.creditTotal))")
+                Text("绩点：\(String(format: "%.4f", gpa.gradePointAverage))")
             }
         }
         .frame(maxWidth: .infinity)

@@ -21,6 +21,7 @@ class ClassroomViewModel: ObservableObject {
     
     init(form: ClassroomForm) {
         self.form = form
+        self.refreshClassroomList()
     }
     
     func refreshClassroomList() {

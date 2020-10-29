@@ -13,7 +13,6 @@ struct EducationInfoResponse: Codable {
     let data: EducationInfoResponseData?
 }
 
-// MARK: - EducationInfoResponseData
 struct EducationInfoResponseData:Codable {
     let username: Int
     let name, photoUrl, nickname, gender, grade, educationLast: String

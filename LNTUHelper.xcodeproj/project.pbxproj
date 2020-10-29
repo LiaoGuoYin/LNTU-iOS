@@ -35,6 +35,13 @@
 		AF5E4AD5254A8ADC00736FB4 /* SemesterPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4AD4254A8ADC00736FB4 /* SemesterPickerView.swift */; };
 		AF5E4AD8254A8B0A00736FB4 /* GradeRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4AD7254A8B0A00736FB4 /* GradeRowView.swift */; };
 		AF5E4ADA254A8BA600736FB4 /* GradeRowDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4AD9254A8BA600736FB4 /* GradeRowDetailView.swift */; };
+		AF5E4ADD254AD95500736FB4 /* NoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4ADC254AD95500736FB4 /* NoticeView.swift */; };
+		AF5E4ADF254AD98200736FB4 /* NoticeRowDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4ADE254AD98200736FB4 /* NoticeRowDetailView.swift */; };
+		AF5E4AE1254AD9A400736FB4 /* NoticeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4AE0254AD9A400736FB4 /* NoticeModel.swift */; };
+		AF5E4AE3254AD9B800736FB4 /* NoticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4AE2254AD9B800736FB4 /* NoticeViewModel.swift */; };
+		AF5E4AE5254ADB1C00736FB4 /* NoticeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4AE4254ADB1C00736FB4 /* NoticeCardView.swift */; };
+		AF5E4AE7254ADC2800736FB4 /* SectionTextAndImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4AE6254ADC2800736FB4 /* SectionTextAndImage.swift */; };
+		AF5E4AE9254ADE9F00736FB4 /* NoticeRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4AE8254ADE9F00736FB4 /* NoticeRowView.swift */; };
 		AF79D2852545A0C000C962AE /* BannerModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF79D2842545A0C000C962AE /* BannerModifier.swift */; };
 		AF79D2872545B5DF00C962AE /* ClassroomDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF79D2862545B5DF00C962AE /* ClassroomDetailView.swift */; };
 		AF7BD6F42545BDAF00771CDA /* ClassroomDetailRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7BD6F32545BDAF00771CDA /* ClassroomDetailRowView.swift */; };
@@ -99,6 +106,13 @@
 		AF5E4AD4254A8ADC00736FB4 /* SemesterPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemesterPickerView.swift; sourceTree = "<group>"; };
 		AF5E4AD7254A8B0A00736FB4 /* GradeRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeRowView.swift; sourceTree = "<group>"; };
 		AF5E4AD9254A8BA600736FB4 /* GradeRowDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeRowDetailView.swift; sourceTree = "<group>"; };
+		AF5E4ADC254AD95500736FB4 /* NoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeView.swift; sourceTree = "<group>"; };
+		AF5E4ADE254AD98200736FB4 /* NoticeRowDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeRowDetailView.swift; sourceTree = "<group>"; };
+		AF5E4AE0254AD9A400736FB4 /* NoticeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeModel.swift; sourceTree = "<group>"; };
+		AF5E4AE2254AD9B800736FB4 /* NoticeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewModel.swift; sourceTree = "<group>"; };
+		AF5E4AE4254ADB1C00736FB4 /* NoticeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeCardView.swift; sourceTree = "<group>"; };
+		AF5E4AE6254ADC2800736FB4 /* SectionTextAndImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTextAndImage.swift; sourceTree = "<group>"; };
+		AF5E4AE8254ADE9F00736FB4 /* NoticeRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeRowView.swift; sourceTree = "<group>"; };
 		AF79D2842545A0C000C962AE /* BannerModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerModifier.swift; sourceTree = "<group>"; };
 		AF79D2862545B5DF00C962AE /* ClassroomDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomDetailView.swift; sourceTree = "<group>"; };
 		AF7BD6F32545BDAF00771CDA /* ClassroomDetailRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomDetailRowView.swift; sourceTree = "<group>"; };
@@ -145,6 +159,8 @@
 				AF30539425455A6600F849A9 /* LNTUHelper */,
 				AF3053AB25455A6800F849A9 /* LNTUHelperTests */,
 				AF3053B625455A6800F849A9 /* LNTUHelperUITests */,
+				AFA91CCB2549C09A00769B1B /* README.md */,
+				AFA91CC92549C07200769B1B /* .gitignore */,
 				AF30539325455A6600F849A9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -162,20 +178,19 @@
 		AF30539425455A6600F849A9 /* LNTUHelper */ = {
 			isa = PBXGroup;
 			children = (
-				AF5E4ACB254A590D00736FB4 /* Grade */,
 				AF3053C625455AC600F849A9 /* API */,
 				AF79D2832545A0B400C962AE /* Common */,
 				AF599BF32547EBD800E8D769 /* Login */,
 				AF7BD6F62546BB7B00771CDA /* CourseTable */,
+				AF5E4ADB254AD94600736FB4 /* Notification */,
 				AF3053D2254570C200F849A9 /* Classroom */,
+				AF5E4ACB254A590D00736FB4 /* Grade */,
 				AFE3553D25491E180099B1CB /* UserCenter */,
 				AF30539D25455A6800F849A9 /* Preview Content */,
 				AF3053C525455A7F00F849A9 /* Supportings */,
 				AF30539925455A6600F849A9 /* ContentView.swift */,
 				AF599BED2547E4B000E8D769 /* ViewRouter.swift */,
 				AF3053A325455A6800F849A9 /* Info.plist */,
-				AFA91CC92549C07200769B1B /* .gitignore */,
-				AFA91CCB2549C09A00769B1B /* README.md */,
 			);
 			path = LNTUHelper;
 			sourceTree = "<group>";
@@ -267,6 +282,28 @@
 				AF5E4AD7254A8B0A00736FB4 /* GradeRowView.swift */,
 				AF5E4AD9254A8BA600736FB4 /* GradeRowDetailView.swift */,
 				AF5E4AD2254A59DB00736FB4 /* GradePointAverageView.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		AF5E4ADB254AD94600736FB4 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				AF5E4AE0254AD9A400736FB4 /* NoticeModel.swift */,
+				AF5E4ADC254AD95500736FB4 /* NoticeView.swift */,
+				AF5E4AE2254AD9B800736FB4 /* NoticeViewModel.swift */,
+				AF5E4AEA254AE26B00736FB4 /* Subviews */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		AF5E4AEA254AE26B00736FB4 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				AF5E4AE4254ADB1C00736FB4 /* NoticeCardView.swift */,
+				AF5E4AE8254ADE9F00736FB4 /* NoticeRowView.swift */,
+				AF5E4ADE254AD98200736FB4 /* NoticeRowDetailView.swift */,
+				AF5E4AE6254ADC2800736FB4 /* SectionTextAndImage.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -460,6 +497,8 @@
 				AF79D2872545B5DF00C962AE /* ClassroomDetailView.swift in Sources */,
 				AF5E4AD3254A59DB00736FB4 /* GradePointAverageView.swift in Sources */,
 				AFE3553F25491E370099B1CB /* UserCenterView.swift in Sources */,
+				AF5E4AE7254ADC2800736FB4 /* SectionTextAndImage.swift in Sources */,
+				AF5E4AE3254AD9B800736FB4 /* NoticeViewModel.swift in Sources */,
 				AF599BF22547EBD400E8D769 /* LoginViewModel.swift in Sources */,
 				AF7BD6F82546BB9900771CDA /* CourseTableView.swift in Sources */,
 				AF3053C825455ADC00F849A9 /* APIRouter.swift in Sources */,
@@ -469,18 +508,23 @@
 				AF7BD6FC2546BBAD00771CDA /* CourseTableViewModel.swift in Sources */,
 				AF7BD6FE2546BD1F00771CDA /* CommonModels.swift in Sources */,
 				AF7BD7002546E38200771CDA /* CourseCellView.swift in Sources */,
+				AF5E4ADF254AD98200736FB4 /* NoticeRowDetailView.swift in Sources */,
+				AF5E4ADD254AD95500736FB4 /* NoticeView.swift in Sources */,
 				AF3053CF25455D6700F849A9 /* Constants.swift in Sources */,
 				AF3053D82545711300F849A9 /* ClassroomViewModel.swift in Sources */,
 				AF599BF52547EDE200E8D769 /* LoginModel.swift in Sources */,
 				AF3053D4254570CD00F849A9 /* ClassroomModel.swift in Sources */,
 				AF5E4ACD254A595300736FB4 /* GradeView.swift in Sources */,
+				AF5E4AE5254ADB1C00736FB4 /* NoticeCardView.swift in Sources */,
 				AF7BD7022546F18400771CDA /* CourseTableBodyView.swift in Sources */,
 				AF7BD6F42545BDAF00771CDA /* ClassroomDetailRowView.swift in Sources */,
 				AF5E4AD1254A59A900736FB4 /* GradeModel.swift in Sources */,
 				AF599BF02547E57800E8D769 /* LoginView.swift in Sources */,
 				AF599BEE2547E4B000E8D769 /* ViewRouter.swift in Sources */,
 				AF5E4ACF254A596C00736FB4 /* GradeViewModel.swift in Sources */,
+				AF5E4AE9254ADE9F00736FB4 /* NoticeRowView.swift in Sources */,
 				AF5E4AD5254A8ADC00736FB4 /* SemesterPickerView.swift in Sources */,
+				AF5E4AE1254AD9A400736FB4 /* NoticeModel.swift in Sources */,
 				AF525B31254804EC006A2CC9 /* CommonModifiers.swift in Sources */,
 				AF30539825455A6600F849A9 /* SceneDelegate.swift in Sources */,
 				AF3053CA25455AE400F849A9 /* APIClient.swift in Sources */,
