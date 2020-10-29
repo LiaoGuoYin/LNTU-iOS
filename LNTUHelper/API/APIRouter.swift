@@ -9,7 +9,7 @@ import Alamofire
 import Foundation
 
 enum APIEducationRouter: URLRequestConvertible {
-    static var defaultParams = ["IMEICode": "nil"] // set the default params
+    static var defaultParams = ["device-imei": "nil"] // set the default params
     
     case notice
     case classroom(week: Int, buildingName: String)
@@ -18,7 +18,7 @@ enum APIEducationRouter: URLRequestConvertible {
     case info(user: User)
     case courseTable(user: User, semester: String)
     
-    case grade(user: User, semester: String)
+    case grade(user: User, semester: String, isIncludingOptionalCourse: String)
     case gpa(user: User)
     
     // MARK: - HTTPMethod
@@ -60,6 +60,11 @@ enum APIEducationRouter: URLRequestConvertible {
             params.updateValue(AllBuildingEnum(rawValue: buildingName)?.varName ?? "", forKey: K.Education.buildingName)
         case .courseTable(_, let semester):
             params.updateValue(semester, forKey: K.Education.semester)
+        case .grade(let user, let semester, let isIncludingOptionalCourse):
+            params.updateValue(semester, forKey: K.Education.semester)
+            params.updateValue(isIncludingOptionalCourse, forKey: K.Education.isIncludingOptionalCourse)
+            params.updateValue(user.username, forKey: K.Education.username)
+            params.updateValue(user.password, forKey: K.Education.password)
         default:
             return nil
         }
@@ -69,7 +74,7 @@ enum APIEducationRouter: URLRequestConvertible {
     // MARK: - POST Body Parameters
     private var parameters: Parameters? {
         switch self {
-        case .grade(let user, _), .courseTable(let user, _), .info(let user):
+        case .courseTable(let user, _), .info(let user):
             return [
                 K.Education.username: user.username,
                 K.Education.password: user.password,

@@ -36,7 +36,7 @@ struct ContentView: View {
                         }
                     }.tag(2)
                 
-                Text("成绩")
+                GradeView(viewModel: GradeViewModel(user: router.user))
                     .tabItem {
                         VStack {
                             Image(systemName: "square")

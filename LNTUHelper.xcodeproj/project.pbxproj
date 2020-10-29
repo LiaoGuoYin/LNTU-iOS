@@ -28,6 +28,13 @@
 		AF599BF02547E57800E8D769 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF599BEF2547E57800E8D769 /* LoginView.swift */; };
 		AF599BF22547EBD400E8D769 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF599BF12547EBD400E8D769 /* LoginViewModel.swift */; };
 		AF599BF52547EDE200E8D769 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF599BF42547EDE200E8D769 /* LoginModel.swift */; };
+		AF5E4ACD254A595300736FB4 /* GradeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4ACC254A595300736FB4 /* GradeView.swift */; };
+		AF5E4ACF254A596C00736FB4 /* GradeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4ACE254A596C00736FB4 /* GradeViewModel.swift */; };
+		AF5E4AD1254A59A900736FB4 /* GradeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4AD0254A59A900736FB4 /* GradeModel.swift */; };
+		AF5E4AD3254A59DB00736FB4 /* GradePointAverageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4AD2254A59DB00736FB4 /* GradePointAverageView.swift */; };
+		AF5E4AD5254A8ADC00736FB4 /* SemesterPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4AD4254A8ADC00736FB4 /* SemesterPickerView.swift */; };
+		AF5E4AD8254A8B0A00736FB4 /* GradeRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4AD7254A8B0A00736FB4 /* GradeRowView.swift */; };
+		AF5E4ADA254A8BA600736FB4 /* GradeRowDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4AD9254A8BA600736FB4 /* GradeRowDetailView.swift */; };
 		AF79D2852545A0C000C962AE /* BannerModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF79D2842545A0C000C962AE /* BannerModifier.swift */; };
 		AF79D2872545B5DF00C962AE /* ClassroomDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF79D2862545B5DF00C962AE /* ClassroomDetailView.swift */; };
 		AF7BD6F42545BDAF00771CDA /* ClassroomDetailRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7BD6F32545BDAF00771CDA /* ClassroomDetailRowView.swift */; };
@@ -85,6 +92,13 @@
 		AF599BEF2547E57800E8D769 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		AF599BF12547EBD400E8D769 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		AF599BF42547EDE200E8D769 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		AF5E4ACC254A595300736FB4 /* GradeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeView.swift; sourceTree = "<group>"; };
+		AF5E4ACE254A596C00736FB4 /* GradeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeViewModel.swift; sourceTree = "<group>"; };
+		AF5E4AD0254A59A900736FB4 /* GradeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeModel.swift; sourceTree = "<group>"; };
+		AF5E4AD2254A59DB00736FB4 /* GradePointAverageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradePointAverageView.swift; sourceTree = "<group>"; };
+		AF5E4AD4254A8ADC00736FB4 /* SemesterPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemesterPickerView.swift; sourceTree = "<group>"; };
+		AF5E4AD7254A8B0A00736FB4 /* GradeRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeRowView.swift; sourceTree = "<group>"; };
+		AF5E4AD9254A8BA600736FB4 /* GradeRowDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeRowDetailView.swift; sourceTree = "<group>"; };
 		AF79D2842545A0C000C962AE /* BannerModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerModifier.swift; sourceTree = "<group>"; };
 		AF79D2862545B5DF00C962AE /* ClassroomDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomDetailView.swift; sourceTree = "<group>"; };
 		AF7BD6F32545BDAF00771CDA /* ClassroomDetailRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomDetailRowView.swift; sourceTree = "<group>"; };
@@ -148,6 +162,7 @@
 		AF30539425455A6600F849A9 /* LNTUHelper */ = {
 			isa = PBXGroup;
 			children = (
+				AF5E4ACB254A590D00736FB4 /* Grade */,
 				AF3053C625455AC600F849A9 /* API */,
 				AF79D2832545A0B400C962AE /* Common */,
 				AF599BF32547EBD800E8D769 /* Login */,
@@ -232,6 +247,28 @@
 				AF599BF12547EBD400E8D769 /* LoginViewModel.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		AF5E4ACB254A590D00736FB4 /* Grade */ = {
+			isa = PBXGroup;
+			children = (
+				AF5E4AD0254A59A900736FB4 /* GradeModel.swift */,
+				AF5E4ACC254A595300736FB4 /* GradeView.swift */,
+				AF5E4ACE254A596C00736FB4 /* GradeViewModel.swift */,
+				AF5E4AD6254A8AF300736FB4 /* Subviews */,
+			);
+			path = Grade;
+			sourceTree = "<group>";
+		};
+		AF5E4AD6254A8AF300736FB4 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				AF5E4AD4254A8ADC00736FB4 /* SemesterPickerView.swift */,
+				AF5E4AD7254A8B0A00736FB4 /* GradeRowView.swift */,
+				AF5E4AD9254A8BA600736FB4 /* GradeRowDetailView.swift */,
+				AF5E4AD2254A59DB00736FB4 /* GradePointAverageView.swift */,
+			);
+			path = Subviews;
 			sourceTree = "<group>";
 		};
 		AF79D2832545A0B400C962AE /* Common */ = {
@@ -419,7 +456,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF30539625455A6600F849A9 /* AppDelegate.swift in Sources */,
+				AF5E4ADA254A8BA600736FB4 /* GradeRowDetailView.swift in Sources */,
 				AF79D2872545B5DF00C962AE /* ClassroomDetailView.swift in Sources */,
+				AF5E4AD3254A59DB00736FB4 /* GradePointAverageView.swift in Sources */,
 				AFE3553F25491E370099B1CB /* UserCenterView.swift in Sources */,
 				AF599BF22547EBD400E8D769 /* LoginViewModel.swift in Sources */,
 				AF7BD6F82546BB9900771CDA /* CourseTableView.swift in Sources */,
@@ -434,13 +473,18 @@
 				AF3053D82545711300F849A9 /* ClassroomViewModel.swift in Sources */,
 				AF599BF52547EDE200E8D769 /* LoginModel.swift in Sources */,
 				AF3053D4254570CD00F849A9 /* ClassroomModel.swift in Sources */,
+				AF5E4ACD254A595300736FB4 /* GradeView.swift in Sources */,
 				AF7BD7022546F18400771CDA /* CourseTableBodyView.swift in Sources */,
 				AF7BD6F42545BDAF00771CDA /* ClassroomDetailRowView.swift in Sources */,
+				AF5E4AD1254A59A900736FB4 /* GradeModel.swift in Sources */,
 				AF599BF02547E57800E8D769 /* LoginView.swift in Sources */,
 				AF599BEE2547E4B000E8D769 /* ViewRouter.swift in Sources */,
+				AF5E4ACF254A596C00736FB4 /* GradeViewModel.swift in Sources */,
+				AF5E4AD5254A8ADC00736FB4 /* SemesterPickerView.swift in Sources */,
 				AF525B31254804EC006A2CC9 /* CommonModifiers.swift in Sources */,
 				AF30539825455A6600F849A9 /* SceneDelegate.swift in Sources */,
 				AF3053CA25455AE400F849A9 /* APIClient.swift in Sources */,
+				AF5E4AD8254A8B0A00736FB4 /* GradeRowView.swift in Sources */,
 				AF3053D125456E2000F849A9 /* AppErrors.swift in Sources */,
 				AF30539A25455A6600F849A9 /* ContentView.swift in Sources */,
 			);
