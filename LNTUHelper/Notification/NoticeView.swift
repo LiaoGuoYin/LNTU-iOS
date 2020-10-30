@@ -39,7 +39,7 @@ struct NoticeView: View {
     
     var refreshButton: some View {
         Button(action: {
-            // Haptic().complexSuccess()
+            Haptic.shared.complexSuccess()
             viewModel.refreshNoticeList()
         }) {
             Text("刷新")

@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         
         // Create the SwiftUI view that provides the window contents.
-        let contentView = ContentView()
+        let contentView = ContentView(viewModel: LoginViewModel(user: user))
             .environmentObject(ViewRouter(user: user, isLogin: false))
 
         // Use a UIHostingController as window root view controller.

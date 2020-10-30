@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct UserCenterView: View {
+    
+    @ObservedObject var viewModel: LoginViewModel
     @EnvironmentObject var router: ViewRouter
+    
     var body: some View {
         NavigationView {
             ScrollView(showsIndicators: false) {
                 NavigationLink(
-                    destination: Text("TODO"),
+                    destination: UserCenterInfoView(user: viewModel.userInfo),
                     label: {
                         HStack {
                             Image(systemName: "eyes")
@@ -51,6 +54,7 @@ struct UserCenterView: View {
                     .padding()
                 }
             }
+            .shadow(radius: 5)
             .navigationBarTitle(Text("用户中心"), displayMode: .large)
             .navigationBarItems(trailing: logoutButton)
         }
@@ -58,6 +62,7 @@ struct UserCenterView: View {
     
     var logoutButton: some View {
         Button(action: {
+            Haptic.shared.complexSuccess()
             router.isLogin = false
         }) {
             Text("Logout")
@@ -67,6 +72,6 @@ struct UserCenterView: View {
 
 struct UserCenterView_Previews: PreviewProvider {
     static var previews: some View {
-        UserCenterView()
+        UserCenterView(viewModel: LoginViewModel(user: User(username: "", password: "")))
     }
 }

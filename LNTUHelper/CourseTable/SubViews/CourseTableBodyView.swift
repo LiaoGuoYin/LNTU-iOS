@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct CourseTableBodyView: View {
-    
     @Binding var courseTableMatrix: CourseTableMatrix
-    
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             ScrollView(.vertical, showsIndicators: false) {

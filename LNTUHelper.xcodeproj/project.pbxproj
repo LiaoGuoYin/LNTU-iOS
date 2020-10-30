@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF2849A5254C6DB800D78D2C /* HapticModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2849A4254C6DB800D78D2C /* HapticModels.swift */; };
+		AF2849AB254C6E3500D78D2C /* clicked.wav in Resources */ = {isa = PBXBuildFile; fileRef = AF2849A7254C6E3500D78D2C /* clicked.wav */; };
+		AF2849AC254C6E3500D78D2C /* sended.wav in Resources */ = {isa = PBXBuildFile; fileRef = AF2849A8254C6E3500D78D2C /* sended.wav */; };
+		AF2849AD254C6E3500D78D2C /* loading.wav in Resources */ = {isa = PBXBuildFile; fileRef = AF2849A9254C6E3500D78D2C /* loading.wav */; };
+		AF2849AE254C6E3500D78D2C /* reminding.wav in Resources */ = {isa = PBXBuildFile; fileRef = AF2849AA254C6E3500D78D2C /* reminding.wav */; };
 		AF30539625455A6600F849A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF30539525455A6600F849A9 /* AppDelegate.swift */; };
 		AF30539825455A6600F849A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF30539725455A6600F849A9 /* SceneDelegate.swift */; };
 		AF30539A25455A6600F849A9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF30539925455A6600F849A9 /* ContentView.swift */; };
@@ -42,6 +47,7 @@
 		AF5E4AE5254ADB1C00736FB4 /* NoticeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4AE4254ADB1C00736FB4 /* NoticeCardView.swift */; };
 		AF5E4AE7254ADC2800736FB4 /* SectionTextAndImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4AE6254ADC2800736FB4 /* SectionTextAndImage.swift */; };
 		AF5E4AE9254ADE9F00736FB4 /* NoticeRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4AE8254ADE9F00736FB4 /* NoticeRowView.swift */; };
+		AF5E4AEC254AF84900736FB4 /* UserCenterInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4AEB254AF84800736FB4 /* UserCenterInfoView.swift */; };
 		AF79D2852545A0C000C962AE /* BannerModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF79D2842545A0C000C962AE /* BannerModifier.swift */; };
 		AF79D2872545B5DF00C962AE /* ClassroomDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF79D2862545B5DF00C962AE /* ClassroomDetailView.swift */; };
 		AF7BD6F42545BDAF00771CDA /* ClassroomDetailRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7BD6F32545BDAF00771CDA /* ClassroomDetailRowView.swift */; };
@@ -73,6 +79,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AF2849A4254C6DB800D78D2C /* HapticModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticModels.swift; sourceTree = "<group>"; };
+		AF2849A7254C6E3500D78D2C /* clicked.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = clicked.wav; sourceTree = "<group>"; };
+		AF2849A8254C6E3500D78D2C /* sended.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sended.wav; sourceTree = "<group>"; };
+		AF2849A9254C6E3500D78D2C /* loading.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = loading.wav; sourceTree = "<group>"; };
+		AF2849AA254C6E3500D78D2C /* reminding.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = reminding.wav; sourceTree = "<group>"; };
 		AF30539225455A6600F849A9 /* LNTUHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LNTUHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF30539525455A6600F849A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF30539725455A6600F849A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +124,7 @@
 		AF5E4AE4254ADB1C00736FB4 /* NoticeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeCardView.swift; sourceTree = "<group>"; };
 		AF5E4AE6254ADC2800736FB4 /* SectionTextAndImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTextAndImage.swift; sourceTree = "<group>"; };
 		AF5E4AE8254ADE9F00736FB4 /* NoticeRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeRowView.swift; sourceTree = "<group>"; };
+		AF5E4AEB254AF84800736FB4 /* UserCenterInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCenterInfoView.swift; sourceTree = "<group>"; };
 		AF79D2842545A0C000C962AE /* BannerModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerModifier.swift; sourceTree = "<group>"; };
 		AF79D2862545B5DF00C962AE /* ClassroomDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomDetailView.swift; sourceTree = "<group>"; };
 		AF7BD6F32545BDAF00771CDA /* ClassroomDetailRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomDetailRowView.swift; sourceTree = "<group>"; };
@@ -153,6 +165,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AF2849A6254C6E3500D78D2C /* MP3 */ = {
+			isa = PBXGroup;
+			children = (
+				AF2849A7254C6E3500D78D2C /* clicked.wav */,
+				AF2849A8254C6E3500D78D2C /* sended.wav */,
+				AF2849A9254C6E3500D78D2C /* loading.wav */,
+				AF2849AA254C6E3500D78D2C /* reminding.wav */,
+			);
+			path = MP3;
+			sourceTree = "<group>";
+		};
 		AF30538925455A6600F849A9 = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +221,7 @@
 		AF30539D25455A6800F849A9 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				AF2849A6254C6E3500D78D2C /* MP3 */,
 				AF30539E25455A6800F849A9 /* Preview Assets.xcassets */,
 				AF30539B25455A6800F849A9 /* Assets.xcassets */,
 			);
@@ -247,8 +271,8 @@
 			isa = PBXGroup;
 			children = (
 				AF3053D3254570CD00F849A9 /* ClassroomModel.swift */,
-				AF3053D72545711300F849A9 /* ClassroomViewModel.swift */,
 				AF3053D52545710300F849A9 /* ClassroomView.swift */,
+				AF3053D72545711300F849A9 /* ClassroomViewModel.swift */,
 				AFE3553C25486A1C0099B1CB /* SubViews */,
 			);
 			path = Classroom;
@@ -270,12 +294,12 @@
 				AF5E4AD0254A59A900736FB4 /* GradeModel.swift */,
 				AF5E4ACC254A595300736FB4 /* GradeView.swift */,
 				AF5E4ACE254A596C00736FB4 /* GradeViewModel.swift */,
-				AF5E4AD6254A8AF300736FB4 /* Subviews */,
+				AF5E4AD6254A8AF300736FB4 /* SubViews */,
 			);
 			path = Grade;
 			sourceTree = "<group>";
 		};
-		AF5E4AD6254A8AF300736FB4 /* Subviews */ = {
+		AF5E4AD6254A8AF300736FB4 /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
 				AF5E4AD4254A8ADC00736FB4 /* SemesterPickerView.swift */,
@@ -283,7 +307,7 @@
 				AF5E4AD9254A8BA600736FB4 /* GradeRowDetailView.swift */,
 				AF5E4AD2254A59DB00736FB4 /* GradePointAverageView.swift */,
 			);
-			path = Subviews;
+			path = SubViews;
 			sourceTree = "<group>";
 		};
 		AF5E4ADB254AD94600736FB4 /* Notification */ = {
@@ -292,12 +316,12 @@
 				AF5E4AE0254AD9A400736FB4 /* NoticeModel.swift */,
 				AF5E4ADC254AD95500736FB4 /* NoticeView.swift */,
 				AF5E4AE2254AD9B800736FB4 /* NoticeViewModel.swift */,
-				AF5E4AEA254AE26B00736FB4 /* Subviews */,
+				AF5E4AEA254AE26B00736FB4 /* SubViews */,
 			);
 			path = Notification;
 			sourceTree = "<group>";
 		};
-		AF5E4AEA254AE26B00736FB4 /* Subviews */ = {
+		AF5E4AEA254AE26B00736FB4 /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
 				AF5E4AE4254ADB1C00736FB4 /* NoticeCardView.swift */,
@@ -305,7 +329,7 @@
 				AF5E4ADE254AD98200736FB4 /* NoticeRowDetailView.swift */,
 				AF5E4AE6254ADC2800736FB4 /* SectionTextAndImage.swift */,
 			);
-			path = Subviews;
+			path = SubViews;
 			sourceTree = "<group>";
 		};
 		AF79D2832545A0B400C962AE /* Common */ = {
@@ -314,6 +338,7 @@
 				AF79D2842545A0C000C962AE /* BannerModifier.swift */,
 				AF7BD6FD2546BD1F00771CDA /* CommonModels.swift */,
 				AF525B30254804EC006A2CC9 /* CommonModifiers.swift */,
+				AF2849A4254C6DB800D78D2C /* HapticModels.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -351,6 +376,7 @@
 			isa = PBXGroup;
 			children = (
 				AFE3553E25491E370099B1CB /* UserCenterView.swift */,
+				AF5E4AEB254AF84800736FB4 /* UserCenterInfoView.swift */,
 			);
 			path = UserCenter;
 			sourceTree = "<group>";
@@ -465,8 +491,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFA91CCA2549C07200769B1B /* .gitignore in Resources */,
+				AF2849AD254C6E3500D78D2C /* loading.wav in Resources */,
+				AF2849AC254C6E3500D78D2C /* sended.wav in Resources */,
+				AF2849AB254C6E3500D78D2C /* clicked.wav in Resources */,
 				AF3053A225455A6800F849A9 /* LaunchScreen.storyboard in Resources */,
 				AF30539F25455A6800F849A9 /* Preview Assets.xcassets in Resources */,
+				AF2849AE254C6E3500D78D2C /* reminding.wav in Resources */,
 				AF30539C25455A6800F849A9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -494,6 +524,7 @@
 			files = (
 				AF30539625455A6600F849A9 /* AppDelegate.swift in Sources */,
 				AF5E4ADA254A8BA600736FB4 /* GradeRowDetailView.swift in Sources */,
+				AF5E4AEC254AF84900736FB4 /* UserCenterInfoView.swift in Sources */,
 				AF79D2872545B5DF00C962AE /* ClassroomDetailView.swift in Sources */,
 				AF5E4AD3254A59DB00736FB4 /* GradePointAverageView.swift in Sources */,
 				AFE3553F25491E370099B1CB /* UserCenterView.swift in Sources */,
@@ -507,6 +538,7 @@
 				AF79D2852545A0C000C962AE /* BannerModifier.swift in Sources */,
 				AF7BD6FC2546BBAD00771CDA /* CourseTableViewModel.swift in Sources */,
 				AF7BD6FE2546BD1F00771CDA /* CommonModels.swift in Sources */,
+				AF2849A5254C6DB800D78D2C /* HapticModels.swift in Sources */,
 				AF7BD7002546E38200771CDA /* CourseCellView.swift in Sources */,
 				AF5E4ADF254AD98200736FB4 /* NoticeRowDetailView.swift in Sources */,
 				AF5E4ADD254AD95500736FB4 /* NoticeView.swift in Sources */,

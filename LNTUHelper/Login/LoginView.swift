@@ -43,25 +43,18 @@ struct LoginView: View {
                     }
                     loginButton
                 }
-                .navigationBarTitle(Text("Login"), displayMode: .large)
                 .padding()
+                .navigationBarTitle(Text("Login"), displayMode: .large)
             }
         }
         .resignKeyboardOnDragGesture()
-        .banner(data: $router.banner, isShow: $router.isShowBanner)
+        .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
     }
     
     var loginButton: some View {
         Button(action: {
-            viewModel.login {
-                if $0 {
-                    router.user = viewModel.user
-                    router.isLogin = true
-                } else {
-                    router.banner = viewModel.banner
-                    router.isLogin = false
-                }
-            }
+            Haptic.shared.complexSuccess()
+            viewModel.login { router.isLogin = $0 }
         }) {
             HStack {
                 Spacer()

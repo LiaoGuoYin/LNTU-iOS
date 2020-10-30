@@ -15,7 +15,7 @@ struct GradeView: View {
     
     var body: some View {
         NavigationView {
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 VStack {
                     SemesterPickerView()
                     ForEach(viewModel.gradeList, id: \.code) { course in
@@ -40,7 +40,7 @@ struct GradeView: View {
     
     var refreshButton: some View {
         Button(action: {
-            // Haptic().complexSuccess()
+            Haptic.shared.complexSuccess()
             viewModel.refreshGradeList(semester: "2020-1")
         }) {
             Text("刷新")

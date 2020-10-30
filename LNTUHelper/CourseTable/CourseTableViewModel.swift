@@ -17,7 +17,7 @@ class CourseTableViewModel: ObservableObject {
     }
     
     @Published var user: User
-    @Published var martrix: CourseTableMatrix = CourseTableMatrix(courseTableCellList: [])
+    @Published var martrix = CourseTableMatrix(courseTableCellList: [])
     @Published private var courseTableResponseList: [CourseTableResponseData] {
         willSet {
             courseTableCellList.append(contentsOf: newValue.flatMap({ $0.exportToCellList() }))
@@ -32,18 +32,7 @@ class CourseTableViewModel: ObservableObject {
     init(user: User) {
         self.user = user
         self.courseTableResponseList = []
-        self.martrix = CourseTableMatrix(courseTableCellList: courseTableCellList)
-        self.refreshCourseTable()
-    }
-    
-    init(courseTableList: [CourseTableResponseData]) {
-        self.user = User(username: "0", password: "")
-        self.courseTableResponseList = courseTableList
-        
-        var tmpCellList: [CourseTableCell] = []
-        tmpCellList.append(contentsOf: courseTableList.flatMap({ $0.exportToCellList()}))
-        self.courseTableCellList = tmpCellList
-        self.martrix = CourseTableMatrix(courseTableCellList: courseTableCellList)
+//        self.refreshCourseTable()
     }
     
 }
@@ -61,8 +50,8 @@ extension CourseTableViewModel {
                 }
                 if courseResponse.code == 200 {
                     self.banner.type = .Success
-                    self.courseTableResponseList = courseResponse.data!
                     self.banner.content = "拉取课表成功: \(courseResponse.message)"
+                    self.courseTableResponseList = courseResponse.data!
                 } else {
                     self.banner.type = .Error
                     self.banner.content = "拉取课表失败: \(courseResponse.message)"

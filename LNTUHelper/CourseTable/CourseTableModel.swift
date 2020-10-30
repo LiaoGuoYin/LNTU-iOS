@@ -47,7 +47,6 @@ extension CourseTableResponseData {
 
 struct CourseTableCell: Codable {
     let code, name, teacher, credit: String
-    
     let room: String
     let weekday, index: Int
     let weeksString: String
@@ -69,7 +68,6 @@ extension CourseTableCell {
 struct CourseTableMatrix {
     var courseTableCellList: [CourseTableCell]
     var matrix: [CourseTableCell]
-    
     mutating func generateMatrix() {
         for i in 0...4 {
             for j in 0...7 {

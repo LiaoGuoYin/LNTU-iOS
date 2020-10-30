@@ -15,7 +15,7 @@ struct CourseTableView: View {
     var body: some View {
         NavigationView {
             CourseTableBodyView(courseTableMatrix: $viewModel.martrix)
-                .padding()
+                .padding(.horizontal)
                 .navigationBarTitle(Text("课表"), displayMode: .large)
                 .navigationBarItems(trailing: refreshButton)
         }
@@ -23,7 +23,10 @@ struct CourseTableView: View {
     }
     
     var refreshButton: some View {
-        Button(action: viewModel.refreshCourseTable) {
+        Button(action: {
+            Haptic.shared.complexSuccess()
+            viewModel.refreshCourseTable()
+        }) {
             Text("刷新")
         }
     }
@@ -31,7 +34,7 @@ struct CourseTableView: View {
 
 struct CourseTableView_Previews: PreviewProvider {
     static var previews: some View {
-        CourseTableView(viewModel: CourseTableViewModel(courseTableList: courseTableDemo!.data!))
+        CourseTableView(viewModel: CourseTableViewModel(user: User(username: "", password: "")))
     }
 }
 

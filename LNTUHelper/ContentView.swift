@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var router: ViewRouter
+    
+    @EnvironmentObject private var router: ViewRouter
+    @ObservedObject var viewModel: LoginViewModel
+    
     var body: some View {
         if router.isLogin {
             TabView {
-                CourseTableView(viewModel: CourseTableViewModel(user: router.user))
+                CourseTableView(viewModel: CourseTableViewModel(user: viewModel.user))
                     .tabItem {
                         VStack {
                             Image(systemName: "number.square")
@@ -36,7 +39,7 @@ struct ContentView: View {
                         }
                     }.tag(2)
                 
-                GradeView(viewModel: GradeViewModel(user: router.user))
+                GradeView(viewModel: GradeViewModel(user: viewModel.user))
                     .tabItem {
                         VStack {
                             Image(systemName: "doc.richtext")
@@ -44,7 +47,7 @@ struct ContentView: View {
                         }
                     }.tag(3)
                 
-                UserCenterView()
+                UserCenterView(viewModel: viewModel)
                     .tabItem {
                         VStack {
                             Image(systemName: "person.crop.circle")
@@ -55,7 +58,7 @@ struct ContentView: View {
             .accentColor(Color("navyBlue"))
             .banner(data: $router.banner, isShow: $router.isShowBanner)
         } else {
-            LoginView(viewModel: LoginViewModel(user: router.user))
+            LoginView(viewModel: viewModel)
                 .accentColor(Color("navyBlue"))
         }
     }
@@ -63,7 +66,8 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
-            .environmentObject(ViewRouter(user: User(username: "1710030215", password: ""), isLogin: true))
+        let user = User(username: "", password: "")
+        ContentView(viewModel: LoginViewModel(user: user))
+            .environmentObject(ViewRouter(user: user, isLogin: true))
     }
 }

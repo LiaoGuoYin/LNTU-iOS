@@ -18,7 +18,7 @@ class LoginViewModel: ObservableObject {
     }
     
     @Published var isLogin: Bool = false
-    @Published var userInfo: EducationInfoResponseData?
+    @Published var userInfo: EducationInfoResponseData! = nil // TODO
     
     init(user: User) {
         self.user = user

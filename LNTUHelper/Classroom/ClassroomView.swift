@@ -46,6 +46,7 @@ struct ClassroomView: View {
     
     var queryButton: some View {
         Button(action: {
+            Haptic.shared.complexSuccess()
             viewModel.refreshClassroomList()
         }) {
             Text("查询")
