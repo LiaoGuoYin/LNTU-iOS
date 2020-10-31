@@ -52,6 +52,6 @@ struct GradeView: View {
 
 struct GradeView_Previews: PreviewProvider {
     static var previews: some View {
-        GradeView(viewModel: GradeViewModel())
+        GradeView(viewModel: GradeViewModel(user: User(username: "", password: "")))
     }
 }

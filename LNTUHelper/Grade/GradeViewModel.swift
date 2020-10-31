@@ -27,12 +27,6 @@ class GradeViewModel: ObservableObject {
         self.refreshGradeList(semester: "2020-1")
     }
     
-    init() {
-        self.gradeList = try! JSONDecoder().decode(GradeResponse.self, from: gradeDemoData).data!.grade
-        self.gradePointAverage = try! JSONDecoder().decode(GradeResponse.self, from: gradeDemoData).data!.gpa
-        self.user = User(username: "10000", password: "*")
-    }
-    
 }
 
 extension GradeViewModel {

@@ -32,7 +32,7 @@ class CourseTableViewModel: ObservableObject {
     init(user: User) {
         self.user = user
         self.courseTableResponseList = []
-//        self.refreshCourseTable()
+        self.refreshCourseTable()
     }
     
 }

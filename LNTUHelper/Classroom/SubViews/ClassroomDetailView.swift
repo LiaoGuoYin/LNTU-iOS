@@ -14,16 +14,13 @@ struct ClassroomDetailView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                Text("教室")
-                Spacer()
-                Text("容量")
-                Text("类别")
-                Stepper(value: $selectedWeekday, in: 1...7) {
-                    Text("周\(selectedWeekday)")
-                        .foregroundColor(Color("navyBlue"))
-                }
+            Stepper(value: $selectedWeekday, in: 1...7) {
+                Text("周 \(selectedWeekday)")
+                    .bold()
+                    .font(.headline)
+                    .foregroundColor(Color("navyBlue"))
             }
+            
             ForEach(classroomList, id: \.self) { each in
                 HStack {
                     Text(each.address)
@@ -163,6 +160,6 @@ let classroomResponseDemoData = """
   ]
 }
 """
-.data(using: .utf8)!
+    .data(using: .utf8)!
 
 let classroomResponseListDemo = try! JSONDecoder().decode(ClassroomResponse.self, from: classroomResponseDemoData).data

@@ -16,6 +16,8 @@ struct ClassroomView: View {
             ScrollView(showsIndicators: false) {
                 VStack(alignment: .leading) {
                     Text("当前选择: \(viewModel.form.campus.rawValue) \(viewModel.form.selectedBuilding) 第 \(viewModel.form.week) 周")
+                        .bold()
+                        .foregroundColor(.gray)
                     
                     Picker("校区", selection: $viewModel.form.campus) {
                         ForEach(CampusEnum.allCases) {
@@ -31,6 +33,8 @@ struct ClassroomView: View {
                     
                     Stepper(value: $viewModel.form.week, in: 1...22) {
                         Text("第 \(viewModel.form.week) 周")
+                            .font(.headline)
+                            .foregroundColor(Color("navyBlue"))
                     }
                     
                     ClassroomDetailView(classroomList: $viewModel.classroomList)

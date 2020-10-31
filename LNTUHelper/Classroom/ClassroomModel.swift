@@ -49,16 +49,20 @@ struct ClassroomForm {
         didSet {
             if campus == .hld {
                 selectedBuilding = HLDBuildingEnum.yhl.rawValue
+            } else if campus == .fxb {
+                selectedBuilding = FXBBuildingEnum.bwl.rawValue
             } else {
-                selectedBuilding = FXBuildingEnum.bwl.rawValue
+                selectedBuilding = FXNBuildingEnum.byl.rawValue
             }
         }
     }
     var buildingList: Array<String> {
         if campus == .hld {
             return HLDBuildingEnum.allCases.map { $0.rawValue }
+        } else if campus == .fxb {
+            return FXBBuildingEnum.allCases.map { $0.rawValue }
         } else {
-            return FXBuildingEnum.allCases.map { $0.rawValue }
+            return FXNBuildingEnum.allCases.map { $0.rawValue }
         }
     }
     var selectedBuilding: String = HLDBuildingEnum.yhl.rawValue
@@ -66,7 +70,9 @@ struct ClassroomForm {
 
 enum CampusEnum: String, CaseIterable, Identifiable {
     case hld = "葫芦岛校区"
-    case fx = "阜新校区"
+    case fxn = "阜新南校"
+    case fxb = "阜新北校"
+    
     var id: String {
         return self.rawValue
     }
@@ -76,22 +82,29 @@ enum HLDBuildingEnum: String, CaseIterable, Identifiable {
     case yhl = "耘慧楼"
     case eyl = "尔雅楼"
     case jyl = "静远楼"
-    case hldwlsys = "葫芦岛物理实验室"
     case hldjf = "葫芦岛机房"
+    case hldwlsys = "葫芦岛物理实验室"
     
     var id: String {
         return self.rawValue
     }
 }
 
-enum FXBuildingEnum: String, CaseIterable, Identifiable {
-    case bwl = "博文楼"
+enum FXNBuildingEnum: String, CaseIterable, Identifiable {
     case byl = "博雅楼"
     case xhl = "新华楼"
     case zhl = "中和楼"
     case zyl = "致远楼"
     case zxl = "知行楼"
-    case ylsys = "物理实验室楼"
+    case wlsys = "物理实验室"
+    
+    var id: String {
+        return self.rawValue
+    }
+}
+
+enum FXBBuildingEnum: String, CaseIterable, Identifiable {
+    case bwl = "博文楼"
     case zljf = "主楼机房"
     
     var id: String {
@@ -100,19 +113,21 @@ enum FXBuildingEnum: String, CaseIterable, Identifiable {
 }
 
 enum AllBuildingEnum: String, CaseIterable {
-    case bwl = "博文楼"
+    case yhl = "耘慧楼"
+    case eyl = "尔雅楼"
+    case jyl = "静远楼"
+    case hldjf = "葫芦岛机房"
+    case hldwlsys = "葫芦岛物理实验室"
+    
     case byl = "博雅楼"
     case xhl = "新华楼"
     case zhl = "中和楼"
     case zyl = "致远楼"
     case zxl = "知行楼"
-    case ylsys = "物理实验室楼"
+    case wlsys = "物理实验室"
+    
+    case bwl = "博文楼"
     case zljf = "主楼机房"
-    case eyl = "尔雅楼"
-    case jyl = "静远楼"
-    case hldwlsys = "葫芦岛物理实验室"
-    case hldjf = "葫芦岛机房"
-    case yhl = "耘慧楼"
     
     var varName: String {
         get { return String(describing: self) }

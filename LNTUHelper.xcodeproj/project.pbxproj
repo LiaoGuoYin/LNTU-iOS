@@ -205,7 +205,7 @@
 				AF79D2832545A0B400C962AE /* Common */,
 				AF599BF32547EBD800E8D769 /* Login */,
 				AF7BD6F62546BB7B00771CDA /* CourseTable */,
-				AF5E4ADB254AD94600736FB4 /* Notification */,
+				AF5E4ADB254AD94600736FB4 /* Notice */,
 				AF3053D2254570C200F849A9 /* Classroom */,
 				AF5E4ACB254A590D00736FB4 /* Grade */,
 				AFE3553D25491E180099B1CB /* UserCenter */,
@@ -310,7 +310,7 @@
 			path = SubViews;
 			sourceTree = "<group>";
 		};
-		AF5E4ADB254AD94600736FB4 /* Notification */ = {
+		AF5E4ADB254AD94600736FB4 /* Notice */ = {
 			isa = PBXGroup;
 			children = (
 				AF5E4AE0254AD9A400736FB4 /* NoticeModel.swift */,
@@ -318,7 +318,7 @@
 				AF5E4AE2254AD9B800736FB4 /* NoticeViewModel.swift */,
 				AF5E4AEA254AE26B00736FB4 /* SubViews */,
 			);
-			path = Notification;
+			path = Notice;
 			sourceTree = "<group>";
 		};
 		AF5E4AEA254AE26B00736FB4 /* SubViews */ = {

@@ -15,7 +15,7 @@ struct ContentView: View {
     var body: some View {
         if router.isLogin {
             TabView {
-                CourseTableView(viewModel: CourseTableViewModel(user: viewModel.user))
+                CourseTableView(viewModel: router.courseTableViewModel)
                     .tabItem {
                         VStack {
                             Image(systemName: "number.square")
@@ -23,7 +23,7 @@ struct ContentView: View {
                         }
                     }.tag(0)
                 
-                NoticeView(viewModel: NoticeViewModel())
+                NoticeView(viewModel: router.noticeViewModel)
                     .tabItem {
                         VStack {
                             Image(systemName: "flag")
@@ -31,7 +31,7 @@ struct ContentView: View {
                         }
                     }.tag(1)
                 
-                ClassroomView(viewModel: ClassroomViewModel(form: ClassroomForm(week: 10, campus: .hld)))
+                ClassroomView(viewModel: router.classroomViewModel)
                     .tabItem {
                         VStack {
                             Image(systemName: "square")
@@ -39,7 +39,7 @@ struct ContentView: View {
                         }
                     }.tag(2)
                 
-                GradeView(viewModel: GradeViewModel(user: viewModel.user))
+                GradeView(viewModel: router.gradeViewModel)
                     .tabItem {
                         VStack {
                             Image(systemName: "doc.richtext")
@@ -47,7 +47,7 @@ struct ContentView: View {
                         }
                     }.tag(3)
                 
-                UserCenterView(viewModel: viewModel)
+                UserCenterView(viewModel: router.loginViewModel)
                     .tabItem {
                         VStack {
                             Image(systemName: "person.crop.circle")
@@ -58,7 +58,7 @@ struct ContentView: View {
             .accentColor(Color("navyBlue"))
             .banner(data: $router.banner, isShow: $router.isShowBanner)
         } else {
-            LoginView(viewModel: viewModel)
+            LoginView(viewModel: router.loginViewModel)
                 .accentColor(Color("navyBlue"))
         }
     }

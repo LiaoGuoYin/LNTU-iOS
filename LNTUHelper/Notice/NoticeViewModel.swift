@@ -9,7 +9,6 @@ import Foundation
 
 class NoticeViewModel: ObservableObject {
     
-    @Published var user: User
     @Published var isShowBanner: Bool = false
     @Published var banner: BannerModifier.Data = BannerModifier.Data(content: "") {
         willSet {
@@ -20,7 +19,6 @@ class NoticeViewModel: ObservableObject {
     @Published var noticeList: [NoticeResponseData]
     
     init(user: User) {
-        self.user = user
         self.noticeList = []
         self.refreshNoticeList()
     }
