@@ -10,8 +10,12 @@ import SwiftUI
 struct GradeView: View {
     
     @ObservedObject var viewModel: GradeViewModel
-    @State var isShowDetail = false
-    @State var tapedCourseIndex = 0
+    @State private var isShowDetail = false
+    @State private var tappedCourse: GradeResponseDataGrade {
+        didSet {
+            isShowDetail = true
+        }
+    }
     
     var body: some View {
         NavigationView {
@@ -21,10 +25,7 @@ struct GradeView: View {
                     ForEach(viewModel.gradeList, id: \.code) { course in
                         GradeRowView(course: course)
                             .onTapGesture {
-                                isShowDetail.toggle()
-                            }
-                            .sheet(isPresented: $isShowDetail) {
-                                GradeRowDetailView(course: course)
+                                self.tappedCourse = course
                             }
                     }
                     GradePointAverageView(gpa: $viewModel.gradePointAverage)
@@ -34,6 +35,9 @@ struct GradeView: View {
             .navigationBarItems(trailing: refreshButton)
             .navigationBarTitle("成绩",displayMode: .large)
             .navigationViewStyle(DefaultNavigationViewStyle())
+        }
+        .sheet(isPresented: $isShowDetail) {
+            GradeRowDetailView(course: tappedCourse)
         }
         .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
     }
@@ -49,7 +53,12 @@ struct GradeView: View {
     }
 }
 
-
+extension GradeView {
+    init(viewModel: GradeViewModel) {
+        let tappedCourse = viewModel.gradeList.first ?? GradeResponseDataGrade()
+        self.init(viewModel: viewModel, tappedCourse: tappedCourse)
+    }
+}
 struct GradeView_Previews: PreviewProvider {
     static var previews: some View {
         GradeView(viewModel: GradeViewModel(user: User(username: "", password: "")))

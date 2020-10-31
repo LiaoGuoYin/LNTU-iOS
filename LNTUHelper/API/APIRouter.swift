@@ -17,16 +17,14 @@ enum APIEducationRouter: URLRequestConvertible {
     case data(user: User)
     case info(user: User)
     case courseTable(user: User, semester: String)
-    
-    case grade(user: User, semester: String, isIncludingOptionalCourse: String)
-    case gpa(user: User)
+    case grade(user: User, isIncludingOptionalCourse: String)
     
     // MARK: - HTTPMethod
     private var method: HTTPMethod {
         switch self {
-        case .classroom, .notice, .gpa, .grade:
+        case .classroom, .notice:
             return .get
-        case .data, .info, .courseTable:
+        case .data, .info, .courseTable, .grade:
             return .post
         }
     }
@@ -46,8 +44,6 @@ enum APIEducationRouter: URLRequestConvertible {
             return "/education/course-table"
         case .grade:
             return "/education/grade"
-        case .gpa:
-            return "/education/gpa-all"
         }
     }
     
@@ -60,11 +56,8 @@ enum APIEducationRouter: URLRequestConvertible {
             params.updateValue(AllBuildingEnum(rawValue: buildingName)?.varName ?? "", forKey: K.Education.buildingName)
         case .courseTable(_, let semester):
             params.updateValue(semester, forKey: K.Education.semester)
-        case .grade(let user, let semester, let isIncludingOptionalCourse):
-            params.updateValue(semester, forKey: K.Education.semester)
+        case .grade(_, let isIncludingOptionalCourse):
             params.updateValue(isIncludingOptionalCourse, forKey: K.Education.isIncludingOptionalCourse)
-            params.updateValue(user.username, forKey: K.Education.username)
-            params.updateValue(user.password, forKey: K.Education.password)
         default:
             return nil
         }
@@ -75,6 +68,11 @@ enum APIEducationRouter: URLRequestConvertible {
     private var parameters: Parameters? {
         switch self {
         case .courseTable(let user, _), .info(let user):
+            return [
+                K.Education.username: user.username,
+                K.Education.password: user.password,
+            ]
+        case .grade(let user, _):
             return [
                 K.Education.username: user.username,
                 K.Education.password: user.password,
