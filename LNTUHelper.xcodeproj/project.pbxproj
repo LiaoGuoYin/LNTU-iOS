@@ -58,6 +58,7 @@
 		AF7BD6FE2546BD1F00771CDA /* CommonModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7BD6FD2546BD1F00771CDA /* CommonModels.swift */; };
 		AF7BD7002546E38200771CDA /* CourseCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7BD6FF2546E38200771CDA /* CourseCellView.swift */; };
 		AF7BD7022546F18400771CDA /* CourseTableBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7BD7012546F18400771CDA /* CourseTableBodyView.swift */; };
+		AFA03E5D254EC85A0037E76A /* GradePointAverageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA03E5C254EC85A0037E76A /* GradePointAverageView.swift */; };
 		AFA91CCA2549C07200769B1B /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = AFA91CC92549C07200769B1B /* .gitignore */; };
 		AFE3553F25491E370099B1CB /* UserCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE3553E25491E370099B1CB /* UserCenterView.swift */; };
 /* End PBXBuildFile section */
@@ -136,6 +137,7 @@
 		AF7BD6FD2546BD1F00771CDA /* CommonModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonModels.swift; sourceTree = "<group>"; };
 		AF7BD6FF2546E38200771CDA /* CourseCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCellView.swift; sourceTree = "<group>"; };
 		AF7BD7012546F18400771CDA /* CourseTableBodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseTableBodyView.swift; sourceTree = "<group>"; };
+		AFA03E5C254EC85A0037E76A /* GradePointAverageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradePointAverageView.swift; sourceTree = "<group>"; };
 		AFA91CC92549C07200769B1B /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		AFA91CCB2549C09A00769B1B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		AFE3553E25491E370099B1CB /* UserCenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCenterView.swift; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 		AF5E4AD6254A8AF300736FB4 /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
+				AFA03E5C254EC85A0037E76A /* GradePointAverageView.swift */,
 				AF5E4AD4254A8ADC00736FB4 /* SemesterPickerView.swift */,
 				AF5E4AD7254A8B0A00736FB4 /* GradeRowView.swift */,
 				AF5E4AD9254A8BA600736FB4 /* GradeRowDetailView.swift */,
@@ -563,6 +566,7 @@
 				AF525B31254804EC006A2CC9 /* CommonModifiers.swift in Sources */,
 				AF30539825455A6600F849A9 /* SceneDelegate.swift in Sources */,
 				AF12457B254EB6E300FFB1E7 /* SwiftUIWebView.swift in Sources */,
+				AFA03E5D254EC85A0037E76A /* GradePointAverageView.swift in Sources */,
 				AF3053CA25455AE400F849A9 /* APIClient.swift in Sources */,
 				AF5E4AD8254A8B0A00736FB4 /* GradeRowView.swift in Sources */,
 				AF3053D125456E2000F849A9 /* AppErrors.swift in Sources */,
