@@ -18,13 +18,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
-        var user = User(username: "1710030215", password: "*")
+        var user = User(username: "1710030000", password: "*")
         if let localUser = loadLocalUser() {
             user = localUser
         }
         
         // Create the SwiftUI view that provides the window contents.
-        let contentView = ContentView(viewModel: LoginViewModel(user: user))
+        let contentView = ContentView()
             .environmentObject(ViewRouter(user: user, isLogin: false))
 
         // Use a UIHostingController as window root view controller.

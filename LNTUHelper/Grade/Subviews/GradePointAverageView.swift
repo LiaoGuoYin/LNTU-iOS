@@ -25,7 +25,7 @@ struct GradePointAverageView: View {
         .frame(maxWidth: .infinity)
         .padding()
         .foregroundColor(Color(.white))
-        .background(Color(.systemPink))
+        .background(Color("navyBlue"))
         .cornerRadius(10)
         .shadow(color: Color(.systemBlue).opacity(0.2), radius: 5, x: 5, y: 10)
     }

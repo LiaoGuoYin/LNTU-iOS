@@ -7,6 +7,19 @@
 
 import Foundation
 
+struct EducationDataResponse: Codable {
+    let code: Int
+    let message: String
+    let data: EducationDataResponseData?
+}
+
+struct EducationDataResponseData: Codable {
+    let info: EducationInfoResponseData
+    let courseTable: [CourseTableResponseData]
+    let grade: [GradeResponseDataGrade]
+    let gpa: GradeResponseDataGPA
+}
+
 struct EducationInfoResponse: Codable {
     let code: Int
     let message: String

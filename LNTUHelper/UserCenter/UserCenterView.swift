@@ -9,25 +9,22 @@ import SwiftUI
 
 struct UserCenterView: View {
     
-    @ObservedObject var viewModel: LoginViewModel
     @EnvironmentObject var router: ViewRouter
     
     var body: some View {
         NavigationView {
             ScrollView(showsIndicators: false) {
                 NavigationLink(
-                    destination: UserCenterInfoView(user: viewModel.userInfo),
+                    destination: UserCenterInfoView(user: router.loginViewModel.userInfo),
                     label: {
                         HStack {
                             Image(systemName: "eyes")
                                 .font(.system(size: 40))
                                 .foregroundColor(Color.black)
-                            
                             Spacer()
-                            
                             VStack(alignment: .leading) {
-                                Text("廖国胤")
-                                Text("工商管理学院")
+                                Text(router.loginViewModel.userInfo.name)
+                                Text(router.loginViewModel.userInfo.chiefCollege)
                             }
                             .foregroundColor(Color.white)
                         }
@@ -72,6 +69,8 @@ struct UserCenterView: View {
 
 struct UserCenterView_Previews: PreviewProvider {
     static var previews: some View {
-        UserCenterView(viewModel: LoginViewModel(user: User(username: "", password: "")))
+        let user = User(username: "1710030105", password: "heying")
+        return UserCenterView()
+            .environmentObject(ViewRouter(user: user, isLogin: false))
     }
 }

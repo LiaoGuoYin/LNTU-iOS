@@ -10,7 +10,6 @@ import SwiftUI
 struct ContentView: View {
     
     @EnvironmentObject private var router: ViewRouter
-    @ObservedObject var viewModel: LoginViewModel
     
     var body: some View {
         if router.isLogin {
@@ -47,7 +46,7 @@ struct ContentView: View {
                         }
                     }.tag(3)
                 
-                UserCenterView(viewModel: router.loginViewModel)
+                UserCenterView()
                     .tabItem {
                         VStack {
                             Image(systemName: "person.crop.circle")
@@ -55,11 +54,9 @@ struct ContentView: View {
                         }
                     }.tag(4)
             }
-            .accentColor(Color("navyBlue"))
             .banner(data: $router.banner, isShow: $router.isShowBanner)
         } else {
-            LoginView(viewModel: router.loginViewModel)
-                .accentColor(Color("navyBlue"))
+            LoginView()
         }
     }
 }
@@ -67,7 +64,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         let user = User(username: "", password: "")
-        ContentView(viewModel: LoginViewModel(user: user))
+        ContentView()
             .environmentObject(ViewRouter(user: user, isLogin: true))
     }
 }

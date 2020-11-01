@@ -67,12 +67,7 @@ enum APIEducationRouter: URLRequestConvertible {
     // MARK: - POST Body Parameters
     private var parameters: Parameters? {
         switch self {
-        case .courseTable(let user, _), .info(let user):
-            return [
-                K.Education.username: user.username,
-                K.Education.password: user.password,
-            ]
-        case .grade(let user, _):
+        case .courseTable(let user, _), .info(let user), .grade(let user, _), .data(let user):
             return [
                 K.Education.username: user.username,
                 K.Education.password: user.password,

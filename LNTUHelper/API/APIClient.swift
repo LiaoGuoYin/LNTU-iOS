@@ -38,4 +38,8 @@ class APIClient {
         performRequest(route: APIEducationRouter.notice, completion: completion)
     }
     
+    static func educationData(user: User, completion: @escaping (Result<EducationDataResponse, AFError>) -> Void) {
+        performRequest(route: APIEducationRouter.data(user: user), completion: completion)
+    }
+    
 }

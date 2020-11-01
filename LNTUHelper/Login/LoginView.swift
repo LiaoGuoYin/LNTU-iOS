@@ -10,7 +10,6 @@ import SwiftUI
 
 struct LoginView: View {
     
-    @ObservedObject var viewModel: LoginViewModel
     @EnvironmentObject var router: ViewRouter
     
     var body: some View {
@@ -24,7 +23,7 @@ struct LoginView: View {
                             .background(Color("navyBlue"))
                             .cornerRadius(8)
                         
-                        TextField("1710030215", text: $viewModel.user.username)
+                        TextField("1710030215", text: $router.user.username)
                             .keyboardType(.numberPad)
                             .padding()
                             .background(Color(.systemFill))
@@ -36,7 +35,7 @@ struct LoginView: View {
                             .foregroundColor(.white)
                             .background(Color("navyBlue"))
                             .cornerRadius(8)
-                        SecureField("*", text: $viewModel.user.password)
+                        SecureField("*", text:  $router.user.password)
                             .padding()
                             .background(Color(.systemFill))
                             .cornerRadius(8)
@@ -48,13 +47,13 @@ struct LoginView: View {
             }
         }
         .resignKeyboardOnDragGesture()
-        .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
+        .banner(data: $router.banner, isShow:  $router.isShowBanner)
     }
     
     var loginButton: some View {
         Button(action: {
             Haptic.shared.complexSuccess()
-            viewModel.login { router.isLogin = $0 }
+            router.refreshEducationData()
         }) {
             HStack {
                 Spacer()
@@ -72,6 +71,8 @@ struct LoginView: View {
 
 struct LoginView_PreViews: PreviewProvider {
     static var previews: some View {
-        LoginView(viewModel: LoginViewModel(user: User(username: "1710030215", password: "*")))
+        let user = User(username: "", password: "")
+        return LoginView()
+            .environmentObject(ViewRouter(user: user, isLogin: true))
     }
 }

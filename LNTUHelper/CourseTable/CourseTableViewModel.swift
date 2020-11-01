@@ -18,7 +18,7 @@ class CourseTableViewModel: ObservableObject {
     
     @Published var user: User
     @Published var martrix = CourseTableMatrix(courseTableCellList: [])
-    @Published private var courseTableResponseList: [CourseTableResponseData] {
+    @Published var courseTableResponseList: [CourseTableResponseData] {
         willSet {
             courseTableCellList.append(contentsOf: newValue.flatMap({ $0.exportToCellList() }))
         }
