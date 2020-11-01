@@ -59,7 +59,6 @@
 		AF7BD7002546E38200771CDA /* CourseCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7BD6FF2546E38200771CDA /* CourseCellView.swift */; };
 		AF7BD7022546F18400771CDA /* CourseTableBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7BD7012546F18400771CDA /* CourseTableBodyView.swift */; };
 		AFA03E5D254EC85A0037E76A /* GradePointAverageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA03E5C254EC85A0037E76A /* GradePointAverageView.swift */; };
-		AFA91CCA2549C07200769B1B /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = AFA91CC92549C07200769B1B /* .gitignore */; };
 		AFE3553F25491E370099B1CB /* UserCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE3553E25491E370099B1CB /* UserCenterView.swift */; };
 /* End PBXBuildFile section */
 
@@ -218,6 +217,8 @@
 				AF30539925455A6600F849A9 /* ContentView.swift */,
 				AF599BED2547E4B000E8D769 /* ViewRouter.swift */,
 				AF3053A325455A6800F849A9 /* Info.plist */,
+				AF30539B25455A6800F849A9 /* Assets.xcassets */,
+				AF3053A025455A6800F849A9 /* LaunchScreen.storyboard */,
 			);
 			path = LNTUHelper;
 			sourceTree = "<group>";
@@ -227,7 +228,6 @@
 			children = (
 				AF2849A6254C6E3500D78D2C /* MP3 */,
 				AF30539E25455A6800F849A9 /* Preview Assets.xcassets */,
-				AF30539B25455A6800F849A9 /* Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -253,7 +253,6 @@
 		AF3053C525455A7F00F849A9 /* Supportings */ = {
 			isa = PBXGroup;
 			children = (
-				AF3053A025455A6800F849A9 /* LaunchScreen.storyboard */,
 				AF30539525455A6600F849A9 /* AppDelegate.swift */,
 				AF30539725455A6600F849A9 /* SceneDelegate.swift */,
 			);
@@ -496,7 +495,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFA91CCA2549C07200769B1B /* .gitignore in Resources */,
 				AF2849AD254C6E3500D78D2C /* loading.wav in Resources */,
 				AF2849AC254C6E3500D78D2C /* sended.wav in Resources */,
 				AF2849AB254C6E3500D78D2C /* clicked.wav in Resources */,
@@ -621,6 +619,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = primary;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -682,6 +683,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = primary;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -737,9 +741,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = primary;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"LNTUHelper/Preview Content\"";
+				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_ASSET_PATHS = "LNTUHelper/Preview\\ Content";
 				DEVELOPMENT_TEAM = M9CCRH8GRW;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = LNTUHelper/Info.plist;
@@ -748,7 +753,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = me.lntu.helper;
+				PRODUCT_BUNDLE_IDENTIFIER = me.lntu.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -759,9 +764,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = primary;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"LNTUHelper/Preview Content\"";
+				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_ASSET_PATHS = "LNTUHelper/Preview\\ Content";
 				DEVELOPMENT_TEAM = M9CCRH8GRW;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = LNTUHelper/Info.plist;
@@ -770,7 +776,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = me.lntu.helper;
+				PRODUCT_BUNDLE_IDENTIFIER = me.lntu.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
