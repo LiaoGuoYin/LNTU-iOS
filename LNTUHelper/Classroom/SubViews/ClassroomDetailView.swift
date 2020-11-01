@@ -18,7 +18,7 @@ struct ClassroomDetailView: View {
                 Text("周 \(selectedWeekday)")
                     .bold()
                     .font(.headline)
-                    .foregroundColor(Color("navyBlue"))
+                    .foregroundColor(Color("primary"))
             }
             
             ForEach(classroomList, id: \.self) { each in

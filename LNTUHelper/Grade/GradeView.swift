@@ -48,7 +48,7 @@ struct GradeView: View {
             viewModel.refreshGradeList(semester: "2020-1")
         }) {
             Text("刷新")
-                .foregroundColor(Color("navyBlue"))
+                .foregroundColor(Color("primary"))
         }
     }
 }

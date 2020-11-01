@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF12457B254EB6E300FFB1E7 /* SwiftUIWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF12457A254EB6E300FFB1E7 /* SwiftUIWebView.swift */; };
+		AF124580254EB72600FFB1E7 /* SwiftUIWebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF12457F254EB72600FFB1E7 /* SwiftUIWebViewModel.swift */; };
 		AF2849A5254C6DB800D78D2C /* HapticModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2849A4254C6DB800D78D2C /* HapticModels.swift */; };
 		AF2849AB254C6E3500D78D2C /* clicked.wav in Resources */ = {isa = PBXBuildFile; fileRef = AF2849A7254C6E3500D78D2C /* clicked.wav */; };
 		AF2849AC254C6E3500D78D2C /* sended.wav in Resources */ = {isa = PBXBuildFile; fileRef = AF2849A8254C6E3500D78D2C /* sended.wav */; };
@@ -36,7 +38,6 @@
 		AF5E4ACD254A595300736FB4 /* GradeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4ACC254A595300736FB4 /* GradeView.swift */; };
 		AF5E4ACF254A596C00736FB4 /* GradeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4ACE254A596C00736FB4 /* GradeViewModel.swift */; };
 		AF5E4AD1254A59A900736FB4 /* GradeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4AD0254A59A900736FB4 /* GradeModel.swift */; };
-		AF5E4AD3254A59DB00736FB4 /* GradePointAverageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4AD2254A59DB00736FB4 /* GradePointAverageView.swift */; };
 		AF5E4AD5254A8ADC00736FB4 /* SemesterPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4AD4254A8ADC00736FB4 /* SemesterPickerView.swift */; };
 		AF5E4AD8254A8B0A00736FB4 /* GradeRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4AD7254A8B0A00736FB4 /* GradeRowView.swift */; };
 		AF5E4ADA254A8BA600736FB4 /* GradeRowDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4AD9254A8BA600736FB4 /* GradeRowDetailView.swift */; };
@@ -79,6 +80,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AF12457A254EB6E300FFB1E7 /* SwiftUIWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIWebView.swift; sourceTree = "<group>"; };
+		AF12457F254EB72600FFB1E7 /* SwiftUIWebViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIWebViewModel.swift; sourceTree = "<group>"; };
 		AF2849A4254C6DB800D78D2C /* HapticModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticModels.swift; sourceTree = "<group>"; };
 		AF2849A7254C6E3500D78D2C /* clicked.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = clicked.wav; sourceTree = "<group>"; };
 		AF2849A8254C6E3500D78D2C /* sended.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sended.wav; sourceTree = "<group>"; };
@@ -113,7 +116,6 @@
 		AF5E4ACC254A595300736FB4 /* GradeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeView.swift; sourceTree = "<group>"; };
 		AF5E4ACE254A596C00736FB4 /* GradeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeViewModel.swift; sourceTree = "<group>"; };
 		AF5E4AD0254A59A900736FB4 /* GradeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeModel.swift; sourceTree = "<group>"; };
-		AF5E4AD2254A59DB00736FB4 /* GradePointAverageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradePointAverageView.swift; sourceTree = "<group>"; };
 		AF5E4AD4254A8ADC00736FB4 /* SemesterPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemesterPickerView.swift; sourceTree = "<group>"; };
 		AF5E4AD7254A8B0A00736FB4 /* GradeRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeRowView.swift; sourceTree = "<group>"; };
 		AF5E4AD9254A8BA600736FB4 /* GradeRowDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeRowDetailView.swift; sourceTree = "<group>"; };
@@ -305,7 +307,6 @@
 				AF5E4AD4254A8ADC00736FB4 /* SemesterPickerView.swift */,
 				AF5E4AD7254A8B0A00736FB4 /* GradeRowView.swift */,
 				AF5E4AD9254A8BA600736FB4 /* GradeRowDetailView.swift */,
-				AF5E4AD2254A59DB00736FB4 /* GradePointAverageView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -339,6 +340,8 @@
 				AF7BD6FD2546BD1F00771CDA /* CommonModels.swift */,
 				AF525B30254804EC006A2CC9 /* CommonModifiers.swift */,
 				AF2849A4254C6DB800D78D2C /* HapticModels.swift */,
+				AF12457A254EB6E300FFB1E7 /* SwiftUIWebView.swift */,
+				AF12457F254EB72600FFB1E7 /* SwiftUIWebViewModel.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -526,7 +529,6 @@
 				AF5E4ADA254A8BA600736FB4 /* GradeRowDetailView.swift in Sources */,
 				AF5E4AEC254AF84900736FB4 /* UserCenterInfoView.swift in Sources */,
 				AF79D2872545B5DF00C962AE /* ClassroomDetailView.swift in Sources */,
-				AF5E4AD3254A59DB00736FB4 /* GradePointAverageView.swift in Sources */,
 				AFE3553F25491E370099B1CB /* UserCenterView.swift in Sources */,
 				AF5E4AE7254ADC2800736FB4 /* SectionTextAndImage.swift in Sources */,
 				AF5E4AE3254AD9B800736FB4 /* NoticeViewModel.swift in Sources */,
@@ -557,8 +559,10 @@
 				AF5E4AE9254ADE9F00736FB4 /* NoticeRowView.swift in Sources */,
 				AF5E4AD5254A8ADC00736FB4 /* SemesterPickerView.swift in Sources */,
 				AF5E4AE1254AD9A400736FB4 /* NoticeModel.swift in Sources */,
+				AF124580254EB72600FFB1E7 /* SwiftUIWebViewModel.swift in Sources */,
 				AF525B31254804EC006A2CC9 /* CommonModifiers.swift in Sources */,
 				AF30539825455A6600F849A9 /* SceneDelegate.swift in Sources */,
+				AF12457B254EB6E300FFB1E7 /* SwiftUIWebView.swift in Sources */,
 				AF3053CA25455AE400F849A9 /* APIClient.swift in Sources */,
 				AF5E4AD8254A8B0A00736FB4 /* GradeRowView.swift in Sources */,
 				AF3053D125456E2000F849A9 /* AppErrors.swift in Sources */,
@@ -660,7 +664,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -715,7 +719,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -732,7 +736,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"LNTUHelper/Preview Content\"";
-				DEVELOPMENT_TEAM = 9U62MV7448;
+				DEVELOPMENT_TEAM = M9CCRH8GRW;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = LNTUHelper/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -740,7 +744,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.liaoguoyin.LNTUHelper;
+				PRODUCT_BUNDLE_IDENTIFIER = me.lntu.helper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -754,7 +758,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"LNTUHelper/Preview Content\"";
-				DEVELOPMENT_TEAM = 9U62MV7448;
+				DEVELOPMENT_TEAM = M9CCRH8GRW;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = LNTUHelper/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -762,7 +766,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.liaoguoyin.LNTUHelper;
+				PRODUCT_BUNDLE_IDENTIFIER = me.lntu.helper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

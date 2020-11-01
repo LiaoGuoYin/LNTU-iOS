@@ -29,31 +29,33 @@ struct UserCenterView: View {
                             .foregroundColor(Color.white)
                         }
                         .padding(20)
-                        .background(Color("navyBlue"))
+                        .background(Color("primary"))
                     }
                 )
                 .padding(.bottom, 10)
                 .cornerRadius(12)
                 .padding()
                 
-                ForEach(1..<5, id: \.self) { _ in
-                    HStack {
-                        Rectangle()
-                            .foregroundColor(Color(.systemYellow))
-                            .frame(width: UIScreen.main.bounds.width / 2 - 25, height: UIScreen.main.bounds.width / 2 - 25)
-                            .cornerRadius(12)
-                        Spacer()
-                        Rectangle()
-                            .foregroundColor(Color("navyBlue"))
-                            .frame(width: UIScreen.main.bounds.width / 2 - 25, height: UIScreen.main.bounds.width / 2 - 25)
-                            .cornerRadius(12)
-                    }
-                    .padding()
-                }
+                logoutButton
+                
+                //                ForEach(1..<5, id: \.self) { _ in
+                //                    HStack {
+                //                        Rectangle()
+                //                            .foregroundColor(Color(.systemYellow))
+                //                            .frame(width: UIScreen.main.bounds.width / 2 - 25, height: UIScreen.main.bounds.width / 2 - 25)
+                //                            .cornerRadius(12)
+                //                        Spacer()
+                //                        Rectangle()
+                //                            .foregroundColor(Color("navyBlue"))
+                //                            .frame(width: UIScreen.main.bounds.width / 2 - 25, height: UIScreen.main.bounds.width / 2 - 25)
+                //                            .cornerRadius(12)
+                //                    }
+                //                    .padding()
+                //                }
             }
             .shadow(radius: 5)
             .navigationBarTitle(Text("用户中心"), displayMode: .large)
-            .navigationBarItems(trailing: logoutButton)
+            .accentColor(Color("primary"))
         }
     }
     
@@ -69,7 +71,7 @@ struct UserCenterView: View {
 
 struct UserCenterView_Previews: PreviewProvider {
     static var previews: some View {
-        let user = User(username: "1710030105", password: "heying")
+        let user = User(username: "17100301010", password: "*")
         return UserCenterView()
             .environmentObject(ViewRouter(user: user, isLogin: false))
     }

@@ -34,7 +34,7 @@ struct ClassroomView: View {
                     Stepper(value: $viewModel.form.week, in: 1...22) {
                         Text("第 \(viewModel.form.week) 周")
                             .font(.headline)
-                            .foregroundColor(Color("navyBlue"))
+                            .foregroundColor(Color("primary"))
                     }
                     
                     ClassroomDetailView(classroomList: $viewModel.classroomList)

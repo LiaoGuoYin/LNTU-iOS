@@ -10,6 +10,7 @@ import SwiftUI
 
 struct LoginView: View {
     
+    @ObservedObject var webViewModel: SwiftUIWebViewModel = SwiftUIWebViewModel(privacy: true)
     @EnvironmentObject var router: ViewRouter
     
     var body: some View {
@@ -20,10 +21,10 @@ struct LoginView: View {
                         Text("学号")
                             .padding()
                             .foregroundColor(.white)
-                            .background(Color("navyBlue"))
+                            .background(Color("primary"))
                             .cornerRadius(8)
                         
-                        TextField("1710030215", text: $router.user.username)
+                        TextField("请输入学号", text: $router.user.username)
                             .keyboardType(.numberPad)
                             .padding()
                             .background(Color(.systemFill))
@@ -33,9 +34,9 @@ struct LoginView: View {
                         Text("密码")
                             .padding()
                             .foregroundColor(.white)
-                            .background(Color("navyBlue"))
+                            .background(Color("primary"))
                             .cornerRadius(8)
-                        SecureField("*", text:  $router.user.password)
+                        SecureField("请输入身份证后六位", text:  $router.user.password)
                             .padding()
                             .background(Color(.systemFill))
                             .cornerRadius(8)
@@ -44,6 +45,15 @@ struct LoginView: View {
                 }
                 .padding()
                 .navigationBarTitle(Text("Login"), displayMode: .large)
+                
+                NavigationLink(destination:
+                                SwiftUIWebView(viewModel: webViewModel)
+                                .navigationBarTitle(Text("用户协议"), displayMode: .inline)) {
+                    Text("查看《辽工大助手用户协议》")
+                        .font(.caption)
+                        .foregroundColor(Color("primary"))
+                        .padding()
+                }
             }
         }
         .resignKeyboardOnDragGesture()
@@ -62,11 +72,10 @@ struct LoginView: View {
             }
             .padding()
             .foregroundColor(.white)
-            .background(Color("navyBlue"))
+            .background(Color("primary"))
             .cornerRadius(8)
         }
     }
-    
 }
 
 struct LoginView_PreViews: PreviewProvider {

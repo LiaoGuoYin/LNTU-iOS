@@ -24,10 +24,9 @@ struct BannerModifier: ViewModifier {
         var tintColor: Color {
             switch self {
             case .Info:
-                //                return Color(red: 67/255, green: 154/255, blue: 215/255)
                 return Color.green
             case .Success:
-                return Color("navyBlue")
+                return Color(red: 67/255, green: 154/255, blue: 215/255)
             case .Warning:
                 return Color.yellow
             case .Error:

@@ -55,8 +55,10 @@ struct ContentView: View {
                     }.tag(4)
             }
             .banner(data: $router.banner, isShow: $router.isShowBanner)
+            .accentColor(Color("primary"))
         } else {
             LoginView()
+                .accentColor(Color("primary"))
         }
     }
 }

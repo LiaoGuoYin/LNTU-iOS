@@ -27,7 +27,7 @@ struct GradeRowDetailView: View {
         .foregroundColor(.white)
         .font(.system(size: 24, weight: .regular, design: .monospaced))
         .frame(width: 1024, height: 1800)
-        .background(Color("navyBlue"))
+        .background(Color("primary"))
         .padding()
         .cornerRadius(10)
     }

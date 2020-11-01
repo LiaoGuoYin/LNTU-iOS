@@ -34,7 +34,7 @@ struct NoticeView: View {
             .navigationBarItems(trailing: refreshButton)
         }
         .navigationViewStyle(DoubleColumnNavigationViewStyle())
-        .accentColor(Color("navyBlue"))
+        .accentColor(Color("primary"))
     }
     
     var refreshButton: some View {
