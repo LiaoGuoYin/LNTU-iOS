@@ -30,10 +30,19 @@ extension NoticeViewModel {
         APIClient.notice { (result) in
             switch result {
             case .failure(let error):
+                self.banner.type = .Error
+                self.banner.title = "拉取通知失败"
                 self.banner.content = error.localizedDescription
             case .success(let response):
                 self.banner.content = response.message
-                self.noticeList = response.data
+                if response.code == 200 {
+                    self.banner.type = .Success
+                    self.banner.title = "拉取通知成功"
+                    self.noticeList = response.data
+                } else {
+                    self.banner.type = .Error
+                    self.banner.title = "拉取通知失败"
+                }
             }
         }
     }

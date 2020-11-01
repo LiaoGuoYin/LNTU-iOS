@@ -34,16 +34,22 @@ extension GradeViewModel {
         APIClient.grade(user: user) { (result) in
             switch result {
             case .failure(let error):
+                self.banner.type = .Error
+                self.banner.title = "刷新成绩、绩点失败"
                 self.banner.content = error.localizedDescription
             case .success(let response):
-                guard let actualGradeResponseData = response.data else {
-                    self.banner.content = response.message
-                    return
+                self.banner.content = response.message
+                if response.code == 200 {
+                    self.banner.type = .Success
+                    self.banner.title = "刷新成绩、绩点成功"
+                    if let actualResponseData = response.data {
+                        self.gradeList = actualResponseData.grade
+                        self.gradePointAverage = actualResponseData.gpa
+                    }
+                } else {
+                    self.banner.type = .Error
+                    self.banner.title = "刷新成绩、绩点失败"
                 }
-                self.banner.type = .Success
-                self.gradeList = actualGradeResponseData.grade
-                self.gradePointAverage = actualGradeResponseData.gpa
-                self.banner.content = "拉取成绩成功: \(response.message)"
             }
         }
     }

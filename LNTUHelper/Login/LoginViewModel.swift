@@ -32,16 +32,20 @@ extension LoginViewModel {
             switch result {
             case .failure(let error):
                 self.banner.type = .Error
+                self.banner.title = "登录获取信息失败"
                 self.banner.content = error.localizedDescription
                 completion(false)
             case .success(let response):
-                self.banner.type = .Success
                 self.banner.content = response.message
                 if response.code == 200 {
+                    self.banner.type = .Success
+                    self.banner.title = "登录获取信息成功"
                     self.userInfo = response.data
                     backupUserToLocal(user: self.user)
                     completion(true)
                 } else {
+                    self.banner.type = .Error
+                    self.banner.title = "登录获取信息失败"
                     completion(false)
                 }
             }

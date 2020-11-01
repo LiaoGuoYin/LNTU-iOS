@@ -43,18 +43,18 @@ extension CourseTableViewModel {
             switch result {
             case .failure(let error):
                 self.banner.type = .Error
-                self.banner.content = "拉取课表失败\(error.localizedDescription)"
-            case .success(let courseResponse):
-                guard courseResponse.data != nil else {
-                    return
-                }
-                if courseResponse.code == 200 {
+                self.banner.title = "拉取课表失败"
+                self.banner.content = error.localizedDescription
+            case .success(let response):
+                self.banner.content = response.message
+                if response.code == 200 {
                     self.banner.type = .Success
-                    self.banner.content = "拉取课表成功: \(courseResponse.message)"
-                    self.courseTableResponseList = courseResponse.data!
+                    self.banner.title = "拉取课表成功"
+                    guard response.data != nil else { return }
+                    self.courseTableResponseList = response.data!
                 } else {
                     self.banner.type = .Error
-                    self.banner.content = "拉取课表失败: \(courseResponse.message)"
+                    self.banner.title = "拉取课表失败"
                 }
             }
         }
