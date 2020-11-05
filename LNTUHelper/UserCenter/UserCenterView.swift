@@ -10,21 +10,22 @@ import SwiftUI
 struct UserCenterView: View {
     
     @EnvironmentObject var router: ViewRouter
+    @ObservedObject var viewModel: LoginViewModel
     
     var body: some View {
         NavigationView {
             ScrollView(showsIndicators: false) {
                 NavigationLink(
-                    destination: UserCenterInfoView(user: router.loginViewModel.userInfo),
+                    destination: UserCenterInfoView(user: viewModel.userInfo),
                     label: {
                         HStack {
-                            Image(systemName: "eyes")
+                            Image(systemName: "person.crop.rectangle")
                                 .font(.system(size: 40))
-                                .foregroundColor(Color.black)
+                                .foregroundColor(Color.white)
                             Spacer()
                             VStack(alignment: .leading) {
-                                Text(router.loginViewModel.userInfo.name)
-                                Text(router.loginViewModel.userInfo.chiefCollege)
+                                Text(viewModel.userInfo.name)
+                                Text(viewModel.userInfo.chiefCollege)
                             }
                             .foregroundColor(Color.white)
                         }
@@ -34,29 +35,14 @@ struct UserCenterView: View {
                 )
                 .padding(.bottom, 10)
                 .cornerRadius(12)
-                .padding()
                 
                 logoutButton
-                
-                //                ForEach(1..<5, id: \.self) { _ in
-                //                    HStack {
-                //                        Rectangle()
-                //                            .foregroundColor(Color(.systemYellow))
-                //                            .frame(width: UIScreen.main.bounds.width / 2 - 25, height: UIScreen.main.bounds.width / 2 - 25)
-                //                            .cornerRadius(12)
-                //                        Spacer()
-                //                        Rectangle()
-                //                            .foregroundColor(Color("navyBlue"))
-                //                            .frame(width: UIScreen.main.bounds.width / 2 - 25, height: UIScreen.main.bounds.width / 2 - 25)
-                //                            .cornerRadius(12)
-                //                    }
-                //                    .padding()
-                //                }
             }
-            .shadow(radius: 5)
+            .padding()
             .navigationBarTitle(Text("用户中心"), displayMode: .large)
-            .accentColor(Color("primary"))
         }
+        .shadow(radius: 5)
+        .accentColor(Color("primary"))
     }
     
     var logoutButton: some View {
@@ -64,7 +50,15 @@ struct UserCenterView: View {
             Haptic.shared.complexSuccess()
             router.isLogin = false
         }) {
-            Text("Logout")
+            HStack {
+                Spacer()
+                Text("Logout")
+                Spacer()
+            }
+            .foregroundColor(.white)
+            .padding()
+            .background(Color("primary"))
+            .cornerRadius(8)
         }
     }
 }
@@ -72,7 +66,7 @@ struct UserCenterView: View {
 struct UserCenterView_Previews: PreviewProvider {
     static var previews: some View {
         let user = User(username: "17100301010", password: "*")
-        return UserCenterView()
-            .environmentObject(ViewRouter(user: user, isLogin: false))
+        return UserCenterView(viewModel: LoginViewModel(user: user))
+            .environmentObject(ViewRouter(user: user, isLogin: true))
     }
 }

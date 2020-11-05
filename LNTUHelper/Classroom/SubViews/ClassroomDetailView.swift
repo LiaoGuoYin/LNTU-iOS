@@ -24,12 +24,14 @@ struct ClassroomDetailView: View {
             ForEach(classroomList, id: \.self) { each in
                 HStack {
                     Text(each.address)
+                        .layoutPriority(1)
                     Spacer()
                     Text(each.type)
                     Text(String(each.num))
                         .frame(width: UIScreen.main.bounds.width / 8)
                     ClassroomDetailRowView(weekdayStatusList: .constant(each.data[selectedWeekday - 1]))
                 }
+                .lineLimit(1)
             }
         }
     }

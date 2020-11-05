@@ -20,6 +20,18 @@ class GradeViewModel: ObservableObject {
     @Published var gradeList: [GradeResponseDataGrade]
     @Published var gradePointAverage: GradeResponseDataGPA
     
+    var gradeResult: [String: [GradeResponseDataGrade]] {
+        get {
+            Dictionary(grouping: gradeList, by: { $0.semester })
+        }
+    }
+    
+    var gradeResultKeyList: [String] {
+        get {
+            Array(gradeResult.keys).sorted()
+        }
+    }
+    
     init(user: User) {
         self.user = user
         self.gradeList = []

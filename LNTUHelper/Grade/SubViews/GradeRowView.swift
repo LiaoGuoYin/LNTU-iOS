@@ -15,6 +15,7 @@ struct GradeRowView: View {
             Image(systemName: "checkmark.seal.fill")
                 .foregroundColor(Color.green)
             Text(self.course.name)
+                .lineLimit(1)
             Spacer()
             Text(self.course.result)
             Image(systemName: "chevron.right.circle.fill")

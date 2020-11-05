@@ -14,7 +14,15 @@ struct CourseTableView: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 0) {
-                WeekSelecter(selectedWeek: $viewModel.currentWeek)
+                HStack(spacing: 2) {
+                    Text("\(viewModel.currentWeek) 周")
+                        .frame(width: 48)
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Color("primary"))
+                    WeekSelecter(selectedWeek: $viewModel.currentWeek)
+                }
+                
                 CourseTableBodyView(courseTableMatrix: $viewModel.martrix)
                     .padding(.horizontal)
                     .navigationBarTitle(Text("课表"), displayMode: .inline)
@@ -59,7 +67,6 @@ struct WeekSelecter: View {
                 }
             }
         }
-        .padding(.horizontal)
         .padding(.vertical, 8)
     }
 }

@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    
     @EnvironmentObject private var router: ViewRouter
-    
     var body: some View {
         if router.isLogin {
             TabView {
@@ -46,7 +44,7 @@ struct ContentView: View {
                         }
                     }.tag(3)
                 
-                UserCenterView()
+                UserCenterView(viewModel: router.loginViewModel)
                     .tabItem {
                         VStack {
                             Image(systemName: "person.crop.circle")
@@ -65,8 +63,9 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        let user = User(username: "", password: "")
+        let user = User(username: "1710030215", password: "")
+        let router = ViewRouter(user: user, isLogin: true)
         ContentView()
-            .environmentObject(ViewRouter(user: user, isLogin: true))
+            .environmentObject(router)
     }
 }

@@ -10,7 +10,7 @@ import SwiftUI
 struct ClassroomDetailRowView: View {
     @Binding var weekdayStatusList: ClassroomResponseData.ClassroomDetail
     var body: some View {
-        HStack {
+        HStack(spacing: 2) {
             Image(systemName: (weekdayStatusList.a == 0) ? "square" : "square.fill")
                 .foregroundColor((weekdayStatusList.a == 0) ? Color("primary") : .pink)
             

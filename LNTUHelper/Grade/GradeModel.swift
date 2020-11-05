@@ -19,7 +19,7 @@ struct GradeResponseData: Codable {
 }
 
 // MARK: - Grade
-struct GradeResponseDataGrade: Codable {
+struct GradeResponseDataGrade: Codable, Hashable {
     let name: String
     let credit: String
     let semester: String
@@ -28,6 +28,13 @@ struct GradeResponseDataGrade: Codable {
     let code, courseType, usual, midTerm, endTerm: String
     let makeUpScore, makeUpScoreResult: String?
     let point: String
+}
+
+// MARK: - GPA
+struct GradeResponseDataGPA: Codable {
+    let semester: String
+    let gradePointAverage, weightedAverage, gradePointTotal, scoreTotal, creditTotal: Double
+    let courseCount: Int
 }
 
 extension GradeResponseDataGrade {
@@ -53,20 +60,4 @@ extension GradeResponseDataGrade {
         let demo = try! JSONDecoder().decode(GradeResponseDataGrade.self, from: demoData)
         self.init(name: demo.name, credit: demo.credit, semester: demo.semester, status: demo.status, result: demo.result, code: demo.code, courseType: demo.courseType, usual: demo.usual, midTerm: demo.midTerm, endTerm: demo.endTerm, makeUpScore: demo.makeUpScore, makeUpScoreResult: demo.makeUpScoreResult, point: demo.point)
     }
-}
-
-// MARK: - GPA
-struct GradeResponseDataGPA: Codable {
-    let semester: String
-    let gradePointAverage, weightedAverage, gradePointTotal, scoreTotal, creditTotal: Double
-    let courseCount: Int
-}
-
-
-enum Semester: String, Codable {
-    case the201720181 = "2017-2018 1"
-    case the201720182 = "2017-2018 2"
-    case the201820191 = "2018-2019 1"
-    case the201820192 = "2018-2019 2"
-    case the201920201 = "2019-2020 1"
 }
