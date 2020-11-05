@@ -7,14 +7,12 @@
 
 import Foundation
 
-// MARK: - CourseTable
 struct CourseTableResponse: Codable {
     let code: Int
     let message: String
     let data: [CourseTableResponseData]?
 }
 
-// MARK: - CourseTableResponseData
 struct CourseTableResponseData: Codable {
     let code, name, teacher, credit: String
     let schedules: [Schedule]
@@ -29,63 +27,50 @@ struct CourseTableResponseData: Codable {
 
 extension CourseTableResponseData {
     init() {
-        self.init(code: "H101750002032.01", name: "信息系统安全", teacher: "毛志勇", credit: "2", schedules: [Schedule(room: "静远楼", weekday: 4, index: 3, weeksString: "1-5", weeks: [1,2,3,4,5])])
-    }
-    
-    func exportToCellList() -> [CourseTableCell] {
-        var courseTableCellList: [CourseTableCell] = []
-        if schedules.count != 0 {
-            for i in schedules.indices {
-                courseTableCellList.append(
-                    CourseTableCell(code: code, name: name, teacher: teacher, credit: credit, room: schedules[i].room, weekday: schedules[i].weekday, index: schedules[i].index, weeksString: schedules[i].weeksString, weeks: schedules[i].weeks)
-                )
-            }
-        }
-        return courseTableCellList
+        self.init(code: "H101750002032.01", name: "演示课程", teacher: "毛志勇", credit: "2", schedules: [Schedule(room: "静远楼", weekday: 4, index: 3, weeksString: "1-5", weeks: [1,2,3,4,5])])
     }
 }
 
-struct CourseTableCell: Codable {
+// MARK: - CoursTableMatrixCell
+struct CourseTableMatrixCell: Codable, CustomStringConvertible {
     let code, name, teacher, credit: String
     let room: String
     let weekday, index: Int
     let weeksString: String
     let weeks: [Int]
+    var description: String {
+        return "room: \(room), weeksString: \(weeksString), (weekday, index): (\(weekday), \(index))"
+    }
 }
 
-extension CourseTableCell {
+extension CourseTableMatrixCell {
+    init(x: Int, y: Int) {
+        self.init(code: "", name: "", teacher: "", credit: "", room: "", weekday: x, index: y, weeksString: "", weeks: [])
+    }
+    init() {
+        self.init(code: "H101750002032.01", name: "演示课程", teacher: "毛志勇", credit: "2", room: "静远楼", weekday: 4, index: 3, weeksString: "1-5", weeks: [1,2,3,4,5])
+    }
+}
+
+// MARK: - CourseTableMatrix
+struct CourseTableMatrix {
+    var matrix: [[CourseTableMatrixCell]] = []
     
     init() {
-        self.init(code: "H101750002032.01", name: "信息系统安全", teacher: "毛志勇", credit: "2", room: "静远楼342", weekday: 4, index: 3,weeksString: "1-5", weeks: [1,2,3,4,5])
-    }
-    
-    init(row: Int, column: Int) {
-        self.init(code: "", name: "", teacher: "", credit: "", room: "", weekday: column, index: row, weeksString: "", weeks: [])
-    }
-    
-}
-
-struct CourseTableMatrix {
-    var courseTableCellList: [CourseTableCell]
-    var matrix: [CourseTableCell]
-    mutating func generateMatrix() {
-        for i in 0...4 {
-            for j in 0...7 {
-                matrix.append(CourseTableCell(row: i + 1, column: j + 1))
+        matrix.append([CourseTableMatrixCell()])
+        for y in 1...5 {
+            for x in 1...7 {
+                matrix.append([CourseTableMatrixCell(x:x, y: y)])
             }
         }
-        for cell in courseTableCellList {
-            let row = cell.index
-            let column = cell.weekday
-            matrix[(row-1)*7+column] = cell
-        }
     }
-}
-
-extension CourseTableMatrix {
-    init(courseTableCellList: [CourseTableCell]) {
-        self.courseTableCellList = courseTableCellList
-        self.matrix = []
-        generateMatrix()
+    
+    subscript(x: Int, y: Int) -> [CourseTableMatrixCell] {
+        get {
+            return matrix[(y - 1) * 7 + x]
+        }
+        set {
+            matrix[(y - 1) * 7 + x].append(contentsOf: newValue)
+        }
     }
 }

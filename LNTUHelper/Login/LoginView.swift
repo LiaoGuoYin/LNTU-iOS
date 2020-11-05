@@ -80,7 +80,7 @@ struct LoginView: View {
 
 struct LoginView_PreViews: PreviewProvider {
     static var previews: some View {
-        let user = User(username: "", password: "")
+        let user = User(username: "1710030215", password: "")
         return LoginView()
             .environmentObject(ViewRouter(user: user, isLogin: true))
     }

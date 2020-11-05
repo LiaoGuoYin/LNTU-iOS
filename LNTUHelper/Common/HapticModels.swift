@@ -25,7 +25,7 @@ struct Haptic {
     func simpleSuccess() {
         let generator = UINotificationFeedbackGenerator()
         generator.notificationOccurred(UINotificationFeedbackGenerator.FeedbackType.success)
-        buttonAudioPlayer(sound: "clicked", type: "wav")
+//        buttonAudioPlayer(sound: "clicked", type: "wav")
     }
     
     func complexSuccess() {
@@ -42,7 +42,7 @@ struct Haptic {
         } catch {
             print("Failed to play: \(error.localizedDescription)")
         }
-        buttonAudioPlayer(sound: "clicked", type: "wav")
+//        buttonAudioPlayer(sound: "clicked", type: "wav")
     }
 }
 

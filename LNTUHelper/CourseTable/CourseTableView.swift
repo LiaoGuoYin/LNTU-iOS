@@ -10,14 +10,16 @@ import SwiftUI
 struct CourseTableView: View {
     
     @ObservedObject var viewModel: CourseTableViewModel
-    @State var teachingWeek: Int = 9
     
     var body: some View {
         NavigationView {
-            CourseTableBodyView(courseTableMatrix: $viewModel.martrix)
-                .padding(.horizontal)
-                .navigationBarTitle(Text("课表"), displayMode: .large)
-                .navigationBarItems(trailing: refreshButton)
+            VStack(spacing: 0) {
+                WeekSelecter(selectedWeek: $viewModel.currentWeek)
+                CourseTableBodyView(courseTableMatrix: $viewModel.martrix)
+                    .padding(.horizontal)
+                    .navigationBarTitle(Text("课表"), displayMode: .inline)
+                    .navigationBarItems(trailing: refreshButton)
+            }
         }
         .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
     }
@@ -34,6 +36,30 @@ struct CourseTableView: View {
 
 struct CourseTableView_Previews: PreviewProvider {
     static var previews: some View {
-        CourseTableView(viewModel: CourseTableViewModel(user: User(username: "", password: "")))
+        return CourseTableView(viewModel: CourseTableViewModel(user: User(username: "1710030215", password: "")))
+    }
+}
+
+struct WeekSelecter: View {
+    @Binding var selectedWeek: Int
+    var body: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 2) {
+                ForEach(1..<21, id: \.self) { each in
+                    Text(String(each))
+                        .font(.caption)
+                        .foregroundColor(.white)
+                        .padding(12)
+                        .frame(width: 48)
+                        .background((selectedWeek == each) ? Color(.systemBlue): Color(.systemGray))
+                        .cornerRadius(3.0)
+                        .onTapGesture(perform: {
+                            self.selectedWeek = each
+                        })
+                }
+            }
+        }
+        .padding(.horizontal)
+        .padding(.vertical, 8)
     }
 }
