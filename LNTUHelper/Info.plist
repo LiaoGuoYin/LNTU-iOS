@@ -24,6 +24,22 @@
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>*.lntu.edu.cn</key>
+			<string></string>
+			<key>api.liaoguoyin.com</key>
+			<string></string>
+			<key>jwzx.lntu.edu.cn</key>
+			<string></string>
+			<key>liaoguoyin.com</key>
+			<string></string>
+		</dict>
+	</dict>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -60,21 +76,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-		<key>NSExceptionDomains</key>
-		<dict>
-			<key>jwzx.lntu.edu.cn</key>
-			<string></string>
-			<key>*.lntu.edu.cn</key>
-			<string></string>
-			<key>liaoguoyin.com</key>
-			<string></string>
-			<key>api.liaoguoyin.com</key>
-			<string></string>
-		</dict>
-	</dict>
 </dict>
 </plist>

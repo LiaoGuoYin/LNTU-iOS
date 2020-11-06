@@ -36,7 +36,7 @@ class GradeViewModel: ObservableObject {
         self.user = user
         self.gradeList = []
         self.gradePointAverage = GradeResponseDataGPA(semester: "", gradePointAverage: 0.0, weightedAverage: 0.0, gradePointTotal: 0.0, scoreTotal: 0.0, creditTotal: 0, courseCount: 0)
-        self.refreshGradeList(semester: "2020-1")
+        self.refreshGradeList(semester: "2020-秋")
     }
     
 }

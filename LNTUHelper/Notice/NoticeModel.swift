@@ -33,6 +33,6 @@ struct HelperMessageResponseData: Codable {
 
 extension HelperMessageResponseData {
     init() {
-        self.init(notice: "请检查网络后刷新", educationServerStatus: "未知", helperServerStatus: "未知", qualityServerStatus: "未知", week: "1", semester: "2020秋")
+        self.init(notice: "请检查网络后刷新", educationServerStatus: "未知", helperServerStatus: "未知", qualityServerStatus: "未知", week: "1", semester: "2020-秋")
     }
 }

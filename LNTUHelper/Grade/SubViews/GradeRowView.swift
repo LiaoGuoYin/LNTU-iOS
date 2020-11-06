@@ -21,7 +21,7 @@ struct GradeRowView: View {
         .foregroundColor(course.status == "正常" ? Color.white: Color(.systemRed))
         .background(Color("primary"))
         .cornerRadius(8)
-//        .shadow(radius: 1)
+        .shadow(radius: 1)
     }
 }
 

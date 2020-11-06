@@ -33,6 +33,7 @@ struct NoticeView: View {
         }
         .navigationViewStyle(DoubleColumnNavigationViewStyle())
         .accentColor(Color("primary"))
+        .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
     }
     
     var refreshButton: some View {

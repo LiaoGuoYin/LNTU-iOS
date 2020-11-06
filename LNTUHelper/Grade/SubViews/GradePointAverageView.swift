@@ -34,7 +34,7 @@ struct GradePointAverageView: View {
 struct GradePointAverageView_Previews: PreviewProvider {
     static var previews: some View {
         let demoData = """
-            {"semester": "2020-1",
+            {"semester": "2020-秋",
              "gradePointAverage": 4.1389,
              "weightedAverage": 92.2426,
              "gradePointTotal": 111.75,

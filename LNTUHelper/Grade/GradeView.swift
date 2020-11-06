@@ -16,7 +16,7 @@ struct GradeView: View {
             isShowDetail = true
         }
     }
-    @State var selectedSemester: String = "2019-20202"
+    @State var selectedSemester: String = "2020-春"
 
     var body: some View {
         NavigationView {
@@ -40,14 +40,16 @@ struct GradeView: View {
                     ForEach(Array(arrayLiteral: viewModel.gradeResult[selectedSemester]!), id: \.self) { each in
                         ForEach(each, id: \.code) { course in
                             GradeRowView(course: course)
+                                .padding(.horizontal)
+                                .padding(.vertical, 2)
                                 .onTapGesture {
                                     self.tappedCourse = course
                                 }
-                                .padding(12)
                         }
                     }
                 } else {
                     Text("Opps, 还没有考试记录噢")
+                        .padding()
                 }
                 //                    SemesterPickerView()
                 //                    GradePointAverageView(gpa: $viewModel.gradePointAverage)
@@ -65,7 +67,7 @@ struct GradeView: View {
     var refreshButton: some View {
         Button(action: {
             Haptic.shared.complexSuccess()
-            viewModel.refreshGradeList(semester: "2020-1")
+            viewModel.refreshGradeList(semester: "2020-秋")
         }) {
             Text("刷新")
                 .foregroundColor(Color("primary"))

@@ -39,7 +39,7 @@ class CourseTableViewModel: ObservableObject {
 
 extension CourseTableViewModel {
     func refreshCourseTable() {
-        APIClient.courseTable(user: self.user, semester: "2020-2") { (result) in
+        APIClient.courseTable(user: self.user, semester: "2020-秋") { (result) in
             switch result {
             case .failure(let error):
                 self.banner.type = .Error
