@@ -10,21 +10,19 @@ import SwiftUI
 struct NoticeView: View {
     
     @ObservedObject var viewModel: NoticeViewModel
-    @State var adminNotice: String = "This is an admin notification"
+    @EnvironmentObject var router: ViewRouter
     
     var body: some View {
         NavigationView {
             List {
                 Section {
-                    SectionTextAndImage(name: "系统公告", image: "number.square.fill")
-                    NoticeCardView(adminNotice: adminNotice)
-                        .padding(.vertical)
+                    SectionTextAndImage(name: "助手公告", image: "number.square.fill")
+                    NoticeCardView(message: $router.loginViewModel.helperMessage.notice)
                 }
-                
                 Section {
                     SectionTextAndImage(name: "教务新闻", image: "tag.fill")
                     ForEach(viewModel.noticeList, id: \.url) { notice in
-                        NoticeRowView(notice: notice)
+                        NoticeRowView(notice: notice, webViewModel: SwiftUIWebViewModel(link: notice.url))
                             .padding(.vertical)
                     }
                 }
@@ -40,6 +38,7 @@ struct NoticeView: View {
     var refreshButton: some View {
         Button(action: {
             Haptic.shared.complexSuccess()
+            router.loginViewModel.refreshHelperMessage()
             viewModel.refreshNoticeList()
         }) {
             Text("刷新")
@@ -50,6 +49,7 @@ struct NoticeView: View {
 struct NoticeView_Previews: PreviewProvider {
     static var previews: some View {
         NoticeView(viewModel: NoticeViewModel())
+            .environmentObject(ViewRouter(user: User(username: "1710030215", password: "")))
     }
 }
 

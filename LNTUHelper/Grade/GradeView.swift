@@ -16,8 +16,8 @@ struct GradeView: View {
             isShowDetail = true
         }
     }
-    @State var selectedSemester: String = "2019-20201"
-    
+    @State var selectedSemester: String = "2019-20202"
+
     var body: some View {
         NavigationView {
             ScrollView(showsIndicators: false) {
@@ -27,7 +27,7 @@ struct GradeView: View {
                             Text(key)
                                 .foregroundColor(.white)
                                 .padding()
-                                .background(Color("primary"))
+                                .background(selectedSemester == key ? Color("primary") : Color(.systemBlue))
                                 .cornerRadius(6)
                                 .onTapGesture {
                                     self.selectedSemester = key
@@ -36,27 +36,28 @@ struct GradeView: View {
                     }
                     .padding(.horizontal)
                 }
-                
-                VStack {
+                if viewModel.gradeResultKeyList.contains(selectedSemester) {
                     ForEach(Array(arrayLiteral: viewModel.gradeResult[selectedSemester]!), id: \.self) { each in
                         ForEach(each, id: \.code) { course in
                             GradeRowView(course: course)
                                 .onTapGesture {
                                     self.tappedCourse = course
                                 }
+                                .padding(12)
                         }
                     }
-                    //                    SemesterPickerView()
-                    //                    GradePointAverageView(gpa: $viewModel.gradePointAverage)
+                } else {
+                    Text("Opps, 还没有考试记录噢")
                 }
-                .padding()
+                //                    SemesterPickerView()
+                //                    GradePointAverageView(gpa: $viewModel.gradePointAverage)
             }
             .navigationBarItems(trailing: refreshButton)
             .navigationBarTitle("成绩",displayMode: .large)
             .navigationViewStyle(DefaultNavigationViewStyle())
-        }
-        .sheet(isPresented: $isShowDetail) {
-            GradeRowDetailView(course: tappedCourse)
+            .sheet(isPresented: $isShowDetail) {
+                GradeRowDetailView(course: tappedCourse)
+            }
         }
         .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
     }

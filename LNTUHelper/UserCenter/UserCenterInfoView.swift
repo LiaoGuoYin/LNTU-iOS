@@ -30,7 +30,7 @@ struct UserCenterInfoView: View {
                     UserInfoRowView(key: "学习形式", value: user.studyType)
                     UserInfoRowView(key: "是否在校", value: user.isInSchool)
                     UserInfoRowView(key: "是否有学籍", value: user.isInSchool)
-                    UserInfoRowView(key: "是否有在职", value: user.isWorking)
+                    UserInfoRowView(key: "是否在职", value: user.isWorking)
                 }
             }
         }

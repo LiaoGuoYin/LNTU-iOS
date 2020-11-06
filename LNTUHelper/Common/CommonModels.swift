@@ -27,3 +27,23 @@ func loadLocalUser() -> User? {
     }
 }
 
+func getCurrentWeekDay() -> Int {
+    let today = Date()
+    let calendar = Calendar.current
+    return calendar.component(.weekday, from: today)
+}
+
+func refreshToGetCurrentWeek(completion: @escaping (Int) -> ()) {
+    APIClient.helperMessage { (result) in
+        switch result {
+        case .failure( _):
+            completion(1)
+        case .success(let response):
+            if response.code == 200 {
+                completion(Int(response.data.week) ?? 1)
+            } else {
+                completion(1)
+            }
+        }
+    }
+}

@@ -18,7 +18,7 @@ class CourseTableViewModel: ObservableObject {
     
     @Published var user: User
     @Published var martrix = CourseTableMatrix()
-    @Published var currentWeek: Int = 10 {
+    @Published var currentWeek: Int = 1 {
         willSet {
             self.martrix = flatToMatrix(courseList: courseTableResponseList, currentWeek: newValue)
         }
@@ -33,6 +33,7 @@ class CourseTableViewModel: ObservableObject {
         self.user = user
         self.courseTableResponseList = []
         self.refreshCourseTable()
+        refreshToGetCurrentWeek { self.currentWeek = $0 }
     }
 }
 

@@ -12,21 +12,16 @@ struct GradeRowView: View {
     @State var course: GradeResponseDataGrade
     var body: some View {
         HStack {
-            Image(systemName: "checkmark.seal.fill")
-                .foregroundColor(Color.green)
             Text(self.course.name)
                 .lineLimit(1)
             Spacer()
             Text(self.course.result)
-            Image(systemName: "chevron.right.circle.fill")
-                .font(.subheadline)
         }
         .padding()
-        .foregroundColor(Color(.systemPink))
-        .font(.headline)
-        .background(Color.white)
+        .foregroundColor(course.status == "正常" ? Color.white: Color(.systemRed))
+        .background(Color("primary"))
         .cornerRadius(8)
-        .shadow(radius: 1, y: 1)
+//        .shadow(radius: 1)
     }
 }
 

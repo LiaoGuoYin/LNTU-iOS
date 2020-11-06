@@ -19,9 +19,12 @@ class LoginViewModel: ObservableObject {
     
     @Published var isLogin: Bool = false
     @Published var userInfo: EducationInfoResponseData! = nil // TODO
+    @Published var helperMessage: HelperMessageResponseData
     
     init(user: User) {
         self.user = user
+        self.helperMessage = HelperMessageResponseData()
+        self.refreshHelperMessage()
     }
     
 }
@@ -47,6 +50,29 @@ extension LoginViewModel {
                     self.banner.type = .Error
                     self.banner.title = "登录获取信息失败"
                     completion(false)
+                }
+            }
+        }
+    }
+}
+
+extension LoginViewModel {
+    func refreshHelperMessage() {
+        APIClient.helperMessage { (result) in
+            switch result {
+            case .failure(let error):
+                self.banner.type = .Error
+                self.banner.title = "初始化数据拉取失败"
+                self.banner.content = error.localizedDescription
+            case .success(let response):
+                self.banner.content = response.message
+                if response.code == 200 {
+                    self.banner.type = .Success
+                    self.banner.title = "初始化数据拉取成功"
+                    self.helperMessage = response.data
+                } else {
+                    self.banner.type = .Error
+                    self.banner.title = "初始化数据拉取失败"
                 }
             }
         }

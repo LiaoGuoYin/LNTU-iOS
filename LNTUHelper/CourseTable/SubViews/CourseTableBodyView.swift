@@ -33,7 +33,7 @@ struct CourseTableBodyView: View {
 struct CourseTableBodyView_Previews: PreviewProvider {
     static var previews: some View {
         let courseTableDemo = try! JSONDecoder().decode(CourseTableResponse.self, from: courseTableDemoData)
-        let courseTableMatrix = flatToMatrix(courseList: courseTableDemo.data!, currentWeek: 10)
+        let courseTableMatrix = flatToMatrix(courseList: courseTableDemo.data!, currentWeek: 20)
         CourseTableBodyView(courseTableMatrix: .constant(courseTableMatrix))
     }
 }

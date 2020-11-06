@@ -22,6 +22,7 @@ class ClassroomViewModel: ObservableObject {
     init(form: ClassroomForm) {
         self.form = form
         self.refreshClassroomList()
+        refreshToGetCurrentWeek { self.form.week = $0 }
     }
     
     func refreshClassroomList() {

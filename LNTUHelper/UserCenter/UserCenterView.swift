@@ -15,30 +15,32 @@ struct UserCenterView: View {
     var body: some View {
         NavigationView {
             ScrollView(showsIndicators: false) {
-                NavigationLink(
-                    destination: UserCenterInfoView(user: viewModel.userInfo),
-                    label: {
-                        HStack {
-                            Image(systemName: "person.crop.rectangle")
-                                .font(.system(size: 40))
+                VStack {
+                    NavigationLink(
+                        destination: UserCenterInfoView(user: viewModel.userInfo),
+                        label: {
+                            HStack {
+                                Image(systemName: "person.crop.rectangle")
+                                    .font(.system(size: 40))
+                                    .foregroundColor(Color.white)
+                                Spacer()
+                                VStack(alignment: .leading) {
+                                    Text(viewModel.userInfo.name)
+                                    Text(viewModel.userInfo.chiefCollege)
+                                }
                                 .foregroundColor(Color.white)
-                            Spacer()
-                            VStack(alignment: .leading) {
-                                Text(viewModel.userInfo.name)
-                                Text(viewModel.userInfo.chiefCollege)
                             }
-                            .foregroundColor(Color.white)
+                            .padding(20)
+                            .background(Color("primary"))
                         }
-                        .padding(20)
-                        .background(Color("primary"))
-                    }
-                )
-                .padding(.bottom, 10)
-                .cornerRadius(12)
-                
-                logoutButton
+                    )
+                    .padding(.bottom, 10)
+                    .cornerRadius(12)
+                    
+                    logoutButton
+                }
+                .padding()
             }
-            .padding()
             .navigationBarTitle(Text("用户中心"), displayMode: .large)
         }
         .shadow(radius: 5)

@@ -10,19 +10,24 @@ import SwiftUI
 struct GradeRowDetailView: View {
     @State var course: GradeResponseDataGrade
     var body: some View {
-        VStack(spacing: 50) {
-            Text(course.code)
-            Text(course.semester)
-            Text(course.name)
-            Text(course.courseType)
-            Text(course.credit)
-            HStack {
-                Text(course.usual)
-                Text(course.midTerm)
-                Text(course.endTerm)
-                Text(course.result)
+        VStack(alignment: .leading, spacing: 50) {
+            
+            VStack(alignment: .leading, spacing: 20) {
+                Text(course.name)
+                Text(course.courseType)
+                Text(course.semester)
+                Text(course.code)
             }
-            .padding()
+            
+            VStack(alignment: .leading, spacing: 20) {
+                Text("绩点: \(course.point)")
+                Text("期中成绩: \(course.midTerm)")
+                Text("期末成绩: \(course.endTerm)")
+                Text("期中成绩: \(course.midTerm)")
+                Text("平时成绩: \(course.usual)")
+                Text("最终成绩: \(course.result)")
+            }
+
         }
         .foregroundColor(.white)
         .font(.system(size: 24, weight: .regular, design: .monospaced))

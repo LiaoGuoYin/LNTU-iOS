@@ -15,11 +15,10 @@ struct CourseTableView: View {
         NavigationView {
             VStack(spacing: 0) {
                 HStack(spacing: 2) {
-                    Text("\(viewModel.currentWeek) 周")
-                        .frame(width: 48)
+                    Text("第 \(viewModel.currentWeek) 周")
+                        .font(.caption)
+                        .frame(width: 50)
                         .padding()
-                        .foregroundColor(.white)
-                        .background(Color("primary"))
                     WeekSelecter(selectedWeek: $viewModel.currentWeek)
                 }
                 
@@ -59,7 +58,7 @@ struct WeekSelecter: View {
                         .foregroundColor(.white)
                         .padding(12)
                         .frame(width: 48)
-                        .background((selectedWeek == each) ? Color(.systemBlue): Color(.systemGray))
+                        .background((selectedWeek == each) ? Color("primary") : Color(.systemBlue))
                         .cornerRadius(3.0)
                         .onTapGesture(perform: {
                             self.selectedWeek = each

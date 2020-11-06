@@ -31,7 +31,7 @@ struct CourseCellView: View {
 struct CourseCellView_Previews: PreviewProvider {
     static var previews: some View {
         let courseTableDemo = try! JSONDecoder().decode(CourseTableResponse.self, from: courseTableDemoData)
-        let courseTableMatrix = flatToMatrix(courseList: courseTableDemo.data!, currentWeek: 10)
+        let courseTableMatrix = flatToMatrix(courseList: courseTableDemo.data!, currentWeek: 20)
         CourseCellView(cell: .constant(courseTableMatrix[1,1][1]))
     }
 }

@@ -9,8 +9,9 @@ import Alamofire
 import Foundation
 
 enum APIEducationRouter: URLRequestConvertible {
-    static var defaultParams = ["device-imei": "nil"] // set the default params
+    static var defaultParams = ["imei": "nil"] // set the default params
     
+    case initHelperMessage
     case notice
     case classroom(week: Int, buildingName: String)
     
@@ -22,7 +23,7 @@ enum APIEducationRouter: URLRequestConvertible {
     // MARK: - HTTPMethod
     private var method: HTTPMethod {
         switch self {
-        case .classroom, .notice:
+        case .classroom, .notice, .initHelperMessage:
             return .get
         case .data, .info, .courseTable, .grade:
             return .post
@@ -32,6 +33,8 @@ enum APIEducationRouter: URLRequestConvertible {
     // MARK: - Path
     private var path: String {
         switch self {
+        case .initHelperMessage:
+            return "education/init"
         case .notice:
             return "/education/notice"
         case .classroom:

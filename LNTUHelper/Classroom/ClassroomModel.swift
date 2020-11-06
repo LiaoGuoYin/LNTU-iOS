@@ -70,8 +70,8 @@ struct ClassroomForm {
 
 enum CampusEnum: String, CaseIterable, Identifiable {
     case hld = "葫芦岛校区"
-    case fxn = "阜新南校"
     case fxb = "阜新北校"
+    case fxn = "阜新南校"
     
     var id: String {
         return self.rawValue

@@ -16,7 +16,6 @@ struct ClassroomView: View {
             ScrollView(showsIndicators: false) {
                 VStack(alignment: .leading) {
                     Text("当前选择: \(viewModel.form.campus.rawValue) \(viewModel.form.selectedBuilding) 第 \(viewModel.form.week) 周")
-                        .bold()
                         .foregroundColor(.gray)
                     
                     Picker("校区", selection: $viewModel.form.campus) {
@@ -33,12 +32,12 @@ struct ClassroomView: View {
                     
                     Stepper(value: $viewModel.form.week, in: 1...22) {
                         Text("第 \(viewModel.form.week) 周")
-                            .font(.headline)
                             .foregroundColor(Color("primary"))
                     }
                     
                     ClassroomDetailView(classroomList: $viewModel.classroomList)
                 }
+                .font(.headline)
                 .padding()
             }
             .pickerStyle(SegmentedPickerStyle())
@@ -61,7 +60,7 @@ struct ClassroomView: View {
 
 struct ClassroomView_Previews: PreviewProvider {
     static var previews: some View {
-        let viewModel = ClassroomViewModel(form: ClassroomForm(week: 10, campus: .hld))
+        let viewModel = ClassroomViewModel(form: ClassroomForm(week: 20, campus: .hld))
         return ClassroomView(viewModel: viewModel)
     }
 }

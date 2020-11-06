@@ -36,7 +36,7 @@ struct LoginView: View {
                             .foregroundColor(.white)
                             .background(Color("primary"))
                             .cornerRadius(8)
-                        SecureField("请输入身份证后六位", text:  $router.user.password)
+                        SecureField("请输入身份证(默认密码)", text:  $router.user.password)
                             .padding()
                             .background(Color(.systemFill))
                             .cornerRadius(8)

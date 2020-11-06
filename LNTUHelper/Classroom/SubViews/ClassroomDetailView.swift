@@ -10,13 +10,12 @@ import SwiftUI
 struct ClassroomDetailView: View {
     
     @Binding var classroomList: [ClassroomResponseData]
-    @State var selectedWeekday: Int = 1
+    @State private var selectedWeekday: Int = getCurrentWeekDay() - 1
     
     var body: some View {
-        VStack {
+        VStack(spacing: 6) {
             Stepper(value: $selectedWeekday, in: 1...7) {
                 Text("周 \(selectedWeekday)")
-                    .bold()
                     .font(.headline)
                     .foregroundColor(Color("primary"))
             }
@@ -24,6 +23,7 @@ struct ClassroomDetailView: View {
             ForEach(classroomList, id: \.self) { each in
                 HStack {
                     Text(each.address)
+                        .bold()
                         .layoutPriority(1)
                     Spacer()
                     Text(each.type)
@@ -31,6 +31,7 @@ struct ClassroomDetailView: View {
                         .frame(width: UIScreen.main.bounds.width / 8)
                     ClassroomDetailRowView(weekdayStatusList: .constant(each.data[selectedWeekday - 1]))
                 }
+                .font(.subheadline)
                 .lineLimit(1)
             }
         }

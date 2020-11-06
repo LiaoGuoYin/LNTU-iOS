@@ -42,4 +42,8 @@ class APIClient {
         performRequest(route: APIEducationRouter.data(user: user), completion: completion)
     }
     
+    static func helperMessage(completion: @escaping (Result<HelperMessageResponse, AFError>) -> Void) {
+        performRequest(route: APIEducationRouter.initHelperMessage, completion: completion)
+    }
+    
 }
