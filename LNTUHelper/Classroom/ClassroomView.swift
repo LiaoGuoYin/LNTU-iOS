@@ -42,8 +42,9 @@ struct ClassroomView: View {
             }
             .pickerStyle(SegmentedPickerStyle())
             .navigationBarTitle(Text("空教室"), displayMode: .large)
-            .navigationBarItems(trailing: queryButton)
+//            .navigationBarItems(trailing: queryButton)
         }
+        .navigationViewStyle(StackNavigationViewStyle())
         .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
     }
     

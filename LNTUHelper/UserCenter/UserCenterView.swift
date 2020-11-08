@@ -15,7 +15,7 @@ struct UserCenterView: View {
     var body: some View {
         NavigationView {
             ScrollView(showsIndicators: false) {
-                VStack {
+                if router.isLogin {
                     NavigationLink(
                         destination: UserCenterInfoView(user: viewModel.userInfo),
                         label: {
@@ -34,16 +34,19 @@ struct UserCenterView: View {
                             .background(Color("primary"))
                         }
                     )
-                    .padding(.bottom, 10)
                     .cornerRadius(12)
-                    
-                    logoutButton
+                } else {
+                    EmptyView()
                 }
-                .padding()
+                
+                LibraryCardView()
+                
+                logoutButton
             }
+            .padding()
             .navigationBarTitle(Text("用户中心"), displayMode: .large)
         }
-        .shadow(radius: 5)
+        .navigationViewStyle(StackNavigationViewStyle())
         .accentColor(Color("primary"))
     }
     

@@ -30,6 +30,8 @@
 		AF3053D4254570CD00F849A9 /* ClassroomModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3053D3254570CD00F849A9 /* ClassroomModel.swift */; };
 		AF3053D62545710300F849A9 /* ClassroomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3053D52545710300F849A9 /* ClassroomView.swift */; };
 		AF3053D82545711300F849A9 /* ClassroomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3053D72545711300F849A9 /* ClassroomViewModel.swift */; };
+		AF35E9492556FB81008E7AA7 /* LibraryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35E9482556FB81008E7AA7 /* LibraryCardView.swift */; };
+		AF4FE2C92557CAFF00C5738E /* CarBode in Frameworks */ = {isa = PBXBuildFile; productRef = AF4FE2C82557CAFF00C5738E /* CarBode */; };
 		AF525B31254804EC006A2CC9 /* CommonModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF525B30254804EC006A2CC9 /* CommonModifiers.swift */; };
 		AF599BEE2547E4B000E8D769 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF599BED2547E4B000E8D769 /* ViewRouter.swift */; };
 		AF599BF02547E57800E8D769 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF599BEF2547E57800E8D769 /* LoginView.swift */; };
@@ -108,6 +110,7 @@
 		AF3053D3254570CD00F849A9 /* ClassroomModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomModel.swift; sourceTree = "<group>"; };
 		AF3053D52545710300F849A9 /* ClassroomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomView.swift; sourceTree = "<group>"; };
 		AF3053D72545711300F849A9 /* ClassroomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomViewModel.swift; sourceTree = "<group>"; };
+		AF35E9482556FB81008E7AA7 /* LibraryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCardView.swift; sourceTree = "<group>"; };
 		AF525B30254804EC006A2CC9 /* CommonModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonModifiers.swift; sourceTree = "<group>"; };
 		AF599BED2547E4B000E8D769 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
 		AF599BEF2547E57800E8D769 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -148,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF3053CD25455B0C00F849A9 /* Alamofire in Frameworks */,
+				AF4FE2C92557CAFF00C5738E /* CarBode in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,6 +386,7 @@
 			children = (
 				AFE3553E25491E370099B1CB /* UserCenterView.swift */,
 				AF5E4AEB254AF84800736FB4 /* UserCenterInfoView.swift */,
+				AF35E9482556FB81008E7AA7 /* LibraryCardView.swift */,
 			);
 			path = UserCenter;
 			sourceTree = "<group>";
@@ -404,6 +409,7 @@
 			name = LNTUHelper;
 			packageProductDependencies = (
 				AF3053CC25455B0C00F849A9 /* Alamofire */,
+				AF4FE2C82557CAFF00C5738E /* CarBode */,
 			);
 			productName = LNTUHelper;
 			productReference = AF30539225455A6600F849A9 /* LNTUHelper.app */;
@@ -478,6 +484,7 @@
 			mainGroup = AF30538925455A6600F849A9;
 			packageReferences = (
 				AF3053CB25455B0C00F849A9 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				AF4FE2C72557CAFF00C5738E /* XCRemoteSwiftPackageReference "CarBode-Barcode-Scanner-For-SwiftUI" */,
 			);
 			productRefGroup = AF30539325455A6600F849A9 /* Products */;
 			projectDirPath = "";
@@ -552,6 +559,7 @@
 				AF5E4ACD254A595300736FB4 /* GradeView.swift in Sources */,
 				AF5E4AE5254ADB1C00736FB4 /* NoticeCardView.swift in Sources */,
 				AF7BD7022546F18400771CDA /* CourseTableBodyView.swift in Sources */,
+				AF35E9492556FB81008E7AA7 /* LibraryCardView.swift in Sources */,
 				AF7BD6F42545BDAF00771CDA /* ClassroomDetailRowView.swift in Sources */,
 				AF5E4AD1254A59A900736FB4 /* GradeModel.swift in Sources */,
 				AF599BF02547E57800E8D769 /* LoginView.swift in Sources */,
@@ -743,7 +751,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = primary;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "LNTUHelper/Preview\\ Content";
 				DEVELOPMENT_TEAM = M9CCRH8GRW;
 				ENABLE_PREVIEWS = YES;
@@ -766,7 +774,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = primary;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "LNTUHelper/Preview\\ Content";
 				DEVELOPMENT_TEAM = M9CCRH8GRW;
 				ENABLE_PREVIEWS = YES;
@@ -917,6 +925,14 @@
 				minimumVersion = 5.3.0;
 			};
 		};
+		AF4FE2C72557CAFF00C5738E /* XCRemoteSwiftPackageReference "CarBode-Barcode-Scanner-For-SwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/heart/CarBode-Barcode-Scanner-For-SwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -924,6 +940,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AF3053CB25455B0C00F849A9 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		AF4FE2C82557CAFF00C5738E /* CarBode */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AF4FE2C72557CAFF00C5738E /* XCRemoteSwiftPackageReference "CarBode-Barcode-Scanner-For-SwiftUI" */;
+			productName = CarBode;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

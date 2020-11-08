@@ -30,7 +30,8 @@ func loadLocalUser() -> User? {
 func getCurrentWeekDay() -> Int {
     let today = Date()
     let calendar = Calendar.current
-    return calendar.component(.weekday, from: today)
+    let dayNumber = calendar.component(.weekday, from: today)
+    return (dayNumber == 1) ? 7 : (dayNumber - 1)
 }
 
 func refreshToGetCurrentWeek(completion: @escaping (Int) -> ()) {

@@ -24,10 +24,11 @@ struct CourseTableView: View {
                 
                 CourseTableBodyView(courseTableMatrix: $viewModel.martrix)
                     .padding(.horizontal)
-                    .navigationBarTitle(Text("课表"), displayMode: .inline)
+                    .navigationBarTitle(Text("课表"), displayMode: .large)
                     .navigationBarItems(trailing: refreshButton)
             }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
         .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
     }
     

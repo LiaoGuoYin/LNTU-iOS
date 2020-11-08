@@ -8,33 +8,33 @@
 import Foundation
 
 struct GradeResponse: Codable {
-    let code: Int
-    let message: String
-    let data: GradeResponseData?
+    var code: Int
+    var message: String
+    var data: GradeResponseData?
 }
 
 struct GradeResponseData: Codable {
-    let grade: [GradeResponseDataGrade]
-    let gpa: GradeResponseDataGPA
+    var grade: [GradeResponseDataGrade]
+    var gpa: GradeResponseDataGPA
 }
 
 // MARK: - Grade
 struct GradeResponseDataGrade: Codable, Hashable {
-    let name: String
-    let credit: String
-    let semester: String
-    let status: String
-    let result: String
-    let code, courseType, usual, midTerm, endTerm: String
-    let makeUpScore, makeUpScoreResult: String?
-    let point: String
+    var name: String
+    var credit: String
+    var semester: String
+    var status: String
+    var result: String
+    var code, courseType, usual, midTerm, endTerm: String
+    var makeUpScore, makeUpScoreResult: String?
+    var point: String
 }
 
 // MARK: - GPA
 struct GradeResponseDataGPA: Codable {
-    let semester: String
-    let gradePointAverage, weightedAverage, gradePointTotal, scoreTotal, creditTotal: Double
-    let courseCount: Int
+    var semester: String
+    var gradePointAverage, weightedAverage, gradePointTotal, scoreTotal, creditTotal: Double
+    var courseCount: Int
 }
 
 extension GradeResponseDataGrade {

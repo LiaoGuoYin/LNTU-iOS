@@ -10,7 +10,7 @@ import SwiftUI
 struct ClassroomDetailView: View {
     
     @Binding var classroomList: [ClassroomResponseData]
-    @State private var selectedWeekday: Int = getCurrentWeekDay() - 1
+    @State private var selectedWeekday: Int = getCurrentWeekDay()
     
     var body: some View {
         VStack(spacing: 6) {

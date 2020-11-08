@@ -16,7 +16,12 @@ class ClassroomViewModel: ObservableObject {
         }
     }
     
-    @Published var form: ClassroomForm
+    @Published var form: ClassroomForm {
+        didSet {
+            self.refreshClassroomList()
+            Haptic.shared.complexSuccess()
+        }
+    }
     @Published var classroomList: [ClassroomResponseData] = []
     
     init(form: ClassroomForm) {

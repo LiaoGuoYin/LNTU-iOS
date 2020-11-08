@@ -18,7 +18,7 @@ struct GradeRowView: View {
             Text(self.course.result)
         }
         .padding()
-        .foregroundColor(course.status == "正常" ? Color.white: Color(.systemRed))
+        .foregroundColor(course.status == "正常" ? Color.white: Color(.systemPink))
         .background(Color("primary"))
         .cornerRadius(8)
         .shadow(radius: 1)

@@ -27,17 +27,17 @@ class ViewRouter: ObservableObject {
     
     init(user: User) {
         self.user = user
-        self.isLogin = false
         self.courseTableViewModel = CourseTableViewModel(user: user)
         self.noticeViewModel = NoticeViewModel()
         self.gradeViewModel = GradeViewModel(user: user)
         self.loginViewModel = LoginViewModel(user: user)
         self.classroomViewModel = ClassroomViewModel(form: ClassroomForm(week: 1, campus: .hld))
+        self.isLogin = true
     }
     
     convenience init(user: User, isLogin: Bool) {
         self.init(user: user)
-        self.isLogin = false
+        self.isLogin = isLogin
     }
 }
 

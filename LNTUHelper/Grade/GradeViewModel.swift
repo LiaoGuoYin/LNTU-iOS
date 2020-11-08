@@ -19,6 +19,7 @@ class GradeViewModel: ObservableObject {
     
     @Published var gradeList: [GradeResponseDataGrade]
     @Published var gradePointAverage: GradeResponseDataGPA
+    @Published var selectedSemester: String = "2020-春"
     
     var gradeResult: [String: [GradeResponseDataGrade]] {
         get {
@@ -36,13 +37,15 @@ class GradeViewModel: ObservableObject {
         self.user = user
         self.gradeList = []
         self.gradePointAverage = GradeResponseDataGPA(semester: "", gradePointAverage: 0.0, weightedAverage: 0.0, gradePointTotal: 0.0, scoreTotal: 0.0, creditTotal: 0, courseCount: 0)
-        self.refreshGradeList(semester: "2020-秋")
+        self.refreshGradeList {
+            self.selectedSemester = self.gradeResultKeyList.first ?? "2020-春"
+        }
     }
     
 }
 
 extension GradeViewModel {
-    func refreshGradeList(semester: String) {
+    func refreshGradeList(completion: @escaping () -> ()) {
         APIClient.grade(user: user) { (result) in
             switch result {
             case .failure(let error):
@@ -57,6 +60,7 @@ extension GradeViewModel {
                     if let actualResponseData = response.data {
                         self.gradeList = actualResponseData.grade
                         self.gradePointAverage = actualResponseData.gpa
+                        completion()
                     }
                 } else {
                     self.banner.type = .Error

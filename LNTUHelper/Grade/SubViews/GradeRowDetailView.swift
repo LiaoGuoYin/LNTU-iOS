@@ -8,17 +8,15 @@
 import SwiftUI
 
 struct GradeRowDetailView: View {
-    @State var course: GradeResponseDataGrade
+    @Binding var course: GradeResponseDataGrade
     var body: some View {
         VStack(alignment: .leading, spacing: 50) {
-            
             VStack(alignment: .leading, spacing: 20) {
                 Text(course.name)
                 Text(course.courseType)
                 Text(course.semester)
                 Text(course.code)
             }
-            
             VStack(alignment: .leading, spacing: 20) {
                 Text("绩点: \(course.point)")
                 Text("期中成绩: \(course.midTerm)")
@@ -27,14 +25,14 @@ struct GradeRowDetailView: View {
                 Text("平时成绩: \(course.usual)")
                 Text("最终成绩: \(course.result)")
             }
-
         }
+        .padding()
         .foregroundColor(.white)
         .font(.system(size: 24, weight: .regular, design: .monospaced))
-        .frame(width: 1024, height: 1800)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color("primary"))
-        .padding()
         .cornerRadius(10)
+        .edgesIgnoringSafeArea(.all)
     }
 }
 
@@ -43,7 +41,7 @@ struct GradeRowDetailView_Previews: PreviewProvider {
     static var previews: some View {
         let demoData = """
               {
-                "name": "信息系统分析与设计",
+                "name": "信息系统分析与设计信息系统分析与设计信息系统分析与设计信息系统分析与设计",
                 "credit": "3.5",
                 "semester": "2019-20202",
                 "status": "正常",
@@ -59,6 +57,6 @@ struct GradeRowDetailView_Previews: PreviewProvider {
               }
               """.data(using: .utf8)!
         let demoGrade = try! JSONDecoder().decode(GradeResponseDataGrade.self, from: demoData)
-        return GradeRowDetailView(course: demoGrade)
+        return GradeRowDetailView(course: .constant(demoGrade))
     }
 }

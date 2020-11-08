@@ -40,6 +40,8 @@
 			<string></string>
 		</dict>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>This App need to use camera to scan a bar code user-id</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

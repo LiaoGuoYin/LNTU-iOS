@@ -16,7 +16,6 @@ struct GradeView: View {
             isShowDetail = true
         }
     }
-    @State var selectedSemester: String = "2020-春"
 
     var body: some View {
         NavigationView {
@@ -27,17 +26,17 @@ struct GradeView: View {
                             Text(key)
                                 .foregroundColor(.white)
                                 .padding()
-                                .background(selectedSemester == key ? Color("primary") : Color(.systemBlue))
+                                .background(viewModel.selectedSemester == key ? Color("primary") : Color(.systemBlue))
                                 .cornerRadius(6)
                                 .onTapGesture {
-                                    self.selectedSemester = key
+                                    viewModel.selectedSemester = key
                                 }
                         }
                     }
                     .padding(.horizontal)
                 }
-                if viewModel.gradeResultKeyList.contains(selectedSemester) {
-                    ForEach(Array(arrayLiteral: viewModel.gradeResult[selectedSemester]!), id: \.self) { each in
+                if viewModel.gradeResultKeyList.contains(viewModel.selectedSemester) {
+                    ForEach(Array(arrayLiteral: viewModel.gradeResult[viewModel.selectedSemester]!), id: \.self) { each in
                         ForEach(each, id: \.code) { course in
                             GradeRowView(course: course)
                                 .padding(.horizontal)
@@ -48,26 +47,29 @@ struct GradeView: View {
                         }
                     }
                 } else {
-                    Text("Opps, 还没有考试记录噢")
+                    Text("Oops, 还没有考试成绩噢")
                         .padding()
                 }
                 //                    SemesterPickerView()
                 //                    GradePointAverageView(gpa: $viewModel.gradePointAverage)
             }
+            .navigationViewStyle(StackNavigationViewStyle())
             .navigationBarItems(trailing: refreshButton)
             .navigationBarTitle("成绩",displayMode: .large)
-            .navigationViewStyle(DefaultNavigationViewStyle())
             .sheet(isPresented: $isShowDetail) {
-                GradeRowDetailView(course: tappedCourse)
+                GradeRowDetailView(course: $tappedCourse)
             }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
         .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
     }
     
     var refreshButton: some View {
         Button(action: {
             Haptic.shared.complexSuccess()
-            viewModel.refreshGradeList(semester: "2020-秋")
+            viewModel.refreshGradeList {
+                viewModel.selectedSemester = viewModel.gradeResultKeyList.first ?? "2020-春"
+            }
         }) {
             Text("刷新")
                 .foregroundColor(Color("primary"))

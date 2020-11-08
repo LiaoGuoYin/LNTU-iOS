@@ -9,6 +9,15 @@
           "revision": "097e1f03166d49b31f824507fb85ad843b14fc13",
           "version": "5.3.0"
         }
+      },
+      {
+        "package": "CarBode",
+        "repositoryURL": "https://github.com/heart/CarBode-Barcode-Scanner-For-SwiftUI.git",
+        "state": {
+          "branch": null,
+          "revision": "e3d65bd4fe7649d48264ed432721e36d11d3268b",
+          "version": "2.2.1"
+        }
       }
     ]
   },
