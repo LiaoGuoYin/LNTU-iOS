@@ -35,14 +35,14 @@ struct EducationInfoResponseData: Codable {
     let effectAt, isInRecord, studentStatus, isWorking: String
 }
 
-let educationInfoResponseDataDemo = """
+let demoUserInfoResponseData = """
     {
       "code": 200,
       "message": "Success",
       "data": {
-        "username": "1202002",
-        "name": "LGY",
-        "photoUrl": "http://202.199.224.119:8080/eams/showSelfAvatar.action?user.name=23232",
+        "username": "111111111",
+        "name": "测试用户",
+        "photoUrl": "http://202.199.224.119:8080/eams/showSelfAvatar.action?user.name=11111111",
         "nickname": "abc",
         "gender": "男",
         "grade": "2017",
@@ -50,17 +50,17 @@ let educationInfoResponseDataDemo = """
         "project": "主修",
         "education": "本科",
         "studentType": "本科 4 年",
-        "college": "工",
-        "major": "信息系统",
+        "college": "管理",
+        "major": "信息",
         "direction": null,
         "enrollDate": "2017-09-01",
         "graduateDate": "2021-07-01",
-        "chiefCollege": "工商学院",
+        "chiefCollege": "测试学院",
         "studyType": "普通全日制",
         "membership": "是",
         "isInSchool": "是",
         "campus": "辽宁工大校区",
-        "majorClass": "信2",
+        "majorClass": "",
         "effectAt": "2017-09-01",
         "isInRecord": "是",
         "studentStatus": "在校",
@@ -68,4 +68,4 @@ let educationInfoResponseDataDemo = """
       }
     }
     """.data(using: .utf8)!
-let educationInfoResponseDataObjectDemo = try! JSONDecoder().decode(EducationInfoResponse.self, from: educationInfoResponseDataDemo).data
+let demoUserInfoResponse = try! JSONDecoder().decode(EducationInfoResponse.self, from: demoUserInfoResponseData).data!

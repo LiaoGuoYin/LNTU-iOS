@@ -17,7 +17,14 @@ class ViewRouter: ObservableObject {
     }
     
     @Published var user: User
-    @Published var isLogin: Bool = false
+    @Published var isLogin: Bool = false {
+        didSet {
+            UserDefaults.standard.setValue(isLogin, forKey: "is-login")
+            if let actualUserData = try? JSONEncoder().encode(user) {
+                UserDefaults.standard.setValue(actualUserData, forKey: "user")
+            }
+        }
+    }
     
     @Published var courseTableViewModel: CourseTableViewModel
     @Published var noticeViewModel: NoticeViewModel
@@ -32,7 +39,6 @@ class ViewRouter: ObservableObject {
         self.gradeViewModel = GradeViewModel(user: user)
         self.loginViewModel = LoginViewModel(user: user)
         self.classroomViewModel = ClassroomViewModel(form: ClassroomForm(week: 1, campus: .hld))
-        self.isLogin = true
     }
     
     convenience init(user: User, isLogin: Bool) {
@@ -60,7 +66,6 @@ extension ViewRouter {
                     self.courseTableViewModel.courseTableResponseList = data.courseTable
                     self.gradeViewModel.gradeList = data.grade
                     self.gradeViewModel.gradePointAverage = data.gpa
-                    backupUserToLocal(user: self.user)
                     self.isLogin = true
                 }
             }

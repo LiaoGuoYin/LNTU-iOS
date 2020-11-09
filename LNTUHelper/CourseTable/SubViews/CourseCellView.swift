@@ -21,8 +21,8 @@ struct CourseCellView: View {
         .font(.caption)
         .padding(.horizontal, 2)
         .foregroundColor(.white)
-        .frame(width: UIScreen.main.bounds.width / 6, height: UIScreen.main.bounds.height / 8)
-        .background(Color("primary"))
+        .frame(width: UIScreen.main.bounds.width / 6, height: UIScreen.main.bounds.height / 6)
+        .background(cell.name != "" ? Color("primary") : Color("cell-blank"))
         .cornerRadius(6)
         .multilineTextAlignment(.center)
     }

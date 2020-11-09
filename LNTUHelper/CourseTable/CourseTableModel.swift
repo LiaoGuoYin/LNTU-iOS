@@ -60,17 +60,21 @@ struct CourseTableMatrix {
         matrix.append([CourseTableMatrixCell()])
         for y in 1...5 {
             for x in 1...7 {
-                matrix.append([CourseTableMatrixCell(x:x, y: y)])
+                matrix.append([CourseTableMatrixCell(x: x, y: y)])
             }
         }
     }
     
-    subscript(x: Int, y: Int) -> [CourseTableMatrixCell] {
+    subscript(x: Int, y: Int, at offset: Int = -1) -> [CourseTableMatrixCell] {
         get {
             return matrix[(y - 1) * 7 + x]
         }
-        set {
-            matrix[(y - 1) * 7 + x].append(contentsOf: newValue)
+        set(newValue) {
+            if offset == 0 {
+                matrix[(y - 1) * 7 + x].insert(contentsOf: newValue, at: matrix[(y - 1) * 7 + x].startIndex)
+            } else {
+                matrix[(y - 1) * 7 + x].insert(contentsOf: newValue, at: matrix[(y - 1) * 7 + x].endIndex)
+            }
         }
     }
 }

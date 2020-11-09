@@ -17,8 +17,20 @@ class GradeViewModel: ObservableObject {
         }
     }
     
-    @Published var gradeList: [GradeResponseDataGrade]
-    @Published var gradePointAverage: GradeResponseDataGPA
+    @Published var gradeList: [GradeResponseDataGrade] {
+        didSet {
+            if let actualGradeListData = try? JSONEncoder().encode(gradeList) {
+                UserDefaults.standard.setValue(actualGradeListData, forKey: "grade")
+            }
+        }
+    }
+    @Published var gradePointAverage: GradeResponseDataGPA {
+        didSet {
+            if let actualGradePointAverageData = try? JSONEncoder().encode(gradePointAverage) {
+                UserDefaults.standard.setValue(actualGradePointAverageData, forKey: "gpa")
+            }
+        }
+    }
     @Published var selectedSemester: String = "2020-春"
     
     var gradeResult: [String: [GradeResponseDataGrade]] {

@@ -11,29 +11,34 @@ class CourseTableViewModel: ObservableObject {
     
     @Published var isShowBanner: Bool = false
     @Published var banner: BannerModifier.Data = BannerModifier.Data(content: "") {
-        willSet {
+        didSet {
             self.isShowBanner = true
         }
     }
     
     @Published var user: User
-    @Published var martrix = CourseTableMatrix()
-    @Published var currentWeek: Int = 1 {
-        willSet {
-            self.martrix = flatToMatrix(courseList: courseTableResponseList, currentWeek: newValue)
+    @Published var martrix: CourseTableMatrix
+    @Published var currentWeek: Int {
+        didSet {
+            self.martrix = flatToMatrix(courseList: courseTableResponseList, currentWeek: currentWeek)
         }
     }
     @Published var courseTableResponseList: [CourseTableResponseData] {
-        willSet {
-            self.martrix = flatToMatrix(courseList: newValue, currentWeek: currentWeek)
+        didSet {
+            self.martrix = flatToMatrix(courseList: courseTableResponseList, currentWeek: currentWeek)
+            if let actualCourseTableData = try? JSONEncoder().encode(courseTableResponseList) {
+                UserDefaults.standard.setValue(actualCourseTableData, forKey: "course-table")
+            }
         }
     }
     
     init(user: User) {
         self.user = user
         self.courseTableResponseList = []
-        self.refreshCourseTable()
+        self.currentWeek = 1
+        self.martrix = CourseTableMatrix()
         refreshToGetCurrentWeek { self.currentWeek = $0 }
+        self.refreshCourseTable()
     }
 }
 
@@ -50,8 +55,9 @@ extension CourseTableViewModel {
                 if response.code == 200 {
                     self.banner.type = .Success
                     self.banner.title = "拉取课表成功"
-                    guard response.data != nil else { return }
-                    self.courseTableResponseList = response.data!
+                    if let actualCourseTableResponse = response.data {
+                        self.courseTableResponseList = actualCourseTableResponse
+                    }
                 } else {
                     self.banner.type = .Error
                     self.banner.title = "拉取课表失败"
@@ -68,10 +74,8 @@ func flatToMatrix(courseList: [CourseTableResponseData], currentWeek: Int) -> Co
     courseList.forEach { (course) in
         course.schedules.forEach { (schedule) in
             let cell = CourseTableMatrixCell(code: course.code, name: course.name, teacher: course.teacher, credit: course.credit, room: schedule.room, weekday: schedule.weekday, index: schedule.index, weeksString: schedule.weeksString, weeks: schedule.weeks)
-            if schedule.weeks.contains(currentWeek)  {
-                courseTableMatrix[schedule.weekday, schedule.index].insert(cell, at: courseTableMatrix[schedule.weekday, schedule.index].startIndex)
-            } else {
-                courseTableMatrix[schedule.weekday, schedule.index].append(cell)
+            if schedule.weeks.contains(currentWeek) {
+                courseTableMatrix[schedule.weekday, schedule.index, at: 0] = [cell]
             }
         }
     }

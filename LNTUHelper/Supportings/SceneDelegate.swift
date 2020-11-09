@@ -19,13 +19,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
         var user = User(username: "1710030000", password: "*")
-        if let localUser = loadLocalUser() {
-            user = localUser
+        
+        if let actualUser = loadLocalUser() {
+            user = actualUser
         }
+        
+        let isLogin = UserDefaults.standard.bool(forKey: "is-login")
         
         // Create the SwiftUI view that provides the window contents.
         let contentView = ContentView()
-            .environmentObject(ViewRouter(user: user, isLogin: false))
+            .environmentObject(ViewRouter(user: user, isLogin: isLogin))
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {

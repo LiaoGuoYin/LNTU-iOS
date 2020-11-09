@@ -21,14 +21,13 @@ struct CourseTableView: View {
                         .padding()
                     WeekSelecter(selectedWeek: $viewModel.currentWeek)
                 }
-                
                 CourseTableBodyView(courseTableMatrix: $viewModel.martrix)
                     .padding(.horizontal)
                     .navigationBarTitle(Text("课表"), displayMode: .large)
                     .navigationBarItems(trailing: refreshButton)
             }
         }
-        .navigationViewStyle(StackNavigationViewStyle())
+        .navigationViewStyle(DoubleColumnNavigationViewStyle())
         .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
     }
     

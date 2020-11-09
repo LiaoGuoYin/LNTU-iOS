@@ -23,6 +23,7 @@ struct LibraryCardView: View {
                 .padding()
                 .background(Color("primary"))
                 .cornerRadius(8)
+                .keyboardType(.asciiCapable)
             CBBarcodeView(data: $libraryId,
                           barcodeType: $barcodeType,
                           orientation: $rotate, onGenerated: nil)
@@ -32,6 +33,7 @@ struct LibraryCardView: View {
                 .font(.subheadline)
                 .foregroundColor(.gray)
         }
+        .resignKeyboardOnDragGesture()
         .onAppear(perform: {
             if let localLibraryId = UserDefaults.standard.string(forKey: "libraryId") {
                 self.libraryId = localLibraryId

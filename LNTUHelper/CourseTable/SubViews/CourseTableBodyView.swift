@@ -16,11 +16,7 @@ struct CourseTableBodyView: View {
                     ForEach(1...5, id: \.self) { y in
                         HStack(spacing: 2) {
                             ForEach(1...7, id: \.self) { x in
-                                if courseTableMatrix[x, y].count > 1 {
-                                    CourseCellView(cell: $courseTableMatrix[x, y][1])
-                                } else {
-                                    CourseCellView(cell: $courseTableMatrix[x, y][0])
-                                }
+                                CourseCellView(cell: $courseTableMatrix[x, y][0])
                             }
                         }
                     }

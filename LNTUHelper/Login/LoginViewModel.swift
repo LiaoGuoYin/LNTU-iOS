@@ -18,12 +18,20 @@ class LoginViewModel: ObservableObject {
     }
     
     @Published var isLogin: Bool = false
-    @Published var userInfo: EducationInfoResponseData! = nil // TODO
+    // MARK: - TODO
+    @Published var userInfo: EducationInfoResponseData {
+        didSet {
+            if let actualInfoData = try? JSONEncoder().encode(userInfo) {
+                UserDefaults.standard.setValue(actualInfoData, forKey: "info")
+            }
+        }
+    }
     @Published var helperMessage: HelperMessageResponseData
     
     init(user: User) {
         self.user = user
         self.helperMessage = HelperMessageResponseData()
+        self.userInfo = demoUserInfoResponse
         self.refreshHelperMessage()
     }
     
@@ -43,8 +51,9 @@ extension LoginViewModel {
                 if response.code == 200 {
                     self.banner.type = .Success
                     self.banner.title = "登录获取信息成功"
-                    self.userInfo = response.data
-                    backupUserToLocal(user: self.user)
+                    if let actualUserInfoData = response.data {
+                        self.userInfo = actualUserInfoData
+                    }
                     completion(true)
                 } else {
                     self.banner.type = .Error
