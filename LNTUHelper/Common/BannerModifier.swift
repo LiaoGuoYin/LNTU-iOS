@@ -74,6 +74,9 @@ struct BannerModifier: ViewModifier {
                 })
             }
         }
+        .onAppear(perform: {
+            Haptic.shared.complexSuccess()
+        })
     }
     
 }

@@ -8,29 +8,19 @@
 import SwiftUI
 
 struct ClassroomDetailRowView: View {
-    @Binding var weekdayStatusList: ClassroomResponseData.ClassroomDetail
+    @Binding var roomStatusString: String
     var body: some View {
         HStack(spacing: 2) {
-            Image(systemName: (weekdayStatusList.a == 0) ? "square" : "square.fill")
-                .foregroundColor((weekdayStatusList.a == 0) ? Color("primary") : .pink)
-            
-            Image(systemName: (weekdayStatusList.b == 0) ? "square" : "square.fill")
-                .foregroundColor((weekdayStatusList.b == 0) ? Color("primary") : .pink)
-            
-            Image(systemName: (weekdayStatusList.c == 0) ? "square" : "square.fill")
-                .foregroundColor((weekdayStatusList.c == 0) ? Color("primary") : .pink)
-            
-            Image(systemName: (weekdayStatusList.d == 0) ? "square" : "square.fill")
-                .foregroundColor((weekdayStatusList.d == 0) ? Color("primary") : .pink)
-            
-            Image(systemName: (weekdayStatusList.e == 0) ? "square" : "square.fill")
-                .foregroundColor((weekdayStatusList.e == 0) ? Color("primary") : .pink)
+            ForEach(roomStatusString.map { String($0) }, id: \.self) { i in
+                Image(systemName: (i == "0") ? "square" : "square.fill")
+                    .foregroundColor((i == "0") ? Color("primary") : Color(.systemPink))
+            }
         }
     }
 }
 
 struct ClassroomDetailRowView_Previews: PreviewProvider {
     static var previews: some View {
-        ClassroomDetailRowView(weekdayStatusList: .constant(ClassroomResponseData.ClassroomDetail(a: 1, b: 1, c: 0, d: 0, e: 1)))
+        ClassroomDetailRowView(roomStatusString: .constant("10101"))
     }
 }

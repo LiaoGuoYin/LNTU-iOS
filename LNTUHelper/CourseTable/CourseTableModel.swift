@@ -15,7 +15,7 @@ struct CourseTableResponse: Codable {
 
 struct CourseTableResponseData: Codable {
     let code, name, teacher, credit: String
-    let schedules: [Schedule]
+    let scheduleList: [Schedule]
     
     struct Schedule: Codable {
         let room: String
@@ -27,7 +27,7 @@ struct CourseTableResponseData: Codable {
 
 extension CourseTableResponseData {
     init() {
-        self.init(code: "H101750002032.01", name: "演示课程", teacher: "毛志勇", credit: "2", schedules: [Schedule(room: "静远楼", weekday: 4, index: 3, weeksString: "1-5", weeks: [1,2,3,4,5])])
+        self.init(code: "H101750002032.01", name: "演示课程", teacher: "毛志勇", credit: "2", scheduleList: [Schedule(room: "静远楼", weekday: 4, index: 3, weeksString: "1-5", weeks: [1,2,3,4,5])])
     }
 }
 

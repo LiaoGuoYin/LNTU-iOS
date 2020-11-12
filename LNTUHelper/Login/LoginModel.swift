@@ -27,7 +27,7 @@ struct EducationInfoResponse: Codable {
 }
 
 struct EducationInfoResponseData: Codable {
-    let username, name, photoUrl, nickname, gender, grade, educationLast: String
+    let username, name, photoURL, nickname, gender, grade, educationLast: String
     let project, education, studentType, college, major: String
     let direction: String?
     let enrollDate, graduateDate, chiefCollege, studyType: String
@@ -42,7 +42,7 @@ let demoUserInfoResponseData = """
       "data": {
         "username": "111111111",
         "name": "测试用户",
-        "photoUrl": "http://202.199.224.119:8080/eams/showSelfAvatar.action?user.name=11111111",
+        "photoURL": "http://202.199.224.119:8080/eams/showSelfAvatar.action?user.name=11111111",
         "nickname": "abc",
         "gender": "男",
         "grade": "2017",

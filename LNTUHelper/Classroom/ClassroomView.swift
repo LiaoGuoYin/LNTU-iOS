@@ -42,21 +42,10 @@ struct ClassroomView: View {
             }
             .pickerStyle(SegmentedPickerStyle())
             .navigationBarTitle(Text("空教室"), displayMode: .large)
-//            .navigationBarItems(trailing: queryButton)
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
     }
-    
-    var queryButton: some View {
-        Button(action: {
-            Haptic.shared.complexSuccess()
-            viewModel.refreshClassroomList()
-        }) {
-            Text("查询")
-        }
-    }
-    
 }
 
 struct ClassroomView_Previews: PreviewProvider {

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ClassroomDetailView: View {
     
-    @Binding var classroomList: [ClassroomResponseData]
+    @Binding var classroomList: [ClassroomResponseDataRow]
     @State private var selectedWeekday: Int = getCurrentWeekDay()
     
     var body: some View {
@@ -22,14 +22,14 @@ struct ClassroomDetailView: View {
             
             ForEach(classroomList, id: \.self) { each in
                 HStack {
-                    Text(each.address)
+                    Text(each.room)
                         .bold()
                         .layoutPriority(1)
                     Spacer()
                     Text(each.type)
-                    Text(String(each.num))
+                    Text(each.capacity)
                         .frame(width: UIScreen.main.bounds.width / 8)
-                    ClassroomDetailRowView(weekdayStatusList: .constant(each.data[selectedWeekday - 1]))
+                    ClassroomDetailRowView(roomStatusString: .constant(each.scheduleList[selectedWeekday - 1]))
                 }
                 .font(.subheadline)
                 .lineLimit(1)
@@ -40,129 +40,50 @@ struct ClassroomDetailView: View {
 
 struct ClassroomDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ClassroomDetailView(classroomList: .constant(classroomResponseListDemo))
+        ClassroomDetailView(classroomList: .constant(classroomResponseDemo.data.classroomList))
     }
 }
+
 let classroomResponseDemoData = """
 {
   "code": 200,
-  "message": "success",
-  "data": [
-    {
-      "address": "葫芦岛一测试机房",
-      "num": 40,
-      "type": "机房",
-      "data": [
-        {
-          "a": 0,
-          "b": 0,
-          "c": 0,
-          "d": 0,
-          "e": 0
-        },
-        {
-          "a": 0,
-          "b": 0,
-          "c": 0,
-          "d": 0,
-          "e": 0
-        },
-        {
-          "a": 0,
-          "b": 0,
-          "c": 0,
-          "d": 0,
-          "e": 0
-        },
-        {
-          "a": 0,
-          "b": 0,
-          "c": 0,
-          "d": 0,
-          "e": 0
-        },
-        {
-          "a": 0,
-          "b": 0,
-          "c": 0,
-          "d": 0,
-          "e": 0
-        },
-        {
-          "a": 0,
-          "b": 0,
-          "c": 0,
-          "d": 0,
-          "e": 0
-        },
-        {
-          "a": 0,
-          "b": 0,
-          "c": 0,
-          "d": 0,
-          "e": 0
-        }
-      ]
-    },
-    {
-      "address": "葫芦岛二机房",
-      "num": 40,
-      "type": "机房",
-      "data": [
-        {
-          "a": 0,
-          "b": 0,
-          "c": 0,
-          "d": 0,
-          "e": 0
-        },
-        {
-          "a": 0,
-          "b": 0,
-          "c": 0,
-          "d": 0,
-          "e": 0
-        },
-        {
-          "a": 0,
-          "b": 0,
-          "c": 0,
-          "d": 0,
-          "e": 0
-        },
-        {
-          "a": 0,
-          "b": 0,
-          "c": 0,
-          "d": 0,
-          "e": 0
-        },
-        {
-          "a": 0,
-          "b": 0,
-          "c": 0,
-          "d": 0,
-          "e": 0
-        },
-        {
-          "a": 0,
-          "b": 0,
-          "c": 0,
-          "d": 0,
-          "e": 0
-        },
-        {
-          "a": 0,
-          "b": 0,
-          "c": 0,
-          "d": 0,
-          "e": 0
-        }
-      ]
-    }
-  ]
+  "message": "Success",
+  "data": {
+    "week": "11",
+    "buildingName": "hldjf",
+    "classRoomList": [
+      {
+        "room": "葫芦岛一机房",
+        "type": "机房",
+        "capacity": "40",
+        "scheduleList": [
+          "01100",
+          "00000",
+          "00000",
+          "00110",
+          "00100",
+          "00000",
+          "00000"
+        ]
+      },
+      {
+        "room": "葫芦岛二机房",
+        "type": "机房",
+        "capacity": "40",
+        "scheduleList": [
+          "00000",
+          "00000",
+          "00000",
+          "00000",
+          "00000",
+          "00000",
+          "00000"
+        ]
+      }
+    ]
+  }
 }
 """
     .data(using: .utf8)!
 
-let classroomResponseListDemo = try! JSONDecoder().decode(ClassroomResponse.self, from: classroomResponseDemoData).data
+let classroomResponseDemo = try! JSONDecoder().decode(ClassroomResponse.self, from: classroomResponseDemoData)

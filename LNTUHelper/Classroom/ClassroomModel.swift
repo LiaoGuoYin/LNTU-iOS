@@ -10,32 +10,29 @@ import Foundation
 struct ClassroomResponse: Codable {
     let code: Int
     let message: String
-    let data: [ClassroomResponseData]
+    let data: ClassroomResponseData
 }
 
 struct ClassroomResponseData: Codable {
-    let address: String
-    let num: Int
-    let type: String
-    let data: [ClassroomDetail]
-    
-    struct ClassroomDetail: Codable, CustomStringConvertible {
-        let a, b, c, d, e: Int
-        
-        var description: String {
-            return "\(a) \(b) \(c) \(d) \(e)"
-        }
-    }
+    let week, buildingName: String
+    let classroomList: [ClassroomResponseDataRow]
 }
 
-extension ClassroomResponseData: Hashable, Equatable {
+struct ClassroomResponseDataRow: Codable {
+    let room: String
+    let type: String
+    let capacity: String
+    let scheduleList: [String]
+}
+
+extension ClassroomResponseDataRow: Hashable, Equatable {
     func hash(into hasher: inout Hasher) {
-        hasher.combine(address)
+        hasher.combine(room)
         hasher.combine(type)
     }
-    
-    static func == (lhs: ClassroomResponseData, rhs: ClassroomResponseData) -> Bool {
-        if lhs.address == rhs.address && lhs.type == rhs.type {
+
+    static func == (lhs: ClassroomResponseDataRow, rhs: ClassroomResponseDataRow) -> Bool {
+        if lhs.room == rhs.room && lhs.type == rhs.type {
             return true
         } else {
             return false

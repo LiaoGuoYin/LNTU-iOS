@@ -72,7 +72,7 @@ func flatToMatrix(courseList: [CourseTableResponseData], currentWeek: Int) -> Co
     
     // 按照 scheudles 展平
     courseList.forEach { (course) in
-        course.schedules.forEach { (schedule) in
+        course.scheduleList.forEach { (schedule) in
             let cell = CourseTableMatrixCell(code: course.code, name: course.name, teacher: course.teacher, credit: course.credit, room: schedule.room, weekday: schedule.weekday, index: schedule.index, weeksString: schedule.weeksString, weeks: schedule.weeks)
             if schedule.weeks.contains(currentWeek) {
                 courseTableMatrix[schedule.weekday, schedule.index, at: 0] = [cell]
@@ -93,7 +93,7 @@ let courseTableDemoData = """
       "name": "信息系统安全",
       "teacher": "毛志勇",
       "credit": "2",
-      "schedules": [
+      "scheduleList": [
         {
           "room": "静远楼 344",
           "weekday": 4,
@@ -114,7 +114,7 @@ let courseTableDemoData = """
           "room": "静远楼 344",
           "weekday": 2,
           "index": 2,
-          "weeksString": "4-11",
+          "weeksString": "4-10",
           "weeks": [
             4,
             5,
@@ -122,8 +122,16 @@ let courseTableDemoData = """
             7,
             8,
             9,
-            10,
-            11
+            10
+          ]
+        },
+        {
+          "room": "静远楼 316",
+          "weekday": 5,
+          "index": 5,
+          "weeksString": "13",
+          "weeks": [
+            13
           ]
         }
       ]
@@ -133,7 +141,7 @@ let courseTableDemoData = """
       "name": "数据分析案例",
       "teacher": "杨韬",
       "credit": "2",
-      "schedules": [
+      "scheduleList": [
         {
           "room": "静远楼 345",
           "weekday": 5,
@@ -152,7 +160,7 @@ let courseTableDemoData = """
           "room": "静远楼 345",
           "weekday": 2,
           "index": 1,
-          "weeksString": "4-11",
+          "weeksString": "4-10",
           "weeks": [
             4,
             5,
@@ -160,8 +168,7 @@ let courseTableDemoData = """
             7,
             8,
             9,
-            10,
-            11
+            10
           ]
         },
         {
@@ -171,6 +178,15 @@ let courseTableDemoData = """
           "weeksString": "12",
           "weeks": [
             12
+          ]
+        },
+        {
+          "room": "静远楼 345",
+          "weekday": 2,
+          "index": 1,
+          "weeksString": "13",
+          "weeks": [
+            13
           ]
         },
         {
@@ -189,7 +205,7 @@ let courseTableDemoData = """
       "name": "网络营销",
       "teacher": "张芳",
       "credit": "2",
-      "schedules": [
+      "scheduleList": [
         {
           "room": "静远楼 242",
           "weekday": 1,
@@ -214,6 +230,12 @@ let courseTableDemoData = """
           "index": 2,
           "weeksString": "4-9 11",
           "weeks": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
             11
           ]
         },
@@ -223,6 +245,12 @@ let courseTableDemoData = """
           "index": 3,
           "weeksString": "4-9 11",
           "weeks": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
             11
           ]
         }
@@ -233,7 +261,7 @@ let courseTableDemoData = """
       "name": "网络规划与集成",
       "teacher": "杨彤骥",
       "credit": "2.5",
-      "schedules": [
+      "scheduleList": [
         {
           "room": "静远楼 313",
           "weekday": 3,
@@ -277,7 +305,7 @@ let courseTableDemoData = """
       "name": "软件测试",
       "teacher": "王彦彬",
       "credit": "2",
-      "schedules": [
+      "scheduleList": [
         {
           "room": "静远楼 315",
           "weekday": 5,
@@ -317,21 +345,21 @@ let courseTableDemoData = """
       "name": "信息系统分析与设计",
       "teacher": "杨彤骥",
       "credit": "2",
-      "schedules": []
+      "scheduleList": []
     },
     {
       "code": "H101777102001.02",
       "name": "erp 实训",
       "teacher": "杨红玉",
       "credit": "1",
-      "schedules": []
+      "scheduleList": []
     },
     {
       "code": "H271780001002.A8",
       "name": "形势与政策",
       "teacher": "刘蔚",
       "credit": "2",
-      "schedules": [
+      "scheduleList": [
         {
           "room": "尔雅楼 101",
           "weekday": 1,
@@ -342,6 +370,20 @@ let courseTableDemoData = """
           ]
         }
       ]
+    },
+    {
+      "code": "H271781001001.32",
+      "name": "创新创业实践",
+      "teacher": "包伟",
+      "credit": "3",
+      "scheduleList": []
+    },
+    {
+      "code": "H271781002001.32",
+      "name": "社会与专业实践",
+      "teacher": "包伟",
+      "credit": "2",
+      "scheduleList": []
     }
   ]
 }

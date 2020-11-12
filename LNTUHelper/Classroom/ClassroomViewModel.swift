@@ -22,7 +22,7 @@ class ClassroomViewModel: ObservableObject {
             Haptic.shared.complexSuccess()
         }
     }
-    @Published var classroomList: [ClassroomResponseData] = []
+    @Published var classroomList: [ClassroomResponseDataRow] = []
     
     init(form: ClassroomForm) {
         self.form = form
@@ -44,7 +44,7 @@ class ClassroomViewModel: ObservableObject {
                 if response.code == 200 {
                     self.banner.type = .Success
                     self.banner.title = "刷新空教室成功"
-                    self.classroomList = response.data
+                    self.classroomList = response.data.classroomList
                 } else {
                     self.banner.type = .Error
                     self.banner.title = "刷新空教室失败"
