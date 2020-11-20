@@ -13,7 +13,7 @@ struct ClassroomView: View {
     
     var body: some View {
         NavigationView {
-            ScrollView(showsIndicators: false) {
+            VStack {
                 VStack(alignment: .leading) {
                     Text("当前选择: \(viewModel.form.campus.rawValue) \(viewModel.form.selectedBuilding) 第 \(viewModel.form.week) 周")
                         .foregroundColor(.gray)
@@ -29,19 +29,19 @@ struct ClassroomView: View {
                             Text(building)
                         }
                     }
-                    
-                    Stepper(value: $viewModel.form.week, in: 1...22) {
-                        Text("第 \(viewModel.form.week) 周")
-                            .foregroundColor(Color("primary"))
-                    }
-                    
-                    ClassroomDetailView(classroomList: $viewModel.classroomList)
                 }
-                .font(.headline)
-                .padding()
+                .pickerStyle(SegmentedPickerStyle())
+                .navigationBarTitle(Text("空教室"), displayMode: .large)
+
+                Stepper(value: $viewModel.form.week, in: 1...22) {
+                    Text("第 \(viewModel.form.week) 周")
+                        .foregroundColor(Color("primary"))
+                }
+                
+                ClassroomDetailView(classroomList: $viewModel.classroomList)
             }
-            .pickerStyle(SegmentedPickerStyle())
-            .navigationBarTitle(Text("空教室"), displayMode: .large)
+            .font(.subheadline)
+            .padding()
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
@@ -50,7 +50,7 @@ struct ClassroomView: View {
 
 struct ClassroomView_Previews: PreviewProvider {
     static var previews: some View {
-        let viewModel = ClassroomViewModel(form: ClassroomForm(week: 20, campus: .hld))
+        let viewModel = ClassroomViewModel(form: ClassroomForm(week: 16, campus: .hld, selectedBuilding: AllBuildingEnum.yhl.rawValue))
         return ClassroomView(viewModel: viewModel)
     }
 }

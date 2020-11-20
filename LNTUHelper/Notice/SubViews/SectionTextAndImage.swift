@@ -24,6 +24,6 @@ struct SectionTextAndImage: View {
 
 struct CommonViews_Previews: PreviewProvider {
     static var previews: some View {
-        SectionTextAndImage(name: "DEMO", image: "circle")
+        SectionTextAndImage(name: "DEMO", image: "number.square.fill")
     }
 }

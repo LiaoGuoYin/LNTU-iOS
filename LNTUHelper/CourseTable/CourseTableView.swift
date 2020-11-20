@@ -20,6 +20,7 @@ struct CourseTableView: View {
                         .frame(width: 50)
                         .padding()
                     WeekSelecter(selectedWeek: $viewModel.currentWeek)
+                        .padding(.vertical, 8)
                 }
                 CourseTableBodyView(courseTableMatrix: $viewModel.martrix)
                     .padding(.horizontal)
@@ -52,7 +53,7 @@ struct WeekSelecter: View {
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 2) {
-                ForEach(1..<21, id: \.self) { each in
+                ForEach(1..<23, id: \.self) { each in
                     Text(String(each))
                         .font(.caption)
                         .foregroundColor(.white)
@@ -66,6 +67,5 @@ struct WeekSelecter: View {
                 }
             }
         }
-        .padding(.vertical, 8)
     }
 }

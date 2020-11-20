@@ -30,8 +30,8 @@ class APIClient {
         performRequest(route: APIEducationRouter.info(user: user), completion: completion)
     }
     
-    static func grade(user: User, isIncludingOptionalCourse:String="1", completion: @escaping (Result<GradeResponse, AFError>) -> Void) {
-        performRequest(route: APIEducationRouter.grade(user: user, isIncludingOptionalCourse: isIncludingOptionalCourse), completion: completion)
+    static func grade(user: User, completion: @escaping (Result<GradeResponse, AFError>) -> Void) {
+        performRequest(route: APIEducationRouter.grade(user: user), completion: completion)
     }
     
     static func notice(completion: @escaping (Result<NoticeResponse, AFError>) -> Void) {

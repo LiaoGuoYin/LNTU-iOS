@@ -12,8 +12,8 @@ struct ClassroomDetailRowView: View {
     var body: some View {
         HStack(spacing: 2) {
             ForEach(roomStatusString.map { String($0) }, id: \.self) { i in
-                Image(systemName: (i == "0") ? "square" : "square.fill")
-                    .foregroundColor((i == "0") ? Color("primary") : Color(.systemPink))
+                Image(systemName: "square.fill")
+                    .foregroundColor((i == "0") ? Color("cell-blank") : Color("primary"))
             }
         }
     }

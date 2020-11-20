@@ -18,7 +18,7 @@ enum APIEducationRouter: URLRequestConvertible {
     case data(user: User)
     case info(user: User)
     case courseTable(user: User, semester: String)
-    case grade(user: User, isIncludingOptionalCourse: String)
+    case grade(user: User)
     
     // MARK: - HTTPMethod
     private var method: HTTPMethod {
@@ -59,8 +59,6 @@ enum APIEducationRouter: URLRequestConvertible {
             params.updateValue(AllBuildingEnum(rawValue: buildingName)?.varName ?? "", forKey: K.Education.buildingName)
         case .courseTable(_, let semester):
             params.updateValue(semester, forKey: K.Education.semester)
-        case .grade(_, let isIncludingOptionalCourse):
-            params.updateValue(isIncludingOptionalCourse, forKey: K.Education.isIncludingOptionalCourse)
         default:
             return nil
         }
@@ -70,7 +68,7 @@ enum APIEducationRouter: URLRequestConvertible {
     // MARK: - POST Body Parameters
     private var parameters: Parameters? {
         switch self {
-        case .courseTable(let user, _), .info(let user), .grade(let user, _), .data(let user):
+        case .courseTable(let user, _), .info(let user), .grade(let user), .data(let user):
             return [
                 K.Education.username: user.username,
                 K.Education.password: user.password,

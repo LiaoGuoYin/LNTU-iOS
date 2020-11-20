@@ -11,9 +11,9 @@ class GradeViewModel: ObservableObject {
     
     @Published var user: User
     @Published var isShowBanner: Bool = false
-    @Published var banner: BannerModifier.Data = BannerModifier.Data(content: "") {
+    @Published var banner: BannerModifier.Data = BannerModifier.Data() {
         willSet {
-            self.isShowBanner = true
+            isShowBanner = true
         }
     }
     
@@ -41,7 +41,7 @@ class GradeViewModel: ObservableObject {
     
     var gradeResultKeyList: [String] {
         get {
-            Array(gradeResult.keys).sorted()
+            Array(gradeResult.keys).sorted().reversed()
         }
     }
     
@@ -61,6 +61,7 @@ extension GradeViewModel {
         APIClient.grade(user: user) { (result) in
             switch result {
             case .failure(let error):
+                debugPrint(result)
                 self.banner.type = .Error
                 self.banner.title = "刷新成绩、绩点失败"
                 self.banner.content = error.localizedDescription

@@ -10,16 +10,16 @@ import Foundation
 class ViewRouter: ObservableObject {
     
     @Published var isShowBanner: Bool = false
-    @Published var banner: BannerModifier.Data = BannerModifier.Data(content: "登录成功") {
-        willSet {
-            self.isShowBanner = true
+    @Published var banner: BannerModifier.Data = BannerModifier.Data() {
+        didSet {
+            isShowBanner = true
         }
     }
     
     @Published var user: User
     @Published var isLogin: Bool = false {
-        didSet {
-            UserDefaults.standard.setValue(isLogin, forKey: "is-login")
+        willSet {
+            UserDefaults.standard.setValue(newValue, forKey: "is-login")
             if let actualUserData = try? JSONEncoder().encode(user) {
                 UserDefaults.standard.setValue(actualUserData, forKey: "user")
             }
@@ -54,6 +54,7 @@ extension ViewRouter {
             case .failure(let error):
                 self.banner.type = .Error
                 self.banner.content = error.localizedDescription
+                print(error)
             case .success(let response):
                 self.banner.type = .Success
                 self.banner.content = response.message

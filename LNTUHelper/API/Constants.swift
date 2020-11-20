@@ -7,17 +7,20 @@
 
 struct K {
     struct Education {
-        static let baseURL = "https://api.liaoguoyin.com"
-//        static let baseURL = "https://dev.liaoguoyin.com"
+//        static let baseURL = "https://api.liaoguoyin.com"
+        static let baseURL = "https://dev.liaoguoyin.com"
         
         static let username = "username"
         static let password = "password"
         static let semester = "semester"
-        static let isIncludingOptionalCourse = "isIncludingOptionalCourse"
         
         static let week = "week"
         static let buildingName = "name"
     }
+}
+
+struct Constants {
+    static let currentSemester = "2020-秋"
 }
 
 enum ContentType: String {

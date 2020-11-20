@@ -17,7 +17,18 @@ struct NoticeView: View {
             List {
                 Section {
                     SectionTextAndImage(name: "助手公告", image: "number.square.fill")
-                    NoticeCardView(message: $router.loginViewModel.helperMessage.notice)
+                    HStack(alignment: VerticalAlignment.top){
+                        Image("Avatar")
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                            .cornerRadius(30)
+                        Text(viewModel.helperMessage.notice)
+                            .foregroundColor(.secondary)
+                            .font(.subheadline)
+                            .bold()
+                            .multilineTextAlignment(.leading)
+                    }
+                    .padding(.vertical)
                 }
                 Section {
                     SectionTextAndImage(name: "教务新闻", image: "tag.fill")
@@ -39,8 +50,8 @@ struct NoticeView: View {
     var refreshButton: some View {
         Button(action: {
             Haptic.shared.complexSuccess()
-            router.loginViewModel.refreshHelperMessage()
             viewModel.refreshNoticeList()
+            viewModel.refreshHelperMessage()
         }) {
             Text("刷新")
         }
@@ -49,7 +60,7 @@ struct NoticeView: View {
 
 struct NoticeView_Previews: PreviewProvider {
     static var previews: some View {
-        NoticeView(viewModel: NoticeViewModel())
+        NoticeView(viewModel: NoticeViewModel(for: "demo"))
             .environmentObject(ViewRouter(user: User(username: "1710030215", password: "")))
     }
 }

@@ -10,8 +10,8 @@ import Foundation
 class ClassroomViewModel: ObservableObject {
     
     @Published var isShowBanner: Bool = false
-    @Published var banner: BannerModifier.Data = BannerModifier.Data(content: "") {
-        willSet {
+    @Published var banner: BannerModifier.Data = BannerModifier.Data() {
+        didSet {
             isShowBanner = true
         }
     }
@@ -38,7 +38,7 @@ class ClassroomViewModel: ObservableObject {
             case .failure(let error):
                 self.banner.type = .Error
                 self.banner.title = "刷新空教室失败"
-                self.banner.content = error.localizedDescription
+                self.banner.content = error.errorDescription ?? "Nil Error"
             case .success(let response):
                 self.banner.content = response.message
                 if response.code == 200 {

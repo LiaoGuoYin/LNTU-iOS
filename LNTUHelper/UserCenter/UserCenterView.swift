@@ -50,9 +50,6 @@ struct UserCenterView: View {
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .accentColor(Color("primary"))
-        .onAppear(perform: {
-            viewModel.login { router.isLogin = $0 }
-        })
     }
     
     var logoutButton: some View {

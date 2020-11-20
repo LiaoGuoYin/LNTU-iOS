@@ -10,9 +10,9 @@ import Foundation
 class CourseTableViewModel: ObservableObject {
     
     @Published var isShowBanner: Bool = false
-    @Published var banner: BannerModifier.Data = BannerModifier.Data(content: "") {
+    @Published var banner: BannerModifier.Data = BannerModifier.Data() {
         didSet {
-            self.isShowBanner = true
+            isShowBanner = true
         }
     }
     
@@ -44,7 +44,7 @@ class CourseTableViewModel: ObservableObject {
 
 extension CourseTableViewModel {
     func refreshCourseTable() {
-        APIClient.courseTable(user: self.user, semester: "2020-秋") { (result) in
+        APIClient.courseTable(user: self.user, semester: Constants.currentSemester) { (result) in
             switch result {
             case .failure(let error):
                 self.banner.type = .Error

@@ -10,19 +10,19 @@ import Foundation
 class NoticeViewModel: ObservableObject {
     
     @Published var isShowBanner: Bool = false
-    @Published var banner: BannerModifier.Data = BannerModifier.Data(content: "") {
-        willSet {
-            self.isShowBanner = true
+    @Published var banner: BannerModifier.Data = BannerModifier.Data() {
+        didSet {
+            isShowBanner = true
         }
     }
     
-    @Published var noticeList: [NoticeResponseData]
+    @Published var noticeList: [NoticeResponseData] = []
+    @Published var helperMessage: HelperMessageResponseData = HelperMessageResponseData()
     
-    init(user: User) {
-        self.noticeList = []
+    init() {
         self.refreshNoticeList()
+        self.refreshHelperMessage()
     }
-    
 }
 
 extension NoticeViewModel {
@@ -46,10 +46,30 @@ extension NoticeViewModel {
             }
         }
     }
+    func refreshHelperMessage() {
+        APIClient.helperMessage { (result) in
+            switch result {
+            case .failure(let error):
+                self.banner.type = .Error
+                self.banner.title = "初始化数据拉取失败"
+                self.banner.content = error.localizedDescription
+            case .success(let response):
+                self.banner.content = response.message
+                if response.code == 200 {
+                    self.banner.type = .Success
+                    self.banner.title = "初始化数据拉取成功"
+                    self.helperMessage = response.data
+                } else {
+                    self.banner.type = .Error
+                    self.banner.title = "初始化数据拉取失败"
+                }
+            }
+        }
+    }
 }
 
 extension NoticeViewModel {
-    convenience init() {
+    convenience init(for: String="") {
         let demoData = """
         {
           "code": 200,
@@ -65,9 +85,8 @@ extension NoticeViewModel {
           ]
         }
         """.data(using: .utf8)!
-        let user = User(username: "1710022", password: "*")
         let noticeList = try! JSONDecoder().decode(NoticeResponse.self, from: demoData).data
-        self.init(user: user)
+        self.init()
         self.noticeList = noticeList
     }
 }

@@ -47,7 +47,6 @@
 		AF5E4ADF254AD98200736FB4 /* NoticeRowDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4ADE254AD98200736FB4 /* NoticeRowDetailView.swift */; };
 		AF5E4AE1254AD9A400736FB4 /* NoticeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4AE0254AD9A400736FB4 /* NoticeModel.swift */; };
 		AF5E4AE3254AD9B800736FB4 /* NoticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4AE2254AD9B800736FB4 /* NoticeViewModel.swift */; };
-		AF5E4AE5254ADB1C00736FB4 /* NoticeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4AE4254ADB1C00736FB4 /* NoticeCardView.swift */; };
 		AF5E4AE7254ADC2800736FB4 /* SectionTextAndImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4AE6254ADC2800736FB4 /* SectionTextAndImage.swift */; };
 		AF5E4AE9254ADE9F00736FB4 /* NoticeRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4AE8254ADE9F00736FB4 /* NoticeRowView.swift */; };
 		AF5E4AEC254AF84900736FB4 /* UserCenterInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4AEB254AF84800736FB4 /* UserCenterInfoView.swift */; };
@@ -126,7 +125,6 @@
 		AF5E4ADE254AD98200736FB4 /* NoticeRowDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeRowDetailView.swift; sourceTree = "<group>"; };
 		AF5E4AE0254AD9A400736FB4 /* NoticeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeModel.swift; sourceTree = "<group>"; };
 		AF5E4AE2254AD9B800736FB4 /* NoticeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewModel.swift; sourceTree = "<group>"; };
-		AF5E4AE4254ADB1C00736FB4 /* NoticeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeCardView.swift; sourceTree = "<group>"; };
 		AF5E4AE6254ADC2800736FB4 /* SectionTextAndImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTextAndImage.swift; sourceTree = "<group>"; };
 		AF5E4AE8254ADE9F00736FB4 /* NoticeRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeRowView.swift; sourceTree = "<group>"; };
 		AF5E4AEB254AF84800736FB4 /* UserCenterInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCenterInfoView.swift; sourceTree = "<group>"; };
@@ -331,7 +329,6 @@
 		AF5E4AEA254AE26B00736FB4 /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
-				AF5E4AE4254ADB1C00736FB4 /* NoticeCardView.swift */,
 				AF5E4AE8254ADE9F00736FB4 /* NoticeRowView.swift */,
 				AF5E4ADE254AD98200736FB4 /* NoticeRowDetailView.swift */,
 				AF5E4AE6254ADC2800736FB4 /* SectionTextAndImage.swift */,
@@ -557,7 +554,6 @@
 				AF599BF52547EDE200E8D769 /* LoginModel.swift in Sources */,
 				AF3053D4254570CD00F849A9 /* ClassroomModel.swift in Sources */,
 				AF5E4ACD254A595300736FB4 /* GradeView.swift in Sources */,
-				AF5E4AE5254ADB1C00736FB4 /* NoticeCardView.swift in Sources */,
 				AF7BD7022546F18400771CDA /* CourseTableBodyView.swift in Sources */,
 				AF35E9492556FB81008E7AA7 /* LibraryCardView.swift in Sources */,
 				AF7BD6F42545BDAF00771CDA /* ClassroomDetailRowView.swift in Sources */,
