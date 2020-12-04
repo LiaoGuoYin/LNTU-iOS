@@ -10,10 +10,6 @@ import SwiftUI
 
 struct LoginView: View {
     
-    init() {
-        UITableView.appearance().separatorColor = .clear
-    }
-    
     @ObservedObject var webViewModel: SwiftUIWebViewModel = SwiftUIWebViewModel(privacy: true)
     @EnvironmentObject var router: ViewRouter
     

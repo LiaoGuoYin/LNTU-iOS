@@ -7,8 +7,8 @@
 
 struct K {
     struct Education {
-//        static let baseURL = "https://api.liaoguoyin.com"
-        static let baseURL = "https://dev.liaoguoyin.com"
+        static let baseURL = "https://api.liaoguoyin.com"
+//        static let baseURL = "https://dev.liaoguoyin.com"
         
         static let username = "username"
         static let password = "password"

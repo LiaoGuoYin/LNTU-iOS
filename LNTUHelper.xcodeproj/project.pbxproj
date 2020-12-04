@@ -10,10 +10,6 @@
 		AF12457B254EB6E300FFB1E7 /* SwiftUIWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF12457A254EB6E300FFB1E7 /* SwiftUIWebView.swift */; };
 		AF124580254EB72600FFB1E7 /* SwiftUIWebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF12457F254EB72600FFB1E7 /* SwiftUIWebViewModel.swift */; };
 		AF2849A5254C6DB800D78D2C /* HapticModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2849A4254C6DB800D78D2C /* HapticModels.swift */; };
-		AF2849AB254C6E3500D78D2C /* clicked.wav in Resources */ = {isa = PBXBuildFile; fileRef = AF2849A7254C6E3500D78D2C /* clicked.wav */; };
-		AF2849AC254C6E3500D78D2C /* sended.wav in Resources */ = {isa = PBXBuildFile; fileRef = AF2849A8254C6E3500D78D2C /* sended.wav */; };
-		AF2849AD254C6E3500D78D2C /* loading.wav in Resources */ = {isa = PBXBuildFile; fileRef = AF2849A9254C6E3500D78D2C /* loading.wav */; };
-		AF2849AE254C6E3500D78D2C /* reminding.wav in Resources */ = {isa = PBXBuildFile; fileRef = AF2849AA254C6E3500D78D2C /* reminding.wav */; };
 		AF30539625455A6600F849A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF30539525455A6600F849A9 /* AppDelegate.swift */; };
 		AF30539825455A6600F849A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF30539725455A6600F849A9 /* SceneDelegate.swift */; };
 		AF30539A25455A6600F849A9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF30539925455A6600F849A9 /* ContentView.swift */; };
@@ -61,6 +57,7 @@
 		AF7BD7022546F18400771CDA /* CourseTableBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7BD7012546F18400771CDA /* CourseTableBodyView.swift */; };
 		AFA03E5D254EC85A0037E76A /* GradePointAverageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA03E5C254EC85A0037E76A /* GradePointAverageView.swift */; };
 		AFE3553F25491E370099B1CB /* UserCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE3553E25491E370099B1CB /* UserCenterView.swift */; };
+		AFF09574257A8E280073D336 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF09573257A8E280073D336 /* MockData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,10 +81,6 @@
 		AF12457A254EB6E300FFB1E7 /* SwiftUIWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIWebView.swift; sourceTree = "<group>"; };
 		AF12457F254EB72600FFB1E7 /* SwiftUIWebViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIWebViewModel.swift; sourceTree = "<group>"; };
 		AF2849A4254C6DB800D78D2C /* HapticModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticModels.swift; sourceTree = "<group>"; };
-		AF2849A7254C6E3500D78D2C /* clicked.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = clicked.wav; sourceTree = "<group>"; };
-		AF2849A8254C6E3500D78D2C /* sended.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sended.wav; sourceTree = "<group>"; };
-		AF2849A9254C6E3500D78D2C /* loading.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = loading.wav; sourceTree = "<group>"; };
-		AF2849AA254C6E3500D78D2C /* reminding.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = reminding.wav; sourceTree = "<group>"; };
 		AF30539225455A6600F849A9 /* LNTUHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LNTUHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF30539525455A6600F849A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF30539725455A6600F849A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +134,7 @@
 		AFA91CC92549C07200769B1B /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		AFA91CCB2549C09A00769B1B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		AFE3553E25491E370099B1CB /* UserCenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCenterView.swift; sourceTree = "<group>"; };
+		AFF09573257A8E280073D336 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,17 +164,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AF2849A6254C6E3500D78D2C /* MP3 */ = {
-			isa = PBXGroup;
-			children = (
-				AF2849A7254C6E3500D78D2C /* clicked.wav */,
-				AF2849A8254C6E3500D78D2C /* sended.wav */,
-				AF2849A9254C6E3500D78D2C /* loading.wav */,
-				AF2849AA254C6E3500D78D2C /* reminding.wav */,
-			);
-			path = MP3;
-			sourceTree = "<group>";
-		};
 		AF30538925455A6600F849A9 = {
 			isa = PBXGroup;
 			children = (
@@ -206,14 +189,12 @@
 		AF30539425455A6600F849A9 /* LNTUHelper */ = {
 			isa = PBXGroup;
 			children = (
-				AF3053C625455AC600F849A9 /* API */,
+				AFF0956E257A890A0073D336 /* UIKit Components */,
 				AF79D2832545A0B400C962AE /* Common */,
-				AF599BF32547EBD800E8D769 /* Login */,
-				AF7BD6F62546BB7B00771CDA /* CourseTable */,
-				AF5E4ADB254AD94600736FB4 /* Notice */,
-				AF3053D2254570C200F849A9 /* Classroom */,
-				AF5E4ACB254A590D00736FB4 /* Grade */,
-				AFE3553D25491E180099B1CB /* UserCenter */,
+				AFF09572257A89B40073D336 /* Models */,
+				AFF09571257A89700073D336 /* Views */,
+				AFF09570257A89650073D336 /* Screens */,
+				AF3053C625455AC600F849A9 /* API */,
 				AF30539D25455A6800F849A9 /* Preview Content */,
 				AF3053C525455A7F00F849A9 /* Supportings */,
 				AF30539925455A6600F849A9 /* ContentView.swift */,
@@ -228,7 +209,6 @@
 		AF30539D25455A6800F849A9 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				AF2849A6254C6E3500D78D2C /* MP3 */,
 				AF30539E25455A6800F849A9 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -275,7 +255,6 @@
 		AF3053D2254570C200F849A9 /* Classroom */ = {
 			isa = PBXGroup;
 			children = (
-				AF3053D3254570CD00F849A9 /* ClassroomModel.swift */,
 				AF3053D52545710300F849A9 /* ClassroomView.swift */,
 				AF3053D72545711300F849A9 /* ClassroomViewModel.swift */,
 				AFE3553C25486A1C0099B1CB /* SubViews */,
@@ -286,7 +265,6 @@
 		AF599BF32547EBD800E8D769 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				AF599BF42547EDE200E8D769 /* LoginModel.swift */,
 				AF599BEF2547E57800E8D769 /* LoginView.swift */,
 				AF599BF12547EBD400E8D769 /* LoginViewModel.swift */,
 			);
@@ -296,7 +274,6 @@
 		AF5E4ACB254A590D00736FB4 /* Grade */ = {
 			isa = PBXGroup;
 			children = (
-				AF5E4AD0254A59A900736FB4 /* GradeModel.swift */,
 				AF5E4ACC254A595300736FB4 /* GradeView.swift */,
 				AF5E4ACE254A596C00736FB4 /* GradeViewModel.swift */,
 				AF5E4AD6254A8AF300736FB4 /* SubViews */,
@@ -318,7 +295,6 @@
 		AF5E4ADB254AD94600736FB4 /* Notice */ = {
 			isa = PBXGroup;
 			children = (
-				AF5E4AE0254AD9A400736FB4 /* NoticeModel.swift */,
 				AF5E4ADC254AD95500736FB4 /* NoticeView.swift */,
 				AF5E4AE2254AD9B800736FB4 /* NoticeViewModel.swift */,
 				AF5E4AEA254AE26B00736FB4 /* SubViews */,
@@ -343,8 +319,6 @@
 				AF7BD6FD2546BD1F00771CDA /* CommonModels.swift */,
 				AF525B30254804EC006A2CC9 /* CommonModifiers.swift */,
 				AF2849A4254C6DB800D78D2C /* HapticModels.swift */,
-				AF12457A254EB6E300FFB1E7 /* SwiftUIWebView.swift */,
-				AF12457F254EB72600FFB1E7 /* SwiftUIWebViewModel.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -352,7 +326,6 @@
 		AF7BD6F62546BB7B00771CDA /* CourseTable */ = {
 			isa = PBXGroup;
 			children = (
-				AF7BD6F92546BBA200771CDA /* CourseTableModel.swift */,
 				AF7BD6F72546BB9900771CDA /* CourseTableView.swift */,
 				AF7BD6FB2546BBAD00771CDA /* CourseTableViewModel.swift */,
 				AFE3553B25486A0F0099B1CB /* SubViews */,
@@ -386,6 +359,48 @@
 				AF35E9482556FB81008E7AA7 /* LibraryCardView.swift */,
 			);
 			path = UserCenter;
+			sourceTree = "<group>";
+		};
+		AFF0956E257A890A0073D336 /* UIKit Components */ = {
+			isa = PBXGroup;
+			children = (
+				AF12457A254EB6E300FFB1E7 /* SwiftUIWebView.swift */,
+				AF12457F254EB72600FFB1E7 /* SwiftUIWebViewModel.swift */,
+			);
+			path = "UIKit Components";
+			sourceTree = "<group>";
+		};
+		AFF09570257A89650073D336 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				AF599BF32547EBD800E8D769 /* Login */,
+				AF7BD6F62546BB7B00771CDA /* CourseTable */,
+				AF5E4ADB254AD94600736FB4 /* Notice */,
+				AF3053D2254570C200F849A9 /* Classroom */,
+				AF5E4ACB254A590D00736FB4 /* Grade */,
+				AFE3553D25491E180099B1CB /* UserCenter */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		AFF09571257A89700073D336 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AFF09572257A89B40073D336 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AF599BF42547EDE200E8D769 /* LoginModel.swift */,
+				AF7BD6F92546BBA200771CDA /* CourseTableModel.swift */,
+				AF5E4AE0254AD9A400736FB4 /* NoticeModel.swift */,
+				AF3053D3254570CD00F849A9 /* ClassroomModel.swift */,
+				AF5E4AD0254A59A900736FB4 /* GradeModel.swift */,
+				AFF09573257A8E280073D336 /* MockData.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -499,12 +514,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF2849AD254C6E3500D78D2C /* loading.wav in Resources */,
-				AF2849AC254C6E3500D78D2C /* sended.wav in Resources */,
-				AF2849AB254C6E3500D78D2C /* clicked.wav in Resources */,
 				AF3053A225455A6800F849A9 /* LaunchScreen.storyboard in Resources */,
 				AF30539F25455A6800F849A9 /* Preview Assets.xcassets in Resources */,
-				AF2849AE254C6E3500D78D2C /* reminding.wav in Resources */,
 				AF30539C25455A6800F849A9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -539,6 +550,7 @@
 				AF5E4AE3254AD9B800736FB4 /* NoticeViewModel.swift in Sources */,
 				AF599BF22547EBD400E8D769 /* LoginViewModel.swift in Sources */,
 				AF7BD6F82546BB9900771CDA /* CourseTableView.swift in Sources */,
+				AFF09574257A8E280073D336 /* MockData.swift in Sources */,
 				AF3053C825455ADC00F849A9 /* APIRouter.swift in Sources */,
 				AF3053D62545710300F849A9 /* ClassroomView.swift in Sources */,
 				AF7BD6FA2546BBA200771CDA /* CourseTableModel.swift in Sources */,
@@ -747,7 +759,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = primary;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_ASSET_PATHS = "LNTUHelper/Preview\\ Content";
 				DEVELOPMENT_TEAM = M9CCRH8GRW;
 				ENABLE_PREVIEWS = YES;
@@ -770,7 +782,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = primary;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_ASSET_PATHS = "LNTUHelper/Preview\\ Content";
 				DEVELOPMENT_TEAM = M9CCRH8GRW;
 				ENABLE_PREVIEWS = YES;

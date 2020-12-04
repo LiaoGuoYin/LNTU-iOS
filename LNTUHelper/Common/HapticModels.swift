@@ -7,7 +7,6 @@
 
 import SwiftUI
 import CoreHaptics
-import AVFoundation
 
 struct Haptic {
     static var shared = Haptic()
@@ -25,7 +24,6 @@ struct Haptic {
     func simpleSuccess() {
         let generator = UINotificationFeedbackGenerator()
         generator.notificationOccurred(UINotificationFeedbackGenerator.FeedbackType.success)
-//        buttonAudioPlayer(sound: "clicked", type: "wav")
     }
     
     func complexSuccess() {
@@ -41,21 +39,6 @@ struct Haptic {
             try player?.start(atTime: 0)
         } catch {
             print("Failed to play: \(error.localizedDescription)")
-        }
-//        buttonAudioPlayer(sound: "clicked", type: "wav")
-    }
-}
-
-var audioPlayer: AVAudioPlayer?
-
-func buttonAudioPlayer(sound: String, type: String) {
-    if let path = Bundle.main.path(forResource: sound, ofType: type) {
-        do {
-            audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
-            audioPlayer?.prepareToPlay()
-            audioPlayer?.play()
-        } catch {
-            print("error in loading sound resourses")
         }
     }
 }
