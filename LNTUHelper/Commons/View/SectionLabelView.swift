@@ -1,5 +1,5 @@
 //
-//  SectionTextAndImage.swift
+//  SectionLabelView.swift
 //  LNTUHelper
 //
 //  Created by LiaoGuoYin on 2020/10/29.
@@ -7,12 +7,14 @@
 
 import SwiftUI
 
-struct SectionTextAndImage: View {
+struct SectionLabelView: View {
+    
     var name: String
-    var image: String
+    var systemName: String
+    
     var body: some View {
         HStack {
-            Image(systemName: image)
+            Image(systemName: systemName)
             Text(name)
         }
         .font(.system(.headline, design: .monospaced))
@@ -21,8 +23,8 @@ struct SectionTextAndImage: View {
 }
 
 
-struct CommonViews_Previews: PreviewProvider {
+struct SectionLabelView_Previews: PreviewProvider {
     static var previews: some View {
-        SectionTextAndImage(name: "DEMO", image: "number.square.fill")
+        SectionLabelView(name: "DEMO", systemName: "number.square.fill")
     }
 }

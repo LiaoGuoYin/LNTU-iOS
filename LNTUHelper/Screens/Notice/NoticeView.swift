@@ -19,22 +19,22 @@ struct NoticeView: View {
         NavigationView {
             List {
                 Section {
-                    SectionTextAndImage(name: "助手公告", image: "number.square.fill")
+                    SectionLabelView(name: "助手公告", systemName: "number.square.fill")
                     HStack(alignment: VerticalAlignment.top){
                         Image("Avatar")
                             .resizable()
                             .frame(width: 20, height: 20)
                             .cornerRadius(30)
                         Text(viewModel.helperMessage.notice)
-                            .foregroundColor(.secondary)
+                            .foregroundColor(Color.gray)
                             .font(.subheadline)
-                            .bold()
+                            .fontWeight(.semibold)
                             .multilineTextAlignment(.leading)
                     }
                     .padding(.vertical)
                 }
                 Section {
-                    SectionTextAndImage(name: "教务新闻", image: "tag.fill")
+                    SectionLabelView(name: "教务新闻", systemName: "tag.fill")
                     ForEach(viewModel.noticeList, id: \.url) { notice in
                         NoticeRowView(notice: notice)
                             .padding(.vertical, 10)

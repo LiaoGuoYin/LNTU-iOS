@@ -33,6 +33,6 @@ struct HelperMessageResponseData: Codable {
 
 extension HelperMessageResponseData {
     init() {
-        self.init(notice: "LNTUHelper iOS App 公测开始啦，小伙伴们欢呼雀跃吧，BJ-Server 正常。LNTUHelper iOS App 公测开始啦，小伙伴们欢呼雀跃吧，BJ-Server 正常。LNTUHelper iOS App 公测开始啦，小伙伴们欢呼雀跃吧，BJ-Server 正常", educationServerStatus: "未知", helperServerStatus: "未知", qualityServerStatus: "未知", week: "1", semester: "2020-秋")
+        self.init(notice: "LNTUHelper iOS App 公测开始啦，小伙伴们欢呼雀跃吧", educationServerStatus: "未知", helperServerStatus: "未知", qualityServerStatus: "未知", week: "1", semester: "2020-秋")
     }
 }

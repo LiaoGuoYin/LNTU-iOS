@@ -16,37 +16,31 @@ struct UserCenterView: View {
         NavigationView {
             List {
                 if router.isLogin {
-                    NavigationLink(
-                        destination: UserCenterInfoView(user: viewModel.userInfo),
-                        label: {
-                            VStack(alignment: .leading, spacing: 16) {
-                                Text(viewModel.userInfo.name)
-                                Text(viewModel.userInfo.chiefCollege)
-                            }
-                        }
-                    )
+                    NavigationLink(destination: EducationInfoView(user: viewModel.userInfo),
+                                   label: { LabelView(name: "个人信息", iconName: "eyes", iconColor: Color.red) })
                 } else {
                     Text("还没有登录噢")
                 }
                 
-                NavigationLink(
-                    destination: LibraryCardView(),
-                    label: {
-                        Text("图书馆卡")
-                    }
-                )
+                NavigationLink(destination: LibraryCardView(),
+                               label: { LabelView(name: "图书馆", iconName: "barcode.viewfinder", iconColor: Color.blue) })
                 
-                if #available(iOS 14.0, *) {
-                    Label("admin", systemImage: "doc.text.below.ecg")
-                } else {
-                    Text("admin")
-                }
+                NavigationLink(destination: TodoView(),
+                               label: { LabelView(name: "素拓网", iconName: "graduationcap", iconColor: Color.orange) })
+                
+                NavigationLink(destination: TodoView(),
+                               label: { LabelView(name: "更新日志", iconName: "deskclock", iconColor: Color.green) })
+                
+                NavigationLink(destination: TodoView(),
+                               label: { LabelView(name: "关于", iconName: "rectangle.on.rectangle", iconColor: Color("primary")) })
+                
             }
             .navigationBarItems(trailing: logoutButton)
             .navigationBarTitle(Text("用户中心"), displayMode: .large)
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .accentColor(Color("primary"))
+        .accentColor(.blue)
     }
     
     var logoutButton: some View {
@@ -55,7 +49,8 @@ struct UserCenterView: View {
             router.isLogin = false
         }) {
             Text("退出")
-                .padding()
+                .padding(.vertical)
+                .padding(.leading)
         }
     }
 }

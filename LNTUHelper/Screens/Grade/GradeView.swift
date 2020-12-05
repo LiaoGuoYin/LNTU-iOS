@@ -26,7 +26,7 @@ struct GradeView: View {
                             Text(key)
                                 .foregroundColor(.white)
                                 .padding()
-                                .background(viewModel.selectedSemester == key ? Color("primary") : Color(.systemBlue))
+                                .background(viewModel.selectedSemester == key ? Color("primary") : Color("primary").opacity(0.4))
                                 .cornerRadius(6)
                                 .onTapGesture {
                                     viewModel.selectedSemester = key
@@ -50,8 +50,8 @@ struct GradeView: View {
                     Text("Oops, 还没有考试成绩噢")
                         .padding()
                 }
-                //                    SemesterPickerView()
-                //                    GradePointAverageView(gpa: $viewModel.gradePointAverage)
+                // SemesterPickerView()
+                // GradePointAverageView(gpa: $viewModel.gradePointAverage)
             }
             .navigationViewStyle(StackNavigationViewStyle())
             .navigationBarItems(trailing: refreshButton)

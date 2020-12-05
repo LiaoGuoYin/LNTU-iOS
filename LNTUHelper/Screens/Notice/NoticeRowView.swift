@@ -25,6 +25,7 @@ struct NoticeRowView: View {
             }
             Spacer()
             Image(systemName: "doc.plaintext")
+                .foregroundColor(Color("primary"))
         }
         .onTapGesture {
             isShowingSheet = true
@@ -35,7 +36,6 @@ struct NoticeRowView: View {
         }
     }
 }
-
 
 struct NoticeRowView_Previews: PreviewProvider {
     static var previews: some View {
