@@ -9,7 +9,7 @@ import SwiftUI
 import CoreHaptics
 
 struct Haptic {
-    static var shared = Haptic()
+    static let shared = Haptic()
     var engine: CHHapticEngine?
     init() {
         guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
@@ -38,7 +38,7 @@ struct Haptic {
             let player = try engine?.makePlayer(with: pattern)
             try player?.start(atTime: 0)
         } catch {
-            print("Failed to play: \(error.localizedDescription)")
+            print("失败: \(error.localizedDescription)")
         }
     }
 }

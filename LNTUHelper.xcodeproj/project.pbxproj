@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AF12457B254EB6E300FFB1E7 /* SwiftUIWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF12457A254EB6E300FFB1E7 /* SwiftUIWebView.swift */; };
-		AF124580254EB72600FFB1E7 /* SwiftUIWebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF12457F254EB72600FFB1E7 /* SwiftUIWebViewModel.swift */; };
+		AF12457B254EB6E300FFB1E7 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF12457A254EB6E300FFB1E7 /* SafariView.swift */; };
 		AF2849A5254C6DB800D78D2C /* HapticModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2849A4254C6DB800D78D2C /* HapticModels.swift */; };
 		AF30539625455A6600F849A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF30539525455A6600F849A9 /* AppDelegate.swift */; };
 		AF30539825455A6600F849A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF30539725455A6600F849A9 /* SceneDelegate.swift */; };
@@ -40,7 +39,6 @@
 		AF5E4AD8254A8B0A00736FB4 /* GradeRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4AD7254A8B0A00736FB4 /* GradeRowView.swift */; };
 		AF5E4ADA254A8BA600736FB4 /* GradeRowDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4AD9254A8BA600736FB4 /* GradeRowDetailView.swift */; };
 		AF5E4ADD254AD95500736FB4 /* NoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4ADC254AD95500736FB4 /* NoticeView.swift */; };
-		AF5E4ADF254AD98200736FB4 /* NoticeRowDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4ADE254AD98200736FB4 /* NoticeRowDetailView.swift */; };
 		AF5E4AE1254AD9A400736FB4 /* NoticeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4AE0254AD9A400736FB4 /* NoticeModel.swift */; };
 		AF5E4AE3254AD9B800736FB4 /* NoticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4AE2254AD9B800736FB4 /* NoticeViewModel.swift */; };
 		AF5E4AE7254ADC2800736FB4 /* SectionTextAndImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4AE6254ADC2800736FB4 /* SectionTextAndImage.swift */; };
@@ -78,8 +76,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AF12457A254EB6E300FFB1E7 /* SwiftUIWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIWebView.swift; sourceTree = "<group>"; };
-		AF12457F254EB72600FFB1E7 /* SwiftUIWebViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIWebViewModel.swift; sourceTree = "<group>"; };
+		AF12457A254EB6E300FFB1E7 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 		AF2849A4254C6DB800D78D2C /* HapticModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticModels.swift; sourceTree = "<group>"; };
 		AF30539225455A6600F849A9 /* LNTUHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LNTUHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF30539525455A6600F849A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -115,7 +112,6 @@
 		AF5E4AD7254A8B0A00736FB4 /* GradeRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeRowView.swift; sourceTree = "<group>"; };
 		AF5E4AD9254A8BA600736FB4 /* GradeRowDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeRowDetailView.swift; sourceTree = "<group>"; };
 		AF5E4ADC254AD95500736FB4 /* NoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeView.swift; sourceTree = "<group>"; };
-		AF5E4ADE254AD98200736FB4 /* NoticeRowDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeRowDetailView.swift; sourceTree = "<group>"; };
 		AF5E4AE0254AD9A400736FB4 /* NoticeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeModel.swift; sourceTree = "<group>"; };
 		AF5E4AE2254AD9B800736FB4 /* NoticeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewModel.swift; sourceTree = "<group>"; };
 		AF5E4AE6254ADC2800736FB4 /* SectionTextAndImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTextAndImage.swift; sourceTree = "<group>"; };
@@ -190,9 +186,8 @@
 			isa = PBXGroup;
 			children = (
 				AFF0956E257A890A0073D336 /* UIKit Components */,
-				AF79D2832545A0B400C962AE /* Common */,
+				AF79D2832545A0B400C962AE /* Commons */,
 				AFF09572257A89B40073D336 /* Models */,
-				AFF09571257A89700073D336 /* Views */,
 				AFF09570257A89650073D336 /* Screens */,
 				AF3053C625455AC600F849A9 /* API */,
 				AF30539D25455A6800F849A9 /* Preview Content */,
@@ -297,30 +292,21 @@
 			children = (
 				AF5E4ADC254AD95500736FB4 /* NoticeView.swift */,
 				AF5E4AE2254AD9B800736FB4 /* NoticeViewModel.swift */,
-				AF5E4AEA254AE26B00736FB4 /* SubViews */,
+				AF5E4AE8254ADE9F00736FB4 /* NoticeRowView.swift */,
 			);
 			path = Notice;
 			sourceTree = "<group>";
 		};
-		AF5E4AEA254AE26B00736FB4 /* SubViews */ = {
+		AF79D2832545A0B400C962AE /* Commons */ = {
 			isa = PBXGroup;
 			children = (
-				AF5E4AE8254ADE9F00736FB4 /* NoticeRowView.swift */,
-				AF5E4ADE254AD98200736FB4 /* NoticeRowDetailView.swift */,
-				AF5E4AE6254ADC2800736FB4 /* SectionTextAndImage.swift */,
-			);
-			path = SubViews;
-			sourceTree = "<group>";
-		};
-		AF79D2832545A0B400C962AE /* Common */ = {
-			isa = PBXGroup;
-			children = (
+				AFF09571257A89700073D336 /* View */,
 				AF79D2842545A0C000C962AE /* BannerModifier.swift */,
 				AF7BD6FD2546BD1F00771CDA /* CommonModels.swift */,
 				AF525B30254804EC006A2CC9 /* CommonModifiers.swift */,
 				AF2849A4254C6DB800D78D2C /* HapticModels.swift */,
 			);
-			path = Common;
+			path = Commons;
 			sourceTree = "<group>";
 		};
 		AF7BD6F62546BB7B00771CDA /* CourseTable */ = {
@@ -364,8 +350,7 @@
 		AFF0956E257A890A0073D336 /* UIKit Components */ = {
 			isa = PBXGroup;
 			children = (
-				AF12457A254EB6E300FFB1E7 /* SwiftUIWebView.swift */,
-				AF12457F254EB72600FFB1E7 /* SwiftUIWebViewModel.swift */,
+				AF12457A254EB6E300FFB1E7 /* SafariView.swift */,
 			);
 			path = "UIKit Components";
 			sourceTree = "<group>";
@@ -383,22 +368,23 @@
 			path = Screens;
 			sourceTree = "<group>";
 		};
-		AFF09571257A89700073D336 /* Views */ = {
+		AFF09571257A89700073D336 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AF5E4AE6254ADC2800736FB4 /* SectionTextAndImage.swift */,
 			);
-			path = Views;
+			path = View;
 			sourceTree = "<group>";
 		};
 		AFF09572257A89B40073D336 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				AFF09573257A8E280073D336 /* MockData.swift */,
 				AF599BF42547EDE200E8D769 /* LoginModel.swift */,
 				AF7BD6F92546BBA200771CDA /* CourseTableModel.swift */,
 				AF5E4AE0254AD9A400736FB4 /* NoticeModel.swift */,
 				AF3053D3254570CD00F849A9 /* ClassroomModel.swift */,
 				AF5E4AD0254A59A900736FB4 /* GradeModel.swift */,
-				AFF09573257A8E280073D336 /* MockData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -559,7 +545,6 @@
 				AF7BD6FE2546BD1F00771CDA /* CommonModels.swift in Sources */,
 				AF2849A5254C6DB800D78D2C /* HapticModels.swift in Sources */,
 				AF7BD7002546E38200771CDA /* CourseCellView.swift in Sources */,
-				AF5E4ADF254AD98200736FB4 /* NoticeRowDetailView.swift in Sources */,
 				AF5E4ADD254AD95500736FB4 /* NoticeView.swift in Sources */,
 				AF3053CF25455D6700F849A9 /* Constants.swift in Sources */,
 				AF3053D82545711300F849A9 /* ClassroomViewModel.swift in Sources */,
@@ -576,10 +561,9 @@
 				AF5E4AE9254ADE9F00736FB4 /* NoticeRowView.swift in Sources */,
 				AF5E4AD5254A8ADC00736FB4 /* SemesterPickerView.swift in Sources */,
 				AF5E4AE1254AD9A400736FB4 /* NoticeModel.swift in Sources */,
-				AF124580254EB72600FFB1E7 /* SwiftUIWebViewModel.swift in Sources */,
 				AF525B31254804EC006A2CC9 /* CommonModifiers.swift in Sources */,
 				AF30539825455A6600F849A9 /* SceneDelegate.swift in Sources */,
-				AF12457B254EB6E300FFB1E7 /* SwiftUIWebView.swift in Sources */,
+				AF12457B254EB6E300FFB1E7 /* SafariView.swift in Sources */,
 				AFA03E5D254EC85A0037E76A /* GradePointAverageView.swift in Sources */,
 				AF3053CA25455AE400F849A9 /* APIClient.swift in Sources */,
 				AF5E4AD8254A8B0A00736FB4 /* GradeRowView.swift in Sources */,

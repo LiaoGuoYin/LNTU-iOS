@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     @EnvironmentObject private var router: ViewRouter
     @State private var selected = 0
+    
     var body: some View {
         if router.isLogin {
             TabView(selection: $selected) {
@@ -46,6 +48,7 @@ struct ContentView: View {
                     }.tag(3)
                 
                 UserCenterView(viewModel: router.loginViewModel)
+                    .environmentObject(router)
                     .tabItem {
                         VStack {
                             Image(systemName: selected == 4 ?  "person.crop.circle.fill" :  "person.crop.circle")
@@ -53,9 +56,8 @@ struct ContentView: View {
                         }
                     }.tag(4)
             }
-            .banner(data: $router.banner, isShow: $router.isShowBanner)
             .accentColor(Color("primary"))
-            .environmentObject(router)
+            .banner(data: $router.banner, isShow: $router.isShowBanner)
         } else {
             LoginView()
                 .accentColor(Color("primary"))
@@ -66,7 +68,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        let user = User(username: "1710030215", password: "")
+        let user = MockData.user
         let router = ViewRouter(user: user, isLogin: true)
         ContentView()
             .environmentObject(router)

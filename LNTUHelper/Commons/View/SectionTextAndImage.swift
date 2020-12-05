@@ -13,10 +13,9 @@ struct SectionTextAndImage: View {
     var body: some View {
         HStack {
             Image(systemName: image)
-                .font(.headline)
             Text(name)
-                .font(.system(.headline, design: .monospaced))
         }
+        .font(.system(.headline, design: .monospaced))
         .foregroundColor(Color(.systemPink))
     }
 }

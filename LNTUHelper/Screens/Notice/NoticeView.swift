@@ -10,7 +10,10 @@ import SwiftUI
 struct NoticeView: View {
     
     @ObservedObject var viewModel: NoticeViewModel
-    @EnvironmentObject var router: ViewRouter
+    
+    @State private var isShowingSafariView = false
+    @State private var selectedURL = ""
+    @State private var didTap = false
     
     var body: some View {
         NavigationView {
@@ -33,8 +36,8 @@ struct NoticeView: View {
                 Section {
                     SectionTextAndImage(name: "教务新闻", image: "tag.fill")
                     ForEach(viewModel.noticeList, id: \.url) { notice in
-                        NoticeRowView(notice: notice, webViewModel: SwiftUIWebViewModel(link: notice.url))
-                            .padding(.vertical)
+                        NoticeRowView(notice: notice)
+                            .padding(.vertical, 10)
                     }
                 }
             }
@@ -49,7 +52,7 @@ struct NoticeView: View {
     
     var refreshButton: some View {
         Button(action: {
-            Haptic.shared.complexSuccess()
+            Haptic.shared.simpleSuccess()
             viewModel.refreshNoticeList()
             viewModel.refreshHelperMessage()
         }) {
@@ -60,8 +63,7 @@ struct NoticeView: View {
 
 struct NoticeView_Previews: PreviewProvider {
     static var previews: some View {
-        NoticeView(viewModel: NoticeViewModel(for: "demo"))
-            .environmentObject(ViewRouter(user: User(username: "1710030215", password: "")))
+        NoticeView(viewModel: NoticeViewModel(noticeList: MockData.noticeList))
     }
 }
 

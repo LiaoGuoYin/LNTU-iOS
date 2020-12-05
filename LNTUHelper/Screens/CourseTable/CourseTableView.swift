@@ -34,7 +34,7 @@ struct CourseTableView: View {
     
     var refreshButton: some View {
         Button(action: {
-            Haptic.shared.complexSuccess()
+            Haptic.shared.simpleSuccess()
             viewModel.refreshCourseTable()
         }) {
             Text("刷新")

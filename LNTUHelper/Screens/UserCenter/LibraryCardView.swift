@@ -19,9 +19,7 @@ struct LibraryCardView: View {
         VStack {
             TextField("CardNumber", text: $libraryId)
                 .font(.headline)
-                .foregroundColor(.white)
                 .padding()
-                .background(Color("primary"))
                 .cornerRadius(8)
                 .keyboardType(.asciiCapable)
             CBBarcodeView(data: $libraryId,

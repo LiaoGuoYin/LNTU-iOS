@@ -5,13 +5,12 @@
 //  Created by LiaoGuoYin on 2020/10/27.
 //
 
-import Foundation
 import SwiftUI
 
 struct LoginView: View {
     
-    @ObservedObject var webViewModel: SwiftUIWebViewModel = SwiftUIWebViewModel(privacy: true)
     @EnvironmentObject var router: ViewRouter
+    @State private var isShowingSheet = false
     
     var body: some View {
         NavigationView {
@@ -23,8 +22,8 @@ struct LoginView: View {
                         .background(Color("primary"))
                         .cornerRadius(8)
                     TextField("请输入学号", text: $router.user.username)
-                        .keyboardType(.numberPad)
                         .padding()
+                        .keyboardType(.numberPad)
                         .background(Color(.systemFill))
                         .cornerRadius(8)
                 }
@@ -40,28 +39,36 @@ struct LoginView: View {
                         .background(Color(.systemFill))
                         .cornerRadius(8)
                 }
-                .listRowInsets(.none)
-                
-                NavigationLink(destination:
-                                SwiftUIWebView(viewModel: webViewModel)
-                                .navigationBarTitle(Text("用户协议"), displayMode: .inline)) {
-                    Text("查看《辽工大助手用户协议》")
-                        .font(.caption)
-                        .foregroundColor(Color("primary"))
-                        .padding()
-                }
                 
                 loginButton
+                
+                HStack(spacing: 0) {
+                    Spacer()
+                    Image(systemName: "doc.plaintext")
+                    Text("查看《辽工大助手用户协议》")
+                        .font(.subheadline)
+                        .padding()
+                    Spacer()
+                }
+                .foregroundColor(Color("primary"))
+                .onTapGesture {
+                    self.isShowingSheet = true
+                }
+                
             }
             .navigationBarTitle(Text("Login"), displayMode: .large)
         }
         .resignKeyboardOnDragGesture()
         .banner(data: $router.banner, isShow:  $router.isShowBanner)
+        .sheet(isPresented: $isShowingSheet) {
+            SafariView()
+                .navigationBarTitle(Text("用户协议"), displayMode: .inline)
+        }
     }
     
     var loginButton: some View {
         Button(action: {
-            Haptic.shared.complexSuccess()
+            Haptic.shared.simpleSuccess()
             router.refreshEducationData()
         }) {
             HStack {
@@ -79,8 +86,7 @@ struct LoginView: View {
 
 struct LoginView_PreViews: PreviewProvider {
     static var previews: some View {
-        let user = User(username: "1710030215", password: "")
         return LoginView()
-            .environmentObject(ViewRouter(user: user, isLogin: false))
+            .environmentObject(ViewRouter(user: MockData.user))
     }
 }

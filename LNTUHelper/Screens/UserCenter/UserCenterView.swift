@@ -14,38 +14,35 @@ struct UserCenterView: View {
     
     var body: some View {
         NavigationView {
-            ScrollView(showsIndicators: false) {
-                VStack(spacing: 20) {
-                    if router.isLogin {
-                        NavigationLink(
-                            destination: UserCenterInfoView(user: viewModel.userInfo),
-                            label: {
-                                HStack {
-                                    Image(systemName: "person.crop.rectangle")
-                                        .font(.system(size: 40))
-                                        .foregroundColor(Color.white)
-                                    Spacer()
-                                    VStack(alignment: .leading) {
-                                        Text(viewModel.userInfo.name)
-                                        Text(viewModel.userInfo.chiefCollege)
-                                    }
-                                    .foregroundColor(Color.white)
-                                }
-                                .padding(20)
-                                .background(Color("primary"))
+            List {
+                if router.isLogin {
+                    NavigationLink(
+                        destination: UserCenterInfoView(user: viewModel.userInfo),
+                        label: {
+                            VStack(alignment: .leading, spacing: 16) {
+                                Text(viewModel.userInfo.name)
+                                Text(viewModel.userInfo.chiefCollege)
                             }
-                        )
-                        .cornerRadius(12)
-                    } else {
-                        EmptyView()
-                    }
-                    
-                    LibraryCardView()
-                    
-                    logoutButton
+                        }
+                    )
+                } else {
+                    Text("还没有登录噢")
                 }
-                .padding()
+                
+                NavigationLink(
+                    destination: LibraryCardView(),
+                    label: {
+                        Text("图书馆卡")
+                    }
+                )
+                
+                if #available(iOS 14.0, *) {
+                    Label("admin", systemImage: "doc.text.below.ecg")
+                } else {
+                    Text("admin")
+                }
             }
+            .navigationBarItems(trailing: logoutButton)
             .navigationBarTitle(Text("用户中心"), displayMode: .large)
         }
         .navigationViewStyle(StackNavigationViewStyle())
@@ -54,26 +51,18 @@ struct UserCenterView: View {
     
     var logoutButton: some View {
         Button(action: {
-            Haptic.shared.complexSuccess()
+            Haptic.shared.simpleSuccess()
             router.isLogin = false
         }) {
-            HStack {
-                Spacer()
-                Text("Logout")
-                Spacer()
-            }
-            .foregroundColor(.white)
-            .padding()
-            .background(Color("primary"))
-            .cornerRadius(8)
+            Text("退出")
+                .padding()
         }
     }
 }
 
 struct UserCenterView_Previews: PreviewProvider {
     static var previews: some View {
-        let user = User(username: "17100301010", password: "*")
-        return UserCenterView(viewModel: LoginViewModel(user: user))
-            .environmentObject(ViewRouter(user: user, isLogin: true))
+        return UserCenterView(viewModel: LoginViewModel(user: MockData.user))
+            .environmentObject(ViewRouter(user: MockData.user, isLogin: true))
     }
 }

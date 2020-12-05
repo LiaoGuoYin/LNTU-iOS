@@ -25,6 +25,15 @@ class NoticeViewModel: ObservableObject {
     }
 }
 
+
+extension NoticeViewModel {
+    convenience init(noticeList: [NoticeResponseData]) {
+        // MARK: - init for testing
+        self.init()
+        self.noticeList = noticeList
+    }
+}
+
 extension NoticeViewModel {
     func refreshNoticeList() {
         APIClient.notice { (result) in
@@ -65,28 +74,5 @@ extension NoticeViewModel {
                 }
             }
         }
-    }
-}
-
-extension NoticeViewModel {
-    convenience init(for: String="") {
-        let demoData = """
-        {
-          "code": 200,
-          "message": "Success",
-          "data": [
-            {
-              "title": "关于 2021 届毕业生学历证书照片采集的通知",
-              "date": "2020-10-27",
-              "content": "关于 2021 届毕业生学历证书照片采集的通知",
-              "appendix": [],
-              "url": "http://jwzx.lntu.edu.cn/index/../info/1103/1575.htm"
-            }
-          ]
-        }
-        """.data(using: .utf8)!
-        let noticeList = try! JSONDecoder().decode(NoticeResponse.self, from: demoData).data
-        self.init()
-        self.noticeList = noticeList
     }
 }

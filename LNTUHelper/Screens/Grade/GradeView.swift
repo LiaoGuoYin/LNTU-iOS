@@ -16,7 +16,7 @@ struct GradeView: View {
             isShowDetail = true
         }
     }
-
+    
     var body: some View {
         NavigationView {
             ScrollView(showsIndicators: false) {
@@ -66,7 +66,7 @@ struct GradeView: View {
     
     var refreshButton: some View {
         Button(action: {
-            Haptic.shared.complexSuccess()
+            Haptic.shared.simpleSuccess()
             viewModel.refreshGradeList {
                 viewModel.selectedSemester = viewModel.gradeResultKeyList.first ?? "2020-春"
             }
