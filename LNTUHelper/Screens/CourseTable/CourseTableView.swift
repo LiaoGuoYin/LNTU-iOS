@@ -14,18 +14,13 @@ struct CourseTableView: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 0) {
-                HStack(spacing: 2) {
-                    Text("第 \(viewModel.currentWeek) 周")
-                        .font(.caption)
-                        .frame(width: 50)
-                        .padding()
-                    WeekSelectorView(selectedWeek: $viewModel.currentWeek)
-                        .padding(.vertical, 8)
-                }
+                WeekSelectorView(selectedWeek: $viewModel.currentWeek)
+                    .padding(.horizontal)
+                    .padding(.vertical, 8)
                 CourseTableBodyView(courseTableMatrix: $viewModel.martrix)
                     .padding(.horizontal)
-                    .navigationBarTitle(Text("课表"), displayMode: .large)
-                    .navigationBarItems(trailing: refreshButton)
+                    .navigationBarTitle(Text("第 \(viewModel.currentWeek) 周"), displayMode: .inline)
+                    .navigationBarItems(leading: examPlanView, trailing: refreshButton)
             }
         }
         .navigationViewStyle(DoubleColumnNavigationViewStyle())
@@ -40,10 +35,15 @@ struct CourseTableView: View {
             Text("刷新")
         }
     }
+    
+    var examPlanView: some View {
+        NavigationLink(destination: ExamPlanView(viewModel: ExamPlanViewModel(user: viewModel.user)),
+                       label: { LabelView(name: "", iconName: "deskclock", iconColor: Color.green) })
+    }
 }
 
 struct CourseTableView_Previews: PreviewProvider {
     static var previews: some View {
-        return CourseTableView(viewModel: CourseTableViewModel(user: User(username: "1710030215", password: "")))
+        CourseTableView(viewModel: CourseTableViewModel(user: MockData.user))
     }
 }

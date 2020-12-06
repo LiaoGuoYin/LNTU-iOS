@@ -14,22 +14,23 @@ struct UserCenterView: View {
     
     var body: some View {
         NavigationView {
-            List {
-                if router.isLogin {
-                    NavigationLink(destination: EducationInfoView(user: viewModel.userInfo),
+            Form {
+                Section {
+                    NavigationLink(destination: EducationInfoView(user: router.loginViewModel.userInfo),
                                    label: { LabelView(name: "个人信息", iconName: "eyes", iconColor: Color.red) })
-                } else {
-                    Text("还没有登录噢")
+                    
+                    NavigationLink(destination:
+                                    ExamPlanView(viewModel: ExamPlanViewModel(user: router.user)),
+                                   label: { LabelView(name: "考试安排", iconName: "deskclock", iconColor: Color.green) })
                 }
                 
-                NavigationLink(destination: LibraryCardView(),
-                               label: { LabelView(name: "图书馆", iconName: "barcode.viewfinder", iconColor: Color.blue) })
-                
-                NavigationLink(destination: TodoView(),
-                               label: { LabelView(name: "素拓网", iconName: "graduationcap", iconColor: Color.orange) })
-                
-                NavigationLink(destination: TodoView(),
-                               label: { LabelView(name: "更新日志", iconName: "deskclock", iconColor: Color.green) })
+                Section {
+                    NavigationLink(destination: LibraryCardView(),
+                                   label: { LabelView(name: "图书馆", iconName: "barcode.viewfinder", iconColor: Color.blue) })
+                    
+                    NavigationLink(destination: TodoView(),
+                                   label: { LabelView(name: "素拓网", iconName: "graduationcap", iconColor: Color.orange) })
+                }
                 
                 NavigationLink(destination: TodoView(),
                                label: { LabelView(name: "关于", iconName: "rectangle.on.rectangle", iconColor: Color("primary")) })
@@ -40,7 +41,6 @@ struct UserCenterView: View {
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .accentColor(Color("primary"))
-        .accentColor(.blue)
     }
     
     var logoutButton: some View {

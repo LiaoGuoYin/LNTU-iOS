@@ -9,8 +9,8 @@ import Foundation
 
 class ClassroomViewModel: ObservableObject {
     
-    @Published var isShowBanner: Bool = false
-    @Published var banner: BannerModifier.Data = BannerModifier.Data() {
+    @Published var isShowBanner = false
+    @Published var banner = BannerModifier.Data() {
         didSet {
             isShowBanner = true
         }

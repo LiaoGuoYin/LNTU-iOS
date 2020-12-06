@@ -40,7 +40,7 @@ struct EducationInfoView: View {
 
 struct UserCenterInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        EducationInfoView(user: demoUserInfoResponse)
+        EducationInfoView(user: MockData.educationInfo)
     }
 }
 

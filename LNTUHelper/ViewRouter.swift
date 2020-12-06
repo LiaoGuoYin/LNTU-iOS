@@ -9,8 +9,8 @@ import Foundation
 
 class ViewRouter: ObservableObject {
     
-    @Published var isShowBanner: Bool = false
-    @Published var banner: BannerModifier.Data = BannerModifier.Data() {
+    @Published var isShowBanner = false
+    @Published var banner = BannerModifier.Data() {
         didSet {
             isShowBanner = true
         }
@@ -34,11 +34,12 @@ class ViewRouter: ObservableObject {
     
     init(user: User) {
         self.user = user
-        self.courseTableViewModel = CourseTableViewModel(user: user)
         self.noticeViewModel = NoticeViewModel()
-        self.gradeViewModel = GradeViewModel(user: user)
-        self.loginViewModel = LoginViewModel(user: user)
         self.classroomViewModel = ClassroomViewModel(form: ClassroomForm(week: 1, campus: .hld))
+        self.loginViewModel = LoginViewModel(user: user)
+        self.courseTableViewModel = CourseTableViewModel(user: user)
+        self.gradeViewModel = GradeViewModel(user: user)
+        self.refreshEducationData()
     }
     
     convenience init(user: User, isLogin: Bool) {

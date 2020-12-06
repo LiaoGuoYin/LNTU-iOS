@@ -9,14 +9,14 @@ import Foundation
 
 class LoginViewModel: ObservableObject {
     
-    @Published var user: User
-    @Published var isShowBanner: Bool = false
-    @Published var banner: BannerModifier.Data = BannerModifier.Data() {
+    @Published var isShowBanner = false
+    @Published var banner = BannerModifier.Data() {
         didSet {
             isShowBanner = true
         }
     }
 
+    @Published var user: User
     @Published var userInfo: EducationInfoResponseData {
         didSet {
             if let actualInfoData = try? JSONEncoder().encode(userInfo) {
@@ -29,7 +29,7 @@ class LoginViewModel: ObservableObject {
     init(user: User) {
         self.user = user
         self.helperMessage = HelperMessageResponseData()
-        self.userInfo = demoUserInfoResponse
+        self.userInfo = MockData.educationInfo
     }
     
 }

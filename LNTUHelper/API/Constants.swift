@@ -6,6 +6,9 @@
 //
 
 struct K {
+    
+    static let offline = "offline"
+
     struct Education {
         static let baseURL = "https://api.liaoguoyin.com"
 //        static let baseURL = "https://dev.liaoguoyin.com"

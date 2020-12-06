@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct WeekSelectorView: View {
+    
     @Binding var selectedWeek: Int
+    
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 2) {

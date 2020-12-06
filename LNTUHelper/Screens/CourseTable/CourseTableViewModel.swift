@@ -9,8 +9,8 @@ import Foundation
 
 class CourseTableViewModel: ObservableObject {
     
-    @Published var isShowBanner: Bool = false
-    @Published var banner: BannerModifier.Data = BannerModifier.Data() {
+    @Published var isShowBanner = false
+    @Published var banner = BannerModifier.Data() {
         didSet {
             isShowBanner = true
         }
@@ -38,7 +38,6 @@ class CourseTableViewModel: ObservableObject {
         self.currentWeek = 1
         self.martrix = CourseTableMatrix()
         refreshToGetCurrentWeek { self.currentWeek = $0 }
-        self.refreshCourseTable()
     }
 }
 

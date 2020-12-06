@@ -10,8 +10,8 @@ import Foundation
 class GradeViewModel: ObservableObject {
     
     @Published var user: User
-    @Published var isShowBanner: Bool = false
-    @Published var banner: BannerModifier.Data = BannerModifier.Data() {
+    @Published var isShowBanner = false
+    @Published var banner = BannerModifier.Data() {
         willSet {
             isShowBanner = true
         }
@@ -49,9 +49,9 @@ class GradeViewModel: ObservableObject {
         self.user = user
         self.gradeList = []
         self.gradePointAverage = GradeResponseDataGPA(semester: "", gradePointAverage: 0.0, weightedAverage: 0.0, gradePointTotal: 0.0, scoreTotal: 0.0, creditTotal: 0, courseCount: 0)
-        self.refreshGradeList {
-            self.selectedSemester = self.gradeResultKeyList.first ?? "2020-春"
-        }
+//        self.refreshGradeList {
+//            self.selectedSemester = self.gradeResultKeyList.first ?? "2020-春"
+//        }
     }
     
 }

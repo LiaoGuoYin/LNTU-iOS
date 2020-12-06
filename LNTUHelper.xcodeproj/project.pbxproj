@@ -11,7 +11,7 @@
 		AF2849A5254C6DB800D78D2C /* HapticModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2849A4254C6DB800D78D2C /* HapticModels.swift */; };
 		AF30539625455A6600F849A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF30539525455A6600F849A9 /* AppDelegate.swift */; };
 		AF30539825455A6600F849A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF30539725455A6600F849A9 /* SceneDelegate.swift */; };
-		AF30539A25455A6600F849A9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF30539925455A6600F849A9 /* ContentView.swift */; };
+		AF30539A25455A6600F849A9 /* LNTUHelperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF30539925455A6600F849A9 /* LNTUHelperApp.swift */; };
 		AF30539C25455A6800F849A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF30539B25455A6800F849A9 /* Assets.xcassets */; };
 		AF30539F25455A6800F849A9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF30539E25455A6800F849A9 /* Preview Assets.xcassets */; };
 		AF3053A225455A6800F849A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF3053A025455A6800F849A9 /* LaunchScreen.storyboard */; };
@@ -29,6 +29,8 @@
 		AF32A7B0257BB00F004D1E78 /* InfoRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF32A7AF257BB00F004D1E78 /* InfoRowView.swift */; };
 		AF32A7C1257BB253004D1E78 /* WeekSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF32A7C0257BB253004D1E78 /* WeekSelectorView.swift */; };
 		AF32A7C9257BB3D0004D1E78 /* LabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF32A7C8257BB3D0004D1E78 /* LabelView.swift */; };
+		AF32A7D9257BB6FF004D1E78 /* ExamPlanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF32A7D5257BB6FF004D1E78 /* ExamPlanViewModel.swift */; };
+		AF32A7DA257BB6FF004D1E78 /* ExamPlanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF32A7D6257BB6FF004D1E78 /* ExamPlanModel.swift */; };
 		AF35E9492556FB81008E7AA7 /* LibraryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35E9482556FB81008E7AA7 /* LibraryCardView.swift */; };
 		AF4FE2C92557CAFF00C5738E /* CarBode in Frameworks */ = {isa = PBXBuildFile; productRef = AF4FE2C82557CAFF00C5738E /* CarBode */; };
 		AF525B31254804EC006A2CC9 /* CommonModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF525B30254804EC006A2CC9 /* CommonModifiers.swift */; };
@@ -57,6 +59,8 @@
 		AF7BD6FE2546BD1F00771CDA /* CommonModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7BD6FD2546BD1F00771CDA /* CommonModels.swift */; };
 		AF7BD7002546E38200771CDA /* CourseCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7BD6FF2546E38200771CDA /* CourseCellView.swift */; };
 		AF7BD7022546F18400771CDA /* CourseTableBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7BD7012546F18400771CDA /* CourseTableBodyView.swift */; };
+		AF97789E257C63A100BD42EF /* CardExamPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF97789D257C63A100BD42EF /* CardExamPlanView.swift */; };
+		AF9778A6257C63EA00BD42EF /* ExamPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9778A5257C63EA00BD42EF /* ExamPlanView.swift */; };
 		AFA03E5D254EC85A0037E76A /* GradePointAverageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA03E5C254EC85A0037E76A /* GradePointAverageView.swift */; };
 		AFE3553F25491E370099B1CB /* UserCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE3553E25491E370099B1CB /* UserCenterView.swift */; };
 		AFF09574257A8E280073D336 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF09573257A8E280073D336 /* MockData.swift */; };
@@ -85,7 +89,7 @@
 		AF30539225455A6600F849A9 /* LNTUHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LNTUHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF30539525455A6600F849A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF30539725455A6600F849A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AF30539925455A6600F849A9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AF30539925455A6600F849A9 /* LNTUHelperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LNTUHelperApp.swift; sourceTree = "<group>"; };
 		AF30539B25455A6800F849A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AF30539E25455A6800F849A9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AF3053A125455A6800F849A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -107,6 +111,8 @@
 		AF32A7AF257BB00F004D1E78 /* InfoRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoRowView.swift; sourceTree = "<group>"; };
 		AF32A7C0257BB253004D1E78 /* WeekSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekSelectorView.swift; sourceTree = "<group>"; };
 		AF32A7C8257BB3D0004D1E78 /* LabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelView.swift; sourceTree = "<group>"; };
+		AF32A7D5257BB6FF004D1E78 /* ExamPlanViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamPlanViewModel.swift; sourceTree = "<group>"; };
+		AF32A7D6257BB6FF004D1E78 /* ExamPlanModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamPlanModel.swift; sourceTree = "<group>"; };
 		AF35E9482556FB81008E7AA7 /* LibraryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCardView.swift; sourceTree = "<group>"; };
 		AF525B30254804EC006A2CC9 /* CommonModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonModifiers.swift; sourceTree = "<group>"; };
 		AF599BED2547E4B000E8D769 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
@@ -134,6 +140,8 @@
 		AF7BD6FD2546BD1F00771CDA /* CommonModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonModels.swift; sourceTree = "<group>"; };
 		AF7BD6FF2546E38200771CDA /* CourseCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCellView.swift; sourceTree = "<group>"; };
 		AF7BD7012546F18400771CDA /* CourseTableBodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseTableBodyView.swift; sourceTree = "<group>"; };
+		AF97789D257C63A100BD42EF /* CardExamPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardExamPlanView.swift; sourceTree = "<group>"; };
+		AF9778A5257C63EA00BD42EF /* ExamPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamPlanView.swift; sourceTree = "<group>"; };
 		AFA03E5C254EC85A0037E76A /* GradePointAverageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradePointAverageView.swift; sourceTree = "<group>"; };
 		AFA91CC92549C07200769B1B /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		AFA91CCB2549C09A00769B1B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -200,7 +208,7 @@
 				AFF09570257A89650073D336 /* Screens */,
 				AF30539D25455A6800F849A9 /* Preview Content */,
 				AF3053C525455A7F00F849A9 /* Supportings */,
-				AF30539925455A6600F849A9 /* ContentView.swift */,
+				AF30539925455A6600F849A9 /* LNTUHelperApp.swift */,
 				AF599BED2547E4B000E8D769 /* ViewRouter.swift */,
 				AF3053A325455A6800F849A9 /* Info.plist */,
 				AF30539B25455A6800F849A9 /* Assets.xcassets */,
@@ -263,6 +271,16 @@
 				AFE3553C25486A1C0099B1CB /* SubViews */,
 			);
 			path = Classroom;
+			sourceTree = "<group>";
+		};
+		AF32A7D3257BB6FF004D1E78 /* ExamPlan */ = {
+			isa = PBXGroup;
+			children = (
+				AF9778A5257C63EA00BD42EF /* ExamPlanView.swift */,
+				AF97789D257C63A100BD42EF /* CardExamPlanView.swift */,
+				AF32A7D5257BB6FF004D1E78 /* ExamPlanViewModel.swift */,
+			);
+			path = ExamPlan;
 			sourceTree = "<group>";
 		};
 		AF599BF32547EBD800E8D769 /* Login */ = {
@@ -370,6 +388,7 @@
 			children = (
 				AF599BF32547EBD800E8D769 /* Login */,
 				AF7BD6F62546BB7B00771CDA /* CourseTable */,
+				AF32A7D3257BB6FF004D1E78 /* ExamPlan */,
 				AF5E4ADB254AD94600736FB4 /* Notice */,
 				AF3053D2254570C200F849A9 /* Classroom */,
 				AF5E4ACB254A590D00736FB4 /* Grade */,
@@ -394,6 +413,7 @@
 				AFF09573257A8E280073D336 /* MockData.swift */,
 				AF599BF42547EDE200E8D769 /* LoginModel.swift */,
 				AF7BD6F92546BBA200771CDA /* CourseTableModel.swift */,
+				AF32A7D6257BB6FF004D1E78 /* ExamPlanModel.swift */,
 				AF5E4AE0254AD9A400736FB4 /* NoticeModel.swift */,
 				AF3053D3254570CD00F849A9 /* ClassroomModel.swift */,
 				AF5E4AD0254A59A900736FB4 /* GradeModel.swift */,
@@ -569,11 +589,15 @@
 				AF35E9492556FB81008E7AA7 /* LibraryCardView.swift in Sources */,
 				AF7BD6F42545BDAF00771CDA /* ClassroomDetailRowView.swift in Sources */,
 				AF5E4AD1254A59A900736FB4 /* GradeModel.swift in Sources */,
+				AF9778A6257C63EA00BD42EF /* ExamPlanView.swift in Sources */,
+				AF32A7DA257BB6FF004D1E78 /* ExamPlanModel.swift in Sources */,
 				AF599BF02547E57800E8D769 /* LoginView.swift in Sources */,
 				AF599BEE2547E4B000E8D769 /* ViewRouter.swift in Sources */,
 				AF5E4ACF254A596C00736FB4 /* GradeViewModel.swift in Sources */,
 				AF5E4AE9254ADE9F00736FB4 /* NoticeRowView.swift in Sources */,
 				AF5E4AD5254A8ADC00736FB4 /* SemesterPickerView.swift in Sources */,
+				AF32A7D9257BB6FF004D1E78 /* ExamPlanViewModel.swift in Sources */,
+				AF97789E257C63A100BD42EF /* CardExamPlanView.swift in Sources */,
 				AF5E4AE1254AD9A400736FB4 /* NoticeModel.swift in Sources */,
 				AF525B31254804EC006A2CC9 /* CommonModifiers.swift in Sources */,
 				AF32A7C9257BB3D0004D1E78 /* LabelView.swift in Sources */,
@@ -584,7 +608,7 @@
 				AF5E4AD8254A8B0A00736FB4 /* GradeRowView.swift in Sources */,
 				AF3053D125456E2000F849A9 /* AppErrors.swift in Sources */,
 				AF32A7AB257BA9D5004D1E78 /* TodoView.swift in Sources */,
-				AF30539A25455A6600F849A9 /* ContentView.swift in Sources */,
+				AF30539A25455A6600F849A9 /* LNTUHelperApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -759,7 +783,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = primary;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_ASSET_PATHS = "LNTUHelper/Preview\\ Content";
 				DEVELOPMENT_TEAM = M9CCRH8GRW;
 				ENABLE_PREVIEWS = YES;
@@ -782,7 +806,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = primary;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_ASSET_PATHS = "LNTUHelper/Preview\\ Content";
 				DEVELOPMENT_TEAM = M9CCRH8GRW;
 				ENABLE_PREVIEWS = YES;

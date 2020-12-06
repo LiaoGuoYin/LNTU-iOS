@@ -10,6 +10,7 @@ import CoreHaptics
 
 struct Haptic {
     static let shared = Haptic()
+    let generator = UINotificationFeedbackGenerator()
     var engine: CHHapticEngine?
     init() {
         guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
@@ -22,8 +23,11 @@ struct Haptic {
     }
     
     func simpleSuccess() {
-        let generator = UINotificationFeedbackGenerator()
         generator.notificationOccurred(UINotificationFeedbackGenerator.FeedbackType.success)
+    }
+    
+    func simpleError() {
+        generator.notificationOccurred(.error)
     }
     
     func complexSuccess() {
