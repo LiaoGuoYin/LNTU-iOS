@@ -41,6 +41,9 @@ struct BannerModifier: ViewModifier {
     func body(content: Content) -> some View {
         ZStack {
             content
+                .onAppear(perform: {
+                    Haptic.shared.tappedHaptic()
+                })
             if isShow {
                 VStack {
                     HStack {
@@ -65,8 +68,10 @@ struct BannerModifier: ViewModifier {
                     withAnimation {
                         self.isShow = false
                     }
-                }.onAppear(perform: {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.4) {
+                }
+                .onAppear(perform: {
+                    Haptic.shared.notification.notificationOccurred(.success)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
                         withAnimation {
                             self.isShow = false
                         }
@@ -74,9 +79,6 @@ struct BannerModifier: ViewModifier {
                 })
             }
         }
-        .onAppear(perform: {
-            Haptic.shared.simpleSuccess()
-        })
     }
     
 }

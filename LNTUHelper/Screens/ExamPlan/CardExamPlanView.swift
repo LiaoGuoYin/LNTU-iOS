@@ -46,7 +46,6 @@ struct CardExamPlanView: View {
 //
 //            Divider()
 
-            Spacer()
         }
         .font(.headline)
         .foregroundColor(.white)

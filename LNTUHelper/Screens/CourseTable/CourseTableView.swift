@@ -29,7 +29,7 @@ struct CourseTableView: View {
     
     var refreshButton: some View {
         Button(action: {
-            Haptic.shared.simpleSuccess()
+            Haptic.shared.tappedHaptic()
             viewModel.refreshCourseTable()
         }) {
             Text("刷新")
@@ -38,7 +38,12 @@ struct CourseTableView: View {
     
     var examPlanView: some View {
         NavigationLink(destination: ExamPlanView(viewModel: ExamPlanViewModel(user: viewModel.user)),
-                       label: { LabelView(name: "", iconName: "deskclock", iconColor: Color.green) })
+                       label: {
+                        HStack {
+                            Text("考试")
+                            Image(systemName: "number.square")
+                        }
+                       })
     }
 }
 

@@ -18,7 +18,7 @@ struct GradeRowView: View {
             Text(self.course.result)
         }
         .padding()
-        .foregroundColor(course.status == "正常" ? Color.white: Color(.systemPink))
+        .foregroundColor(course.status == "正常" ? Color.white: Color(.systemGreen))
         .background(Color("primary"))
         .cornerRadius(8)
         .shadow(radius: 1)
@@ -32,7 +32,7 @@ struct GradeRowView_Previews: PreviewProvider {
                 "name": "信息系统分析与设计",
                 "credit": "3.5",
                 "semester": "2019-20202",
-                "status": "正常",
+                "status": "正",
                 "result": "93.3",
                 "code": "H101730023056.01",
                 "courseType": "专业必修",

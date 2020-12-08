@@ -68,7 +68,7 @@ struct LoginView: View {
     
     var loginButton: some View {
         Button(action: {
-            Haptic.shared.simpleSuccess()
+            Haptic.shared.tappedHaptic()
             router.refreshEducationData()
         }) {
             HStack {

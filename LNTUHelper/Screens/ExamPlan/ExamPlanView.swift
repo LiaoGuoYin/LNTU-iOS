@@ -16,13 +16,13 @@ struct ExamPlanView: View {
             CardExamPlanView(course: course)
         }
         .navigationBarItems(trailing: refreshButton)
-        .navigationBarTitle(Text("考试安排"), displayMode: .inline)
-        // .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
+        .navigationBarTitle(Text("考试安排"), displayMode: .large)
+        .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
     }
     
     var refreshButton: some View {
         Button(action: {
-            Haptic.shared.simpleSuccess()
+            Haptic.shared.tappedHaptic()
             viewModel.refreshExamPlanList()
         }) {
             Text("刷新")

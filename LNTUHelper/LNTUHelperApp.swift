@@ -17,12 +17,12 @@ struct LNTUHelperApp: View {
             TabView(selection: $selected) {
                 CourseTableView(viewModel: router.courseTableViewModel)
                     .tabItem {
-                        Image(systemName: selected == 0 ? "number.square.fill" : "number.square")
+                        Image(systemName: selected == 0 ? "square.on.square.fill" : "square.on.square")
                     }.tag(0)
                 
-                NoticeView(viewModel: router.noticeViewModel)
+                GradeView(viewModel: router.gradeViewModel)
                     .tabItem {
-                        Image(systemName: selected == 1 ?  "flag.fill" :  "flag")
+                        Image(systemName: selected == 1 ?  "doc.fill" :  "doc")
                     }.tag(1)
                 
                 ClassroomView(viewModel: router.classroomViewModel)
@@ -30,14 +30,15 @@ struct LNTUHelperApp: View {
                         Image(systemName: selected == 2 ?  "square.fill" :  "square")
                     }.tag(2)
                 
-                GradeView(viewModel: router.gradeViewModel)
+                NoticeView(viewModel: router.noticeViewModel)
                     .tabItem {
-                        Image(systemName: selected == 3 ?  "doc.richtext.fill" :  "doc.richtext")
+                        Image(systemName: selected == 3 ?  "bubble.middle.bottom.fill" :  "bubble.middle.bottom")
+                            .imageScale(.large)
                     }.tag(3)
                 
                 UserCenterView(viewModel: router.loginViewModel)
                     .tabItem {
-                        Image(systemName: selected == 4 ?  "person.crop.circle.fill" :  "person.crop.circle")
+                        Image(systemName: selected == 4 ?  "person.fill" :  "person")
                     }.tag(4)
             }
             .accentColor(Color("primary"))

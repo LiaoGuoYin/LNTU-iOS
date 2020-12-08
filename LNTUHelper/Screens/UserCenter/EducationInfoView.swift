@@ -24,17 +24,17 @@ struct EducationInfoView: View {
                 InfoRowView(key: "专业", value: user.major)
                 InfoRowView(key: "班级", value: user.majorClass)
             }
-            Group {
-                InfoRowView(key: "入校时间", value: user.enrollDate)
-                InfoRowView(key: "毕业时间", value: user.graduateDate)
-                InfoRowView(key: "学历层次", value: user.education)
-                InfoRowView(key: "学习形式", value: user.studyType)
-                InfoRowView(key: "是否在校", value: user.isInSchool)
-                InfoRowView(key: "是否有学籍", value: user.isInSchool)
-                InfoRowView(key: "是否在职", value: user.isWorking)
-            }
+//            Group {
+//            InfoRowView(key: "入校时间", value: user.enrollDate)
+//            InfoRowView(key: "毕业时间", value: user.graduateDate)
+//                InfoRowView(key: "学历层次", value: user.education)
+//                InfoRowView(key: "学习形式", value: user.studyType)
+//                InfoRowView(key: "是否在校", value: user.isInSchool)
+//                InfoRowView(key: "是否有学籍", value: user.isInSchool)
+//                InfoRowView(key: "是否在职", value: user.isWorking)
+//            }
         }
-        .navigationBarTitle("个人信息", displayMode: .inline)
+        .navigationBarTitle("个人信息", displayMode: .large)
     }
 }
 

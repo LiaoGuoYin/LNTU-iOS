@@ -66,7 +66,7 @@ struct GradeView: View {
     
     var refreshButton: some View {
         Button(action: {
-            Haptic.shared.simpleSuccess()
+            Haptic.shared.tappedHaptic()
             viewModel.refreshGradeList {
                 viewModel.selectedSemester = viewModel.gradeResultKeyList.first ?? "2020-春"
             }

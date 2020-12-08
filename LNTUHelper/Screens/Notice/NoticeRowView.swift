@@ -28,8 +28,8 @@ struct NoticeRowView: View {
                 .foregroundColor(Color("primary"))
         }
         .onTapGesture {
+            Haptic.shared.tappedHaptic()
             isShowingSheet = true
-            Haptic.shared.simpleSuccess()
         }
         .sheet(isPresented: $isShowingSheet) {
             SafariView(urlString: notice.url)

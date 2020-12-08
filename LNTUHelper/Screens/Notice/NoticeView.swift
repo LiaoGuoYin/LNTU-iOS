@@ -19,7 +19,7 @@ struct NoticeView: View {
         NavigationView {
             List {
                 Section {
-                    SectionLabelView(name: "助手公告", systemName: "number.square.fill")
+                    SectionLabelView(name: "助手公告", systemName: "text.bubble")
                     HStack(alignment: VerticalAlignment.top){
                         Image("Avatar")
                             .resizable()
@@ -34,7 +34,7 @@ struct NoticeView: View {
                     .padding(.vertical)
                 }
                 Section {
-                    SectionLabelView(name: "教务新闻", systemName: "tag.fill")
+                    SectionLabelView(name: "教务新闻", systemName: "text.bubble.fill")
                     ForEach(viewModel.noticeList, id: \.url) { notice in
                         NoticeRowView(notice: notice)
                             .padding(.vertical, 10)
@@ -52,7 +52,7 @@ struct NoticeView: View {
     
     var refreshButton: some View {
         Button(action: {
-            Haptic.shared.simpleSuccess()
+            Haptic.shared.tappedHaptic()
             viewModel.refreshNoticeList()
             viewModel.refreshHelperMessage()
         }) {
