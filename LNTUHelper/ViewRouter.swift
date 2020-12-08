@@ -31,8 +31,9 @@ class ViewRouter: ObservableObject {
     @Published var classroomViewModel: ClassroomViewModel
     @Published var gradeViewModel: GradeViewModel
     @Published var loginViewModel: LoginViewModel
-    @Published var isOffline = false {
+    @Published var isOffline: Bool = false {
         willSet {
+            UserDefaults.standard.setValue(newValue, forKey: "isOffline")
             K.isOffline = newValue
         }
     }
@@ -47,8 +48,9 @@ class ViewRouter: ObservableObject {
         self.refreshEducationData()
     }
     
-    convenience init(user: User, isLogin: Bool) {
+    convenience init(user: User, isLogin: Bool, isOffline: Bool) {
         self.init(user: user)
+        self.isOffline = isOffline
         self.isLogin = isLogin
     }
 }

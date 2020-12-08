@@ -20,6 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         var user = User(username: "1710030000", password: "*")
         var isLogin = false
+        var isOffline = false
         
         if let actualUser = loadLocalUser() {
             user = actualUser
@@ -29,9 +30,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             isLogin = actualIslogin
         }
         
+        if let actualIsOffline = UserDefaults.standard.value(forKey: "isOffline") as? Bool {
+            isOffline = actualIsOffline
+        }
+        
         // Create the SwiftUI view that provides the window contents.
         let contentView = LNTUHelperApp()
-            .environmentObject(ViewRouter(user: user, isLogin: isLogin))
+            .environmentObject(ViewRouter(user: user, isLogin: isLogin, isOffline: isOffline))
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {

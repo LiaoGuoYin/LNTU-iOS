@@ -55,7 +55,7 @@ struct LNTUHelperApp: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        let router = ViewRouter(user: MockData.user, isLogin: true)
+        let router = ViewRouter(user: MockData.user, isLogin: true, isOffline: true)
         LNTUHelperApp()
             .environmentObject(router)
     }

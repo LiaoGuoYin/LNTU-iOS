@@ -14,11 +14,7 @@ struct NoticeResponse: Codable {
 }
 
 struct NoticeResponseData: Codable {
-    let title, url, date, content: String
-    let appendix: [Appendix]
-    struct Appendix: Codable {
-        let url, name: String
-    }
+    let title, url, date: String
 }
 
 struct HelperMessageResponse: Codable {

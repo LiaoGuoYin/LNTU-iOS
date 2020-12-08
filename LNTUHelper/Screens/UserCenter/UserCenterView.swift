@@ -70,6 +70,6 @@ struct UserCenterView: View {
 struct UserCenterView_Previews: PreviewProvider {
     static var previews: some View {
         return UserCenterView(viewModel: LoginViewModel(user: MockData.user))
-            .environmentObject(ViewRouter(user: MockData.user, isLogin: true))
+            .environmentObject(ViewRouter(user: MockData.user, isLogin: true, isOffline: false))
     }
 }
