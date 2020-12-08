@@ -41,7 +41,7 @@ struct UserCenterView: View {
                                    label: { LabelView(name: "其他链接", iconName: "link", iconColor: Color.yellow) })
                 }
                 
-                NavigationLink(destination: TodoView(),
+                NavigationLink(destination: SettingsView(isOffline: $router.isOffline),
                                label: { LabelView(name: "更多", iconName: "gear", iconColor: Color("primary")) })
                 
             }
@@ -50,6 +50,9 @@ struct UserCenterView: View {
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .accentColor(Color("primary"))
+        .onAppear(perform: {
+            Haptic.shared.tappedHaptic()
+        })
     }
     
     var logoutButton: some View {

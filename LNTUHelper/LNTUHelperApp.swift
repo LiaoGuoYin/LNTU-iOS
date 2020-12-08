@@ -20,7 +20,7 @@ struct LNTUHelperApp: View {
                         Image(systemName: selected == 0 ? "square.on.square.fill" : "square.on.square")
                     }.tag(0)
                 
-                GradeView(viewModel: router.gradeViewModel)
+                GradeView(viewModel: router.gradeViewModel, tappedCourse: MockData.gradeList.first!)
                     .tabItem {
                         Image(systemName: selected == 1 ?  "doc.fill" :  "doc")
                     }.tag(1)

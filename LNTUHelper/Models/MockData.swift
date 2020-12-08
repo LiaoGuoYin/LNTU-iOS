@@ -13,6 +13,7 @@ struct MockData {
     static let educationInfo = try! JSONDecoder().decode(EducationInfoResponse.self, from: educationInfoMockData).data!
     static let noticeList = try! JSONDecoder().decode(NoticeResponse.self, from: noticeMockData).data
     static let examPlanList = try! JSONDecoder().decode(ExamPlanResponse.self, from: examPlanMockData).data
+    static let gradeList = try! JSONDecoder().decode(GradeResponse.self, from: gradeMockData).data
 }
 
 // MARK: - EducationInfoMockData
@@ -126,7 +127,176 @@ let examPlanMockData = """
 }
 """
 .data(using: .utf8)!
-    
+
+// MARK: - GradeMockData
+let gradeMockData = """
+{
+  "code": 200,
+  "message": "Success",
+  "data": [
+    {
+      "name": "测试课程",
+      "credit": "5",
+      "semester": "2020-春",
+      "status": "正常",
+      "result": "96",
+      "code": "H271700001048.8",
+      "courseType": "专业课",
+      "midTerm": "0",
+      "endTerm": "46",
+      "usual": "50",
+      "makeUpScore": null,
+      "makeUpScoreResult": null,
+      "totalScore": "96",
+      "point": "4.5"
+    },
+    {
+      "name": "计算机基础训练",
+      "credit": "2",
+      "semester": "2017-秋",
+      "status": "正常",
+      "result": "优秀",
+      "code": "H101777100002.1",
+      "courseType": "专业课",
+      "midTerm": "--",
+      "endTerm": "优秀",
+      "usual": "优秀",
+      "makeUpScore": null,
+      "makeUpScoreResult": null,
+      "totalScore": "优秀",
+      "point": "4.5"
+    },
+    {
+      "name": "大学体育（1）",
+      "credit": "1",
+      "semester": "2017-秋",
+      "status": "正常",
+      "result": "85",
+      "code": "H271700001036.6",
+      "courseType": "专业课",
+      "midTerm": "--",
+      "endTerm": "--",
+      "usual": "--",
+      "makeUpScore": null,
+      "makeUpScoreResult": null,
+      "totalScore": "85",
+      "point": "3.5"
+    },
+    {
+      "name": "高等数学（上）",
+      "credit": "5.5",
+      "semester": "2017-秋",
+      "status": "正常",
+      "result": "82",
+      "code": "H271700001088.17",
+      "courseType": "专业课",
+      "midTerm": "87",
+      "endTerm": "70",
+      "usual": "30",
+      "makeUpScore": null,
+      "makeUpScoreResult": null,
+      "totalScore": "82",
+      "point": "3"
+    },
+    {
+      "name": "大学外语（1）",
+      "credit": "4",
+      "semester": "2017-秋",
+      "status": "正常",
+      "result": "85",
+      "code": "H271700001064.27",
+      "courseType": "专业课",
+      "midTerm": "55",
+      "endTerm": "82",
+      "usual": "30",
+      "makeUpScore": null,
+      "makeUpScoreResult": null,
+      "totalScore": "85",
+      "point": "3.5"
+    },
+    {
+      "name": "大学生心理健康教育",
+      "credit": "1",
+      "semester": "2017-秋",
+      "status": "正常",
+      "result": "合格",
+      "code": "H271780003016.23",
+      "courseType": "专业课",
+      "midTerm": "--",
+      "endTerm": "--",
+      "usual": "--",
+      "makeUpScore": null,
+      "makeUpScoreResult": null,
+      "totalScore": "合格",
+      "point": "3.5"
+    },
+    {
+      "name": "大学生学业生涯规划与素质拓展指导",
+      "credit": "1",
+      "semester": "2017-秋",
+      "status": "正常",
+      "result": "合格",
+      "code": "H271780001008.16",
+      "courseType": "专业课",
+      "midTerm": "--",
+      "endTerm": "--",
+      "usual": "--",
+      "makeUpScore": null,
+      "makeUpScoreResult": null,
+      "totalScore": "合格",
+      "point": "3.5"
+    },
+    {
+      "name": "美学原理*",
+      "credit": "1",
+      "semester": "2017-秋",
+      "status": "正常",
+      "result": "合格",
+      "code": "CX6221.1",
+      "courseType": "C沟通与管理",
+      "midTerm": "--",
+      "endTerm": "--",
+      "usual": "--",
+      "makeUpScore": null,
+      "makeUpScoreResult": null,
+      "totalScore": "合格",
+      "point": "3.5"
+    },
+    {
+      "name": "网络创业理论与实践*",
+      "credit": "1",
+      "semester": "2017-秋",
+      "status": "正常",
+      "result": "合格",
+      "code": "CX6210.6",
+      "courseType": "专业课",
+      "midTerm": "--",
+      "endTerm": "--",
+      "usual": "--",
+      "makeUpScore": null,
+      "makeUpScoreResult": null,
+      "totalScore": "合格",
+      "point": "3.5"
+    },
+    {
+      "name": "专业概论",
+      "credit": "1",
+      "semester": "2017-秋",
+      "status": "正常",
+      "result": "合格",
+      "code": "H101730011016.1",
+      "courseType": "专业课",
+      "midTerm": "--",
+      "endTerm": "--",
+      "usual": "--",
+      "makeUpScore": null,
+      "makeUpScoreResult": null,
+      "totalScore": "合格",
+      "point": "3.5"
+    }
+  ]
+}
+""".data(using: .utf8)!
 
 // MARK: - NoticeMockData
 let noticeMockData = """

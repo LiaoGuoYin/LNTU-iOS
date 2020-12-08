@@ -9,7 +9,6 @@ import Alamofire
 import Foundation
 
 enum APIEducationRouter: URLRequestConvertible {
-    static var defaultParams = ["imei": "nil"] // set the default params
     
     case initHelperMessage
     case notice
@@ -36,7 +35,7 @@ enum APIEducationRouter: URLRequestConvertible {
     private var path: String {
         switch self {
         case .initHelperMessage:
-            return "education/init"
+            return "/education/init"
         case .notice:
             return "/education/notice"
         case .classroom:
@@ -56,22 +55,22 @@ enum APIEducationRouter: URLRequestConvertible {
         }
     }
     
-    // MARK: - Query Parameters
-    private var queryParameters: Parameters? {
-        var params = APIEducationRouter.defaultParams
+    // MARK: - Query Item Parameters
+    private var queryItemParams: [URLQueryItem]? {
+        var queryItemParamList = [URLQueryItem(name: K.imei, value: "imei"),
+                                  URLQueryItem(name: K.offline, value: String(K.isOffline.description))]
         switch self {
         case .classroom(let week, let buildingName):
-            params.updateValue(String(week), forKey: K.Education.week)
-            params.updateValue(AllBuildingEnum(rawValue: buildingName)?.varName ?? "", forKey: K.Education.buildingName)
+            queryItemParamList.append(contentsOf: [URLQueryItem(name: K.Education.week, value: String(week)),
+                                                   URLQueryItem(name: K.Education.buildingName, value: AllBuildingEnum(rawValue: buildingName)?.varName ?? "")])
         case .courseTable(_, let semester):
-            params.updateValue(semester, forKey: K.Education.semester)
-        case .examPlan(_, let semester, let offline):
-            params.updateValue(semester, forKey: K.Education.semester)
-            params.updateValue(String.init(offline), forKey: K.offline)
+            queryItemParamList.append(contentsOf: [URLQueryItem(name: K.Education.semester, value: semester)])
+        case .examPlan(_, let semester, _):
+            queryItemParamList.append(contentsOf: [URLQueryItem(name: K.Education.semester, value: semester)])
         default:
-            return nil
+            return queryItemParamList
         }
-        return params
+        return queryItemParamList
     }
     
     // MARK: - POST Body Parameters
@@ -89,25 +88,18 @@ enum APIEducationRouter: URLRequestConvertible {
     
     // MARK: - URLRequestConvertible
     func asURLRequest() throws -> URLRequest {
+        
         let url = try K.Education.baseURL.asURL()
+        var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)!
+        urlComponents.path = path
+        urlComponents.queryItems = queryItemParams
         
-        var urlRequest = URLRequest(url: url.appendingPathComponent(path))
-        
-        // HTTP Method
+        var urlRequest = URLRequest(url: urlComponents.url!)
         urlRequest.httpMethod = method.rawValue
         
         // Common Headers
         urlRequest.setValue(ContentType.json.rawValue, forHTTPHeaderField: HTTPHeaderField.acceptType.rawValue)
         urlRequest.setValue(ContentType.json.rawValue, forHTTPHeaderField: HTTPHeaderField.contentType.rawValue)
-        
-        // Query Parameters
-        if let actualQueryParameters = queryParameters {
-            do {
-                urlRequest = try URLEncoding.default.encode(urlRequest, with: actualQueryParameters)
-            } catch {
-                throw AFError.parameterEncodingFailed(reason: .jsonEncodingFailed(error: error))
-            }
-        }
         
         // Body Parameters
         if let parameters = parameters {

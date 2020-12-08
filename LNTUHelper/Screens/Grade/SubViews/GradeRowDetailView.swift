@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GradeRowDetailView: View {
-    @Binding var course: GradeResponseDataGrade
+    @Binding var course: GradeResponseData
     var body: some View {
         VStack(alignment: .leading, spacing: 50) {
             VStack(alignment: .leading, spacing: 20) {
@@ -56,7 +56,7 @@ struct GradeRowDetailView_Previews: PreviewProvider {
                 "point": "4"
               }
               """.data(using: .utf8)!
-        let demoGrade = try! JSONDecoder().decode(GradeResponseDataGrade.self, from: demoData)
+        let demoGrade = try! JSONDecoder().decode(GradeResponseData.self, from: demoData)
         return GradeRowDetailView(course: .constant(demoGrade))
     }
 }

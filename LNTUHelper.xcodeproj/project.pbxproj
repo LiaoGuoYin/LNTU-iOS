@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AF12457B254EB6E300FFB1E7 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF12457A254EB6E300FFB1E7 /* SafariView.swift */; };
+		AF171401257F2612009E382A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF171400257F2612009E382A /* SettingsView.swift */; };
 		AF2849A5254C6DB800D78D2C /* HapticModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2849A4254C6DB800D78D2C /* HapticModels.swift */; };
 		AF30539625455A6600F849A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF30539525455A6600F849A9 /* AppDelegate.swift */; };
 		AF30539825455A6600F849A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF30539725455A6600F849A9 /* SceneDelegate.swift */; };
@@ -85,6 +86,7 @@
 
 /* Begin PBXFileReference section */
 		AF12457A254EB6E300FFB1E7 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
+		AF171400257F2612009E382A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		AF2849A4254C6DB800D78D2C /* HapticModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticModels.swift; sourceTree = "<group>"; };
 		AF30539225455A6600F849A9 /* LNTUHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LNTUHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF30539525455A6600F849A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -176,6 +178,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AF1713FF257F2603009E382A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AF171400257F2612009E382A /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		AF30538925455A6600F849A9 = {
 			isa = PBXGroup;
 			children = (
@@ -255,9 +265,9 @@
 		AF3053C625455AC600F849A9 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				AF3053CE25455D6700F849A9 /* Constants.swift */,
 				AF3053C725455ADC00F849A9 /* APIRouter.swift */,
 				AF3053C925455AE400F849A9 /* APIClient.swift */,
-				AF3053CE25455D6700F849A9 /* Constants.swift */,
 				AF3053D025456E2000F849A9 /* AppErrors.swift */,
 			);
 			path = API;
@@ -367,6 +377,7 @@
 		AFE3553D25491E180099B1CB /* UserCenter */ = {
 			isa = PBXGroup;
 			children = (
+				AF1713FF257F2603009E382A /* Views */,
 				AFE3553E25491E370099B1CB /* UserCenterView.swift */,
 				AF5E4AEB254AF84800736FB4 /* EducationInfoView.swift */,
 				AF32A7AF257BB00F004D1E78 /* InfoRowView.swift */,
@@ -568,6 +579,7 @@
 				AF5E4AE3254AD9B800736FB4 /* NoticeViewModel.swift in Sources */,
 				AF599BF22547EBD400E8D769 /* LoginViewModel.swift in Sources */,
 				AF7BD6F82546BB9900771CDA /* CourseTableView.swift in Sources */,
+				AF171401257F2612009E382A /* SettingsView.swift in Sources */,
 				AF32A7B0257BB00F004D1E78 /* InfoRowView.swift in Sources */,
 				AFF09574257A8E280073D336 /* MockData.swift in Sources */,
 				AF3053C825455ADC00F849A9 /* APIRouter.swift in Sources */,

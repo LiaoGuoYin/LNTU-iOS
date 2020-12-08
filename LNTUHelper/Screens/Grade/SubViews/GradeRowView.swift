@@ -9,7 +9,7 @@ import SwiftUI
 
 
 struct GradeRowView: View {
-    @State var course: GradeResponseDataGrade
+    @State var course: GradeResponseData
     var body: some View {
         HStack {
             Text(self.course.name)
@@ -44,7 +44,7 @@ struct GradeRowView_Previews: PreviewProvider {
                 "point": "4"
               }
               """.data(using: .utf8)!
-        let demoGrade = try! JSONDecoder().decode(GradeResponseDataGrade.self, from: demoData)
+        let demoGrade = try! JSONDecoder().decode(GradeResponseData.self, from: demoData)
         return GradeRowView(course: demoGrade)
     }
 }

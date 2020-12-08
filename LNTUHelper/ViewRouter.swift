@@ -31,6 +31,11 @@ class ViewRouter: ObservableObject {
     @Published var classroomViewModel: ClassroomViewModel
     @Published var gradeViewModel: GradeViewModel
     @Published var loginViewModel: LoginViewModel
+    @Published var isOffline = false {
+        willSet {
+            K.isOffline = newValue
+        }
+    }
     
     init(user: User) {
         self.user = user
@@ -67,7 +72,6 @@ extension ViewRouter {
                     self.loginViewModel.userInfo = data.info
                     self.courseTableViewModel.courseTableResponseList = data.courseTable
                     self.gradeViewModel.gradeList = data.grade
-                    self.gradeViewModel.gradePointAverage = data.gpa
                     self.isLogin = true
                 }
             }

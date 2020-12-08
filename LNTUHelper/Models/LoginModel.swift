@@ -16,8 +16,7 @@ struct EducationDataResponse: Codable {
 struct EducationDataResponseData: Codable {
     let info: EducationInfoResponseData
     let courseTable: [CourseTableResponseData]
-    let grade: [GradeResponseDataGrade]
-    let gpa: GradeResponseDataGPA
+    let grade: [GradeResponseData]
 }
 
 struct EducationInfoResponse: Codable {

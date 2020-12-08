@@ -17,23 +17,16 @@ class GradeViewModel: ObservableObject {
         }
     }
     
-    @Published var gradeList: [GradeResponseDataGrade] {
+    @Published var gradeList: [GradeResponseData] {
         didSet {
             if let actualGradeListData = try? JSONEncoder().encode(gradeList) {
                 UserDefaults.standard.setValue(actualGradeListData, forKey: "grade")
             }
         }
     }
-    @Published var gradePointAverage: GradeResponseDataGPA {
-        didSet {
-            if let actualGradePointAverageData = try? JSONEncoder().encode(gradePointAverage) {
-                UserDefaults.standard.setValue(actualGradePointAverageData, forKey: "gpa")
-            }
-        }
-    }
     @Published var selectedSemester: String = "2020-春"
     
-    var gradeResult: [String: [GradeResponseDataGrade]] {
+    var gradeResult: [String: [GradeResponseData]] {
         get {
             Dictionary(grouping: gradeList, by: { $0.semester })
         }
@@ -48,7 +41,6 @@ class GradeViewModel: ObservableObject {
     init(user: User) {
         self.user = user
         self.gradeList = []
-        self.gradePointAverage = GradeResponseDataGPA(semester: "", gradePointAverage: 0.0, weightedAverage: 0.0, gradePointTotal: 0.0, scoreTotal: 0.0, creditTotal: 0, courseCount: 0)
 //        self.refreshGradeList {
 //            self.selectedSemester = self.gradeResultKeyList.first ?? "2020-春"
 //        }
@@ -70,11 +62,8 @@ extension GradeViewModel {
                 if response.code == 200 {
                     self.banner.type = .Success
                     self.banner.title = "刷新成绩、绩点成功"
-                    if let actualResponseData = response.data {
-                        self.gradeList = actualResponseData.grade
-                        self.gradePointAverage = actualResponseData.gpa
-                        completion()
-                    }
+                    self.gradeList = response.data
+                    completion()
                 } else {
                     self.banner.type = .Error
                     self.banner.title = "刷新成绩、绩点失败"

@@ -7,7 +7,9 @@
 
 struct K {
     
+    static var isOffline = false
     static let offline = "offline"
+    static let imei = "imei"
 
     struct Education {
         static let baseURL = "https://api.liaoguoyin.com"
