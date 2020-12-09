@@ -27,7 +27,7 @@ struct NoticeView: View {
                             .cornerRadius(30)
                         Text(viewModel.helperMessage.notice)
                             .foregroundColor(Color.gray)
-                            .font(.subheadline)
+                            .font(.body)
                             .fontWeight(.semibold)
                             .multilineTextAlignment(.leading)
                     }

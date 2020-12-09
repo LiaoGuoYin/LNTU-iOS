@@ -14,6 +14,8 @@ struct MockData {
     static let noticeList = try! JSONDecoder().decode(NoticeResponse.self, from: noticeMockData).data
     static let examPlanList = try! JSONDecoder().decode(ExamPlanResponse.self, from: examPlanMockData).data
     static let gradeList = try! JSONDecoder().decode(GradeResponse.self, from: gradeMockData).data
+    static let courseTableList = try! JSONDecoder().decode(CourseTableResponse.self, from: courseTableMockData).data!
+    static let classroomResponseData = try! JSONDecoder().decode(ClassroomResponse.self, from: classroomMockData).data
 }
 
 // MARK: - EducationInfoMockData
@@ -50,6 +52,125 @@ let educationInfoMockData = """
       }
     }
 """.data(using: .utf8)!
+
+// MARK: - CourseTableMockData
+ let courseTableMockData = """
+{
+  "code": 200,
+  "message": "Success",
+  "data": [
+    {
+      "code": "H101750011032.01",
+      "name": "数据分析案例",
+      "teacher": "杨韬",
+      "credit": "2",
+      "scheduleList": [
+        {
+          "room": "静远楼345",
+          "weekday": 5,
+          "index": 2,
+          "weeksString": "4-5 7-8 10-11",
+          "weeks": [
+            4,
+            5,
+            7,
+            8,
+            10,
+            11
+          ]
+        },
+        {
+          "room": "静远楼345",
+          "weekday": 2,
+          "index": 1,
+          "weeksString": "4-10",
+          "weeks": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ]
+        },
+        {
+          "room": "静远楼345",
+          "weekday": 2,
+          "index": 1,
+          "weeksString": "12",
+          "weeks": [
+            12
+          ]
+        },
+        {
+          "room": "静远楼345",
+          "weekday": 2,
+          "index": 1,
+          "weeksString": "13",
+          "weeks": [
+            13
+          ]
+        },
+        {
+          "room": "耘慧楼312",
+          "weekday": 6,
+          "index": 2,
+          "weeksString": "6",
+          "weeks": [
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "code": "H101750030040.02",
+      "name": "网络规划与集成",
+      "teacher": "杨彤骥",
+      "credit": "2.5",
+      "scheduleList": [
+        {
+          "room": "静远楼313",
+          "weekday": 3,
+          "index": 1,
+          "weeksString": "双4-16",
+          "weeks": [
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16
+          ]
+        },
+        {
+          "room": "静远楼313",
+          "weekday": 1,
+          "index": 1,
+          "weeksString": "4-16",
+          "weeks": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+          ]
+        }
+      ]
+    }
+  ]
+}
+""".data(using: .utf8)!
+
 
 // MARK: - ExamPlanMockData
 let examPlanMockData = """
@@ -333,3 +454,73 @@ let noticeMockData = """
 }
 """
 .data(using: .utf8)!
+
+// MARK: - classroomMockData
+let classroomMockData = """
+{
+  "code": 200,
+  "message": "Success",
+  "data": {
+    "week": "10",
+    "buildingName": "hldwlsys",
+    "classroomList": [
+      {
+        "room": "H室外",
+        "type": "室外",
+        "capacity": "700",
+        "scheduleList": [
+          "01110",
+          "01110",
+          "01000",
+          "01110",
+          "01110",
+          "00000",
+          "00000"
+        ]
+      },
+      {
+        "room": "H物理实验室耘慧103",
+        "type": "物理实验室",
+        "capacity": "400",
+        "scheduleList": [
+          "00010",
+          "01000",
+          "00010",
+          "01110",
+          "00010",
+          "00000",
+          "00000"
+        ]
+      },
+      {
+        "room": "D3107",
+        "type": "专用教室",
+        "capacity": "40",
+        "scheduleList": [
+          "00000",
+          "00000",
+          "00000",
+          "00000",
+          "00000",
+          "00000",
+          "00000"
+        ]
+      },
+      {
+        "room": "H物理实验室II",
+        "type": "物理实验室",
+        "capacity": "400",
+        "scheduleList": [
+          "00000",
+          "00000",
+          "00000",
+          "00000",
+          "00000",
+          "00000",
+          "00000"
+        ]
+      }
+    ]
+  }
+}
+""".data(using: .utf8)!

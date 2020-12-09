@@ -25,6 +25,6 @@ struct SectionLabelView: View {
 
 struct SectionLabelView_Previews: PreviewProvider {
     static var previews: some View {
-        SectionLabelView(name: "DEMO", systemName: "number.square.fill")
+        SectionLabelView(name: "标题", systemName: "number.square.fill")
     }
 }
