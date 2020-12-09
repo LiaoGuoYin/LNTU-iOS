@@ -29,14 +29,17 @@ struct ClassroomView: View {
                             Text(building)
                         }
                     }
+                    
+                    HStack {
+                        Text("第 \(viewModel.form.week) 周")
+                            .foregroundColor(Color("primary"))
+                            .frame(width: 60)
+
+                        WeekSelectorView(selectedWeek: $viewModel.form.week)
+                    }
                 }
                 .pickerStyle(SegmentedPickerStyle())
                 .navigationBarTitle(Text("空教室"), displayMode: .large)
-
-                Stepper(value: $viewModel.form.week, in: 1...22) {
-                    Text("第 \(viewModel.form.week) 周")
-                        .foregroundColor(Color("primary"))
-                }
                 
                 ClassroomDetailView(classroomList: $viewModel.classroomList)
             }

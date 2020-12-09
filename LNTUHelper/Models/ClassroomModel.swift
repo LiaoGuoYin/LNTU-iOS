@@ -79,8 +79,7 @@ enum HLDBuildingEnum: String, CaseIterable, Identifiable {
     case yhl = "耘慧楼"
     case eyl = "尔雅楼"
     case jyl = "静远楼"
-    case hldjf = "葫芦岛机房"
-    case hldwlsys = "葫芦岛物理实验室"
+    case hldwlsys = "实验楼"
     
     var id: String {
         return self.rawValue
@@ -90,9 +89,9 @@ enum HLDBuildingEnum: String, CaseIterable, Identifiable {
 enum FXNBuildingEnum: String, CaseIterable, Identifiable {
     case byl = "博雅楼"
     case xhl = "新华楼"
-    case zhl = "中和楼"
     case zyl = "致远楼"
     case zxl = "知行楼"
+    case zhl = "中和楼"
     case wlsys = "物理实验室"
     
     var id: String {
@@ -113,15 +112,15 @@ enum AllBuildingEnum: String, CaseIterable {
     case yhl = "耘慧楼"
     case eyl = "尔雅楼"
     case jyl = "静远楼"
-    case hldjf = "葫芦岛机房"
-    case hldwlsys = "葫芦岛物理实验室"
+    case hldwlsys = "实验楼"
     
     case byl = "博雅楼"
     case xhl = "新华楼"
-    case zhl = "中和楼"
     case zyl = "致远楼"
     case zxl = "知行楼"
+    case zhl = "中和楼"
     case wlsys = "物理实验室"
+
     
     case bwl = "博文楼"
     case zljf = "主楼机房"

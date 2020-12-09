@@ -15,10 +15,13 @@ struct ClassroomDetailView: View {
     
     var body: some View {
         VStack {
-            Stepper(value: $selectedWeekday, in: 1...7) {
-                Text("周 \(selectedWeekday)")
+            HStack {
+                Text("星期 \(selectedWeekday)")
                     .foregroundColor(Color("primary"))
+                    .frame(width: 60)
+                WeekSelectorView(selectedWeek: $selectedWeekday, endNumber: 7)
             }
+
             List {
                 HStack {
                     Text("教室名")
@@ -53,7 +56,7 @@ struct ClassroomDetailView: View {
                     .lineLimit(1)
                 }
                 .listRowInsets(EdgeInsets())
-
+                
             }
         }
     }
