@@ -16,33 +16,38 @@ struct UserCenterView: View {
         NavigationView {
             Form {
                 Section {
-                    NavigationLink(destination: EducationInfoView(user: router.loginViewModel.userInfo),
-                                   label: {
-                                    if #available(iOS 14.0, *) {
-                                        LabelView(name: "个人信息", iconName: "at.circle", iconColor: Color("primary"))
-                                    } else {
-                                        LabelView(name: "个人信息", iconName: "eyeglasses", iconColor: Color("primary"))
-                                    }
-                                   })
+                    NavigationLink(
+                        destination: EducationInfoView(user: router.loginViewModel.userInfo),
+                        label: {
+                            if #available(iOS 14.0, *) {
+                                LabelView(name: "个人信息", iconName: "at.circle", iconColor: Color("primary"))
+                            } else {
+                                LabelView(name: "个人信息", iconName: "eyeglasses", iconColor: Color("primary"))
+                            }
+                        })
                     
-                    NavigationLink(destination:
-                                    ExamPlanView(viewModel: ExamPlanViewModel(user: router.user)),
-                                   label: { LabelView(name: "考试安排", iconName: "number.square", iconColor: Color(.systemRed)) })
+                    NavigationLink(
+                        destination: ExamPlanView(viewModel: ExamPlanViewModel(user: router.user)),
+                        label: { LabelView(name: "考试安排", iconName: "number.square", iconColor: Color(.systemRed)) })
                 }
                 
                 Section {
-                    NavigationLink(destination: LibraryCardView(),
-                                   label: { LabelView(name: "图书馆", iconName: "barcode.viewfinder", iconColor: Color.blue) })
+                    NavigationLink(
+                        destination: LibraryCardView(),
+                        label: { LabelView(name: "图书馆", iconName: "barcode.viewfinder", iconColor: Color.blue) })
                     
-                    NavigationLink(destination: TodoView(),
-                                   label: { LabelView(name: "素拓网", iconName: "rosette", iconColor: Color.pink) })
+                    NavigationLink(
+                        destination: QualityActivityView(viewModel: QualityActivityViewModel()),
+                        label: { LabelView(name: "素拓网", iconName: "rosette", iconColor: Color.pink) })
                     
-                    NavigationLink(destination: TodoView(),
-                                   label: { LabelView(name: "其他链接", iconName: "link", iconColor: Color.yellow) })
+                    NavigationLink(
+                        destination: TodoView(),
+                        label: { LabelView(name: "其他链接", iconName: "link", iconColor: Color.yellow) })
                 }
                 
-                NavigationLink(destination: SettingsView(isOffline: $router.isOffline),
-                               label: { LabelView(name: "更多", iconName: "gear", iconColor: Color("primary")) })
+                NavigationLink(
+                    destination: SettingsView(isOffline: $router.isOffline),
+                    label: { LabelView(name: "更多", iconName: "gear", iconColor: Color("primary")) })
                 
             }
             .navigationBarItems(trailing: logoutButton)

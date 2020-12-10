@@ -36,7 +36,7 @@ struct NoticeView: View {
                         Button(action: {
                             UIPasteboard.general.string = viewModel.helperMessage.notice
                         }) {
-                            Text("复制有用信息到剪贴板")
+                            Text("复制到剪贴板")
                             Image(systemName: "doc.on.doc")
                         }
                     }

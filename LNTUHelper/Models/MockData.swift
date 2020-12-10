@@ -16,6 +16,7 @@ struct MockData {
     static let gradeList = try! JSONDecoder().decode(GradeResponse.self, from: gradeMockData).data
     static let courseTableList = try! JSONDecoder().decode(CourseTableResponse.self, from: courseTableMockData).data!
     static let classroomResponseData = try! JSONDecoder().decode(ClassroomResponse.self, from: classroomMockData).data
+    static let qualityActivityList = try! JSONDecoder().decode(QualityActivityResponse.self, from: qualitActivityMockData).data
 }
 
 // MARK: - EducationInfoMockData
@@ -522,5 +523,51 @@ let classroomMockData = """
       }
     ]
   }
+}
+""".data(using: .utf8)!
+
+// MARK: - QualityActivityMockData
+let qualitActivityMockData = """
+{
+  "code": 200,
+  "message": "离线模式: Success, 最后更新于: 2020-12-09 20:02:16",
+  "data": [
+    {
+      "type": "employment",
+      "id": "5",
+      "name": "工商管理学院2018-2019下荣誉类活动",
+      "semester": "2018-2019下",
+      "activityDate": "2018-09-01-2019-09-01",
+      "location": "测试17-2",
+      "responsibility": "优秀",
+      "loggingDateTime": "2019/9/1 13:46:34",
+      "status": "认证通过",
+      "comment": null
+    },
+    {
+      "type": "employment",
+      "id": "6",
+      "name": "工商学院2017-2018下学生干部任职    ",
+      "semester": "2017-2018下",
+      "activityDate": "2017-09-01-2018-07-31",
+      "location": "团支部信管17-2",
+      "responsibility": "班长",
+      "loggingDateTime": "2018/7/9 17:02:40",
+      "status": "认证通过",
+      "comment": null
+    },
+    {
+      "type": "mind",
+      "id": "1",
+      "name": "工商学院17级“脚踏实地明理想，更进一步创未来”主题团会",
+      "semester": "2020-2021上",
+      "activityDate": "2020-11-01",
+      "location": "辽宁省葫芦岛市",
+      "responsibility": "参与者",
+      "loggingDateTime": "2020/11/7 14:40:05",
+      "status": "认证通过",
+      "comment": null
+    }
+  ]
 }
 """.data(using: .utf8)!

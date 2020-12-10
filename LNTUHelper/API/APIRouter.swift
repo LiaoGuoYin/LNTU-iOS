@@ -21,12 +21,14 @@ enum APIEducationRouter: URLRequestConvertible {
     case examPlan(user: User, semester: String, offline: Bool)
     case otherExam(user: User)
     
+    case qualityActivity(user: User)
+    
     // MARK: - HTTPMethod
     private var method: HTTPMethod {
         switch self {
         case .classroom, .notice, .initHelperMessage:
             return .get
-        case .data, .info, .courseTable, .grade, .examPlan,.otherExam:
+        case .data, .info, .courseTable, .grade, .examPlan, .otherExam, .qualityActivity:
             return .post
         }
     }
@@ -52,6 +54,8 @@ enum APIEducationRouter: URLRequestConvertible {
             return "/education/exam"
         case .otherExam:
             return "/education/other-exam"
+        case .qualityActivity:
+            return "/quality/activity"
         }
     }
     
@@ -76,7 +80,7 @@ enum APIEducationRouter: URLRequestConvertible {
     // MARK: - POST Body Parameters
     private var parameters: Parameters? {
         switch self {
-        case .courseTable(let user, _), .info(let user), .grade(let user), .data(let user), .examPlan(let user, _, _), .otherExam(let user):
+        case .courseTable(let user, _), .info(let user), .grade(let user), .data(let user), .examPlan(let user, _, _), .otherExam(let user), .qualityActivity(let user):
             return [
                 K.Education.username: user.username,
                 K.Education.password: user.password,

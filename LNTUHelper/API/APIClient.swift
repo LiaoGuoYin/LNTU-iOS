@@ -50,4 +50,7 @@ class APIClient {
         performRequest(route: APIEducationRouter.examPlan(user: user, semester: semester, offline: offline), completion: completion)
     }
     
+    static func qualityActivity(user: User, completion: @escaping (Result<QualityActivityResponse, AFError>) -> Void) {
+        performRequest(route: APIEducationRouter.qualityActivity(user: user), completion: completion)
+    }
 }
