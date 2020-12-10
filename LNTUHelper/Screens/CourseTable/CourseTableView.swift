@@ -12,7 +12,6 @@ struct CourseTableView: View {
     @ObservedObject var viewModel: CourseTableViewModel
     
     var body: some View {
-        NavigationView {
             VStack(spacing: 0) {
                 WeekSelectorView(title: .constant(""), selectedWeek: $viewModel.currentWeek)
                     .padding(.vertical)
@@ -20,10 +19,8 @@ struct CourseTableView: View {
             }
             .padding(.horizontal)
             .navigationBarItems(leading: examPlanView, trailing: refreshButton)
-            .navigationBarTitle(Text(viewModel.selectedWeekString), displayMode: .inline)
-        }
-        .navigationViewStyle(StackNavigationViewStyle())
-        .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
+//            .navigationBarTitle(Text(viewModel.selectedWeekString), displayMode: .inline) TODO
+//            .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
     }
     
     var refreshButton: some View {

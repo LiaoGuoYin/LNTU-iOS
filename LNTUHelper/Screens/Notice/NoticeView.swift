@@ -16,8 +16,7 @@ struct NoticeView: View {
     @State private var didTap = false
     
     var body: some View {
-        NavigationView {
-            List {
+            Form {
                 Section {
                     SectionLabelView(name: "助手公告", systemName: "text.bubble")
                     HStack(alignment: VerticalAlignment.top){
@@ -50,12 +49,9 @@ struct NoticeView: View {
                 }
             }
             .listStyle(GroupedListStyle())
-            .navigationBarTitle("News", displayMode: .large)
             .navigationBarItems(trailing: refreshButton)
-        }
-        .navigationViewStyle(StackNavigationViewStyle())
-        .accentColor(Color("primary"))
-        .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
+            .accentColor(Color("primary"))
+//            .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
     }
     
     var refreshButton: some View {

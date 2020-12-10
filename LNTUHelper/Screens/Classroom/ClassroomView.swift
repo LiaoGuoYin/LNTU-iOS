@@ -14,40 +14,37 @@ struct ClassroomView: View {
     @State var selectedWeekday: Int = getCurrentWeekDay()
     
     var body: some View {
-        NavigationView {
-            List {
-                Text("当前选择: \(viewModel.form.campus.rawValue) \(viewModel.form.selectedBuilding) 第 \(viewModel.form.week) 周")
-                    .foregroundColor(Color.secondary)
-                
-                VStack {
-                    Picker("校区", selection: $viewModel.form.campus) {
-                        ForEach(CampusEnum.allCases) {
-                            Text($0.rawValue).tag($0)
-                        }
-                    }
-                    Picker("教学楼", selection: $viewModel.form.selectedBuilding) {
-                        ForEach(viewModel.form.buildingList, id: \.self) { building in
-                            Text(building)
-                        }
+        
+        List {
+            Text("当前选择: \(viewModel.form.campus.rawValue) \(viewModel.form.selectedBuilding) 第 \(viewModel.form.week) 周")
+                .foregroundColor(Color.secondary)
+            
+            VStack {
+                Picker("校区", selection: $viewModel.form.campus) {
+                    ForEach(CampusEnum.allCases) {
+                        Text($0.rawValue).tag($0)
                     }
                 }
-                .pickerStyle(SegmentedPickerStyle())
-                
-                VStack {
-                    WeekSelectorView(title: .constant("第 \(viewModel.form.week) 周"), selectedWeek: $viewModel.form.week)
-                    WeekSelectorView(title: .constant("星期 \(selectedWeekday)"), selectedWeek: $selectedWeekday, endNumber: 7)
+                Picker("教学楼", selection: $viewModel.form.selectedBuilding) {
+                    ForEach(viewModel.form.buildingList, id: \.self) { building in
+                        Text(building)
+                    }
                 }
-                
-                ClassroomDetailView(classroomList: $viewModel.classroomList,
-                                    selectedWeekday: $selectedWeekday)
-                    .foregroundColor(Color.secondary)
             }
-            .navigationBarTitle(Text("空教室"), displayMode: .large)
+            .pickerStyle(SegmentedPickerStyle())
+            
+            VStack {
+                WeekSelectorView(title: .constant("第 \(viewModel.form.week) 周"), selectedWeek: $viewModel.form.week)
+                WeekSelectorView(title: .constant("星期 \(selectedWeekday)"), selectedWeek: $selectedWeekday, endNumber: 7)
+            }
+            
+            ClassroomDetailView(classroomList: $viewModel.classroomList,
+                                selectedWeekday: $selectedWeekday)
+                .foregroundColor(Color.secondary)
         }
         .font(.subheadline)
         .foregroundColor(Color("primary"))
-        .navigationViewStyle(StackNavigationViewStyle())
-        .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
+//        .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
     }
 }
 
