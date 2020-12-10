@@ -9,7 +9,9 @@ import Foundation
 import SwiftUI
 
 struct CourseCellView: View {
+    
     @Binding var cell: CourseTableMatrixCell
+    
     var body: some View {
         VStack(spacing: 3) {
             Text(cell.name)
@@ -19,19 +21,19 @@ struct CourseCellView: View {
                 .padding(.horizontal, 2)
         }
         .font(.caption)
-        .padding(.horizontal, 2)
         .foregroundColor(.white)
-        .frame(width: UIScreen.main.bounds.width / 6, height: UIScreen.main.bounds.height / 7)
-        .background(cell.name != "" ? Color("primary") : Color("cellBlock"))
-        .cornerRadius(6)
+        .padding(.horizontal, 2)
         .multilineTextAlignment(.center)
+        .frame(width: UIScreen.main.bounds.width / 6, height: UIScreen.main.bounds.height / 7)
+        .background(cell.name == "" ? Color("cellBlock") : Color("primary"))
+        .cornerRadius(6)
     }
 }
 
 struct CourseCellView_Previews: PreviewProvider {
     static var previews: some View {
         let courseTableMatrix = flatToMatrix(courseList: MockData.courseTableList, currentWeek: 10)
-        CourseCellView(cell: .constant(courseTableMatrix[1,1][1]))
+        CourseCellView(cell: .constant(courseTableMatrix[2, 2][1]))
     }
 }
 

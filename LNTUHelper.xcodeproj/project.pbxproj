@@ -398,8 +398,8 @@
 		AFE3553D25491E180099B1CB /* UserCenter */ = {
 			isa = PBXGroup;
 			children = (
-				AF1713FF257F2603009E382A /* SubViews */,
 				AFE3553E25491E370099B1CB /* UserCenterView.swift */,
+				AF1713FF257F2603009E382A /* SubViews */,
 			);
 			path = UserCenter;
 			sourceTree = "<group>";

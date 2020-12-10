@@ -47,11 +47,11 @@ extension QualityActivityViewModel {
             case .failure(let error):
                 self.banner.content = error.localizedDescription
                 self.banner.type = .Error
-                print(error)
             case .success(let response):
-                self.banner.type = .Success
+                self.banner.type = .Error
                 self.banner.content = response.message
                 guard response.code == 200 else { return }
+                self.banner.type = .Success
                 self.qualityActivityList = response.data
                 UserDefaults.standard.setValue(self.user.username, forKey: "usernameForQuality")
                 UserDefaults.standard.setValue(self.user.password, forKey: "passwordForQuality")

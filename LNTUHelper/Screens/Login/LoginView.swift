@@ -58,6 +58,7 @@ struct LoginView: View {
             }
             .navigationBarTitle(Text("Login"), displayMode: .large)
         }
+        .navigationViewStyle(StackNavigationViewStyle())
         .resignKeyboardOnDragGesture()
         .banner(data: $router.banner, isShow:  $router.isShowBanner)
         .sheet(isPresented: $isShowingSheet) {

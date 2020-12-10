@@ -10,42 +10,42 @@ import SwiftUI
 struct ClassroomView: View {
     
     @ObservedObject var viewModel: ClassroomViewModel
+    var screenWidth: CGFloat = UIScreen.main.bounds.width
+    @State var selectedWeekday: Int = getCurrentWeekDay()
     
     var body: some View {
         NavigationView {
-            VStack {
-                VStack(alignment: .leading) {
-                    Text("当前选择: \(viewModel.form.campus.rawValue) \(viewModel.form.selectedBuilding) 第 \(viewModel.form.week) 周")
-                        .foregroundColor(.gray)
-                    
+            List {
+                Text("当前选择: \(viewModel.form.campus.rawValue) \(viewModel.form.selectedBuilding) 第 \(viewModel.form.week) 周")
+                    .foregroundColor(Color.secondary)
+                
+                VStack {
                     Picker("校区", selection: $viewModel.form.campus) {
                         ForEach(CampusEnum.allCases) {
                             Text($0.rawValue).tag($0)
                         }
                     }
-                    
                     Picker("教学楼", selection: $viewModel.form.selectedBuilding) {
                         ForEach(viewModel.form.buildingList, id: \.self) { building in
                             Text(building)
                         }
                     }
-                    
-                    HStack {
-                        Text("第 \(viewModel.form.week) 周")
-                            .foregroundColor(Color("primary"))
-                            .frame(width: 60)
-
-                        WeekSelectorView(selectedWeek: $viewModel.form.week)
-                    }
                 }
                 .pickerStyle(SegmentedPickerStyle())
-                .navigationBarTitle(Text("空教室"), displayMode: .large)
                 
-                ClassroomDetailView(classroomList: $viewModel.classroomList)
+                VStack {
+                    WeekSelectorView(title: .constant("第 \(viewModel.form.week) 周"), selectedWeek: $viewModel.form.week)
+                    WeekSelectorView(title: .constant("星期 \(selectedWeekday)"), selectedWeek: $selectedWeekday, endNumber: 7)
+                }
+                
+                ClassroomDetailView(classroomList: $viewModel.classroomList,
+                                    selectedWeekday: $selectedWeekday)
+                    .foregroundColor(Color.secondary)
             }
-            .font(.subheadline)
-            .padding()
+            .navigationBarTitle(Text("空教室"), displayMode: .large)
         }
+        .font(.subheadline)
+        .foregroundColor(Color("primary"))
         .navigationViewStyle(StackNavigationViewStyle())
         .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
     }

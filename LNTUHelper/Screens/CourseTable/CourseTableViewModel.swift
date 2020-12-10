@@ -32,6 +32,10 @@ class CourseTableViewModel: ObservableObject {
         }
     }
     
+    var selectedWeekString: String {
+        return "第 \(self.currentWeek) 周"
+    }
+
     init(user: User) {
         self.user = user
         self.courseTableResponseList = []

@@ -53,7 +53,7 @@ struct NoticeView: View {
             .navigationBarTitle("News", displayMode: .large)
             .navigationBarItems(trailing: refreshButton)
         }
-        .navigationViewStyle(DoubleColumnNavigationViewStyle())
+        .navigationViewStyle(StackNavigationViewStyle())
         .accentColor(Color("primary"))
         .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
     }

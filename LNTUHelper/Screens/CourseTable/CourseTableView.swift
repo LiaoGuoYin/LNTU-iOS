@@ -14,16 +14,15 @@ struct CourseTableView: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 0) {
-                WeekSelectorView(selectedWeek: $viewModel.currentWeek)
-                    .padding(.horizontal)
-                    .padding(.vertical, 8)
+                WeekSelectorView(title: .constant(""), selectedWeek: $viewModel.currentWeek)
+                    .padding(.vertical)
                 CourseTableBodyView(courseTableMatrix: $viewModel.martrix)
-                    .padding(.horizontal)
-                    .navigationBarTitle(Text("第 \(viewModel.currentWeek) 周"), displayMode: .inline)
-                    .navigationBarItems(leading: examPlanView, trailing: refreshButton)
             }
+            .padding(.horizontal)
+            .navigationBarItems(leading: examPlanView, trailing: refreshButton)
+            .navigationBarTitle(Text(viewModel.selectedWeekString), displayMode: .inline)
         }
-        .navigationViewStyle(DoubleColumnNavigationViewStyle())
+        .navigationViewStyle(StackNavigationViewStyle())
         .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
     }
     
@@ -37,13 +36,22 @@ struct CourseTableView: View {
     }
     
     var examPlanView: some View {
-        NavigationLink(destination: ExamPlanView(viewModel: ExamPlanViewModel(user: viewModel.user)),
-                       label: {
-                        HStack {
-                            Text("考试")
-                            Image(systemName: "number.square")
-                        }
-                       })
+        NavigationLink(
+            destination: ExamPlanView(viewModel: ExamPlanViewModel(user: viewModel.user)),
+            label: {
+                Text("考试")
+                Image(systemName: "number.square")
+            })
+    }
+    
+    var selectingSegmentButton: some View {
+        HStack {
+            Picker("教学周", selection: $viewModel.currentWeek) {
+                Text("本周").tag(viewModel.currentWeek)
+                Text("全部").tag(0)
+            }
+            .pickerStyle(SegmentedPickerStyle())
+        }
     }
 }
 
