@@ -14,7 +14,6 @@ struct ClassroomView: View {
     @State var selectedWeekday: Int = getCurrentWeekDay()
     
     var body: some View {
-        
         List {
             Text("当前选择: \(viewModel.form.campus.rawValue) \(viewModel.form.selectedBuilding) 第 \(viewModel.form.week) 周")
                 .foregroundColor(Color.secondary)
@@ -43,8 +42,11 @@ struct ClassroomView: View {
                 .foregroundColor(Color.secondary)
         }
         .font(.subheadline)
-        .foregroundColor(Color("primary"))
-//        .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
+        .accentColor(Color("primary"))
+        .onAppear(perform: {
+            Haptic.shared.tappedHaptic()
+        })
+        //        .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
     }
 }
 

@@ -47,7 +47,6 @@ struct AccountView: View {
             NavigationLink(
                 destination: SettingsView().environmentObject(router),
                 label: { LabelView(name: "更多", iconName: "gear", iconColor: Color("primary")) })
-            
         }
         .accentColor(Color("primary"))
         .onAppear(perform: {

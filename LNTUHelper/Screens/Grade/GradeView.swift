@@ -18,46 +18,47 @@ struct GradeView: View {
     }
     
     var body: some View {
-        ScrollView(showsIndicators: false) {
+        VStack {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
                     ForEach(Array(viewModel.gradeResultKeyList), id: \.self) { key in
                         Text(key)
                             .foregroundColor(.white)
                             .padding(12)
-                            .background(viewModel.selectedSemester == key ? Color("primary") : Color("primary").opacity(0.4))
+                            .background(viewModel.selectedSemester == key ? Color("primary") : Color("primary").opacity(0.3))
                             .cornerRadius(6)
                             .onTapGesture {
+                                Haptic.shared.tappedHaptic()
                                 viewModel.selectedSemester = key
                             }
                     }
                 }
-                .padding(.horizontal)
             }
-            if viewModel.gradeResultKeyList.contains(viewModel.selectedSemester) {
-                ForEach(Array(arrayLiteral: viewModel.gradeResult[viewModel.selectedSemester]!), id: \.self) { each in
-                    ForEach(each, id: \.code) { course in
+            .padding(.horizontal)
+            
+            List {
+                ForEach(Array(arrayLiteral: viewModel.gradeResult[viewModel.selectedSemester] ?? []), id: \.self) { courses in
+                    ForEach(courses, id: \.code) { course in
                         GradeRowView(course: course)
-                            .padding(.horizontal)
-                            .padding(.vertical, 2)
                             .onTapGesture {
                                 self.tappedCourse = course
                             }
                     }
                 }
-            } else {
-                Text("Oops, 还没有考试成绩噢")
-                    .padding()
+                //                .listRowBackground(Color(#colorLiteral(red: 0.9491460919, green: 0.9487624764, blue: 0.9704342484, alpha: 1)))
+                // SemesterPickerView()
+                // GradePointAverageView(gpa: $viewModel.gradePointAverage)
             }
-            // SemesterPickerView()
-            // GradePointAverageView(gpa: $viewModel.gradePointAverage)
         }
-        .navigationBarTitle("成绩",displayMode: .large)
+        // .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
         .navigationBarItems(trailing: refreshButton)
         .sheet(isPresented: $isShowDetail) {
             GradeRowDetailView(course: $tappedCourse)
         }
-        // .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
+        .accentColor(Color("primary"))
+        .onAppear(perform: {
+            Haptic.shared.tappedHaptic()
+        })
     }
     
     var refreshButton: some View {
@@ -76,7 +77,8 @@ struct GradeView: View {
 struct GradeView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            GradeView(viewModel: GradeViewModel(user: MockData.user), tappedCourse: MockData.gradeList.first!)
+            GradeView(viewModel: GradeViewModel(), tappedCourse: MockData.gradeList.first!)
+                .navigationBarTitle("成绩",displayMode: .large)
         }
     }
 }

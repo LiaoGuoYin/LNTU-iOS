@@ -24,7 +24,7 @@ class GradeViewModel: ObservableObject {
             }
         }
     }
-    @Published var selectedSemester: String = "2020-春"
+    @Published var selectedSemester: String = MockData.gradeList.first!.semester
     
     var gradeResult: [String: [GradeResponseData]] {
         get {
@@ -44,6 +44,11 @@ class GradeViewModel: ObservableObject {
 //        self.refreshGradeList {
 //            self.selectedSemester = self.gradeResultKeyList.first ?? "2020-春"
 //        }
+    }
+    
+    init() {
+        self.user = MockData.user
+        self.gradeList = MockData.gradeList
     }
     
 }

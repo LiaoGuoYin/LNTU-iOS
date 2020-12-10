@@ -370,7 +370,6 @@
 			isa = PBXGroup;
 			children = (
 				AF7BD6F72546BB9900771CDA /* CourseTableView.swift */,
-				AF32A7C0257BB253004D1E78 /* WeekSelectorView.swift */,
 				AF7BD6FB2546BBAD00771CDA /* CourseTableViewModel.swift */,
 				AFE3553B25486A0F0099B1CB /* SubViews */,
 			);
@@ -433,6 +432,7 @@
 				AF32A7AA257BA9D4004D1E78 /* TodoView.swift */,
 				AF5E4AE6254ADC2800736FB4 /* SectionLabelView.swift */,
 				AF32A7C8257BB3D0004D1E78 /* LabelView.swift */,
+				AF32A7C0257BB253004D1E78 /* WeekSelectorView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

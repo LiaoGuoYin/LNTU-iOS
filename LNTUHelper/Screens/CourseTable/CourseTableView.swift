@@ -12,15 +12,19 @@ struct CourseTableView: View {
     @ObservedObject var viewModel: CourseTableViewModel
     
     var body: some View {
-            VStack(spacing: 0) {
-                WeekSelectorView(title: .constant(""), selectedWeek: $viewModel.currentWeek)
-                    .padding(.vertical)
-                CourseTableBodyView(courseTableMatrix: $viewModel.martrix)
-            }
-            .padding(.horizontal)
-            .navigationBarItems(leading: examPlanView, trailing: refreshButton)
-//            .navigationBarTitle(Text(viewModel.selectedWeekString), displayMode: .inline) TODO
-//            .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
+        VStack {
+            WeekSelectorView(title: .constant(""), selectedWeek: $viewModel.currentWeek)
+            CourseTableBodyView(courseTableMatrix: $viewModel.martrix)
+                .padding(.top)
+        }
+        .padding(.horizontal)
+        .navigationBarItems(leading: examPlanView, trailing: refreshButton)
+        .accentColor(Color("primary"))
+        .onAppear(perform: {
+            Haptic.shared.tappedHaptic()
+        })
+        // .navigationBarTitle(Text(viewModel.selectedWeekString), displayMode: .inline) TODO
+        // .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
     }
     
     var refreshButton: some View {
