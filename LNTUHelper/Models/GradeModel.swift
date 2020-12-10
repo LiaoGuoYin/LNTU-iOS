@@ -23,5 +23,9 @@ struct GradeResponseData: Codable, Hashable {
     var code, courseType, usual, midTerm, endTerm: String
     var makeUpScore, makeUpScoreResult: String?
     var point: String
+    
+    var isNormal: Bool {
+        return self.status == "正常" ? true : false
+    }
 }
 

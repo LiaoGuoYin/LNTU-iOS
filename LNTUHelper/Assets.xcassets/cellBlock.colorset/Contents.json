@@ -1,9 +1,18 @@
 {
   "colors" : [
     {
+      "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "light"
+        }
+      ],
       "color" : {
         "platform" : "ios",
-        "reference" : "groupTableViewBackgroundColor"
+        "reference" : "tertiarySystemFillColor"
       },
       "idiom" : "universal"
     },
@@ -16,7 +25,7 @@
       ],
       "color" : {
         "platform" : "ios",
-        "reference" : "groupTableViewBackgroundColor"
+        "reference" : "secondarySystemFillColor"
       },
       "idiom" : "universal"
     }

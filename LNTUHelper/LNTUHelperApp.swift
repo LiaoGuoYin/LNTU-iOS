@@ -33,7 +33,6 @@ struct LNTUHelperApp: View {
                 NoticeView(viewModel: router.noticeViewModel)
                     .tabItem {
                         Image(systemName: selected == 3 ?  "bubble.middle.bottom.fill" :  "bubble.middle.bottom")
-                            .imageScale(.large)
                     }.tag(3)
                 
                 UserCenterView(viewModel: router.loginViewModel)

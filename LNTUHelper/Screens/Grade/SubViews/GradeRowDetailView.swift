@@ -14,21 +14,22 @@ struct GradeRowDetailView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: UIScreen.main.bounds.height / 8) {
             VStack(alignment: .leading, spacing: 20) {
-                Text(course.semester)
                 HStack {
                     Text(course.name)
                     Spacer()
                 }
+                Text(course.semester)
                 Text(course.courseType)
             }
             
             VStack(alignment: .leading, spacing: 20) {
+                Text("学分: \(course.credit)")
                 Text("期中成绩: \(course.midTerm)")
                 Text("期末成绩: \(course.endTerm)")
                 Text("期中成绩: \(course.midTerm)")
                 Text("平时成绩: \(course.usual)")
                 Text("最终成绩: \(course.result)")
-                Text("绩点: \(course.point)")
+                Text("单科绩点: \(course.point)")
             }
         }
         .padding(.leading, UIScreen.main.bounds.width / 8)

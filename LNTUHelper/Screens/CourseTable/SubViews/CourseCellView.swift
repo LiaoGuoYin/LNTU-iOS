@@ -22,7 +22,7 @@ struct CourseCellView: View {
         .padding(.horizontal, 2)
         .foregroundColor(.white)
         .frame(width: UIScreen.main.bounds.width / 6, height: UIScreen.main.bounds.height / 7)
-        .background(cell.name != "" ? Color("primary") : Color("cell-blank"))
+        .background(cell.name != "" ? Color("primary") : Color("cellBlock"))
         .cornerRadius(6)
         .multilineTextAlignment(.center)
     }

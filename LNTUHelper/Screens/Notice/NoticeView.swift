@@ -26,12 +26,20 @@ struct NoticeView: View {
                             .frame(width: 20, height: 20)
                             .cornerRadius(30)
                         Text(viewModel.helperMessage.notice)
-                            .foregroundColor(Color.gray)
-                            .font(.body)
+                            .foregroundColor(Color.secondary)
+                            .font(.subheadline)
                             .fontWeight(.semibold)
                             .multilineTextAlignment(.leading)
                     }
                     .padding(.vertical)
+                    .contextMenu {
+                        Button(action: {
+                            UIPasteboard.general.string = viewModel.helperMessage.notice
+                        }) {
+                            Text("复制有用信息到剪贴板")
+                            Image(systemName: "doc.on.doc")
+                        }
+                    }
                 }
                 Section {
                     SectionLabelView(name: "教务新闻", systemName: "text.bubble.fill")
