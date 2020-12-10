@@ -10,7 +10,7 @@ import SwiftUI
 struct LNTUHelperApp: View {
     
     @EnvironmentObject private var router: ViewRouter
-    @State private var selected = 0
+    @State private var selected = 4
     
     var body: some View {
         if router.isLogin {

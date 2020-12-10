@@ -46,11 +46,10 @@ struct UserCenterView: View {
                 }
                 
                 NavigationLink(
-                    destination: SettingsView(isOffline: $router.isOffline),
+                    destination: SettingsView().environmentObject(router),
                     label: { LabelView(name: "更多", iconName: "gear", iconColor: Color("primary")) })
                 
             }
-            .navigationBarItems(trailing: logoutButton)
             .navigationBarTitle(Text("用户中心"), displayMode: .automatic)
         }
         .navigationViewStyle(StackNavigationViewStyle())
@@ -59,22 +58,10 @@ struct UserCenterView: View {
             Haptic.shared.tappedHaptic()
         })
     }
-    
-    var logoutButton: some View {
-        Button(action: {
-            Haptic.shared.tappedHaptic()
-            router.isLogin = false
-        }) {
-            Text("退出")
-                .padding(.vertical)
-                .padding(.leading)
-        }
-    }
 }
 
 struct UserCenterView_Previews: PreviewProvider {
     static var previews: some View {
         return UserCenterView(viewModel: LoginViewModel(user: MockData.user))
-            .environmentObject(ViewRouter(user: MockData.user, isLogin: true, isOffline: false))
     }
 }

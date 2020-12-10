@@ -9,12 +9,30 @@ import SwiftUI
 
 struct SettingsView: View {
     
-    @Binding var isOffline: Bool
+    @EnvironmentObject var router: ViewRouter
     
     var body: some View {
         Form {
-            Toggle(isOn: $isOffline) {
-                LabelView(name: "懒加载模式", iconName: "airplane")
+            Section(header: Text("实验功能")) {
+                Toggle(isOn: $router.isOffline) {
+                    LabelView(name: "懒加载模式", iconName: "airplane")
+                }
+            }
+            Section {
+                logoutButton
+            }
+        }
+    }
+    var logoutButton: some View {
+        Button(action: {
+            Haptic.shared.tappedHaptic()
+            router.isLogin = false
+        }) {
+            HStack {
+                Spacer()
+                Text("退出登录")
+                    .foregroundColor(Color(.systemPink))
+                Spacer()
             }
         }
     }
@@ -22,6 +40,7 @@ struct SettingsView: View {
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView(isOffline: .constant(true))
+        SettingsView()
+            .environmentObject(ViewRouter(user: MockData.user))
     }
 }
