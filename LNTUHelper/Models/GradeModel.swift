@@ -19,7 +19,7 @@ struct GradeResponseData: Codable, Hashable {
     var credit: String
     var semester: String
     var status: String
-    var result: String
+    var result, totalScore: String
     var code, courseType, usual, midTerm, endTerm: String
     var makeUpScore, makeUpScoreResult: String?
     var point: String

@@ -24,12 +24,23 @@ struct GradeRowDetailView: View {
             
             VStack(alignment: .leading, spacing: 20) {
                 Text("学分: \(course.credit)")
-                Text("期中成绩: \(course.midTerm)")
+                Text("期中(实验)成绩: \(course.midTerm)")
                 Text("期末成绩: \(course.endTerm)")
-                Text("期中成绩: \(course.midTerm)")
                 Text("平时成绩: \(course.usual)")
+                
+                if course.isNormal {
+                    EmptyView()
+                } else {
+                    Text("补考成绩: \(course.makeUpScore ?? "")")
+                    Text("补考总评: \(course.makeUpScoreResult ?? "")")
+                }
+                
+                Text("总评成绩: \(course.totalScore)")
                 Text("最终成绩: \(course.result)")
+                    .fontWeight(.black)
+                
                 Text("单科绩点: \(course.point)")
+                    .fontWeight(.black)
             }
         }
         .padding(.leading, UIScreen.main.bounds.width / 8)
@@ -45,6 +56,6 @@ struct GradeRowDetailView: View {
 
 struct GradeRowDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        return GradeRowDetailView(course: .constant(MockData.gradeList.randomElement()!))
+        return GradeRowDetailView(course: .constant(MockData.gradeList[3]))
     }
 }

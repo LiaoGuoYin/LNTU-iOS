@@ -62,7 +62,7 @@ extension QualityActivityViewModel {
 
 extension QualityActivityViewModel {
     func alertLoginView() {
-        let alertController = UIAlertController(title: "登录您的素拓网", message: nil, preferredStyle: .alert)
+        let alertController = UIAlertController(title: "登录您的素拓网", message: "当前登录账号\(self.user.username)", preferredStyle: .alert)
         
         alertController.addTextField { (addTextField) in
             addTextField.placeholder = "账号"

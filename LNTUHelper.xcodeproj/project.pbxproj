@@ -401,6 +401,7 @@
 			isa = PBXGroup;
 			children = (
 				AFE3553E25491E370099B1CB /* AccountView.swift */,
+				AF64F2DA25812A9B0041D99C /* Quality */,
 				AF1713FF257F2603009E382A /* SubViews */,
 			);
 			path = Account;
@@ -424,7 +425,6 @@
 				AF5E4ADB254AD94600736FB4 /* Notice */,
 				AF3053D2254570C200F849A9 /* Classroom */,
 				AFE3553D25491E180099B1CB /* Account */,
-				AF64F2DA25812A9B0041D99C /* Quality */,
 			);
 			path = Screens;
 			sourceTree = "<group>";

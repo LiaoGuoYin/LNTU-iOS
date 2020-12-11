@@ -40,9 +40,9 @@ struct AccountView: View {
                         destination: QualityActivityView(viewModel: QualityActivityViewModel()),
                         label: { LabelView(name: "素拓网", iconName: "rosette", iconColor: Color.pink) })
                     
-                    NavigationLink(
-                        destination: TodoView(),
-                        label: { LabelView(name: "其他链接", iconName: "link", iconColor: Color.yellow) })
+//                    NavigationLink(
+//                        destination: TodoView(),
+//                        label: { LabelView(name: "其他链接", iconName: "link", iconColor: Color.yellow) })
                 }
                 
                 NavigationLink(
