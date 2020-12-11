@@ -68,7 +68,6 @@ extension ViewRouter {
                     self.courseTableViewModel.courseTableResponseList = reponseData.courseTable
                     self.gradeViewModel.gradeList = reponseData.grade
                     UserDefaults.standard[.educationAccount] = try? JSONEncoder().encode(self.user)
-                    UserDefaults.standard[.isLogin] = true
                     self.isLogin = true
                 }
             }

@@ -18,6 +18,9 @@ struct ExamPlanView: View {
         .navigationBarItems(trailing: refreshButton)
         .navigationBarTitle(Text("考试安排"), displayMode: .large)
         .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
+        .onAppear(perform: {
+            viewModel.refreshExamPlanList()
+        })
     }
     
     var refreshButton: some View {

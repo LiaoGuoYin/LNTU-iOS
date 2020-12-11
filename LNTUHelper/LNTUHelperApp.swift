@@ -13,7 +13,7 @@ struct LNTUHelperApp: View {
     @State private var selected: TabBarItemEnum = TabBarItemEnum.account
     
     var body: some View {
-        NavigationView {
+        VStack {
             if router.isLogin {
                 TabView(selection: $selected) {
                     CourseTableView(viewModel: router.courseTableViewModel)
@@ -36,7 +36,6 @@ struct LNTUHelperApp: View {
                         .tabItem { Image(systemName: selected == .account ?  "person.fill" :  "person") }
                         .tag(TabBarItemEnum.account)
                 }
-                .navigationBarTitle(Text(TabBarItemEnum(rawValue: selected.rawValue)?.rawValue ?? "NaN"), displayMode: .large)
             }  else {
                 LoginView()
             }

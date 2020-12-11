@@ -26,11 +26,11 @@ class ExamPlanViewModel: ObservableObject {
     
     init(user: User) {
         self.user = user
-        self.refreshExamPlanList()
-
-//        if let actualData = UserDefaults.standard.object(forKey: SettingsKey.examPlanData.rawValue) as? Data {
-//            self.examPlanList = (try? JSONDecoder().decode([ExamPlanResponseData].self, from: actualData)) ?? []
-//        }
+        // self.refreshExamPlanList()
+        
+        if let actualData = UserDefaults.standard.object(forKey: SettingsKey.examPlanData.rawValue) as? Data {
+            self.examPlanList = (try? JSONDecoder().decode([ExamPlanResponseData].self, from: actualData)) ?? []
+        }
     }
     
     func refreshExamPlanList() {

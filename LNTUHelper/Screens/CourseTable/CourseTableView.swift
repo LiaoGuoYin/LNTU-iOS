@@ -12,20 +12,21 @@ struct CourseTableView: View {
     @ObservedObject var viewModel: CourseTableViewModel
     
     var body: some View {
-        VStack {
-            WeekSelectorView(title: .constant(""), selectedWeek: $viewModel.currentWeek)
-            CourseTableBodyView(courseTableMatrix: $viewModel.martrix)
-                .padding(.top)
+        NavigationView {
+            VStack {
+                WeekSelectorView(title: .constant(""), selectedWeek: $viewModel.currentWeek)
+                CourseTableBodyView(courseTableMatrix: $viewModel.martrix)
+                    .padding(.top, 8)
+            }
+            .padding(.horizontal)
+            .navigationBarTitle(Text(TabBarItemEnum.courseTable.rawValue), displayMode: .large)
+//            .navigationBarItems(leading: examPlanView, trailing: refreshButton)
         }
-        .padding(.horizontal)
-        .navigationBarItems(leading: examPlanView, trailing: refreshButton)
-        .accentColor(Color("primary"))
+        .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
         .onAppear(perform: {
             Haptic.shared.tappedHaptic()
             viewModel.refreshCourseTable()
         })
-        // .navigationBarTitle(Text(viewModel.selectedWeekString), displayMode: .inline) TODO
-        .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
     }
     
     var refreshButton: some View {

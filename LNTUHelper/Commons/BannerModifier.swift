@@ -70,8 +70,8 @@ struct BannerModifier: ViewModifier {
                     }
                 }
                 .onAppear(perform: {
-                    Haptic.shared.notification.notificationOccurred(.success)
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                    Haptic.shared.simpleSuccess()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.1) {
                         withAnimation {
                             self.isShow = false
                         }

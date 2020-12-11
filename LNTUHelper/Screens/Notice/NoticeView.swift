@@ -16,6 +16,7 @@ struct NoticeView: View {
     @State private var didTap = false
     
     var body: some View {
+        NavigationView {
             Form {
                 Section {
                     SectionLabelView(name: "助手公告", systemName: "text.bubble")
@@ -48,13 +49,13 @@ struct NoticeView: View {
                     }
                 }
             }
-            .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
-            .listStyle(GroupedListStyle())
-            .accentColor(Color("primary"))
-            .onAppear(perform: {
-                Haptic.shared.tappedHaptic()
-                viewModel.refreshNoticeList()
-            })
+            .navigationBarTitle(Text(TabBarItemEnum.notice.rawValue), displayMode: .large)
+        }
+//        .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
+        .onAppear(perform: {
+            Haptic.shared.tappedHaptic()
+            viewModel.refreshNoticeList()
+        })
     }
     
     var refreshButton: some View {

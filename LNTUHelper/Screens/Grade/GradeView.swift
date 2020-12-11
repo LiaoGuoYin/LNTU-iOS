@@ -18,43 +18,44 @@ struct GradeView: View {
     }
     
     var body: some View {
-        VStack {
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack {
-                    ForEach(Array(viewModel.gradeResultKeyList), id: \.self) { key in
-                        Text(key)
-                            .foregroundColor(.white)
-                            .padding(12)
-                            .background(viewModel.selectedSemester == key ? Color("primary") : Color("primary").opacity(0.3))
-                            .cornerRadius(6)
-                            .onTapGesture {
-                                Haptic.shared.tappedHaptic()
-                                viewModel.selectedSemester = key
-                            }
+        NavigationView {
+            VStack {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack {
+                        ForEach(Array(viewModel.gradeResultKeyList), id: \.self) { key in
+                            Text(key)
+                                .foregroundColor(.white)
+                                .padding(12)
+                                .background(viewModel.selectedSemester == key ? Color("primary") : Color("primary").opacity(0.3))
+                                .cornerRadius(6)
+                                .onTapGesture {
+                                    Haptic.shared.tappedHaptic()
+                                    viewModel.selectedSemester = key
+                                }
+                        }
                     }
                 }
-            }
-            .padding(.horizontal)
-            
-            List {
-                ForEach(Array(arrayLiteral: viewModel.gradeResult[viewModel.selectedSemester] ?? []), id: \.self) { courses in
-                    ForEach(courses, id: \.code) { course in
-                        GradeRowView(course: course)
-                            .onTapGesture {
-                                self.tappedCourse = course
-                            }
+                .padding(.horizontal)
+                .navigationBarTitle(Text(TabBarItemEnum.grade.rawValue), displayMode: .large)
+                
+                List {
+                    ForEach(Array(arrayLiteral: viewModel.gradeResult[viewModel.selectedSemester] ?? []), id: \.self) { courses in
+                        ForEach(courses, id: \.code) { course in
+                            GradeRowView(course: course)
+                                .onTapGesture {
+                                    self.tappedCourse = course
+                                }
+                        }
                     }
+                    // SemesterPickerView()
+                    // GradePointAverageView(gpa: $viewModel.gradePointAverage)
                 }
-                // SemesterPickerView()
-                // GradePointAverageView(gpa: $viewModel.gradePointAverage)
             }
         }
-        .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
-//        .navigationBarItems(trailing: refreshButton)
+        //        .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
         .sheet(isPresented: $isShowDetail) {
             GradeRowDetailView(course: $tappedCourse)
         }
-        .accentColor(Color("primary"))
         .onAppear(perform: {
             Haptic.shared.tappedHaptic()
             viewModel.refreshGradeList(completion: {})

@@ -13,45 +13,44 @@ struct AccountView: View {
     @ObservedObject var viewModel: LoginViewModel
     
     var body: some View {
-        Form {
-            Section(header: Text("教务在线")) {
-                NavigationLink(
-                    destination: EducationInfoView(user: router.loginViewModel.userInfo),
-                    label: {
-                        if #available(iOS 14.0, *) {
-                            LabelView(name: "个人信息", iconName: "at.circle", iconColor: Color("primary"))
-                        } else {
-                            LabelView(name: "个人信息", iconName: "eyeglasses", iconColor: Color("primary"))
-                        }
-                    })
+        NavigationView {
+            Form {
+                Section(header: Text("教务在线")) {
+                    NavigationLink(
+                        destination: EducationInfoView(user: router.loginViewModel.userInfo),
+                        label: {
+                            if #available(iOS 14.0, *) {
+                                LabelView(name: "个人信息", iconName: "at.circle", iconColor: Color("primary"))
+                            } else {
+                                LabelView(name: "个人信息", iconName: "eyeglasses", iconColor: Color("primary"))
+                            }
+                        })
+                    
+                    NavigationLink(
+                        destination: ExamPlanView(viewModel: ExamPlanViewModel(user: router.user)),
+                        label: { LabelView(name: "考试安排", iconName: "number.square", iconColor: Color(.systemRed)) })
+                }
+                
+                Section(header: Text("其他系统")) {
+                    NavigationLink(
+                        destination: LibraryCardView(),
+                        label: { LabelView(name: "图书馆", iconName: "barcode.viewfinder", iconColor: Color.blue) })
+                    
+                    NavigationLink(
+                        destination: QualityActivityView(viewModel: QualityActivityViewModel()),
+                        label: { LabelView(name: "素拓网", iconName: "rosette", iconColor: Color.pink) })
+                    
+                    NavigationLink(
+                        destination: TodoView(),
+                        label: { LabelView(name: "其他链接", iconName: "link", iconColor: Color.yellow) })
+                }
                 
                 NavigationLink(
-                    destination: ExamPlanView(viewModel: ExamPlanViewModel(user: router.user)),
-                    label: { LabelView(name: "考试安排", iconName: "number.square", iconColor: Color(.systemRed)) })
+                    destination: SettingsView().environmentObject(router),
+                    label: { LabelView(name: "更多", iconName: "gear", iconColor: Color("primary")) })
             }
-            
-            Section(header: Text("其他系统")) {
-                NavigationLink(
-                    destination: LibraryCardView(),
-                    label: { LabelView(name: "图书馆", iconName: "barcode.viewfinder", iconColor: Color.blue) })
-                
-                NavigationLink(
-                    destination: QualityActivityView(viewModel: QualityActivityViewModel()),
-                    label: { LabelView(name: "素拓网", iconName: "rosette", iconColor: Color.pink) })
-                
-                NavigationLink(
-                    destination: TodoView(),
-                    label: { LabelView(name: "其他链接", iconName: "link", iconColor: Color.yellow) })
-            }
-            
-            NavigationLink(
-                destination: SettingsView().environmentObject(router),
-                label: { LabelView(name: "更多", iconName: "gear", iconColor: Color("primary")) })
+            .navigationBarTitle(Text(TabBarItemEnum.account.rawValue), displayMode: .large)
         }
-        .accentColor(Color("primary"))
-        .onAppear(perform: {
-            Haptic.shared.tappedHaptic()
-        })
         .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
     }
 }
