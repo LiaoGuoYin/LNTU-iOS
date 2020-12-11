@@ -16,12 +16,16 @@ class NoticeViewModel: ObservableObject {
         }
     }
     
-    @Published var noticeList: [NoticeResponseData] = []
     @Published var helperMessage: HelperMessageResponseData = HelperMessageResponseData()
+    @Published var noticeList: [NoticeResponseData] = []
     
     init() {
-        self.refreshNoticeList()
+        //        self.refreshNoticeList()
         self.refreshHelperMessage()
+        
+        if let actualData = UserDefaults.standard.object(forKey: SettingsKey.noticeData.rawValue) as? Data {
+            self.noticeList = (try? JSONDecoder().decode([NoticeResponseData].self, from: actualData)) ?? []
+        }
     }
 }
 
@@ -48,6 +52,7 @@ extension NoticeViewModel {
                     self.banner.type = .Success
                     self.banner.title = "拉取通知成功"
                     self.noticeList = response.data
+                    UserDefaults.standard[.noticeData] = try? JSONEncoder().encode(self.noticeList)
                 } else {
                     self.banner.type = .Error
                     self.banner.title = "拉取通知失败"

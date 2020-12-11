@@ -19,7 +19,6 @@ class ExamPlanViewModel: ObservableObject {
     @Published var user: User
     @Published var examPlanList: [ExamPlanResponseData] = []
     
-    
     init(user: User, examPlanList: [ExamPlanResponseData]) {
         self.user = user
         self.examPlanList = examPlanList
@@ -28,6 +27,10 @@ class ExamPlanViewModel: ObservableObject {
     init(user: User) {
         self.user = user
         self.refreshExamPlanList()
+
+//        if let actualData = UserDefaults.standard.object(forKey: SettingsKey.examPlanData.rawValue) as? Data {
+//            self.examPlanList = (try? JSONDecoder().decode([ExamPlanResponseData].self, from: actualData)) ?? []
+//        }
     }
     
     func refreshExamPlanList() {
@@ -37,12 +40,12 @@ class ExamPlanViewModel: ObservableObject {
                 self.banner.type = .Error
                 self.banner.title = "拉取考试安排失败"
                 self.banner.content = error.localizedDescription
-                print(error)
             case .success(let response):
                 self.banner.title = "拉取考试安排成功"
                 self.banner.content = response.message
                 guard response.code == 200 else { return }
                 self.examPlanList = response.data
+                UserDefaults.standard[.examPlanData] = try? JSONEncoder().encode(self.examPlanList)
             }
         }
     }

@@ -52,6 +52,7 @@ struct AccountView: View {
         .onAppear(perform: {
             Haptic.shared.tappedHaptic()
         })
+        .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
     }
 }
 

@@ -22,9 +22,10 @@ struct CourseTableView: View {
         .accentColor(Color("primary"))
         .onAppear(perform: {
             Haptic.shared.tappedHaptic()
+            viewModel.refreshCourseTable()
         })
         // .navigationBarTitle(Text(viewModel.selectedWeekString), displayMode: .inline) TODO
-        // .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
+        .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
     }
     
     var refreshButton: some View {

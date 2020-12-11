@@ -17,13 +17,7 @@ class GradeViewModel: ObservableObject {
         }
     }
     
-    @Published var gradeList: [GradeResponseData] {
-        didSet {
-            if let actualGradeListData = try? JSONEncoder().encode(gradeList) {
-                UserDefaults.standard.setValue(actualGradeListData, forKey: "grade")
-            }
-        }
-    }
+    @Published var gradeList: [GradeResponseData]
     @Published var selectedSemester: String = MockData.gradeList.first!.semester
     
     var gradeResult: [String: [GradeResponseData]] {
@@ -44,6 +38,10 @@ class GradeViewModel: ObservableObject {
 //        self.refreshGradeList {
 //            self.selectedSemester = self.gradeResultKeyList.first ?? "2020-春"
 //        }
+        
+        if let actualData = UserDefaults.standard.object(forKey: SettingsKey.gradeData.rawValue) as? Data {
+            self.gradeList = (try? JSONDecoder().decode([GradeResponseData].self, from: actualData)) ?? []
+        }
     }
     
     init() {
@@ -68,6 +66,7 @@ extension GradeViewModel {
                     self.banner.type = .Success
                     self.banner.title = "刷新成绩、绩点成功"
                     self.gradeList = response.data
+                    UserDefaults.standard[.gradeData] = try? JSONEncoder().encode(self.gradeList)
                     completion()
                 } else {
                     self.banner.type = .Error

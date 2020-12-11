@@ -62,7 +62,7 @@ enum APIEducationRouter: URLRequestConvertible {
     // MARK: - Query Item Parameters
     private var queryItemParams: [URLQueryItem]? {
         var queryItemParamList = [URLQueryItem(name: K.imei, value: "imei"),
-                                  URLQueryItem(name: K.offline, value: String(K.isOffline.description))]
+                                  URLQueryItem(name: K.offline, value: String(UserDefaults.standard[.isOffline] ?? false))]
         switch self {
         case .classroom(let week, let buildingName):
             queryItemParamList.append(contentsOf: [URLQueryItem(name: K.Education.week, value: String(week)),

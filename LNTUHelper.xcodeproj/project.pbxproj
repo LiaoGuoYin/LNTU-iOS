@@ -67,6 +67,7 @@
 		AF97789E257C63A100BD42EF /* CardExamPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF97789D257C63A100BD42EF /* CardExamPlanView.swift */; };
 		AF9778A6257C63EA00BD42EF /* ExamPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9778A5257C63EA00BD42EF /* ExamPlanView.swift */; };
 		AFA03E5D254EC85A0037E76A /* GradePointAverageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA03E5C254EC85A0037E76A /* GradePointAverageView.swift */; };
+		AFE199E4258357AD004CA354 /* UserDefaultRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE199E3258357AD004CA354 /* UserDefaultRepository.swift */; };
 		AFE3553F25491E370099B1CB /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE3553E25491E370099B1CB /* AccountView.swift */; };
 		AFF09574257A8E280073D336 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF09573257A8E280073D336 /* MockData.swift */; };
 /* End PBXBuildFile section */
@@ -155,6 +156,7 @@
 		AFA03E5C254EC85A0037E76A /* GradePointAverageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradePointAverageView.swift; sourceTree = "<group>"; };
 		AFA91CC92549C07200769B1B /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		AFA91CCB2549C09A00769B1B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		AFE199E3258357AD004CA354 /* UserDefaultRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultRepository.swift; sourceTree = "<group>"; };
 		AFE3553E25491E370099B1CB /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		AFF09573257A8E280073D336 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -362,6 +364,7 @@
 				AF7BD6FD2546BD1F00771CDA /* CommonModels.swift */,
 				AF525B30254804EC006A2CC9 /* CommonModifiers.swift */,
 				AF2849A4254C6DB800D78D2C /* HapticModels.swift */,
+				AFE199E3258357AD004CA354 /* UserDefaultRepository.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -628,6 +631,7 @@
 				AF599BF02547E57800E8D769 /* LoginView.swift in Sources */,
 				AF599BEE2547E4B000E8D769 /* ViewRouter.swift in Sources */,
 				AF5E4ACF254A596C00736FB4 /* GradeViewModel.swift in Sources */,
+				AFE199E4258357AD004CA354 /* UserDefaultRepository.swift in Sources */,
 				AF5E4AE9254ADE9F00736FB4 /* NoticeRowView.swift in Sources */,
 				AF5E4AD5254A8ADC00736FB4 /* SemesterPickerView.swift in Sources */,
 				AF32A7D9257BB6FF004D1E78 /* ExamPlanViewModel.swift in Sources */,
@@ -819,7 +823,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = primary;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "LNTUHelper/Preview\\ Content";
 				DEVELOPMENT_TEAM = M9CCRH8GRW;
 				ENABLE_PREVIEWS = YES;
@@ -843,7 +847,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = primary;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "LNTUHelper/Preview\\ Content";
 				DEVELOPMENT_TEAM = M9CCRH8GRW;
 				ENABLE_PREVIEWS = YES;

@@ -45,19 +45,19 @@ struct GradeView: View {
                             }
                     }
                 }
-                //                .listRowBackground(Color(#colorLiteral(red: 0.9491460919, green: 0.9487624764, blue: 0.9704342484, alpha: 1)))
                 // SemesterPickerView()
                 // GradePointAverageView(gpa: $viewModel.gradePointAverage)
             }
         }
-        // .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
-        .navigationBarItems(trailing: refreshButton)
+        .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
+//        .navigationBarItems(trailing: refreshButton)
         .sheet(isPresented: $isShowDetail) {
             GradeRowDetailView(course: $tappedCourse)
         }
         .accentColor(Color("primary"))
         .onAppear(perform: {
             Haptic.shared.tappedHaptic()
+            viewModel.refreshGradeList(completion: {})
         })
     }
     

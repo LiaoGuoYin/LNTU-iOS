@@ -19,10 +19,7 @@ class ViewRouter: ObservableObject {
     @Published var user: User
     @Published var isLogin: Bool = false {
         willSet {
-            UserDefaults.standard.setValue(newValue, forKey: "is-login")
-            if let actualUserData = try? JSONEncoder().encode(user) {
-                UserDefaults.standard.setValue(actualUserData, forKey: "user")
-            }
+            UserDefaults.standard[.isLogin] = newValue
         }
     }
     
@@ -33,8 +30,7 @@ class ViewRouter: ObservableObject {
     @Published var loginViewModel: LoginViewModel
     @Published var isOffline: Bool = false {
         willSet {
-            UserDefaults.standard.setValue(newValue, forKey: "isOffline")
-            K.isOffline = newValue
+            UserDefaults.standard[.isOffline] = newValue
         }
     }
     
@@ -42,6 +38,7 @@ class ViewRouter: ObservableObject {
         self.user = user
         self.noticeViewModel = NoticeViewModel()
         self.classroomViewModel = ClassroomViewModel(form: ClassroomForm(week: 1, campus: .hld))
+        
         self.loginViewModel = LoginViewModel(user: user)
         self.courseTableViewModel = CourseTableViewModel(user: user)
         self.gradeViewModel = GradeViewModel(user: user)
@@ -62,18 +59,16 @@ extension ViewRouter {
             case .failure(let error):
                 self.banner.type = .Error
                 self.banner.content = error.localizedDescription
-                print(error)
             case .success(let response):
                 self.banner.type = .Success
                 self.banner.content = response.message
-                guard response.code == 200 else {
-                    self.banner.type = .Error
-                    return
-                }
-                if let data = response.data {
-                    self.loginViewModel.userInfo = data.info
-                    self.courseTableViewModel.courseTableResponseList = data.courseTable
-                    self.gradeViewModel.gradeList = data.grade
+                guard response.code == 200 else { return }
+                if let reponseData = response.data {
+                    self.loginViewModel.userInfo = reponseData.info
+                    self.courseTableViewModel.courseTableResponseList = reponseData.courseTable
+                    self.gradeViewModel.gradeList = reponseData.grade
+                    UserDefaults.standard[.educationAccount] = try? JSONEncoder().encode(self.user)
+                    UserDefaults.standard[.isLogin] = true
                     self.isLogin = true
                 }
             }

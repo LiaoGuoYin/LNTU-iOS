@@ -26,9 +26,6 @@ class CourseTableViewModel: ObservableObject {
     @Published var courseTableResponseList: [CourseTableResponseData] {
         didSet {
             self.martrix = flatToMatrix(courseList: courseTableResponseList, currentWeek: currentWeek)
-            if let actualCourseTableData = try? JSONEncoder().encode(courseTableResponseList) {
-                UserDefaults.standard.setValue(actualCourseTableData, forKey: "course-table")
-            }
         }
     }
     
@@ -42,6 +39,10 @@ class CourseTableViewModel: ObservableObject {
         self.currentWeek = 1
         self.martrix = CourseTableMatrix()
         refreshToGetCurrentWeek { self.currentWeek = $0 }
+        
+        if let actualData = UserDefaults.standard.object(forKey: SettingsKey.courseTableData.rawValue) as? Data {
+            self.courseTableResponseList = (try? JSONDecoder().decode([CourseTableResponseData].self, from: actualData)) ?? []
+        }
     }
 }
 
@@ -60,6 +61,7 @@ extension CourseTableViewModel {
                     self.banner.title = "拉取课表成功"
                     if let actualCourseTableResponse = response.data {
                         self.courseTableResponseList = actualCourseTableResponse
+                        UserDefaults.standard[.courseTableData] = try? JSONEncoder().encode(self.courseTableResponseList)
                     }
                 } else {
                     self.banner.type = .Error

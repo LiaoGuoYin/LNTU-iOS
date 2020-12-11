@@ -41,12 +41,12 @@ struct ClassroomView: View {
                                 selectedWeekday: $selectedWeekday)
                 .foregroundColor(Color.secondary)
         }
+        .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
         .font(.subheadline)
         .accentColor(Color("primary"))
         .onAppear(perform: {
             Haptic.shared.tappedHaptic()
         })
-        //        .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
     }
 }
 

@@ -48,13 +48,13 @@ struct NoticeView: View {
                     }
                 }
             }
+            .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
             .listStyle(GroupedListStyle())
-//            .navigationBarItems(trailing: refreshButton)
             .accentColor(Color("primary"))
             .onAppear(perform: {
                 Haptic.shared.tappedHaptic()
+                viewModel.refreshNoticeList()
             })
-//            .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
     }
     
     var refreshButton: some View {

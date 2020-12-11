@@ -9,7 +9,7 @@ import UIKit
 
 struct MockData {
     static let semester = Constants.currentSemester
-    static let user = User(username: "1710030215", password: "")
+    static let user = User(username: "1700000000", password: " ")
     static let educationInfo = try! JSONDecoder().decode(EducationInfoResponse.self, from: educationInfoMockData).data!
     static let noticeList = try! JSONDecoder().decode(NoticeResponse.self, from: noticeMockData).data
     static let examPlanList = try! JSONDecoder().decode(ExamPlanResponse.self, from: examPlanMockData).data

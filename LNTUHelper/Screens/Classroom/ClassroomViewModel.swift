@@ -30,6 +30,10 @@ class ClassroomViewModel: ObservableObject {
             self.form.week = $0
             self.refreshClassroomList()
         }
+        
+        if let actualData = UserDefaults.standard.object(forKey: SettingsKey.classroomData.rawValue) as? Data {
+            self.classroomList = (try? JSONDecoder().decode([ClassroomResponseDataRow].self, from: actualData)) ?? []
+        }
     }
     
     func refreshClassroomList() {
@@ -45,6 +49,7 @@ class ClassroomViewModel: ObservableObject {
                     self.banner.type = .Success
                     self.banner.title = "刷新空教室成功"
                     self.classroomList = response.data.classroomList
+                    UserDefaults.standard[.classroomData] = try? JSONEncoder().encode(self.classroomList)
                 } else {
                     self.banner.type = .Error
                     self.banner.title = "刷新空教室失败"
