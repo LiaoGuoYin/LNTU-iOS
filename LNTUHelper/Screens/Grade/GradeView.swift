@@ -36,23 +36,28 @@ struct GradeView: View {
                     }
                 }
                 .padding(.horizontal)
-                .navigationBarTitle(Text(TabBarItemEnum.grade.rawValue), displayMode: .large)
                 
-                List {
-                    ForEach(Array(arrayLiteral: viewModel.gradeResult[viewModel.selectedSemester] ?? []), id: \.self) { courses in
-                        ForEach(courses, id: \.code) { course in
-                            GradeRowView(course: course)
-                                .onTapGesture {
-                                    self.tappedCourse = course
-                                }
+                if viewModel.gradeList.isEmpty {
+                    Text("Oops, 还没有成绩记录噢")
+                        .foregroundColor(Color.secondary)
+                } else {
+                    List {
+                        ForEach(Array(arrayLiteral: viewModel.gradeResult[viewModel.selectedSemester] ?? []), id: \.self) { courses in
+                            ForEach(courses, id: \.code) { course in
+                                GradeRowView(course: course)
+                                    .onTapGesture {
+                                        self.tappedCourse = course
+                                    }
+                            }
                         }
                     }
                     // SemesterPickerView()
                     // GradePointAverageView(gpa: $viewModel.gradePointAverage)
                 }
             }
+            .navigationBarTitle(Text(TabBarItemEnum.grade.rawValue), displayMode: .large)
         }
-        //        .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
+        .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
         .sheet(isPresented: $isShowDetail) {
             GradeRowDetailView(course: $tappedCourse)
         }
@@ -77,10 +82,7 @@ struct GradeView: View {
 
 struct GradeView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
-            GradeView(viewModel: GradeViewModel(), tappedCourse: MockData.gradeList.first!)
-                .navigationBarTitle("成绩",displayMode: .large)
-        }
+        GradeView(viewModel: GradeViewModel(), tappedCourse: MockData.gradeList.first!)
     }
 }
 

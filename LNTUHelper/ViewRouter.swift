@@ -18,8 +18,8 @@ class ViewRouter: ObservableObject {
     
     @Published var user: User
     @Published var isLogin: Bool = false {
-        willSet {
-            UserDefaults.standard[.isLogin] = newValue
+        didSet {
+            UserDefaults.standard[.isLogin] = isLogin
         }
     }
     
@@ -42,7 +42,7 @@ class ViewRouter: ObservableObject {
         self.loginViewModel = LoginViewModel(user: user)
         self.courseTableViewModel = CourseTableViewModel(user: user)
         self.gradeViewModel = GradeViewModel(user: user)
-        self.refreshEducationData()
+        // self.refreshEducationData()
     }
     
     convenience init(user: User, isLogin: Bool, isOffline: Bool) {
@@ -54,22 +54,28 @@ class ViewRouter: ObservableObject {
 
 extension ViewRouter {
     func refreshEducationData() {
+        UserDefaults.standard[.educationUsername] = self.user.username
+        UserDefaults.standard[.educationPassword] = self.user.password
         APIClient.educationData(user: self.user) { (result) in
             switch result {
             case .failure(let error):
+                self.banner.title = "登录拉取所有数据失败"
                 self.banner.type = .Error
-                self.banner.content = error.localizedDescription
+                self.banner.content = self.banner.title + "，请稍后再试 " + error.localizedDescription
             case .success(let response):
                 self.banner.type = .Success
                 self.banner.content = response.message
-                guard response.code == 200 else { return }
-                if let reponseData = response.data {
-                    self.loginViewModel.userInfo = reponseData.info
-                    self.courseTableViewModel.courseTableResponseList = reponseData.courseTable
-                    self.gradeViewModel.gradeList = reponseData.grade
-                    UserDefaults.standard[.educationAccount] = try? JSONEncoder().encode(self.user)
-                    self.isLogin = true
+                guard response.code == 200 else {
+                    self.banner.type = .Error
+                    return
                 }
+                
+                self.loginViewModel.userInfo = response.data!.info
+                self.courseTableViewModel.courseTableResponseList = response.data?.courseTable ?? []
+                self.gradeViewModel.gradeList = response.data?.grade ?? []
+                UserDefaults.standard[.educationUsername] = self.user.username
+                UserDefaults.standard[.educationPassword] = self.user.password
+                self.isLogin = true
             }
         }
     }

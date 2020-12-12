@@ -39,12 +39,17 @@ class ExamPlanViewModel: ObservableObject {
             case .failure(let error):
                 self.banner.type = .Error
                 self.banner.title = "拉取考试安排失败"
-                self.banner.content = error.localizedDescription
+                self.banner.content = self.banner.title + "，请稍后再试 " + error.localizedDescription
             case .success(let response):
-                self.banner.title = "拉取考试安排成功"
+                self.banner.type = .Success
                 self.banner.content = response.message
-                guard response.code == 200 else { return }
-                self.examPlanList = response.data
+                guard response.code == 200 else {
+                    self.banner.type = .Error
+                    return
+                }
+                
+                self.banner.title = "拉取考试安排成功"
+                self.examPlanList = response.data ?? []
                 UserDefaults.standard[.examPlanData] = try? JSONEncoder().encode(self.examPlanList)
             }
         }

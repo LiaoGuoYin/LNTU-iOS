@@ -14,8 +14,12 @@ enum SettingsKey: String, CaseIterable {
     case isLogin
     
     // Account Info
-    case educationAccount
-    case qualityAccount
+    // case educationAccount
+    // case qualityAccount
+    case educationUsername
+    case educationPassword
+    case qualityUsername
+    case qualityPassword
     case libraryId
     
     // Education & Quality Cache Data
@@ -23,6 +27,7 @@ enum SettingsKey: String, CaseIterable {
     case gradeData
     case classroomData
     case noticeData
+    case helperMessage
     case educationInfoData
     case examPlanData
     

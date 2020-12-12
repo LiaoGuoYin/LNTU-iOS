@@ -32,7 +32,7 @@ class CourseTableViewModel: ObservableObject {
     var selectedWeekString: String {
         return "第 \(self.currentWeek) 周"
     }
-
+    
     init(user: User) {
         self.user = user
         self.courseTableResponseList = []
@@ -53,20 +53,18 @@ extension CourseTableViewModel {
             case .failure(let error):
                 self.banner.type = .Error
                 self.banner.title = "拉取课表失败"
-                self.banner.content = error.localizedDescription
+                self.banner.content = self.banner.title + "，请稍后再试 " + error.localizedDescription
             case .success(let response):
+                self.banner.type = .Success
                 self.banner.content = response.message
-                if response.code == 200 {
-                    self.banner.type = .Success
-                    self.banner.title = "拉取课表成功"
-                    if let actualCourseTableResponse = response.data {
-                        self.courseTableResponseList = actualCourseTableResponse
-                        UserDefaults.standard[.courseTableData] = try? JSONEncoder().encode(self.courseTableResponseList)
-                    }
-                } else {
+                guard response.code == 200 else {
                     self.banner.type = .Error
-                    self.banner.title = "拉取课表失败"
+                    return
                 }
+                
+                self.banner.title = "拉取课表成功"
+                self.courseTableResponseList = response.data ?? []
+                UserDefaults.standard[.courseTableData] = try? JSONEncoder().encode(self.courseTableResponseList)
             }
         }
     }

@@ -47,6 +47,7 @@ struct SettingsView: View {
                 logoutButton
             }
         }
+        .navigationBarTitle(Text("更多"), displayMode: .inline)
         .sheet(isPresented: $isShowingSheet) {
             SafariView(urlString: tappedUrlString)
         }

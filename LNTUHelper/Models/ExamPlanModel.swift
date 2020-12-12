@@ -10,7 +10,7 @@ import Foundation
 struct ExamPlanResponse: Codable {
     var code: Int
     var message: String
-    var data: [ExamPlanResponseData]
+    var data: [ExamPlanResponseData]?
 }
 
 struct ExamPlanResponseData: Codable {

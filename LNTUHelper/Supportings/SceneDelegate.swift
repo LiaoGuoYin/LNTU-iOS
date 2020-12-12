@@ -19,8 +19,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
         var user = MockData.user
-        if let actualUserData = UserDefaults.standard.object(forKey: SettingsKey.educationAccount.rawValue) as? Data {
-            user = (try? JSONDecoder().decode(User.self, from: actualUserData)) ?? MockData.user
+        if let localUsername = UserDefaults.standard.value(forKey: SettingsKey.educationUsername.rawValue) as? String,
+           let localPassword =  UserDefaults.standard.value(forKey: SettingsKey.educationPassword.rawValue) as? String {
+            user = User(username: localUsername, password: localPassword)
         }
         
         let isLogin = UserDefaults.standard[.isLogin] ?? false

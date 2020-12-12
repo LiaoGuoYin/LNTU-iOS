@@ -10,7 +10,7 @@ import Foundation
 struct GradeResponse: Codable {
     var code: Int
     var message: String
-    var data: [GradeResponseData]
+    var data: [GradeResponseData]?
 }
 
 // MARK: - Grade

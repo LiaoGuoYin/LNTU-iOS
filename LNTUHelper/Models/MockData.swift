@@ -12,11 +12,12 @@ struct MockData {
     static let user = User(username: "1700000000", password: " ")
     static let educationInfo = try! JSONDecoder().decode(EducationInfoResponse.self, from: educationInfoMockData).data!
     static let noticeList = try! JSONDecoder().decode(NoticeResponse.self, from: noticeMockData).data
-    static let examPlanList = try! JSONDecoder().decode(ExamPlanResponse.self, from: examPlanMockData).data
-    static let gradeList = try! JSONDecoder().decode(GradeResponse.self, from: gradeMockData).data
+    static let examPlanList = try! JSONDecoder().decode(ExamPlanResponse.self, from: examPlanMockData).data!
+    static let gradeList = try! JSONDecoder().decode(GradeResponse.self, from: gradeMockData).data!
     static let courseTableList = try! JSONDecoder().decode(CourseTableResponse.self, from: courseTableMockData).data!
     static let classroomResponseData = try! JSONDecoder().decode(ClassroomResponse.self, from: classroomMockData).data
     static let qualityActivityList = try! JSONDecoder().decode(QualityActivityResponse.self, from: qualitActivityMockData).data
+    static let helperMessage = try! JSONDecoder().decode(HelperMessageResponse.self, from: helperMessageData).data
 }
 
 // MARK: - EducationInfoMockData
@@ -26,7 +27,7 @@ let educationInfoMockData = """
       "message": "Success",
       "data": {
         "username": "111111111",
-        "name": "测试用户",
+        "name": "测试用户(请退出登录重新登录)",
         "photoURL": "http://202.199.224.119:8080/eams/showSelfAvatar.action?user.name=11111111",
         "nickname": "abc",
         "gender": "男",
@@ -55,7 +56,7 @@ let educationInfoMockData = """
 """.data(using: .utf8)!
 
 // MARK: - CourseTableMockData
- let courseTableMockData = """
+let courseTableMockData = """
 {
   "code": 200,
   "message": "Success",
@@ -248,7 +249,7 @@ let examPlanMockData = """
   ]
 }
 """
-.data(using: .utf8)!
+    .data(using: .utf8)!
 
 // MARK: - GradeMockData
 let gradeMockData = """
@@ -454,9 +455,9 @@ let noticeMockData = """
   ]
 }
 """
-.data(using: .utf8)!
+    .data(using: .utf8)!
 
-// MARK: - classroomMockData
+// MARK: - ClassroomMockData
 let classroomMockData = """
 {
   "code": 200,
@@ -569,5 +570,23 @@ let qualitActivityMockData = """
       "comment": null
     }
   ]
+}
+""".data(using: .utf8)!
+
+
+
+// MARK: - HelperMessageData
+let helperMessageData = """
+{
+  "code": 200,
+  "message": "Success",
+  "data": {
+    "notice": "LNTUHelper iOS App 公测开始啦，小伙伴们欢呼雀跃吧，BJ-Server 正常",
+    "educationServerStatus": "未知",
+    "helperServerStatus": "未知",
+    "qualityServerStatus": "未知",
+    "week": "15",
+    "semester": "2020-秋"
+  }
 }
 """.data(using: .utf8)!

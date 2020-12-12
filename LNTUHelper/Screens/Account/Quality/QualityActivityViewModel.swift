@@ -42,19 +42,26 @@ final class QualityActivityViewModel: ObservableObject {
 
 extension QualityActivityViewModel {
     func refreshToGetActivityList() {
+        UserDefaults.standard[.qualityUsername] = self.user.username
+        UserDefaults.standard[.qualityPassword] = self.user.password
         APIClient.qualityActivity(user: user) { (result) in
             switch result {
             case .failure(let error):
+                self.banner.title = "拉取素拓网数据失败"
                 self.banner.content = error.localizedDescription
+                self.banner.content = self.banner.title + "，请稍后再试 " + error.localizedDescription
                 self.banner.type = .Error
             case .success(let response):
-                self.banner.type = .Error
-                self.banner.content = response.message
-                guard response.code == 200 else { return }
                 self.banner.type = .Success
+                self.banner.content = response.message
+                guard response.code == 200 else {
+                    self.banner.type = .Error
+                    return
+                }
+                
                 self.qualityActivityList = response.data
-                UserDefaults.standard.setValue(self.user.username, forKey: "usernameForQuality")
-                UserDefaults.standard.setValue(self.user.password, forKey: "passwordForQuality")
+                UserDefaults.standard[.qualityUsername] = self.user.username
+                UserDefaults.standard[.qualityPassword] = self.user.password
             }
         }
     }
