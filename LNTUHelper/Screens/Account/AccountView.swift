@@ -17,7 +17,7 @@ struct AccountView: View {
             Form {
                 Section(header: Text("教务在线")) {
                     NavigationLink(
-                        destination: EducationInfoView(user: router.loginViewModel.userInfo),
+                        destination: EducationInfoView(user: $router.loginViewModel.userInfo),
                         label: {
                             if #available(iOS 14.0, *) {
                                 LabelView(name: "个人信息", iconName: "at.circle", iconColor: Color("primary"))
@@ -50,8 +50,11 @@ struct AccountView: View {
                     label: { LabelView(name: "更多", iconName: "gear", iconColor: Color("primary")) })
             }
             .navigationBarTitle(Text(TabBarItemEnum.account.rawValue), displayMode: .large)
+            .onAppear {
+                router.loginViewModel.login(completion: {_ in })
+            }
         }
-        .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
+//        .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
     }
 }
 

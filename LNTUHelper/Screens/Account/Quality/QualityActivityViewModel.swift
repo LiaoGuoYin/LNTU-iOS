@@ -36,21 +36,18 @@ final class QualityActivityViewModel: ObservableObject {
             self.user = User(username: usernameForQuality, password: passwordForQuality)
         }
         self.qualityActivityList = []
-        refreshToGetActivityList()
+//        refreshToGetActivityList()
     }
 }
 
 extension QualityActivityViewModel {
     func refreshToGetActivityList() {
-        UserDefaults.standard[.qualityUsername] = self.user.username
-        UserDefaults.standard[.qualityPassword] = self.user.password
         APIClient.qualityActivity(user: user) { (result) in
             switch result {
             case .failure(let error):
-                self.banner.title = "拉取素拓网数据失败"
-                self.banner.content = error.localizedDescription
-                self.banner.content = self.banner.title + "，请稍后再试 " + error.localizedDescription
                 self.banner.type = .Error
+                self.banner.title = "拉取素拓网数据失败"
+                self.banner.content = self.banner.title + "，请稍后再试 " + error.localizedDescription
             case .success(let response):
                 self.banner.type = .Success
                 self.banner.content = response.message
@@ -73,11 +70,13 @@ extension QualityActivityViewModel {
         
         alertController.addTextField { (addTextField) in
             addTextField.placeholder = "账号"
+            addTextField.text = UserDefaults.standard[.qualityUsername]
             addTextField.becomeFirstResponder()
         }
         
         alertController.addTextField { (addTextField) in
             addTextField.placeholder = "密码"
+            addTextField.text = UserDefaults.standard[.qualityPassword]
             addTextField.isSecureTextEntry = true
         }
         

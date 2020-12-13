@@ -9,7 +9,7 @@ import SwiftUI
 
 struct EducationInfoView: View {
     
-    @State var user: EducationInfoResponseData
+    @Binding var user: EducationInfoResponseData
     
     var body: some View {
         List {
@@ -40,7 +40,7 @@ struct EducationInfoView: View {
 
 struct UserCenterInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        EducationInfoView(user: MockData.educationInfo)
+        EducationInfoView(user: .constant(MockData.educationInfo))
     }
 }
 

@@ -13,9 +13,15 @@ struct QualityActivityResponse: Codable {
 }
 
 // MARK: - QualityActivityResponseData
-struct QualityActivityResponseData: Codable {
+struct QualityActivityResponseData: Codable, Hashable {
     var type, id, name, semester: String
     var activityDate, location, responsibility, loggingDateTime: String
     var status: String
     var comment: String?
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(type)
+        hasher.combine(id)
+        hasher.combine(name)
+    }
 }

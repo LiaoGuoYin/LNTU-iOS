@@ -12,7 +12,7 @@ struct QualityActivityView: View {
     @ObservedObject var viewModel: QualityActivityViewModel
     
     var body: some View {
-        List(viewModel.qualityActivityList, id: \.name) { activity in
+        List(viewModel.qualityActivityList, id: \.self) { activity in
             QualityActivityCardView(qualityActivityResponseData: activity)
         }
         .navigationBarItems(trailing: loginButton)

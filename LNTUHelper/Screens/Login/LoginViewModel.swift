@@ -34,8 +34,6 @@ class LoginViewModel: ObservableObject {
 
 extension LoginViewModel {
     func login(completion: @escaping (Bool) -> ()) {
-        UserDefaults.standard[.educationUsername] = self.user.username
-        UserDefaults.standard[.educationPassword] = self.user.username
         APIClient.info(user: self.user) { (result) in
             switch result {
             case .failure(let error):
@@ -55,7 +53,7 @@ extension LoginViewModel {
                 self.userInfo = response.data ?? MockData.educationInfo
                 UserDefaults.standard[.educationInfoData] = try? JSONEncoder().encode(self.userInfo)
                 UserDefaults.standard[.educationUsername] = self.user.username
-                UserDefaults.standard[.educationPassword] = self.user.username
+                UserDefaults.standard[.educationPassword] = self.user.password
                 completion(true)
             }
         }

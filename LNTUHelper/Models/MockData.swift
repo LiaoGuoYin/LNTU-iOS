@@ -531,45 +531,57 @@ let classroomMockData = """
 let qualitActivityMockData = """
 {
   "code": 200,
-  "message": "离线模式: Success, 最后更新于: 2020-12-09 20:02:16",
+  "message": "Success",
   "data": [
     {
-      "type": "employment",
-      "id": "5",
-      "name": "工商管理学院2018-2019下荣誉类活动",
-      "semester": "2018-2019下",
-      "activityDate": "2018-09-01-2019-09-01",
-      "location": "测试17-2",
-      "responsibility": "优秀",
-      "loggingDateTime": "2019/9/1 13:46:34",
-      "status": "认证通过",
-      "comment": null
-    },
-    {
-      "type": "employment",
-      "id": "6",
-      "name": "工商学院2017-2018下学生干部任职    ",
-      "semester": "2017-2018下",
-      "activityDate": "2017-09-01-2018-07-31",
-      "location": "团支部信管17-2",
-      "responsibility": "班长",
-      "loggingDateTime": "2018/7/9 17:02:40",
-      "status": "认证通过",
-      "comment": null
-    },
-    {
-      "type": "mind",
+      "type": "主题思想教育活动",
       "id": "1",
       "name": "工商学院17级“脚踏实地明理想，更进一步创未来”主题团会",
-      "semester": "2020-2021上",
+      "semester": "2020-2021春",
       "activityDate": "2020-11-01",
       "location": "辽宁省葫芦岛市",
       "responsibility": "参与者",
       "loggingDateTime": "2020/11/7 14:40:05",
       "status": "认证通过",
-      "comment": null
+      "comment": ""
+    },
+    {
+      "type": "主题思想教育活动",
+      "id": "2",
+      "name": "工商学院“向抗疫英雄致敬做新时代好青年”主题团会",
+      "semester": "2020-2021秋",
+      "activityDate": "2020-04-01",
+      "location": "",
+      "responsibility": "记录者",
+      "loggingDateTime": "2020/4/1 20:54:27",
+      "status": "认证通过",
+      "comment": ""
+    },
+    {
+      "type": "主题思想教育活动",
+      "id": "3",
+      "name": "工商学院17级“搏击青春明方向，明辨笃行正观念”主题团会",
+      "semester": "2019-2020春",
+      "activityDate": "2019-10-15",
+      "location": "静远楼342",
+      "responsibility": "参与者",
+      "loggingDateTime": "2019/10/16 23:32:19",
+      "status": "认证通过",
+      "comment": ""
+    },
+    {
+      "type": "主题思想教育活动",
+      "id": "4",
+      "name": "工商学院17级“搏击青春明方向，明辨笃行正观念”主题团会",
+      "semester": "2019-2020",
+      "activityDate": "2019-10-15",
+      "location": "",
+      "responsibility": "参与者",
+      "loggingDateTime": "2019/10/16 23:32:19",
+      "status": "认证通过",
+      "comment": ""
     }
-  ]
+    ]
 }
 """.data(using: .utf8)!
 

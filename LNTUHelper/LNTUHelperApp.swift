@@ -49,8 +49,14 @@ struct LNTUHelperApp: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        let router = ViewRouter(user: MockData.user, isLogin: true, isOffline: true)
-        LNTUHelperApp()
+        var user = MockData.user
+        if let localUsername = UserDefaults.standard.value(forKey: SettingsKey.educationUsername.rawValue) as? String,
+           let localPassword =  UserDefaults.standard.value(forKey: SettingsKey.educationPassword.rawValue) as? String {
+            user = User(username: localUsername, password: localPassword)
+        }
+        
+        let router = ViewRouter(user: user, isLogin: true, isOffline: true)
+        return LNTUHelperApp()
             .environmentObject(router)
     }
 }
