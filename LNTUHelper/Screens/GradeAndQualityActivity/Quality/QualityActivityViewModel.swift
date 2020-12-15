@@ -18,25 +18,38 @@ final class QualityActivityViewModel: ObservableObject {
     }
     
     @Published var qualityActivityList: [QualityActivityResponseData]
-    var groupedQualityActivityList: [String: [QualityActivityResponseData]] {
+    @Published var selectedKey: String = MockData.qualityActivityList.first!.type
+    
+    var groupedQualityActivityDict: [String: [QualityActivityResponseData]] {
         get {
             Dictionary(grouping: qualityActivityList, by: { $0.type })
         }
+        set {}
     }
     
-    init(user: User, qualityActivityList: [QualityActivityResponseData]) {
-        self.user = user
+    var groupedQualityActivityDictKeyList: [String] {
+        get {
+            Array(groupedQualityActivityDict.keys).sorted().reversed()
+        }
+        set {}
+    }
+    
+    init(qualityActivityList: [QualityActivityResponseData]) {
+        self.user = MockData.user
+        if let username = UserDefaults.standard.string(forKey: SettingsKey.qualityUsername.rawValue),
+           let password = UserDefaults.standard.string(forKey: SettingsKey.qualityPassword.rawValue) {
+            self.user = User(username: username, password: password)
+        }
         self.qualityActivityList = qualityActivityList
     }
     
-    init() {
-        self.user = MockData.user
-        if let usernameForQuality = UserDefaults.standard.value(forKey: "usernameForQuality") as? String,
-           let passwordForQuality =  UserDefaults.standard.value(forKey: "passwordForQuality") as? String {
-            self.user = User(username: usernameForQuality, password: passwordForQuality)
-        }
+    convenience init() {
+        self.init(qualityActivityList: MockData.qualityActivityList)
         self.qualityActivityList = []
-//        refreshToGetActivityList()
+        if let data = UserDefaults.standard.object(forKey: SettingsKey.qualityActivityData.rawValue) as? Data {
+            self.qualityActivityList = (try? JSONDecoder().decode([QualityActivityResponseData].self, from: data)) ?? []
+        }
+        self.refreshToGetActivityList()
     }
 }
 
@@ -59,6 +72,7 @@ extension QualityActivityViewModel {
                 self.qualityActivityList = response.data
                 UserDefaults.standard[.qualityUsername] = self.user.username
                 UserDefaults.standard[.qualityPassword] = self.user.password
+                UserDefaults.standard[.qualityActivityData] = try? JSONEncoder().encode(self.qualityActivityList)
             }
         }
     }

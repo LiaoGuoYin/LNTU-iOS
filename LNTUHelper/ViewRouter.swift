@@ -41,7 +41,7 @@ class ViewRouter: ObservableObject {
         
         self.loginViewModel = LoginViewModel(user: user)
         self.courseTableViewModel = CourseTableViewModel(user: user)
-        self.gradeViewModel = GradeViewModel(user: user)
+        self.gradeViewModel = GradeViewModel()
         // self.refreshEducationData()
     }
     

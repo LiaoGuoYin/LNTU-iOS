@@ -17,12 +17,12 @@ struct QualityActivityCardView: View {
                 .foregroundColor(Color.white)
                 .font(.headline)
             
-            HStack {
+            HStack(alignment: .top) {
                 Text(qualityActivityResponseData.activityDate)
                 Text(qualityActivityResponseData.responsibility)
             }
             
-            HStack {
+            HStack(alignment: .top) {
                 Text(qualityActivityResponseData.loggingDateTime)
                 Text(qualityActivityResponseData.status)
             }
@@ -30,7 +30,7 @@ struct QualityActivityCardView: View {
             Text(qualityActivityResponseData.comment ?? "")
                 .foregroundColor(Color(.systemTeal))
             
-            HStack {
+            HStack(alignment: .top) {
                 Text(qualityActivityResponseData.semester)
                 Spacer()
                 Text("\(qualityActivityResponseData.type) \(qualityActivityResponseData.id)")
@@ -45,6 +45,6 @@ struct QualityActivityCardView: View {
 
 struct QualityActivityCardView_Previews: PreviewProvider {
     static var previews: some View {
-        QualityActivityCardView(qualityActivityResponseData: MockData.qualityActivityList[1])
+        QualityActivityCardView(qualityActivityResponseData: MockData.qualityActivityList[0])
     }
 }

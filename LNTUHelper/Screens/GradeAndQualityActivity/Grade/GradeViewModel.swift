@@ -18,37 +18,40 @@ class GradeViewModel: ObservableObject {
     }
     
     @Published var gradeList: [GradeResponseData]
-    @Published var selectedSemester: String = MockData.gradeList.first!.semester
     
-    var gradeResult: [String: [GradeResponseData]] {
+    var groupedGradeDict: [String: [GradeResponseData]] {
         get {
             Dictionary(grouping: gradeList, by: { $0.semester })
         }
+        set {}
     }
     
-    var gradeResultKeyList: [String] {
+    var groupedGradeDictKeyList: [String] {
         get {
-            Array(gradeResult.keys).sorted().reversed()
+            Array(groupedGradeDict.keys).sorted().reversed()
         }
+        set {}
     }
     
-    init(user: User) {
-        self.user = user
+    init(gradeList: [GradeResponseData]) {
+        self.user = MockData.user
+        if let username = UserDefaults.standard.string(forKey: SettingsKey.educationUsername.rawValue),
+           let password =  UserDefaults.standard.string(forKey: SettingsKey.educationPassword.rawValue) {
+            self.user = User(username: username, password: password)
+        }
+        self.gradeList = gradeList
+    }
+    
+    convenience init() {
+        self.init(gradeList: MockData.gradeList)
         self.gradeList = []
-        //        self.refreshGradeList {
-        //            self.selectedSemester = self.gradeResultKeyList.first ?? "2020-春"
-        //        }
-        
         if let actualData = UserDefaults.standard.object(forKey: SettingsKey.gradeData.rawValue) as? Data {
             self.gradeList = (try? JSONDecoder().decode([GradeResponseData].self, from: actualData)) ?? []
         }
+        self.refreshGradeList(completion: {
+            // self.selectedSemester = self.gradeResultKeyList.first ?? "2020-春"
+        })
     }
-    
-    init() {
-        self.user = MockData.user
-        self.gradeList = MockData.gradeList
-    }
-    
 }
 
 extension GradeViewModel {

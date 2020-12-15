@@ -10,8 +10,8 @@ import SwiftUI
 struct ClassroomView: View {
     
     @ObservedObject var viewModel: ClassroomViewModel
-    var screenWidth: CGFloat = UIScreen.main.bounds.width
     @State var selectedWeekday: Int = getCurrentWeekDay()
+    var screenWidth: CGFloat = UIScreen.main.bounds.width
     
     var body: some View {
         NavigationView {

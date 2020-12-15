@@ -540,7 +540,7 @@ let qualitActivityMockData = """
       "semester": "2020-2021春",
       "activityDate": "2020-11-01",
       "location": "辽宁省葫芦岛市",
-      "responsibility": "参与者",
+      "responsibility": "参与者参与者参与者参与者参与者参与者参与者参与者参与者参与者参与者参与者参与者参与者参与者",
       "loggingDateTime": "2020/11/7 14:40:05",
       "status": "认证通过",
       "comment": ""
@@ -570,7 +570,7 @@ let qualitActivityMockData = """
       "comment": ""
     },
     {
-      "type": "主题思想教育活动",
+      "type": "社团活动",
       "id": "4",
       "name": "工商学院17级“搏击青春明方向，明辨笃行正观念”主题团会",
       "semester": "2019-2020",

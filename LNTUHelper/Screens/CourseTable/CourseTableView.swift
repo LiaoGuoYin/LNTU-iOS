@@ -15,12 +15,11 @@ struct CourseTableView: View {
         NavigationView {
             VStack {
                 WeekSelectorView(title: .constant(""), selectedWeek: $viewModel.currentWeek)
+                Divider()
                 CourseTableBodyView(courseTableMatrix: $viewModel.martrix)
-                    .padding(.top, 8)
             }
             .padding(.horizontal)
             .navigationBarTitle(Text(TabBarItemEnum.courseTable.rawValue), displayMode: .large)
-//            .navigationBarItems(leading: examPlanView, trailing: refreshButton)
         }
         .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
         .onAppear(perform: {
@@ -36,15 +35,6 @@ struct CourseTableView: View {
         }) {
             Text("刷新")
         }
-    }
-    
-    var examPlanView: some View {
-        NavigationLink(
-            destination: ExamPlanView(viewModel: ExamPlanViewModel(user: viewModel.user)),
-            label: {
-                Text("考试")
-                Image(systemName: "number.square")
-            })
     }
     
     var selectingSegmentButton: some View {

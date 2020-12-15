@@ -37,6 +37,7 @@ func refreshToGetCurrentWeek(completion: @escaping (Int) -> ()) {
 enum TabBarItemEnum: String, CaseIterable {
     case courseTable = "课表"
     case grade = "成绩"
+    case qualitActivity = "素拓网活动记录"
     case classroom = "空教室"
     case notice = "News"
     case account = "个人中心"

@@ -12,6 +12,7 @@ struct AccountView: View {
     @EnvironmentObject var router: ViewRouter
     @ObservedObject var viewModel: LoginViewModel
     
+    
     var body: some View {
         NavigationView {
             Form {
@@ -40,9 +41,10 @@ struct AccountView: View {
                         destination: QualityActivityView(viewModel: QualityActivityViewModel()),
                         label: { LabelView(name: "素拓网", iconName: "rosette", iconColor: Color.pink) })
                     
-//                    NavigationLink(
-//                        destination: TodoView(),
-//                        label: { LabelView(name: "其他链接", iconName: "link", iconColor: Color.yellow) })
+                    //                    NavigationLink(
+                    //                        destination: TodoView(),
+                    //                        label: { LabelView(name: "其他链接", iconName: "link", iconColor: Color.yellow) })
+                    
                 }
                 
                 NavigationLink(
@@ -54,7 +56,7 @@ struct AccountView: View {
                 router.loginViewModel.login(completion: {_ in })
             }
         }
-//        .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
+        // .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
     }
 }
 

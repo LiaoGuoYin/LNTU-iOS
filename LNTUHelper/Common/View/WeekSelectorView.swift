@@ -14,7 +14,7 @@ struct WeekSelectorView: View {
     @State var endNumber: Int = 22
     
     var body: some View {
-        HStack {
+        HStack(spacing: 0) {
             Text(title)
                 .foregroundColor(Color("primary"))
                 .frame(width: title == "" ? 0 : 63)

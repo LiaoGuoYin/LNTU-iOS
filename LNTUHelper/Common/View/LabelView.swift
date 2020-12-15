@@ -28,6 +28,6 @@ struct LabelView: View {
 
 struct LabelView_Previews: PreviewProvider {
     static var previews: some View {
-        LabelView(name: "测试标签", iconName: "trash.slash.fill")
+        LabelView(name: "个人信息", iconName: "at")
     }
 }
