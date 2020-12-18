@@ -9,8 +9,8 @@ import SwiftUI
 
 struct NoticeView: View {
     
+    @EnvironmentObject var router: ViewRouter
     @ObservedObject var viewModel: NoticeViewModel
-    
     @State private var isShowingSafariView = false
     @State private var selectedURL = ""
     @State private var didTap = false
@@ -50,12 +50,8 @@ struct NoticeView: View {
                 }
             }
             .navigationBarTitle(Text(TabBarItemEnum.notice.rawValue), displayMode: .large)
+            .onAppear { Haptic.shared.tappedHaptic() }
         }
-//        .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
-        .onAppear(perform: {
-            Haptic.shared.tappedHaptic()
-            viewModel.refreshNoticeList()
-        })
     }
     
     var refreshButton: some View {
@@ -63,6 +59,7 @@ struct NoticeView: View {
             Haptic.shared.tappedHaptic()
             viewModel.refreshNoticeList()
             viewModel.refreshHelperMessage()
+            router.banner = viewModel.banner
         }) {
             Text("刷新")
         }

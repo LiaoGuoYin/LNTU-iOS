@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CourseTableView: View {
     
+    @EnvironmentObject var router: ViewRouter
     @ObservedObject var viewModel: CourseTableViewModel
     
     var body: some View {
@@ -20,18 +21,18 @@ struct CourseTableView: View {
             }
             .padding(.horizontal)
             .navigationBarTitle(Text(TabBarItemEnum.courseTable.rawValue), displayMode: .large)
+            .navigationBarItems(trailing: refreshButton)
         }
-        .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
-        .onAppear(perform: {
-            Haptic.shared.tappedHaptic()
-            viewModel.refreshCourseTable()
-        })
+        .onAppear { Haptic.shared.tappedHaptic() }
     }
     
     var refreshButton: some View {
         Button(action: {
             Haptic.shared.tappedHaptic()
-            viewModel.refreshCourseTable()
+            viewModel.refreshCourseTable {
+                router.isShowingLoginView = true
+            }
+            router.banner = viewModel.banner
         }) {
             Text("刷新")
         }
@@ -51,5 +52,6 @@ struct CourseTableView: View {
 struct CourseTableView_Previews: PreviewProvider {
     static var previews: some View {
         CourseTableView(viewModel: CourseTableViewModel(user: MockData.user))
+            .environmentObject(ViewRouter(user: MockData.user))
     }
 }

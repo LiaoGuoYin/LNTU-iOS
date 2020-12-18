@@ -18,15 +18,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
-        var user = MockData.user
-        if let localUsername = UserDefaults.standard.value(forKey: SettingsKey.educationUsername.rawValue) as? String,
-           let localPassword =  UserDefaults.standard.value(forKey: SettingsKey.educationPassword.rawValue) as? String {
-            user = User(username: localUsername, password: localPassword)
-        }
+        let user = UserDefaults.standard.loadLocalUser()
         
         let isLogin = UserDefaults.standard[.isLogin] ?? false
         let isOffline = UserDefaults.standard[.isOffline] ?? false
-        let viewRouter = ViewRouter(user: user, isLogin: isLogin, isOffline: isOffline)
+        let viewRouter = ViewRouter(user: user, isShowingLoginView: isLogin, isOffline: isOffline)
         
         // Create the SwiftUI view that provides the window contents.
         let contentView = LNTUHelperApp()

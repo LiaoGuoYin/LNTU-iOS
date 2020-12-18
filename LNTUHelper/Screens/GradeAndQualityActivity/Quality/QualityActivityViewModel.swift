@@ -49,7 +49,7 @@ final class QualityActivityViewModel: ObservableObject {
         if let data = UserDefaults.standard.object(forKey: SettingsKey.qualityActivityData.rawValue) as? Data {
             self.qualityActivityList = (try? JSONDecoder().decode([QualityActivityResponseData].self, from: data)) ?? []
         }
-        self.refreshToGetActivityList()
+//        self.refreshToGetActivityList()
     }
 }
 

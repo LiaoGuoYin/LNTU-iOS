@@ -19,7 +19,6 @@ struct GradeView: View {
     }
     
     var body: some View {
-        
         VStack {
             GroupedListKeysHorizontalScrollView(keys: $viewModel.groupedGradeDictKeyList,
                                                 selectedIndex: $selectedKeyIndex)
@@ -40,7 +39,6 @@ struct GradeView: View {
                 // GradePointAverageView(gpa: $viewModel.gradePointAverage)
             }
         }
-        .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
         .sheet(isPresented: $isShowDetail) {
             GradeRowDetailView(course: $tappedCourse)
         }

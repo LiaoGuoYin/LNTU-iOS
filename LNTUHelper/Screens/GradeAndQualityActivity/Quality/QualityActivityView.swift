@@ -30,7 +30,6 @@ struct QualityActivityView: View {
         }
         .navigationBarTitle(Text(TabBarItemEnum.qualitActivity.rawValue), displayMode: .large)
         .navigationBarItems(leading: loginQualityButton)
-        .onAppear(perform: viewModel.refreshToGetActivityList)
     }
     
     var loginQualityButton: some View {

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ClassroomView: View {
     
+    @EnvironmentObject var router: ViewRouter
     @ObservedObject var viewModel: ClassroomViewModel
     @State var selectedWeekday: Int = getCurrentWeekDay()
     var screenWidth: CGFloat = UIScreen.main.bounds.width
@@ -42,13 +43,10 @@ struct ClassroomView: View {
                                     selectedWeekday: $selectedWeekday)
                     .foregroundColor(Color.secondary)
             }
+            .font(.subheadline)
             .navigationBarTitle(Text(TabBarItemEnum.classroom.rawValue), displayMode: .large)
+            .onAppear { Haptic.shared.tappedHaptic() }
         }
-        .font(.subheadline)
-        .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
-        .onAppear(perform: {
-            Haptic.shared.tappedHaptic()
-        })
     }
 }
 

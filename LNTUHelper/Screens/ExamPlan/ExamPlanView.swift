@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ExamPlanView: View {
     
+    @EnvironmentObject var router: ViewRouter
     @ObservedObject var viewModel: ExamPlanViewModel
     
     var body: some View {
@@ -17,16 +18,13 @@ struct ExamPlanView: View {
         }
         .navigationBarItems(trailing: refreshButton)
         .navigationBarTitle(Text("考试安排"), displayMode: .large)
-        .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
-        .onAppear(perform: {
-            viewModel.refreshExamPlanList()
-        })
     }
     
     var refreshButton: some View {
         Button(action: {
             Haptic.shared.tappedHaptic()
             viewModel.refreshExamPlanList()
+            router.banner = viewModel.banner
         }) {
             Text("刷新")
         }

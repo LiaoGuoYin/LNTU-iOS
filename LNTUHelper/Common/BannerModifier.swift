@@ -11,7 +11,7 @@ struct BannerModifier: ViewModifier {
     
     struct Data {
         var title: String = "操作结果"
-        var content: String = "初始化提示成功"
+        var content: String = "初始化成功"
         var type: BannerType = .Success
     }
     

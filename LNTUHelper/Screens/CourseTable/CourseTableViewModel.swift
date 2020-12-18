@@ -47,18 +47,21 @@ class CourseTableViewModel: ObservableObject {
 }
 
 extension CourseTableViewModel {
-    func refreshCourseTable() {
+    func refreshCourseTable(completion: @escaping () -> ()) {
+        user = UserDefaults.standard.loadLocalUser()
         APIClient.courseTable(user: self.user, semester: Constants.currentSemester) { (result) in
             switch result {
             case .failure(let error):
                 self.banner.type = .Error
                 self.banner.title = "拉取课表失败"
                 self.banner.content = self.banner.title + "，请稍后再试 " + error.localizedDescription
+                completion()
             case .success(let response):
                 self.banner.type = .Success
                 self.banner.content = response.message
                 guard response.code == 200 else {
                     self.banner.type = .Error
+                    completion()
                     return
                 }
                 

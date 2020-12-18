@@ -56,6 +56,7 @@ class GradeViewModel: ObservableObject {
 
 extension GradeViewModel {
     func refreshGradeList(completion: @escaping () -> ()) {
+        user = UserDefaults.standard.loadLocalUser()
         APIClient.grade(user: user) { (result) in
             switch result {
             case .failure(let error):
@@ -63,11 +64,13 @@ extension GradeViewModel {
                 self.banner.type = .Error
                 self.banner.title = "刷新成绩、绩点失败"
                 self.banner.content = self.banner.title + "，请稍后再试 " + error.localizedDescription
+                completion()
             case .success(let response):
                 self.banner.type = .Success
                 self.banner.content = response.message
                 guard response.code == 200 else {
                     self.banner.type = .Error
+                    completion()
                     return
                 }
                 
@@ -75,7 +78,6 @@ extension GradeViewModel {
                 self.banner.type = .Success
                 self.gradeList = response.data ?? []
                 UserDefaults.standard[.gradeData] = try? JSONEncoder().encode(self.gradeList)
-                completion()
             }
         }
     }

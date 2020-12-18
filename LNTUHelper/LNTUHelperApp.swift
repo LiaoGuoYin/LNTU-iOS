@@ -9,41 +9,38 @@ import SwiftUI
 
 struct LNTUHelperApp: View {
     
-    @EnvironmentObject private var router: ViewRouter
-    @State private var selected: TabBarItemEnum = TabBarItemEnum.account
+    @EnvironmentObject var router: ViewRouter
+    @State private var selected = TabBarItemEnum.account
     
     var body: some View {
-        VStack {
-            if router.isLogin {
-                TabView(selection: $selected) {
-                    CourseTableView(viewModel: router.courseTableViewModel)
-                        .tabItem { Image(systemName: selected == .courseTable ? "square.on.square.fill" : "square.on.square") }
-                        .tag(TabBarItemEnum.courseTable)
-                    
-                    GradeAndQualityActivityView(viewModel: router.gradeViewModel)
-                        .tabItem { Image(systemName: selected == .grade ?  "doc.fill" :  "doc") }
-                        .tag(TabBarItemEnum.grade)
-                    
-                    ClassroomView(viewModel: router.classroomViewModel)
-                        .tabItem { Image(systemName: selected == .classroom ?  "square.fill" :  "square") }
-                        .tag(TabBarItemEnum.classroom)
-                    
-                    NoticeView(viewModel: router.noticeViewModel)
-                        .tabItem { Image(systemName: selected == .notice ?  "bubble.middle.bottom.fill" :  "bubble.middle.bottom") }
-                        .tag(TabBarItemEnum.notice)
-                    
-                    AccountView(viewModel: router.loginViewModel)
-                        .tabItem { Image(systemName: selected == .account ?  "person.fill" :  "person") }
-                        .tag(TabBarItemEnum.account)
-                }
-            }  else {
-                LoginView()
-            }
+        TabView(selection: $selected) {
+            CourseTableView(viewModel: router.courseTableViewModel)
+                .tabItem { Image(systemName: selected == .courseTable ? "square.on.square.fill" : "square.on.square") }
+                .tag(TabBarItemEnum.courseTable)
+            
+            GradeAndQualityActivityView(viewModel: router.gradeViewModel)
+                .tabItem { Image(systemName: selected == .grade ?  "doc.fill" :  "doc") }
+                .tag(TabBarItemEnum.grade)
+            
+            ClassroomView(viewModel: router.classroomViewModel)
+                .tabItem { Image(systemName: selected == .classroom ?  "square.fill" :  "square") }
+                .tag(TabBarItemEnum.classroom)
+            
+            NoticeView(viewModel: router.noticeViewModel)
+                .tabItem { Image(systemName: selected == .notice ?  "bubble.middle.bottom.fill" :  "bubble.middle.bottom") }
+                .tag(TabBarItemEnum.notice)
+            
+            AccountView(viewModel: router.loginViewModel)
+                .tabItem { Image(systemName: selected == .account ?  "person.fill" :  "person") }
+                .tag(TabBarItemEnum.account)
         }
+        .environmentObject(router)
         .navigationViewStyle(StackNavigationViewStyle())
         .accentColor(Color("primary"))
-        .environmentObject(router)
         .banner(data: $router.banner, isShow: $router.isShowBanner)
+        .sheet(isPresented: $router.isShowingLoginView, content: {
+            LoginView(viewModel: router.loginViewModel)
+        })
     }
 }
 
@@ -55,7 +52,7 @@ struct ContentView_Previews: PreviewProvider {
             user = User(username: localUsername, password: localPassword)
         }
         
-        let router = ViewRouter(user: user, isLogin: true, isOffline: true)
+        let router = ViewRouter(user: user, isShowingLoginView: false, isOffline: true)
         return LNTUHelperApp()
             .environmentObject(router)
     }

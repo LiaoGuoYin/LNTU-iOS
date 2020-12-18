@@ -22,6 +22,7 @@ struct GroupedListKeysHorizontalScrollView: View {
                         .background(selectedIndex == index ? Color("primary") : Color("primary").opacity(0.3))
                         .cornerRadius(6)
                         .onTapGesture {
+                            Haptic.shared.tappedHaptic()
                             self.selectedIndex = index
                         }
                 }

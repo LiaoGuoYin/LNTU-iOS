@@ -17,45 +17,34 @@ class ViewRouter: ObservableObject {
     }
     
     @Published var user: User
-    @Published var isLogin: Bool = false {
-        didSet {
-            UserDefaults.standard[.isLogin] = isLogin
-        }
-    }
+    @Published var isShowingLoginView: Bool
     
     @Published var courseTableViewModel: CourseTableViewModel
     @Published var noticeViewModel: NoticeViewModel
     @Published var classroomViewModel: ClassroomViewModel
     @Published var gradeViewModel: GradeViewModel
     @Published var loginViewModel: LoginViewModel
-    @Published var isOffline: Bool = false {
-        willSet {
-            UserDefaults.standard[.isOffline] = newValue
-        }
-    }
+    @Published var isOffline: Bool = false
     
     init(user: User) {
         self.user = user
         self.noticeViewModel = NoticeViewModel()
         self.classroomViewModel = ClassroomViewModel(form: ClassroomForm(week: 1, campus: .hld))
-        
         self.loginViewModel = LoginViewModel(user: user)
         self.courseTableViewModel = CourseTableViewModel(user: user)
         self.gradeViewModel = GradeViewModel()
-        // self.refreshEducationData()
+        self.isShowingLoginView = false
     }
     
-    convenience init(user: User, isLogin: Bool, isOffline: Bool) {
+    convenience init(user: User, isShowingLoginView: Bool, isOffline: Bool) {
         self.init(user: user)
         self.isOffline = isOffline
-        self.isLogin = isLogin
+        self.isShowingLoginView = isShowingLoginView
     }
 }
 
 extension ViewRouter {
-    func refreshEducationData() {
-        UserDefaults.standard[.educationUsername] = self.user.username
-        UserDefaults.standard[.educationPassword] = self.user.password
+    func refreshEducationData(user: User, completion: @escaping () -> ()) {
         APIClient.educationData(user: self.user) { (result) in
             switch result {
             case .failure(let error):
@@ -75,7 +64,8 @@ extension ViewRouter {
                 self.gradeViewModel.gradeList = response.data?.grade ?? []
                 UserDefaults.standard[.educationUsername] = self.user.username
                 UserDefaults.standard[.educationPassword] = self.user.password
-                self.isLogin = true
+                self.isShowingLoginView = false
+                completion()
             }
         }
     }

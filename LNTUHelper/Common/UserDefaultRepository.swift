@@ -48,3 +48,14 @@ extension UserDefaults {
         }
     }
 }
+
+extension UserDefaults {
+    func loadLocalUser() -> User {
+        if let localUsername = UserDefaults.standard.value(forKey: SettingsKey.educationUsername.rawValue) as? String,
+           let localPassword =  UserDefaults.standard.value(forKey: SettingsKey.educationPassword.rawValue) as? String {
+            return User(username: localUsername, password: localPassword)
+        } else {
+            return MockData.user
+        }
+    }
+}

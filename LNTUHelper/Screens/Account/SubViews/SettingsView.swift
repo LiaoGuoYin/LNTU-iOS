@@ -55,7 +55,7 @@ struct SettingsView: View {
     var logoutButton: some View {
         Button(action: {
             Haptic.shared.tappedHaptic()
-            self.router.isLogin = false
+            router.isShowingLoginView = true
         }) {
             HStack {
                 Spacer()
