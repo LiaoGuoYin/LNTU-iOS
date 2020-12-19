@@ -9,7 +9,7 @@ import UIKit
 
 struct MockData {
     static let semester = Constants.currentSemester
-    static let user = User(username: "1700000000", password: " ")
+    static let user = User(username: "1710000000", password: " ")
     static let educationInfo = try! JSONDecoder().decode(EducationInfoResponse.self, from: educationInfoMockData).data!
     static let noticeList = try! JSONDecoder().decode(NoticeResponse.self, from: noticeMockData).data
     static let examPlanList = try! JSONDecoder().decode(ExamPlanResponse.self, from: examPlanMockData).data!
@@ -27,7 +27,7 @@ let educationInfoMockData = """
       "message": "Success",
       "data": {
         "username": "111111111",
-        "name": "测试用户(请退出登录重新登录)",
+        "name": "未登录用户(请退出登录重新登录)",
         "photoURL": "http://202.199.224.119:8080/eams/showSelfAvatar.action?user.name=11111111",
         "nickname": "abc",
         "gender": "男",
@@ -46,7 +46,7 @@ let educationInfoMockData = """
         "membership": "是",
         "isInSchool": "是",
         "campus": "辽宁工大校区",
-        "majorClass": "",
+        "majorClass": "未登录班级17-1",
         "effectAt": "2017-09-01",
         "isInRecord": "是",
         "studentStatus": "在校",

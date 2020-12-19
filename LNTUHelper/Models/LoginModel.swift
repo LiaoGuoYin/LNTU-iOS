@@ -26,10 +26,10 @@ struct EducationInfoResponse: Codable {
 }
 
 struct EducationInfoResponseData: Codable {
-    let username, name, photoURL, nickname, gender, grade, educationLast: String
-    let project, education, studentType, college, major: String
-    let direction: String?
-    let enrollDate, graduateDate, chiefCollege, studyType: String
-    let membership, isInSchool, campus, majorClass: String
-    let effectAt, isInRecord, studentStatus, isWorking: String
+    var username, name, photoURL, nickname, gender, grade, educationLast: String
+    var project, education, studentType, college, major: String
+    var direction: String?
+    var enrollDate, graduateDate, chiefCollege, studyType: String
+    var membership, isInSchool, campus, majorClass: String
+    var effectAt, isInRecord, studentStatus, isWorking: String
 }

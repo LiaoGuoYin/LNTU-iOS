@@ -16,13 +16,11 @@ class LoginViewModel: ObservableObject {
         }
     }
     
-    @Published var user: User
     @Published var userInfo: EducationInfoResponseData
     @Published var helperMessage: HelperMessageResponseData
     @Published var qualityViewModel: QualityActivityViewModel
 
-    init(user: User) {
-        self.user = user
+    init() {
         self.helperMessage = MockData.helperMessage
         self.userInfo = MockData.educationInfo
         self.qualityViewModel = QualityActivityViewModel()
@@ -35,7 +33,7 @@ class LoginViewModel: ObservableObject {
 
 extension LoginViewModel {
     func login(completion: @escaping (Bool) -> ()) {
-        APIClient.info(user: self.user) { (result) in
+        APIClient.info(user: Constants.currentUser) { (result) in
             switch result {
             case .failure(let error):
                 self.banner.type = .Error
@@ -43,18 +41,20 @@ extension LoginViewModel {
                 self.banner.content = self.banner.title + "，请稍后再试 " + error.localizedDescription
                 completion(false)
             case .success(let response):
-                self.banner.type = .Success
                 self.banner.content = response.message
                 guard response.code == 200 else {
                     self.banner.type = .Error
+                    self.banner.title = "登录获取个人信息失败"
+                    Constants.isLogin = false
+                    completion(false)
                     return
                 }
                 
+                self.banner.type = .Success
                 self.banner.title = "登录获取信息成功"
                 self.userInfo = response.data ?? MockData.educationInfo
                 UserDefaults.standard[.educationInfoData] = try? JSONEncoder().encode(self.userInfo)
-                UserDefaults.standard[.educationUsername] = self.user.username
-                UserDefaults.standard[.educationPassword] = self.user.password
+                Constants.isLogin = true
                 completion(true)
             }
         }

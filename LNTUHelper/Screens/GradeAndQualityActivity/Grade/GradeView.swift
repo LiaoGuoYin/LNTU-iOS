@@ -43,17 +43,6 @@ struct GradeView: View {
             GradeRowDetailView(course: $tappedCourse)
         }
     }
-    
-    var refreshButton: some View {
-        Button(action: {
-            Haptic.shared.tappedHaptic()
-            viewModel.refreshGradeList {
-            }
-        }) {
-            Text("刷新")
-                .foregroundColor(Color("primary"))
-        }
-    }
 }
 
 struct GradeView_Previews: PreviewProvider {
@@ -61,4 +50,3 @@ struct GradeView_Previews: PreviewProvider {
         GradeView(viewModel: GradeViewModel(), tappedCourse: MockData.gradeList.first!)
     }
 }
-

@@ -16,41 +16,40 @@ class ExamPlanViewModel: ObservableObject {
         }
     }
     
-    @Published var user: User
     @Published var examPlanList: [ExamPlanResponseData] = []
     
-    init(user: User, examPlanList: [ExamPlanResponseData]) {
-        self.user = user
+    init(examPlanList: [ExamPlanResponseData]) {
         self.examPlanList = examPlanList
     }
     
-    init(user: User) {
-        self.user = user
-        // self.refreshExamPlanList()
-        
+    init() {
         if let actualData = UserDefaults.standard.object(forKey: SettingsKey.examPlanData.rawValue) as? Data {
             self.examPlanList = (try? JSONDecoder().decode([ExamPlanResponseData].self, from: actualData)) ?? []
         }
     }
     
-    func refreshExamPlanList() {
-        APIClient.examPlan(user: user, semester: MockData.semester) { (result) in
+    func refreshExamPlanList(completion: @escaping (Bool) -> ()) {
+        APIClient.examPlan(user: Constants.currentUser, semester: MockData.semester) { (result) in
             switch result {
             case .failure(let error):
                 self.banner.type = .Error
                 self.banner.title = "拉取考试安排失败"
                 self.banner.content = self.banner.title + "，请稍后再试 " + error.localizedDescription
+                completion(false)
             case .success(let response):
-                self.banner.type = .Success
                 self.banner.content = response.message
                 guard response.code == 200 else {
                     self.banner.type = .Error
+                    self.banner.title = "拉取考试安排失败"
+                    completion(false)
                     return
                 }
                 
+                self.banner.type = .Success
                 self.banner.title = "拉取考试安排成功"
                 self.examPlanList = response.data ?? []
                 UserDefaults.standard[.examPlanData] = try? JSONEncoder().encode(self.examPlanList)
+                completion(true)
             }
         }
     }

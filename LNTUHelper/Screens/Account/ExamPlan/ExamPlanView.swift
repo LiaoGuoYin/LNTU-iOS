@@ -18,21 +18,30 @@ struct ExamPlanView: View {
         }
         .navigationBarItems(trailing: refreshButton)
         .navigationBarTitle(Text("考试安排"), displayMode: .large)
+        .onAppear(perform: {
+            self.refresh()
+        })
     }
     
     var refreshButton: some View {
         Button(action: {
             Haptic.shared.tappedHaptic()
-            viewModel.refreshExamPlanList()
-            router.banner = viewModel.banner
+            self.refresh()
         }) {
             Text("刷新")
+        }
+    }
+    
+    func refresh() {
+        viewModel.refreshExamPlanList { (isSuccess) in
+            router.isShowLoginView = isSuccess ? false : true
+            router.banner = viewModel.banner
         }
     }
 }
 
 struct ExamPlanView_Previews: PreviewProvider {
     static var previews: some View {
-        ExamPlanView(viewModel: ExamPlanViewModel(user: MockData.user, examPlanList: MockData.examPlanList))
+        ExamPlanView(viewModel: ExamPlanViewModel(examPlanList: MockData.examPlanList))
     }
 }

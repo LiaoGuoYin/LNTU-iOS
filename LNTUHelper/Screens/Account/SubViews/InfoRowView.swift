@@ -9,7 +9,7 @@ import SwiftUI
 
 struct InfoRowView: View {
     @State var key: String
-    @State var value: String
+    @Binding var value: String
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 6) {
@@ -28,6 +28,6 @@ struct InfoRowView: View {
 
 struct InfoRowView_Previews: PreviewProvider {
     static var previews: some View {
-        InfoRowView(key: "姓名", value: "CoinLiao")
+        InfoRowView(key: "姓名", value: .constant("CoinLiao"))
     }
 }

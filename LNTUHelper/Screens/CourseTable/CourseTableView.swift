@@ -21,18 +21,18 @@ struct CourseTableView: View {
             }
             .padding(.horizontal)
             .navigationBarTitle(Text(TabBarItemEnum.courseTable.rawValue), displayMode: .large)
-            .navigationBarItems(trailing: refreshButton)
+            .navigationBarItems(leading: refreshButton)
         }
-        .onAppear { Haptic.shared.tappedHaptic() }
+        .onAppear {
+            Haptic.shared.tappedHaptic()
+            if !Constants.isLogin { router.isShowLoginView = true }
+        }
     }
     
     var refreshButton: some View {
         Button(action: {
             Haptic.shared.tappedHaptic()
-            viewModel.refreshCourseTable {
-                router.isShowingLoginView = true
-            }
-            router.banner = viewModel.banner
+            self.refresh()
         }) {
             Text("刷新")
         }
@@ -47,11 +47,18 @@ struct CourseTableView: View {
             .pickerStyle(SegmentedPickerStyle())
         }
     }
+    
+    func refresh() {
+        viewModel.refreshCourseTable { (isSuccess) in
+            router.isShowLoginView = isSuccess ? false : true
+            router.banner = viewModel.banner
+        }
+    }
 }
 
 struct CourseTableView_Previews: PreviewProvider {
     static var previews: some View {
-        CourseTableView(viewModel: CourseTableViewModel(user: MockData.user))
-            .environmentObject(ViewRouter(user: MockData.user))
+        CourseTableView(viewModel: CourseTableViewModel())
+            .environmentObject(ViewRouter())
     }
 }

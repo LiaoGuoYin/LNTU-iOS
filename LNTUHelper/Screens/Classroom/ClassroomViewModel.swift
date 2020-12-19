@@ -48,9 +48,13 @@ class ClassroomViewModel: ObservableObject {
                 self.banner.content = response.message
                 guard response.code == 200 else {
                     self.banner.type = .Error
+                    self.banner.title = "刷新空教室失败"
                     return
                 }
                 
+                
+                self.banner.type = .Success
+                self.banner.title = "刷新空教室成功"
                 self.classroomList = response.data.classroomList
                 UserDefaults.standard[.classroomData] = try? JSONEncoder().encode(self.classroomList)
             }

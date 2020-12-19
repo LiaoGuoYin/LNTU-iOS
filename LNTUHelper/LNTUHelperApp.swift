@@ -30,29 +30,24 @@ struct LNTUHelperApp: View {
                 .tabItem { Image(systemName: selected == .notice ?  "bubble.middle.bottom.fill" :  "bubble.middle.bottom") }
                 .tag(TabBarItemEnum.notice)
             
-            AccountView(viewModel: router.loginViewModel)
+            AccountView(viewModel: LoginViewModel())
                 .tabItem { Image(systemName: selected == .account ?  "person.fill" :  "person") }
                 .tag(TabBarItemEnum.account)
         }
+        .sheet(isPresented: $router.isShowLoginView, content: {
+            LoginView(viewModel: router.loginViewModel)
+                .environmentObject(router)
+        })
         .environmentObject(router)
         .navigationViewStyle(StackNavigationViewStyle())
         .accentColor(Color("primary"))
         .banner(data: $router.banner, isShow: $router.isShowBanner)
-        .sheet(isPresented: $router.isShowingLoginView, content: {
-            LoginView(viewModel: router.loginViewModel)
-        })
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        var user = MockData.user
-        if let localUsername = UserDefaults.standard.value(forKey: SettingsKey.educationUsername.rawValue) as? String,
-           let localPassword =  UserDefaults.standard.value(forKey: SettingsKey.educationPassword.rawValue) as? String {
-            user = User(username: localUsername, password: localPassword)
-        }
-        
-        let router = ViewRouter(user: user, isShowingLoginView: false, isOffline: true)
+        let router = ViewRouter(isLogin: false, isOffline: true)
         return LNTUHelperApp()
             .environmentObject(router)
     }

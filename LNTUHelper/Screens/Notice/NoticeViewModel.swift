@@ -57,9 +57,12 @@ extension NoticeViewModel {
                 self.banner.content = response.message
                 guard response.code == 200 else {
                     self.banner.type = .Error
+                    self.banner.title = "拉取通知失败"
                     return
                 }
                 
+                self.banner.type = .Success
+                self.banner.title = "拉取通知成功"
                 self.noticeList = response.data
                 UserDefaults.standard[.noticeData] = try? JSONEncoder().encode(self.noticeList)
             }

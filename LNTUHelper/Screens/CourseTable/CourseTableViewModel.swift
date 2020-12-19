@@ -16,7 +16,6 @@ class CourseTableViewModel: ObservableObject {
         }
     }
     
-    @Published var user: User
     @Published var martrix: CourseTableMatrix
     @Published var currentWeek: Int {
         didSet {
@@ -33,8 +32,7 @@ class CourseTableViewModel: ObservableObject {
         return "第 \(self.currentWeek) 周"
     }
     
-    init(user: User) {
-        self.user = user
+    init() {
         self.courseTableResponseList = []
         self.currentWeek = 1
         self.martrix = CourseTableMatrix()
@@ -47,27 +45,28 @@ class CourseTableViewModel: ObservableObject {
 }
 
 extension CourseTableViewModel {
-    func refreshCourseTable(completion: @escaping () -> ()) {
-        user = UserDefaults.standard.loadLocalUser()
-        APIClient.courseTable(user: self.user, semester: Constants.currentSemester) { (result) in
+    func refreshCourseTable(completion: @escaping (Bool) -> ()) {
+        APIClient.courseTable(user: Constants.currentUser, semester: Constants.currentSemester) { (result) in
             switch result {
             case .failure(let error):
                 self.banner.type = .Error
                 self.banner.title = "拉取课表失败"
                 self.banner.content = self.banner.title + "，请稍后再试 " + error.localizedDescription
-                completion()
+                completion(false)
             case .success(let response):
-                self.banner.type = .Success
                 self.banner.content = response.message
                 guard response.code == 200 else {
                     self.banner.type = .Error
-                    completion()
+                    self.banner.title = "拉取课表失败"
+                    completion(false)
                     return
                 }
                 
+                self.banner.type = .Success
                 self.banner.title = "拉取课表成功"
                 self.courseTableResponseList = response.data ?? []
                 UserDefaults.standard[.courseTableData] = try? JSONEncoder().encode(self.courseTableResponseList)
+                completion(true)
             }
         }
     }

@@ -12,6 +12,7 @@ struct LoginView: View {
     @EnvironmentObject var router: ViewRouter
     @ObservedObject var viewModel: LoginViewModel
     @State private var isShowingSheet = false
+    @State var user: User
     
     var body: some View {
         NavigationView {
@@ -22,7 +23,7 @@ struct LoginView: View {
                         .foregroundColor(.white)
                         .background(Color("primary"))
                         .cornerRadius(8)
-                    TextField("请输入学号", text: $viewModel.user.username)
+                    TextField("请输入学号", text: $user.username)
                         .padding()
                         .keyboardType(.numberPad)
                         .background(Color(.systemFill))
@@ -35,7 +36,7 @@ struct LoginView: View {
                         .foregroundColor(.white)
                         .background(Color("primary"))
                         .cornerRadius(8)
-                    SecureField("请输入身份证(默认密码)", text:  $viewModel.user.password)
+                    SecureField("请输入身份证(默认密码)", text: $user.password)
                         .padding()
                         .background(Color(.systemFill))
                         .cornerRadius(8)
@@ -55,12 +56,11 @@ struct LoginView: View {
                 .onTapGesture {
                     self.isShowingSheet = true
                 }
-                
             }
             .navigationBarTitle(Text("Login"), displayMode: .large)
             .navigationBarItems(leading: cancelItemButton, trailing: loginItemButton)
         }
-        .banner(data: $viewModel.banner, isShow:  $viewModel.isShowBanner)
+        .banner(data: $router.banner, isShow: $router.isShowBanner)
         .sheet(isPresented: $isShowingSheet) {
             SafariView()
                 .navigationBarTitle(Text("用户协议"), displayMode: .inline)
@@ -70,9 +70,7 @@ struct LoginView: View {
     var loginButton: some View {
         Button(action: {
             Haptic.shared.tappedHaptic()
-            router.refreshEducationData(user: viewModel.user) {
-                router.isShowingLoginView = false
-            }
+            self.login()
         }) {
             HStack {
                 Spacer()
@@ -89,27 +87,39 @@ struct LoginView: View {
     var cancelItemButton: some View {
         Button(action: {
             Haptic.shared.tappedHaptic()
-            router.isShowingLoginView = false
+            router.isShowLoginView = false
         }) {
-            Text("看看")
+            Text("取消")
         }
     }
     
     var loginItemButton: some View {
         Button(action: {
             Haptic.shared.tappedHaptic()
-            router.refreshEducationData(user: viewModel.user) {
-                router.isShowingLoginView = false
-            }
+            self.login()
         }) {
             Text("登录")
         }
     }
+    
+    func login() {
+        Constants.currentUser = user
+        viewModel.login { (isSuccess) in
+            router.isShowLoginView = isSuccess ? false : true
+            router.banner = viewModel.banner
+        }
+    }
 }
 
+extension LoginView {
+    init(viewModel: LoginViewModel) {
+        let user = UserDefaults.standard.loadLocalUser()
+        self.init(viewModel: viewModel, user: user)
+    }
+}
 struct LoginView_PreViews: PreviewProvider {
     static var previews: some View {
-        return LoginView(viewModel: LoginViewModel(user: MockData.user))
-            .environmentObject(ViewRouter(user: MockData.user))
+        return LoginView(viewModel: LoginViewModel())
+            .environmentObject(ViewRouter())
     }
 }

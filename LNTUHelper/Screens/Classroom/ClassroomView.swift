@@ -47,6 +47,7 @@ struct ClassroomView: View {
             .navigationBarTitle(Text(TabBarItemEnum.classroom.rawValue), displayMode: .large)
             .onAppear { Haptic.shared.tappedHaptic() }
         }
+        .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
     }
 }
 

@@ -11,13 +11,13 @@ struct AccountView: View {
     
     @EnvironmentObject var router: ViewRouter
     @ObservedObject var viewModel: LoginViewModel
-
+    
     var body: some View {
         NavigationView {
             Form {
                 Section(header: Text("教务在线")) {
                     NavigationLink(
-                        destination: EducationInfoView(user: $router.loginViewModel.userInfo),
+                        destination: EducationInfoView(viewModel: router.loginViewModel),
                         label: {
                             if #available(iOS 14.0, *) {
                                 LabelView(name: "个人信息", iconName: "at.circle", iconColor: Color("primary"))
@@ -27,7 +27,7 @@ struct AccountView: View {
                         })
                     
                     NavigationLink(
-                        destination: ExamPlanView(viewModel: ExamPlanViewModel(user: router.user)),
+                        destination: ExamPlanView(viewModel: ExamPlanViewModel()),
                         label: { LabelView(name: "考试安排", iconName: "number.square", iconColor: Color(.systemRed)) })
                 }
                 
@@ -50,9 +50,6 @@ struct AccountView: View {
                     label: { LabelView(name: "更多", iconName: "gear", iconColor: Color("primary")) })
             }
             .navigationBarTitle(Text(TabBarItemEnum.account.rawValue), displayMode: .large)
-//            .onAppear {
-//                router.loginViewModel.login(completion: {_ in })
-//            }
         }
         .onAppear { Haptic.shared.tappedHaptic() }
     }
@@ -60,7 +57,7 @@ struct AccountView: View {
 
 struct UserCenterView_Previews: PreviewProvider {
     static var previews: some View {
-        AccountView(viewModel: LoginViewModel(user: MockData.user))
-            .environmentObject(ViewRouter(user: MockData.user))
+        AccountView(viewModel: LoginViewModel())
+            .environmentObject(ViewRouter())
     }
 }

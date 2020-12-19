@@ -55,14 +55,15 @@ struct SettingsView: View {
     var logoutButton: some View {
         Button(action: {
             Haptic.shared.tappedHaptic()
-            router.isShowingLoginView = true
+            Constants.isLogin = false
+            router.isShowLoginView = true
         }) {
             HStack {
                 Spacer()
                 Text("退出登录")
-                    .foregroundColor(Color(.systemPink))
                 Spacer()
             }
+            .foregroundColor(Color(.systemPink))
         }
     }
 }
@@ -70,6 +71,6 @@ struct SettingsView: View {
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView()
-            .environmentObject(ViewRouter(user: MockData.user))
+            .environmentObject(ViewRouter())
     }
 }

@@ -19,19 +19,19 @@ struct GradeAndQualityActivityView: View {
             if isShowQuality {
                 QualityActivityView(viewModel: qualityViewModel)
                     .navigationBarTitle(Text(TabBarItemEnum.qualitActivity.rawValue), displayMode: .large)
+                    .onAppear(perform: {
+                        qualityViewModel.refreshToGetActivityList()
+                    })
             } else {
                 GradeView(viewModel: viewModel, tappedCourse: MockData.gradeList.first!)
                     .navigationBarTitle(Text(TabBarItemEnum.grade.rawValue), displayMode: .large)
-                    .navigationBarItems(trailing: modeSwitchButton)
-                    .onAppear(perform: {
-                        Haptic.shared.tappedHaptic()
-//                        viewModel.refreshGradeList(completion: {
-//                            router.isShowingLoginView = true
-//                        })
-                    })
+                    .navigationBarItems(leading: refreshButton, trailing: modeSwitchButton)
             }
         }
-        .onAppear { Haptic.shared.tappedHaptic() }
+        .onAppear {
+            Haptic.shared.tappedHaptic()
+            if !Constants.isLogin { router.isShowLoginView = true }
+        }
     }
     
     var modeSwitchButton: some View {
@@ -39,11 +39,28 @@ struct GradeAndQualityActivityView: View {
             Text("素拓模式")
         }
     }
+    
+    var refreshButton: some View {
+        Button(action: {
+            Haptic.shared.tappedHaptic()
+            self.refresh()
+        }) {
+            Text("刷新")
+                .foregroundColor(Color("primary"))
+        }
+    }
+    
+    func refresh() {
+        viewModel.refreshGradeList { (isSuccess) in
+            router.isShowLoginView = isSuccess ? false : true
+            router.banner = viewModel.banner
+        }
+    }
 }
 
 struct GradeAndQualityActivityView_Previews: PreviewProvider {
     static var previews: some View {
         GradeAndQualityActivityView(viewModel: GradeViewModel())
-            .environmentObject(ViewRouter(user: MockData.user))
+            .environmentObject(ViewRouter())
     }
 }

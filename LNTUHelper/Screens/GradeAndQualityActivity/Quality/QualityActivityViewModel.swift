@@ -62,13 +62,16 @@ extension QualityActivityViewModel {
                 self.banner.title = "拉取素拓网数据失败"
                 self.banner.content = self.banner.title + "，请稍后再试 " + error.localizedDescription
             case .success(let response):
-                self.banner.type = .Success
                 self.banner.content = response.message
                 guard response.code == 200 else {
                     self.banner.type = .Error
+                    self.banner.title = "拉取素拓网数据失败"
                     return
                 }
                 
+                
+                self.banner.type = .Success
+                self.banner.title = "拉取素拓网数据成功"
                 self.qualityActivityList = response.data
                 UserDefaults.standard[.qualityUsername] = self.user.username
                 UserDefaults.standard[.qualityPassword] = self.user.password

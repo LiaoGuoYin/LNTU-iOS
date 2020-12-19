@@ -9,7 +9,6 @@ import Foundation
 
 class GradeViewModel: ObservableObject {
     
-    @Published var user: User
     @Published var isShowBanner = false
     @Published var banner = BannerModifier.Data() {
         willSet {
@@ -34,11 +33,6 @@ class GradeViewModel: ObservableObject {
     }
     
     init(gradeList: [GradeResponseData]) {
-        self.user = MockData.user
-        if let username = UserDefaults.standard.string(forKey: SettingsKey.educationUsername.rawValue),
-           let password =  UserDefaults.standard.string(forKey: SettingsKey.educationPassword.rawValue) {
-            self.user = User(username: username, password: password)
-        }
         self.gradeList = gradeList
     }
     
@@ -48,36 +42,37 @@ class GradeViewModel: ObservableObject {
         if let actualData = UserDefaults.standard.object(forKey: SettingsKey.gradeData.rawValue) as? Data {
             self.gradeList = (try? JSONDecoder().decode([GradeResponseData].self, from: actualData)) ?? []
         }
-        self.refreshGradeList(completion: {
-            // self.selectedSemester = self.gradeResultKeyList.first ?? "2020-春"
-        })
+//        self.refreshGradeList(completion: {_ in
+//            // self.selectedSemester = self.gradeResultKeyList.first ?? "2020-春"
+//        })
     }
 }
 
 extension GradeViewModel {
-    func refreshGradeList(completion: @escaping () -> ()) {
-        user = UserDefaults.standard.loadLocalUser()
-        APIClient.grade(user: user) { (result) in
+    func refreshGradeList(completion: @escaping (Bool) -> ()) {
+        APIClient.grade(user: Constants.currentUser) { (result) in
             switch result {
             case .failure(let error):
                 debugPrint(result)
                 self.banner.type = .Error
                 self.banner.title = "刷新成绩、绩点失败"
                 self.banner.content = self.banner.title + "，请稍后再试 " + error.localizedDescription
-                completion()
+                completion(false)
             case .success(let response):
-                self.banner.type = .Success
                 self.banner.content = response.message
                 guard response.code == 200 else {
                     self.banner.type = .Error
-                    completion()
+                    self.banner.title = "刷新成绩、绩点失败"
+                    completion(false)
                     return
                 }
                 
-                self.banner.title = "刷新成绩、绩点成功"
+                
                 self.banner.type = .Success
+                self.banner.title = "刷新成绩、绩点成功"
                 self.gradeList = response.data ?? []
                 UserDefaults.standard[.gradeData] = try? JSONEncoder().encode(self.gradeList)
+                completion(true)
             }
         }
     }
