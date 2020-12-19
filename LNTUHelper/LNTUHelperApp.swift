@@ -10,28 +10,28 @@ import SwiftUI
 struct LNTUHelperApp: View {
     
     @EnvironmentObject var router: ViewRouter
-    @State private var selected = TabBarItemEnum.account
+    @State private var selectedTab = TabBarItemEnum.account
     
     var body: some View {
-        TabView(selection: $selected) {
+        TabView(selection: $selectedTab) {
             CourseTableView(viewModel: router.courseTableViewModel)
-                .tabItem { Image(systemName: selected == .courseTable ? "square.on.square.fill" : "square.on.square") }
+                .tabItem { Image(systemName: selectedTab == .courseTable ? "square.on.square.fill" : "square.on.square") }
                 .tag(TabBarItemEnum.courseTable)
             
             GradeAndQualityActivityView(viewModel: router.gradeViewModel)
-                .tabItem { Image(systemName: selected == .grade ?  "doc.fill" :  "doc") }
+                .tabItem { Image(systemName: selectedTab == .grade ?  "doc.fill" :  "doc") }
                 .tag(TabBarItemEnum.grade)
             
             ClassroomView(viewModel: router.classroomViewModel)
-                .tabItem { Image(systemName: selected == .classroom ?  "square.fill" :  "square") }
+                .tabItem { Image(systemName: selectedTab == .classroom ?  "square.fill" :  "square") }
                 .tag(TabBarItemEnum.classroom)
             
             NoticeView(viewModel: router.noticeViewModel)
-                .tabItem { Image(systemName: selected == .notice ?  "bubble.middle.bottom.fill" :  "bubble.middle.bottom") }
+                .tabItem { Image(systemName: selectedTab == .notice ?  "bubble.middle.bottom.fill" :  "bubble.middle.bottom") }
                 .tag(TabBarItemEnum.notice)
             
             AccountView(viewModel: LoginViewModel())
-                .tabItem { Image(systemName: selected == .account ?  "person.fill" :  "person") }
+                .tabItem { Image(systemName: selectedTab == .account ?  "person.fill" :  "person") }
                 .tag(TabBarItemEnum.account)
         }
         .sheet(isPresented: $router.isShowLoginView, content: {

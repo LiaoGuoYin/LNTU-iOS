@@ -36,14 +36,12 @@ struct BannerModifier: ViewModifier {
     }
     
     @Binding var data: Data
-    @Binding var isShow:Bool
+    @Binding var isShow: Bool
+    @State var location = CGPoint(x: 0, y: 0)
     
     func body(content: Content) -> some View {
         ZStack {
             content
-                .onAppear(perform: {
-                    Haptic.shared.tappedHaptic()
-                })
             if isShow {
                 VStack {
                     HStack {
@@ -59,28 +57,41 @@ struct BannerModifier: ViewModifier {
                     .padding()
                     .background(data.type.tintColor)
                     .cornerRadius(8)
+                    .shadow(radius: 6)
+                    
                     Spacer()
                 }
                 .padding()
                 .animation(.easeInOut)
                 .transition(AnyTransition.move(edge: .top).combined(with: .opacity))
-                .onTapGesture {
-                    withAnimation {
-                        self.isShow = false
-                    }
-                }
+                .offset(y: location.y > 0 ? 0 : location.y)
                 .onAppear(perform: {
                     Haptic.shared.simpleSuccess()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.1) {
+                    location.y = 0
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.8) {
                         withAnimation {
                             self.isShow = false
                         }
                     }
                 })
+                .gesture(drag)
             }
         }
     }
     
+    var drag: some Gesture {
+        DragGesture()
+            .onChanged { action in
+                location = action.location
+            }
+            .onEnded { action in
+                if location.y < -16 {
+                    isShow = false
+                } else {
+                    isShow = true
+                }
+            }
+    }
 }
 
 extension View {
@@ -90,10 +101,14 @@ extension View {
 }
 
 struct BannerDemoView: View {
+    
     @State var isShow: Bool = true
     @State var data: BannerModifier.Data = BannerModifier.Data(title: "DEMO", content: "This is description.")
+    @State var location = CGPoint(x: 0, y: 0)
+    
     var body: some View {
-        Text("Hello, World!")
+        
+        Text("Hello World!")
             .banner(data: $data, isShow: $isShow)
             .onTapGesture(perform: {
                 isShow = true

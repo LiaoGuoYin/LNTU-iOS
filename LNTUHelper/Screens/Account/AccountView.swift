@@ -35,23 +35,25 @@ struct AccountView: View {
                     NavigationLink(
                         destination: LibraryCardView(),
                         label: { LabelView(name: "图书馆", iconName: "barcode.viewfinder", iconColor: Color.blue) })
-                    
-                    NavigationLink(
-                        destination: QualityActivityView(viewModel: viewModel.qualityViewModel),
-                        label: { LabelView(name: "素拓网", iconName: "rosette", iconColor: Color.pink) })
-                    
+
+//                    NavigationLink(
+//                        destination: QualityActivityView(viewModel: viewModel.qualityViewModel),
+//                        label: { LabelView(name: "素拓网", iconName: "rosette", iconColor: Color.pink) })
+
                     //                    NavigationLink(
                     //                        destination: TodoView(),
                     //                        label: { LabelView(name: "其他链接", iconName: "link", iconColor: Color.yellow) })
                 }
                 
                 NavigationLink(
-                    destination: SettingsView().environmentObject(router),
+                    destination: SettingsView(),
                     label: { LabelView(name: "更多", iconName: "gear", iconColor: Color("primary")) })
             }
             .navigationBarTitle(Text(TabBarItemEnum.account.rawValue), displayMode: .large)
         }
-        .onAppear { Haptic.shared.tappedHaptic() }
+        .onAppear(perform: {
+            Haptic.shared.tappedHaptic()
+        })
     }
 }
 

@@ -50,8 +50,10 @@ struct NoticeView: View {
                 }
             }
             .navigationBarTitle(Text(TabBarItemEnum.notice.rawValue), displayMode: .large)
-            .onAppear { Haptic.shared.tappedHaptic() }
         }
+        .onAppear(perform: {
+            Haptic.shared.tappedHaptic()
+        })
     }
     
     var refreshButton: some View {

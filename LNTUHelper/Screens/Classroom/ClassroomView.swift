@@ -13,6 +13,7 @@ struct ClassroomView: View {
     @ObservedObject var viewModel: ClassroomViewModel
     @State var selectedWeekday: Int = getCurrentWeekDay()
     var screenWidth: CGFloat = UIScreen.main.bounds.width
+    let weekList = ["一", "二", "三", "四", "五", "六", "日"]
     
     var body: some View {
         NavigationView {
@@ -35,8 +36,14 @@ struct ClassroomView: View {
                 .pickerStyle(SegmentedPickerStyle())
                 
                 VStack {
-                    WeekSelectorView(title: .constant("第 \(viewModel.form.week) 周"), selectedWeek: $viewModel.form.week)
-                    WeekSelectorView(title: .constant("星期 \(selectedWeekday)"), selectedWeek: $selectedWeekday, endNumber: 7)
+                    WeekSelectorView(title: .constant("\(viewModel.form.week) 周"),
+                                     selectedIndex: $viewModel.form.week,
+                                     numberList: (1...22).map {String($0)}
+                    )
+                    WeekSelectorView(title: .constant("星期\(weekList[selectedWeekday - 1])"),
+                                     selectedIndex: $selectedWeekday,
+                                     numberList: weekList
+                    )
                 }
                 
                 ClassroomDetailView(classroomList: $viewModel.classroomList,
@@ -45,9 +52,11 @@ struct ClassroomView: View {
             }
             .font(.subheadline)
             .navigationBarTitle(Text(TabBarItemEnum.classroom.rawValue), displayMode: .large)
-            .onAppear { Haptic.shared.tappedHaptic() }
         }
         .banner(data: $viewModel.banner, isShow: $viewModel.isShowBanner)
+        .onAppear(perform: {
+            Haptic.shared.tappedHaptic()
+        })
     }
 }
 

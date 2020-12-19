@@ -28,7 +28,7 @@ struct GradeAndQualityActivityView: View {
                     .navigationBarItems(leading: refreshButton, trailing: modeSwitchButton)
             }
         }
-        .onAppear {
+        .onTapGesture {
             Haptic.shared.tappedHaptic()
             if !Constants.isLogin { router.isShowLoginView = true }
         }

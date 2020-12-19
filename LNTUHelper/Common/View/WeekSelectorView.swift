@@ -10,8 +10,8 @@ import SwiftUI
 struct WeekSelectorView: View {
     
     @Binding var title: String
-    @Binding var selectedWeek: Int
-    @State var endNumber: Int = 22
+    @Binding var selectedIndex: Int
+    @State var numberList: [String]
     
     var body: some View {
         HStack(spacing: 0) {
@@ -21,17 +21,17 @@ struct WeekSelectorView: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 2) {
-                    ForEach(1...endNumber, id: \.self) { each in
-                        Text(String(each))
+                    ForEach(1...numberList.count, id: \.self) { index in
+                        Text(String(numberList[index - 1]))
                             .font(.caption)
                             .foregroundColor(.white)
-                            .padding(12)
+                            .padding(11)
                             .frame(width: 38, height: 30)
-                            .background((selectedWeek == each) ? Color("primary") : Color("primary").opacity(0.4))
+                            .background((selectedIndex == index) ? Color("primary") : Color("primary").opacity(0.4))
                             .cornerRadius(3.0)
                             .onTapGesture(perform: {
                                 Haptic.shared.tappedHaptic()
-                                self.selectedWeek = each
+                                self.selectedIndex = index
                             })
                     }
                 }
@@ -43,6 +43,7 @@ struct WeekSelectorView: View {
 
 struct WeekSelectorView_Previews: PreviewProvider {
     static var previews: some View {
-        WeekSelectorView(title: .constant("星期天"), selectedWeek: .constant(3))
+        let weekList = ["一", "二", "三", "四", "五", "六", "日"]
+        WeekSelectorView(title: .constant("星期天"), selectedIndex: .constant(2), numberList: weekList)
     }
 }

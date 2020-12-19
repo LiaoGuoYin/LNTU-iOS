@@ -55,8 +55,11 @@ struct SettingsView: View {
     var logoutButton: some View {
         Button(action: {
             Haptic.shared.tappedHaptic()
+            Constants.currentUser.password = ""
             Constants.isLogin = false
-            router.isShowLoginView = true
+            router.banner.type = .Warning
+            router.banner.title = "退出登录成功，已清除用户密码"
+            router.banner.content = "Success"
         }) {
             HStack {
                 Spacer()

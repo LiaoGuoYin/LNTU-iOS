@@ -65,6 +65,9 @@ struct LoginView: View {
             SafariView()
                 .navigationBarTitle(Text("用户协议"), displayMode: .inline)
         }
+        .onDisappear(perform: {
+            router.isShowLoginView = false
+        })
     }
     
     var loginButton: some View {

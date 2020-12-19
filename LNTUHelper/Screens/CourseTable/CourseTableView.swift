@@ -15,7 +15,9 @@ struct CourseTableView: View {
     var body: some View {
         NavigationView {
             VStack {
-                WeekSelectorView(title: .constant(""), selectedWeek: $viewModel.currentWeek)
+                WeekSelectorView(title: .constant(""),
+                                 selectedIndex: $viewModel.currentWeek,
+                                 numberList: (1...22).map {String($0)})
                 Divider()
                 CourseTableBodyView(courseTableMatrix: $viewModel.martrix)
             }
@@ -23,10 +25,10 @@ struct CourseTableView: View {
             .navigationBarTitle(Text(TabBarItemEnum.courseTable.rawValue), displayMode: .large)
             .navigationBarItems(leading: refreshButton)
         }
-        .onAppear {
+        .onAppear(perform: {
             Haptic.shared.tappedHaptic()
             if !Constants.isLogin { router.isShowLoginView = true }
-        }
+        })
     }
     
     var refreshButton: some View {
