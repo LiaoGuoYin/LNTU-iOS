@@ -12,12 +12,36 @@ struct CourseTableView: View {
     @EnvironmentObject var router: ViewRouter
     @ObservedObject var viewModel: CourseTableViewModel
     
+    
     var body: some View {
         NavigationView {
-            VStack {
-                WeekSelectorView(title: .constant(""),
-                                 selectedIndex: $viewModel.currentWeek,
-                                 numberList: (1...22).map {String($0)})
+            VStack(alignment:.leading) {
+                HStack {
+                    Button(action: {
+                        viewModel.currentWeek = viewModel.currentWeek - 1
+                    }, label: {
+                        Image(systemName: "chevron.left")
+                    })
+                    .disabled(viewModel.currentWeek == 1)
+                    
+                    Text("第 \(viewModel.currentWeek) 周")
+                        .onTapGesture {
+                            Haptic.shared.tappedHaptic()
+                            router.showBlurView {
+                                WeekSelectorView(title: .constant(""), selectedIndex: $viewModel.currentWeek, numberList: Array(1...22).map { String($0) }, displayMode: .grid)
+                                    .environmentObject(router)
+                            }
+                        }
+                    
+                    Button(action: {
+                        viewModel.currentWeek = viewModel.currentWeek + 1
+                    }, label: {
+                        Image(systemName: "chevron.right")
+                    })
+                    .disabled(viewModel.currentWeek == 22)
+                }
+                .padding(.vertical, 10)
+                
                 Divider()
                 CourseTableBodyView(courseTableMatrix: $viewModel.martrix)
             }
