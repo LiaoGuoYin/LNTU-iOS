@@ -44,7 +44,6 @@ struct LNTUHelperApp: View {
         .accentColor(Color("primary"))
         .banner(data: $router.banner, isShow: $router.isShowBanner)
         .blur(radius: router.isBlured ? 40 : 0)
-        .animation(.easeIn(duration: 0.1))
         .disabled(router.isBlured)
         // Disable all interactions with the background view when a new view pops up
         

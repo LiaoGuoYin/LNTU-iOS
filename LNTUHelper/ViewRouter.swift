@@ -33,7 +33,6 @@ class ViewRouter: ObservableObject {
   
   var topView: AnyView?
     
-    
     init() {
         self.noticeViewModel = NoticeViewModel()
         self.classroomViewModel = ClassroomViewModel(form: ClassroomForm(week: 1, campus: .hld))
