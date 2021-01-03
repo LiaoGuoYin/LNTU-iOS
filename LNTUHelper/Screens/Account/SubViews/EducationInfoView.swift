@@ -38,6 +38,7 @@ struct EducationInfoView: View {
         .navigationBarTitle("个人信息", displayMode: .large)
         .navigationBarItems(trailing: refreshButton)
         .onAppear {
+            login()
             Haptic.shared.tappedHaptic()
             if !Constants.isLogin { router.isShowLoginView = true }
         }

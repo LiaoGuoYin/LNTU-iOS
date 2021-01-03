@@ -18,20 +18,18 @@ struct GradeAndQualityActivityView: View {
         NavigationView {
             if isShowQuality {
                 QualityActivityView(viewModel: qualityViewModel)
-                    .navigationBarTitle(Text(TabBarItemEnum.qualitActivity.rawValue), displayMode: .large)
                     .onAppear(perform: {
                         qualityViewModel.refreshToGetActivityList()
                     })
             } else {
                 GradeView(viewModel: viewModel, tappedCourse: MockData.gradeList.first!)
-                    .navigationBarTitle(Text(TabBarItemEnum.grade.rawValue), displayMode: .large)
                     .navigationBarItems(leading: refreshButton, trailing: modeSwitchButton)
             }
         }
-        .onTapGesture {
+        .onAppear(perform: {
             Haptic.shared.tappedHaptic()
             if !Constants.isLogin { router.isShowLoginView = true }
-        }
+        })
     }
     
     var modeSwitchButton: some View {

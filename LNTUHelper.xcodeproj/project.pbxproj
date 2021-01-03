@@ -11,6 +11,7 @@
 		AF171401257F2612009E382A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF171400257F2612009E382A /* SettingsView.swift */; };
 		AF188DCC2588695D00832E5C /* GradeAndQualityActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF188DCB2588695D00832E5C /* GradeAndQualityActivityView.swift */; };
 		AF2849A5254C6DB800D78D2C /* HapticModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2849A4254C6DB800D78D2C /* HapticModels.swift */; };
+		AF2E86C325A1EB7D0099BFA9 /* DemoBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2E86C225A1EB7D0099BFA9 /* DemoBlurView.swift */; };
 		AF30539625455A6600F849A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF30539525455A6600F849A9 /* AppDelegate.swift */; };
 		AF30539825455A6600F849A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF30539725455A6600F849A9 /* SceneDelegate.swift */; };
 		AF30539A25455A6600F849A9 /* LNTUHelperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF30539925455A6600F849A9 /* LNTUHelperApp.swift */; };
@@ -96,6 +97,7 @@
 		AF171400257F2612009E382A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		AF188DCB2588695D00832E5C /* GradeAndQualityActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeAndQualityActivityView.swift; sourceTree = "<group>"; };
 		AF2849A4254C6DB800D78D2C /* HapticModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticModels.swift; sourceTree = "<group>"; };
+		AF2E86C225A1EB7D0099BFA9 /* DemoBlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoBlurView.swift; sourceTree = "<group>"; };
 		AF30539225455A6600F849A9 /* LNTUHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LNTUHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF30539525455A6600F849A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF30539725455A6600F849A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -195,9 +197,9 @@
 		AF1713FF257F2603009E382A /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
+				AF35E9482556FB81008E7AA7 /* LibraryCardView.swift */,
 				AF5E4AEB254AF84800736FB4 /* EducationInfoView.swift */,
 				AF32A7AF257BB00F004D1E78 /* InfoRowView.swift */,
-				AF35E9482556FB81008E7AA7 /* LibraryCardView.swift */,
 				AF171400257F2612009E382A /* SettingsView.swift */,
 			);
 			path = SubViews;
@@ -251,6 +253,7 @@
 				AF3053A325455A6800F849A9 /* Info.plist */,
 				AF30539B25455A6800F849A9 /* Assets.xcassets */,
 				AF3053A025455A6800F849A9 /* LaunchScreen.storyboard */,
+				AF2E86C225A1EB7D0099BFA9 /* DemoBlurView.swift */,
 			);
 			path = LNTUHelper;
 			sourceTree = "<group>";
@@ -620,6 +623,7 @@
 				AF7BD6FE2546BD1F00771CDA /* CommonModels.swift in Sources */,
 				AF2849A5254C6DB800D78D2C /* HapticModels.swift in Sources */,
 				AF7BD7002546E38200771CDA /* CourseCellView.swift in Sources */,
+				AF2E86C325A1EB7D0099BFA9 /* DemoBlurView.swift in Sources */,
 				AF5E4ADD254AD95500736FB4 /* NoticeView.swift in Sources */,
 				AF3053CF25455D6700F849A9 /* Constants.swift in Sources */,
 				AF3053D82545711300F849A9 /* ClassroomViewModel.swift in Sources */,
@@ -831,7 +835,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = primary;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_ASSET_PATHS = "LNTUHelper/Preview\\ Content";
 				DEVELOPMENT_TEAM = M9CCRH8GRW;
 				ENABLE_PREVIEWS = YES;
@@ -855,7 +859,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = primary;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_ASSET_PATHS = "LNTUHelper/Preview\\ Content";
 				DEVELOPMENT_TEAM = M9CCRH8GRW;
 				ENABLE_PREVIEWS = YES;

@@ -107,7 +107,6 @@ struct BannerDemoView: View {
     @State var location = CGPoint(x: 0, y: 0)
     
     var body: some View {
-        
         Text("Hello World!")
             .banner(data: $data, isShow: $isShow)
             .onTapGesture(perform: {

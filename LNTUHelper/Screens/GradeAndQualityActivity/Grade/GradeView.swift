@@ -39,6 +39,7 @@ struct GradeView: View {
                 // GradePointAverageView(gpa: $viewModel.gradePointAverage)
             }
         }
+        .navigationBarTitle(Text(TabBarItemEnum.grade.rawValue), displayMode: .large)
         .sheet(isPresented: $isShowDetail) {
             GradeRowDetailView(course: $tappedCourse)
         }

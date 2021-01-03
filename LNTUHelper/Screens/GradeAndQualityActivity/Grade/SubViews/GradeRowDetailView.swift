@@ -10,9 +10,10 @@ import SwiftUI
 struct GradeRowDetailView: View {
     
     @Binding var course: GradeResponseData
+    @State private var deviceSize = UIScreen.main.bounds
     
     var body: some View {
-        VStack(alignment: .leading, spacing: UIScreen.main.bounds.height / 8) {
+        VStack(alignment: .leading, spacing: deviceSize.height / 8) {
             VStack(alignment: .leading, spacing: 20) {
                 HStack {
                     Text(course.name)
@@ -43,10 +44,10 @@ struct GradeRowDetailView: View {
                     .fontWeight(.black)
             }
         }
-        .padding(.leading, UIScreen.main.bounds.width / 8)
-        .foregroundColor(.white)
         .font(.system(size: 24, weight: .regular, design: .monospaced))
-        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        .padding(.leading, deviceSize.width / 5)
+        .foregroundColor(.white)
+        .frame(width: deviceSize.width, height: deviceSize.height)
         .background(Color("primary"))
         .cornerRadius(10)
         .edgesIgnoringSafeArea(.all)
