@@ -15,39 +15,10 @@ struct CourseTableView: View {
     
     var body: some View {
         NavigationView {
-            VStack(alignment:.leading) {
-                HStack {
-                    Button(action: {
-                        viewModel.currentWeek = viewModel.currentWeek - 1
-                    }, label: {
-                        Image(systemName: "chevron.left")
-                    })
-                    .disabled(viewModel.currentWeek == 1)
-                    
-                    Text("第 \(viewModel.currentWeek) 周")
-                        .onTapGesture {
-                            Haptic.shared.tappedHaptic()
-                            router.showBlurView {
-                                WeekSelectorView(title: .constant(""), selectedIndex: $viewModel.currentWeek, numberList: Array(1...22).map { String($0) }, displayMode: .grid)
-                                    .environmentObject(router)
-                            }
-                        }
-                    
-                    Button(action: {
-                        viewModel.currentWeek = viewModel.currentWeek + 1
-                    }, label: {
-                        Image(systemName: "chevron.right")
-                    })
-                    .disabled(viewModel.currentWeek == 22)
-                }
-                .padding(.vertical, 10)
-                
-                Divider()
-                CourseTableBodyView(courseTableMatrix: $viewModel.martrix)
-            }
-            .padding(.horizontal)
-            .navigationBarTitle(Text(TabBarItemEnum.courseTable.rawValue), displayMode: .large)
-            .navigationBarItems(leading: refreshButton)
+            CourseTableBodyView(courseTableMatrix: $viewModel.martrix)
+                .padding(.horizontal)
+                .navigationBarTitle(Text(TabBarItemEnum.courseTable.rawValue), displayMode: .large)
+                .navigationBarItems(leading: refreshButton, trailing: selectWeekButton)
         }
         .onAppear(perform: {
             Haptic.shared.tappedHaptic()
@@ -61,6 +32,35 @@ struct CourseTableView: View {
             self.refresh()
         }) {
             Text("刷新")
+        }
+    }
+    
+    var selectWeekButton: some View {
+        HStack {
+            Button(action: {
+                viewModel.currentWeek = viewModel.currentWeek - 1
+            }, label: {
+                Image(systemName: "chevron.left")
+            })
+            .disabled(viewModel.currentWeek == 1)
+            
+            Text("第 \(viewModel.currentWeek) 周")
+                .onTapGesture(perform: {
+                    Haptic.shared.tappedHaptic()
+                    router.showBlurView {
+                        WeekSelectorView(title: .constant(""), selectedIndex: $viewModel.currentWeek, numberList: Array(1...22).map { String($0) }, displayMode: .grid)
+                            .environmentObject(router)
+                    }
+                })
+                .foregroundColor(Color("primary"))
+                .frame(width: 68)
+            
+            Button(action: {
+                viewModel.currentWeek = viewModel.currentWeek + 1
+            }, label: {
+                Image(systemName: "chevron.right")
+            })
+            .disabled(viewModel.currentWeek == 22)
         }
     }
     
