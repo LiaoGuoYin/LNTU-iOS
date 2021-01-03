@@ -13,6 +13,7 @@ struct LNTUHelperApp: View {
     @State private var selectedTab = TabBarItemEnum.account
     
     var body: some View {
+      ZStack {
         TabView(selection: $selectedTab) {
             CourseTableView(viewModel: router.courseTableViewModel)
                 .tabItem { Image(systemName: selectedTab == .courseTable ? "square.on.square.fill" : "square.on.square") }
@@ -42,6 +43,15 @@ struct LNTUHelperApp: View {
         .navigationViewStyle(StackNavigationViewStyle())
         .accentColor(Color("primary"))
         .banner(data: $router.banner, isShow: $router.isShowBanner)
+        .blur(radius: router.isBlured ? 40 : 0)
+        .animation(.easeIn(duration: 0.1))
+        .disabled(router.isBlured)
+        // Disable all interactions with the background view when a new view pops up
+        
+        if router.isBlured {
+          router.topView!
+        }
+      }
     }
 }
 

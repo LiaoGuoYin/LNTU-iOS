@@ -38,12 +38,16 @@ struct ClassroomView: View {
                 VStack {
                     WeekSelectorView(title: .constant("\(viewModel.form.week) 周"),
                                      selectedIndex: $viewModel.form.week,
-                                     numberList: (1...22).map {String($0)}
+                                     numberList: (1...22).map {String($0)},
+                                     displayMode: .normal
                     )
+                    .environmentObject(router)
                     WeekSelectorView(title: .constant("星期\(weekList[selectedWeekday - 1])"),
                                      selectedIndex: $selectedWeekday,
-                                     numberList: weekList
+                                     numberList: weekList,
+                                     displayMode: .normal
                     )
+                    .environmentObject(router)
                 }
                 
                 ClassroomDetailView(classroomList: $viewModel.classroomList,
