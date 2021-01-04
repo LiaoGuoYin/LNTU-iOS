@@ -28,10 +28,9 @@ class ViewRouter: ObservableObject {
             UserDefaults.standard[.isOffline] = isOffline
         }
     }
-  
-  @Published var isBlured = false
-  
-  var topView: AnyView?
+    
+    @Published var isBlured = false
+    var topView: AnyView?
     
     init() {
         self.noticeViewModel = NoticeViewModel()
@@ -40,20 +39,19 @@ class ViewRouter: ObservableObject {
         self.courseTableViewModel = CourseTableViewModel()
         self.gradeViewModel = GradeViewModel()
     }
-  
-  func showBlurView<ViewType: View>(@ViewBuilder view: @escaping () -> ViewType) {
-    topView = AnyView(
-        view()
-        )
-    isBlured = true
     
-  }
-  
-  func hideBlurView() {
-    isBlured = false
-    topView = nil
-  }
-  
+    func showBlurView<ViewType: View>(@ViewBuilder view: @escaping () -> ViewType) {
+        topView = AnyView(
+            view()
+        )
+        isBlured = true
+    }
+    
+    func hideBlurView() {
+        isBlured = false
+        topView = nil
+    }
+    
     convenience init(isLogin: Bool, isOffline: Bool) {
         self.init()
         self.isOffline = isOffline

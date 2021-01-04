@@ -47,9 +47,6 @@ extension CourseTableMatrixCell {
     init(x: Int, y: Int) {
         self.init(code: "", name: "", teacher: "", credit: "", room: "", weekday: x, index: y, weeksString: "", weeks: [])
     }
-    init() {
-        self.init(code: "H101750002032.01", name: "演示课程", teacher: "毛志勇", credit: "2", room: "静远楼", weekday: 4, index: 3, weeksString: "1-5", weeks: [1,2,3,4,5])
-    }
 }
 
 // MARK: - CourseTableMatrix
@@ -57,9 +54,9 @@ struct CourseTableMatrix {
     var matrix: [[CourseTableMatrixCell]] = []
     
     init() {
-        matrix.append([CourseTableMatrixCell()])
-        for y in 1...5 {
-            for x in 1...7 {
+        matrix.append([CourseTableMatrixCell(x: 0, y: 0)])
+        for x in 1...7 {
+            for y in 1...5 {
                 matrix.append([CourseTableMatrixCell(x: x, y: y)])
             }
         }
