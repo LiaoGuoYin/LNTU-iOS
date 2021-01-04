@@ -18,7 +18,6 @@ struct ClassroomDetailView: View {
             Text("教室名")
                 .layoutPriority(1)
                 .frame(width: screenWidth / 4)
-            
             Spacer()
             Text("类型")
                 .frame(width: screenWidth / 4)
