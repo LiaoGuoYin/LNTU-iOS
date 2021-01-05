@@ -43,8 +43,8 @@ struct LNTUHelperApp: View {
             .navigationViewStyle(StackNavigationViewStyle())
             .accentColor(Color("primary"))
             .banner(data: $router.banner, isShow: $router.isShowBanner)
-            .animation(.easeInOut(duration: 0.3), value: router.isBlured)
             .blur(radius: router.isBlured ? 40 : 0)
+            .animation(.easeInOut(duration: 0.3), value: router.isBlured)
             .disabled(router.isBlured)
             // Disable all interactions with the background view when a new view pops up
             

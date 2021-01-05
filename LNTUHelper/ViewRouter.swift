@@ -41,10 +41,20 @@ class ViewRouter: ObservableObject {
     }
     
     func showBlurView<ViewType: View>(@ViewBuilder view: @escaping () -> ViewType) {
-        topView = AnyView(
-            view()
-        )
         isBlured = true
+        topView = AnyView(
+            ZStack {
+                Rectangle()
+                    .background(Color.clear)
+                    .foregroundColor(.clear)
+                    .contentShape(Rectangle()) // if this is not provided, the onTapGesture won't work
+                    .onTapGesture {
+                        self.hideBlurView()
+                    }
+            
+                view()
+            }
+        )
     }
     
     func hideBlurView() {
