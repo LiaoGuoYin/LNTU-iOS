@@ -9,7 +9,7 @@ import SwiftUI
 
 struct NoticeView: View {
     
-    @EnvironmentObject var router: ViewRouter
+    @ObservedObject var router = ViewRouter.router
     @ObservedObject var viewModel: NoticeViewModel
     @State private var isShowingSafariView = false
     @State private var selectedURL = ""

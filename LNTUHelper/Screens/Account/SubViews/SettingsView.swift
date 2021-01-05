@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SettingsView: View {
     
-    @EnvironmentObject var router: ViewRouter
+    @ObservedObject var router = ViewRouter.router
     @State private var isShowingSheet = false
     @State private var tappedUrlString = "" {
         didSet {
@@ -74,6 +74,5 @@ struct SettingsView: View {
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView()
-            .environmentObject(ViewRouter())
     }
 }

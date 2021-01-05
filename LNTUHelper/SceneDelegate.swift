@@ -18,13 +18,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
                 
-        let isLogin = UserDefaults.standard[.isLogin] ?? false
-        let isOffline = UserDefaults.standard[.isOffline] ?? false
-        let viewRouter = ViewRouter(isLogin: isLogin, isOffline: isOffline)
         
         // Create the SwiftUI view that provides the window contents.
         let contentView = LNTUHelperApp()
-            .environmentObject(viewRouter)
         
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {

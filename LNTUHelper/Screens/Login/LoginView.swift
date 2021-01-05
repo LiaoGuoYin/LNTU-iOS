@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LoginView: View {
     
-    @EnvironmentObject var router: ViewRouter
+    @ObservedObject var router = ViewRouter.router
     @ObservedObject var viewModel: LoginViewModel
     @State private var isShowingSheet = false
     @State var user: User
@@ -123,6 +123,5 @@ extension LoginView {
 struct LoginView_PreViews: PreviewProvider {
     static var previews: some View {
         return LoginView(viewModel: LoginViewModel())
-            .environmentObject(ViewRouter())
     }
 }

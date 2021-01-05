@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LNTUHelperApp: View {
     
-    @EnvironmentObject var router: ViewRouter
+    @ObservedObject var router = ViewRouter.router
     @State private var selectedTab = TabBarItemEnum.account
     
     var body: some View {
@@ -37,9 +37,7 @@ struct LNTUHelperApp: View {
             }
             .sheet(isPresented: $router.isShowLoginView, content: {
                 LoginView(viewModel: router.loginViewModel)
-                    .environmentObject(router)
             })
-            .environmentObject(router)
             .navigationViewStyle(StackNavigationViewStyle())
             .accentColor(Color("primary"))
             .banner(data: $router.banner, isShow: $router.isShowBanner)
@@ -57,8 +55,6 @@ struct LNTUHelperApp: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        let router = ViewRouter(isLogin: false, isOffline: true)
         return LNTUHelperApp()
-            .environmentObject(router)
     }
 }

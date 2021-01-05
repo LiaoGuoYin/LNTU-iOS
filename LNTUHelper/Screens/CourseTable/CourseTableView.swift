@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CourseTableView: View {
     
-    @EnvironmentObject var router: ViewRouter
+    @ObservedObject var router = ViewRouter.router
     @ObservedObject var viewModel: CourseTableViewModel
     
     
@@ -49,7 +49,6 @@ struct CourseTableView: View {
                     Haptic.shared.tappedHaptic()
                     router.showBlurView {
                         WeekSelectorView(title: .constant(""), selectedIndex: $viewModel.currentWeek, numberList: Array(1...22).map { String($0) }, displayMode: .grid(7))
-                            .environmentObject(router)
                     }
                 })
                 .foregroundColor(Color("primary"))
@@ -85,6 +84,5 @@ struct CourseTableView: View {
 struct CourseTableView_Previews: PreviewProvider {
     static var previews: some View {
         CourseTableView(viewModel: CourseTableViewModel())
-            .environmentObject(ViewRouter())
     }
 }

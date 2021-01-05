@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ClassroomView: View {
     
-    @EnvironmentObject var router: ViewRouter
+    @ObservedObject var router = ViewRouter.router
     @ObservedObject var viewModel: ClassroomViewModel
     @State var selectedWeekday: Int = getCurrentWeekDay()
     var screenWidth: CGFloat = UIScreen.main.bounds.width
@@ -41,13 +41,11 @@ struct ClassroomView: View {
                                      numberList: (1...22).map {String($0)},
                                      displayMode: .normal
                     )
-                    .environmentObject(router)
                     WeekSelectorView(title: .constant("星期\(weekList[selectedWeekday - 1])"),
                                      selectedIndex: $selectedWeekday,
                                      numberList: weekList,
                                      displayMode: .normal
                     )
-                    .environmentObject(router)
                 }
                 
                 ClassroomDetailView(classroomList: $viewModel.classroomList,

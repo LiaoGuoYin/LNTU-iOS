@@ -9,7 +9,7 @@ import SwiftUI
 
 struct EducationInfoView: View {
     
-    @EnvironmentObject var router: ViewRouter
+    @ObservedObject var router = ViewRouter.router
     @ObservedObject var viewModel: LoginViewModel
     
     var body: some View {
