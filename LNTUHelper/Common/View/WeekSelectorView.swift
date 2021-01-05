@@ -29,7 +29,7 @@ struct WeekSelectorView: View {
     @Binding var selectedIndex: Int
     @State var numberList: [String]
     let displayMode: DisplayMode
-    @EnvironmentObject var router: ViewRouter
+    @ObservedObject var router = ViewRouter.router
     
     
     var body: some View {
@@ -53,14 +53,12 @@ struct WeekSelectorView: View {
                                         numberList: $numberList,
                                         selectedIndex: $selectedIndex,
                                         row: row)
-                            .environmentObject(router)
                     }
                 } else {
                     SelectorRowView(numberOfElementsPerRow: numberOfItemsPerRow,
                                     numberList: $numberList,
                                     selectedIndex: $selectedIndex,
                                     row: row)
-                        .environmentObject(router)
                 }
             }
           }
@@ -75,9 +73,7 @@ struct WeekSelectorView_Previews: PreviewProvider {
       let longWeekList = Array(1...22).map { String($0) }
         Group {
             WeekSelectorView(title: .constant(""), selectedIndex: .constant(10), numberList: longWeekList, displayMode: .grid(7))
-                .environmentObject(ViewRouter())
             WeekSelectorView(title: .constant(""), selectedIndex: .constant(10), numberList: longWeekList, displayMode: .normal)
-                .environmentObject(ViewRouter())
         }
     }
 }
@@ -86,7 +82,7 @@ struct SelectorRowView: View {
     let numberOfElementsPerRow: Int
     @Binding var numberList: [String]
     @Binding var selectedIndex: Int
-    @EnvironmentObject var router: ViewRouter
+    @ObservedObject var router = ViewRouter.router
     
     let row: Int
     

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AccountView: View {
     
-    @EnvironmentObject var router: ViewRouter
+    @ObservedObject var router = ViewRouter.router
     @ObservedObject var viewModel: LoginViewModel
     
     var body: some View {
@@ -60,6 +60,5 @@ struct AccountView: View {
 struct UserCenterView_Previews: PreviewProvider {
     static var previews: some View {
         AccountView(viewModel: LoginViewModel())
-            .environmentObject(ViewRouter())
     }
 }

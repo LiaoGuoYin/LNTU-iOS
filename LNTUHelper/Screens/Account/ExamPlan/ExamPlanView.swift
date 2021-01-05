@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ExamPlanView: View {
     
-    @EnvironmentObject var router: ViewRouter
+    @ObservedObject var router = ViewRouter.router
     @ObservedObject var viewModel: ExamPlanViewModel
     
     var body: some View {

@@ -12,7 +12,7 @@ struct GradeAndQualityActivityView: View {
     @State var viewModel: GradeViewModel
     @State private var isShowQuality: Bool = false
     @State private var qualityViewModel = QualityActivityViewModel()
-    @EnvironmentObject var router: ViewRouter
+    @ObservedObject var router = ViewRouter.router
     
     var body: some View {
         NavigationView {
@@ -59,6 +59,5 @@ struct GradeAndQualityActivityView: View {
 struct GradeAndQualityActivityView_Previews: PreviewProvider {
     static var previews: some View {
         GradeAndQualityActivityView(viewModel: GradeViewModel())
-            .environmentObject(ViewRouter())
     }
 }

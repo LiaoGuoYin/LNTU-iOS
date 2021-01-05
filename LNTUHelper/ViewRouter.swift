@@ -10,6 +10,8 @@ import SwiftUI
 
 class ViewRouter: ObservableObject {
     
+    public static var router = ViewRouter(isLogin: UserDefaults.standard[.isLogin] ?? false, isOffline: UserDefaults.standard[.isOffline] ?? false)
+    
     @Published var isShowBanner = false
     @Published var banner = BannerModifier.Data() {
         didSet {
