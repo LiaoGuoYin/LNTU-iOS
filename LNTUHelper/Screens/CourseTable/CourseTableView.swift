@@ -48,7 +48,7 @@ struct CourseTableView: View {
                 .onTapGesture(perform: {
                     Haptic.shared.tappedHaptic()
                     router.showBlurView {
-                        WeekSelectorView(title: .constant(""), selectedIndex: $viewModel.currentWeek, numberList: Array(1...22).map { String($0) }, displayMode: .grid)
+                        WeekSelectorView(title: .constant(""), selectedIndex: $viewModel.currentWeek, numberList: Array(1...22).map { String($0) }, displayMode: .grid(7))
                             .environmentObject(router)
                     }
                 })

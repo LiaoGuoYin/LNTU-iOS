@@ -9,11 +9,21 @@ import SwiftUI
 
 struct WeekSelectorView: View {
     
-    enum DisplayMode: Int {
-        case normal = 0
-        case grid = 1
+    // DisplayMode: To specify the way to display everything in a row or in a grid-like pattern. When everything is displayed in a grid-like pattern (i.e. ".grid" is the chosen), the number of elements should be explicitly specified as the associated value to the ".grid" enum case
+    
+    enum DisplayMode {
+        case normal
+        case grid(Int)
+        
+        func getAssociatedValue() -> Int {
+            switch self {
+            case .normal:
+                return -1
+            case .grid(let numberOfItemsPerRow):
+                return numberOfItemsPerRow
+            }
+        }
     }
-    // Either display everything in a row or in a grid-like pattern
     
     @Binding var title: String
     @Binding var selectedIndex: Int
@@ -28,16 +38,28 @@ struct WeekSelectorView: View {
                 .foregroundColor(Color("primary"))
                 .frame(width: title == "" ? 0 : 63)
             VStack(alignment: .leading) {
-            let rowNumber = (displayMode == .grid ? (numberList.count % 7 == 0 ? numberList.count / 7 : numberList.count / 7 + 1) : 1)
+                let numberOfItemsPerRow = displayMode.getAssociatedValue()
+                
+                let rowNumber = (numberOfItemsPerRow != -1 ?
+                                    (numberList.count % numberOfItemsPerRow == 0 ?
+                                        numberList.count / numberOfItemsPerRow:
+                                        numberList.count / numberOfItemsPerRow + 1):
+                                1)
             
             ForEach(1...rowNumber, id:\.self) { row in
-                if displayMode == .normal {
+                if numberOfItemsPerRow == -1 {
                     ScrollView(.horizontal, showsIndicators: false){
-                        SelectorRowView(displayMode: displayMode, numberList: $numberList, selectedIndex: $selectedIndex, row: row)
+                        SelectorRowView(numberOfElementsPerRow: numberOfItemsPerRow,
+                                        numberList: $numberList,
+                                        selectedIndex: $selectedIndex,
+                                        row: row)
                             .environmentObject(router)
                     }
                 } else {
-                    SelectorRowView(displayMode: displayMode, numberList: $numberList, selectedIndex: $selectedIndex, row: row)
+                    SelectorRowView(numberOfElementsPerRow: numberOfItemsPerRow,
+                                    numberList: $numberList,
+                                    selectedIndex: $selectedIndex,
+                                    row: row)
                         .environmentObject(router)
                 }
             }
@@ -52,7 +74,7 @@ struct WeekSelectorView_Previews: PreviewProvider {
 //        let weekList = ["一", "二", "三", "四", "五", "六", "日"]
       let longWeekList = Array(1...22).map { String($0) }
         Group {
-            WeekSelectorView(title: .constant(""), selectedIndex: .constant(10), numberList: longWeekList, displayMode: .grid)
+            WeekSelectorView(title: .constant(""), selectedIndex: .constant(10), numberList: longWeekList, displayMode: .grid(7))
                 .environmentObject(ViewRouter())
             WeekSelectorView(title: .constant(""), selectedIndex: .constant(10), numberList: longWeekList, displayMode: .normal)
                 .environmentObject(ViewRouter())
@@ -61,7 +83,7 @@ struct WeekSelectorView_Previews: PreviewProvider {
 }
 
 struct SelectorRowView: View {
-    let displayMode: WeekSelectorView.DisplayMode
+    let numberOfElementsPerRow: Int
     @Binding var numberList: [String]
     @Binding var selectedIndex: Int
     @EnvironmentObject var router: ViewRouter
@@ -70,8 +92,14 @@ struct SelectorRowView: View {
     
     var body: some View {
         HStack(spacing: 2) {
-            let startNumber = (displayMode == .grid ? (row - 1) * 7 + 1 : 1)
-            let endNumber = (displayMode == .grid ? (row * 7 <= numberList.count ? row * 7 : numberList.count) : numberList.count)
+            let startNumber = (numberOfElementsPerRow != -1 ?
+                                (row - 1) * numberOfElementsPerRow + 1 :
+                                1)
+            let endNumber = (numberOfElementsPerRow != -1 ?
+                                (row * numberOfElementsPerRow <= numberList.count ?
+                                    row * numberOfElementsPerRow :
+                                    numberList.count) :
+                            numberList.count)
             ForEach(startNumber...endNumber, id: \.self) { index in
                 Text(String(numberList[index - 1]))
                     .font(.caption)
