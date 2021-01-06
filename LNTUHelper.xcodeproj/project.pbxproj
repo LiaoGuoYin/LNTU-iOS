@@ -10,6 +10,7 @@
 		AF12457B254EB6E300FFB1E7 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF12457A254EB6E300FFB1E7 /* SafariView.swift */; };
 		AF171401257F2612009E382A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF171400257F2612009E382A /* SettingsView.swift */; };
 		AF188DCC2588695D00832E5C /* GradeAndQualityActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF188DCB2588695D00832E5C /* GradeAndQualityActivityView.swift */; };
+		AF239F4E25A605610079EFF5 /* ExamFinishedModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF239F4D25A605610079EFF5 /* ExamFinishedModifier.swift */; };
 		AF2849A5254C6DB800D78D2C /* HapticModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2849A4254C6DB800D78D2C /* HapticModels.swift */; };
 		AF2E86C325A1EB7D0099BFA9 /* DemoBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2E86C225A1EB7D0099BFA9 /* DemoBlurView.swift */; };
 		AF30539625455A6600F849A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF30539525455A6600F849A9 /* AppDelegate.swift */; };
@@ -66,6 +67,8 @@
 		AF7BD6FE2546BD1F00771CDA /* CommonModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7BD6FD2546BD1F00771CDA /* CommonModels.swift */; };
 		AF7BD7002546E38200771CDA /* CourseCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7BD6FF2546E38200771CDA /* CourseCellView.swift */; };
 		AF7BD7022546F18400771CDA /* CourseTableBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7BD7012546F18400771CDA /* CourseTableBodyView.swift */; };
+		AF95C8A325A5ABE100E819BE /* GrayCardExamPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF95C8A225A5ABE100E819BE /* GrayCardExamPlanView.swift */; };
+		AF95C8AB25A5AC1C00E819BE /* BrandTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF95C8AA25A5AC1C00E819BE /* BrandTagView.swift */; };
 		AF97789E257C63A100BD42EF /* CardExamPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF97789D257C63A100BD42EF /* CardExamPlanView.swift */; };
 		AF9778A6257C63EA00BD42EF /* ExamPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9778A5257C63EA00BD42EF /* ExamPlanView.swift */; };
 		AFA03E5D254EC85A0037E76A /* GradePointAverageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA03E5C254EC85A0037E76A /* GradePointAverageView.swift */; };
@@ -96,6 +99,7 @@
 		AF12457A254EB6E300FFB1E7 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 		AF171400257F2612009E382A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		AF188DCB2588695D00832E5C /* GradeAndQualityActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeAndQualityActivityView.swift; sourceTree = "<group>"; };
+		AF239F4D25A605610079EFF5 /* ExamFinishedModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamFinishedModifier.swift; sourceTree = "<group>"; };
 		AF2849A4254C6DB800D78D2C /* HapticModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticModels.swift; sourceTree = "<group>"; };
 		AF2E86C225A1EB7D0099BFA9 /* DemoBlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoBlurView.swift; sourceTree = "<group>"; };
 		AF30539225455A6600F849A9 /* LNTUHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LNTUHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,6 +160,8 @@
 		AF7BD6FD2546BD1F00771CDA /* CommonModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonModels.swift; sourceTree = "<group>"; };
 		AF7BD6FF2546E38200771CDA /* CourseCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCellView.swift; sourceTree = "<group>"; };
 		AF7BD7012546F18400771CDA /* CourseTableBodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseTableBodyView.swift; sourceTree = "<group>"; };
+		AF95C8A225A5ABE100E819BE /* GrayCardExamPlanView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrayCardExamPlanView.swift; sourceTree = "<group>"; };
+		AF95C8AA25A5AC1C00E819BE /* BrandTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandTagView.swift; sourceTree = "<group>"; };
 		AF97789D257C63A100BD42EF /* CardExamPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardExamPlanView.swift; sourceTree = "<group>"; };
 		AF9778A5257C63EA00BD42EF /* ExamPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamPlanView.swift; sourceTree = "<group>"; };
 		AFA03E5C254EC85A0037E76A /* GradePointAverageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradePointAverageView.swift; sourceTree = "<group>"; };
@@ -303,6 +309,7 @@
 				AF9778A5257C63EA00BD42EF /* ExamPlanView.swift */,
 				AF32A7D5257BB6FF004D1E78 /* ExamPlanViewModel.swift */,
 				AF97789D257C63A100BD42EF /* CardExamPlanView.swift */,
+				AF95C8A225A5ABE100E819BE /* GrayCardExamPlanView.swift */,
 			);
 			path = ExamPlan;
 			sourceTree = "<group>";
@@ -374,6 +381,7 @@
 				AF7BD6FD2546BD1F00771CDA /* CommonModels.swift */,
 				AF2849A4254C6DB800D78D2C /* HapticModels.swift */,
 				AFE199E3258357AD004CA354 /* UserDefaultRepository.swift */,
+				AF239F4D25A605610079EFF5 /* ExamFinishedModifier.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -445,6 +453,7 @@
 				AF32A7C8257BB3D0004D1E78 /* LabelView.swift */,
 				AF32A7C0257BB253004D1E78 /* WeekSelectorView.swift */,
 				AFD804EF2585CE6A00F06044 /* GroupedListKeysHorizontalScrollView.swift */,
+				AF95C8AA25A5AC1C00E819BE /* BrandTagView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -621,6 +630,7 @@
 				AF79D2852545A0C000C962AE /* BannerModifier.swift in Sources */,
 				AF7BD6FC2546BBAD00771CDA /* CourseTableViewModel.swift in Sources */,
 				AF7BD6FE2546BD1F00771CDA /* CommonModels.swift in Sources */,
+				AF95C8A325A5ABE100E819BE /* GrayCardExamPlanView.swift in Sources */,
 				AF2849A5254C6DB800D78D2C /* HapticModels.swift in Sources */,
 				AF7BD7002546E38200771CDA /* CourseCellView.swift in Sources */,
 				AF2E86C325A1EB7D0099BFA9 /* DemoBlurView.swift in Sources */,
@@ -638,7 +648,9 @@
 				AF7BD6F42545BDAF00771CDA /* ClassroomDetailRowView.swift in Sources */,
 				AF5E4AD1254A59A900736FB4 /* GradeModel.swift in Sources */,
 				AF9778A6257C63EA00BD42EF /* ExamPlanView.swift in Sources */,
+				AF239F4E25A605610079EFF5 /* ExamFinishedModifier.swift in Sources */,
 				AF32A7DA257BB6FF004D1E78 /* ExamPlanModel.swift in Sources */,
+				AF95C8AB25A5AC1C00E819BE /* BrandTagView.swift in Sources */,
 				AF599BF02547E57800E8D769 /* LoginView.swift in Sources */,
 				AF599BEE2547E4B000E8D769 /* ViewRouter.swift in Sources */,
 				AF5E4ACF254A596C00736FB4 /* GradeViewModel.swift in Sources */,

@@ -206,7 +206,7 @@ let examPlanMockData = """
       "code": "H101750013032.02",
       "name": "网络营销",
       "type": "期末考试",
-      "date": "2020-12-04",
+      "date": "2021-01-08",
       "time": "09:00~11:00",
       "location": "耘慧楼110",
       "seatNumber": "45",

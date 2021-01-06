@@ -14,7 +14,11 @@ struct ExamPlanView: View {
     
     var body: some View {
         List(viewModel.examPlanList, id: \.name) { course in
-            CardExamPlanView(course: course)
+            if course.currentStatus != .unknown {
+                CardExamPlanView(course: course)
+            } else {
+                GrayCardExamPlanView(course: course)
+            }
         }
         .navigationBarItems(trailing: refreshButton)
         .navigationBarTitle(Text("考试安排"), displayMode: .large)

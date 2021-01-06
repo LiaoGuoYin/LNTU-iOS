@@ -48,6 +48,9 @@ class ExamPlanViewModel: ObservableObject {
                 self.banner.type = .Success
                 self.banner.title = "拉取考试安排成功"
                 self.examPlanList = response.data ?? []
+                self.examPlanList.sort { (course1, course2) -> Bool in
+                    course1.secondsIntervalToNow < course2.secondsIntervalToNow
+                }
                 UserDefaults.standard[.examPlanData] = try? JSONEncoder().encode(self.examPlanList)
                 completion(true)
             }

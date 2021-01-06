@@ -53,6 +53,8 @@ struct NoticeView: View {
         }
         .onAppear(perform: {
             Haptic.shared.tappedHaptic()
+            viewModel.refreshNoticeList()
+            viewModel.refreshHelperMessage()
         })
     }
     
