@@ -66,18 +66,6 @@ struct WeekSelectorView: View {
     }
 }
 
-
-struct WeekSelectorView_Previews: PreviewProvider {
-    static var previews: some View {
-//        let weekList = ["一", "二", "三", "四", "五", "六", "日"]
-      let longWeekList = Array(1...22).map { String($0) }
-        Group {
-            WeekSelectorView(title: .constant(""), selectedIndex: .constant(10), numberList: longWeekList, displayMode: .grid(7))
-            WeekSelectorView(title: .constant(""), selectedIndex: .constant(10), numberList: longWeekList, displayMode: .normal)
-        }
-    }
-}
-
 struct SelectorRowView: View {
     let numberOfElementsPerRow: Int
     @Binding var numberList: [String]
@@ -112,6 +100,17 @@ struct SelectorRowView: View {
                         }
                     })
             }
+        }
+    }
+}
+
+struct WeekSelectorView_Previews: PreviewProvider {
+    static var previews: some View {
+//        let weekList = ["一", "二", "三", "四", "五", "六", "日"]
+      let longWeekList = Array(1...22).map { String($0) }
+        Group {
+            WeekSelectorView(title: .constant(""), selectedIndex: .constant(10), numberList: longWeekList, displayMode: .grid(7))
+            WeekSelectorView(title: .constant(""), selectedIndex: .constant(10), numberList: longWeekList, displayMode: .normal)
         }
     }
 }
