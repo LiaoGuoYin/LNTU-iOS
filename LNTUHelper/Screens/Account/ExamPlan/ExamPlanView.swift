@@ -14,10 +14,26 @@ struct ExamPlanView: View {
     
     var body: some View {
         List(viewModel.examPlanList, id: \.name) { course in
-            if course.currentStatus != .unknown {
-                CardExamPlanView(course: course)
-            } else {
-                GrayCardExamPlanView(course: course)
+            VStack {
+                if course.currentStatus == .unknown {
+                    GrayCardExamPlanView(course: course)
+                } else {
+                    CardExamPlanView(course: course)
+                }
+            }
+            .shadow(radius: 8)
+            .onTapGesture {
+                Haptic.shared.tappedHaptic()
+                router.showBlurView {
+                    DetatilExamPlanView(course: course)
+                        .background(course.currentStatus == ExamStatus.unknown ?
+                                        Color(.systemGray) : Color(.systemGreen))
+                        .cornerRadius(8)
+                        .padding()
+                        .onTapGesture {
+                            router.isBlured.toggle()
+                        }
+                }
             }
         }
         .navigationBarItems(trailing: refreshButton)

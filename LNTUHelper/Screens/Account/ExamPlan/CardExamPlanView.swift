@@ -18,14 +18,11 @@ struct CardExamPlanView: View {
         HStack {
             VStack(alignment: .leading) {
                 Text(course.name)
-                    .fontWeight(.bold)
-                
-                Divider()
-                
+                    .padding(.bottom)
+
                 HStack {
                     BrandTagView(content: course.date)
                     BrandTagView(content: course.time)
-                    // BrandTagView(content: course.currentStatus.rawValue)
                 }
                 
                 if course.currentStatus == ExamStatus.preparing {
@@ -34,24 +31,26 @@ struct CardExamPlanView: View {
                 } else {
                     EmptyView()
                 }
-                
-                Divider()
             }
-            .padding()
+            .padding(.horizontal)
+            .padding(.top)
             
-            VStack(spacing: 12) {
+            Spacer()
+            
+            VStack {
                 Text(course.seatNumber)
                     .font(.title)
+                Divider()
                 Text(course.location)
             }
             .padding()
             .frame(width: deviceSize.width / 3.3)
             .background(Color("cellBlock"))
             .cornerRadius(8)
+            .examFinished(isShowing: course.currentStatus == .finished)
         }
-        .examFinished(isShowing: course.currentStatus == .finished)
         .lineLimit(1)
-        .font(.system(.body, design: .rounded))
+        .font(.system(.headline, design: .rounded))
         .foregroundColor(.white)
         .background(Color(.systemGreen))
         .cornerRadius(3)

@@ -20,6 +20,12 @@ struct BrandTagView: View {
     }
 }
 
+extension BrandTagView {
+    init(_ content: String) {
+        self.init(content: content)
+    }
+}
+
 struct BrandTagView_Previews: PreviewProvider {
     static var previews: some View {
         BrandTagView(content: "测试标签")

@@ -14,30 +14,14 @@ struct GrayCardExamPlanView: View {
     
     var body: some View {
         HStack {
-            VStack(alignment: .leading) {
-                Text(course.name)
-                    .fontWeight(.bold)
-                
-//                HStack {
-//                    BrandTagView(content: course.type)
-//                    BrandTagView(content: course.status)
-//                    // BrandTag(content: course.date)
-//                    // BrandTag(content: course.time)
-//                }
-            }
-            .padding()
-            
+            Text(course.name)
+                .padding(.horizontal)
             Spacer()
-            
-            VStack(spacing: 12) {
-                Text(course.currentStatus.rawValue)
-                    .font(.title)
-            }
-            .padding()
-            .frame(width: deviceSize.width / 3.3)
-            .background(Color("cellBlock"))
-            .cornerRadius(8)
-            
+            Text(course.currentStatus.rawValue)
+                .font(.title)
+                .padding()
+                .frame(width: deviceSize.width / 3.3)
+                .background(Color("cellBlock"))
         }
         .lineLimit(1)
         .font(.system(.body, design: .rounded))
@@ -45,7 +29,6 @@ struct GrayCardExamPlanView: View {
         .background(Color(.systemGray))
         .cornerRadius(3)
     }
-    
 }
 
 struct GrayCardExamPlanView_Previews: PreviewProvider {
