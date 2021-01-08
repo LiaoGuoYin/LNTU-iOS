@@ -17,7 +17,7 @@ struct GradeAndQualityActivityView: View {
     var body: some View {
         NavigationView {
             if selectingGradeMode == GradeMode.education {
-                GradeView(viewModel: viewModel, tappedCourse: MockData.gradeList.first!)
+                GradeView(viewModel: viewModel)
                     .navigationBarItems(leading: refreshButton, trailing: selectingGradePicker)
                     .onAppear(perform: {
                         Haptic.shared.tappedHaptic()

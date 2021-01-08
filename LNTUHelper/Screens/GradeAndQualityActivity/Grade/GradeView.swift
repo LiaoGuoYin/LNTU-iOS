@@ -9,20 +9,14 @@ import SwiftUI
 
 struct GradeView: View {
     
+    @ObservedObject var router = ViewRouter.router
     @ObservedObject var viewModel: GradeViewModel
     @State private var selectedKeyIndex: Int = 0
-    @State private var isShowDetail = false
-    @State var tappedCourse: GradeResponseData {
-        didSet {
-            isShowDetail = true
-        }
-    }
     
     var body: some View {
         VStack {
             GroupedListKeysHorizontalScrollView(keys: $viewModel.groupedGradeDictKeyList,
                                                 selectedIndex: $selectedKeyIndex)
-            
             if viewModel.gradeList.isEmpty {
                 Text("Oops, 还没有成绩记录噢")
                     .foregroundColor(Color.secondary)
@@ -31,7 +25,13 @@ struct GradeView: View {
                     ForEach(viewModel.groupedGradeDict[viewModel.groupedGradeDictKeyList[selectedKeyIndex]] ?? [], id: \.self) { course in
                         GradeRowView(course: course)
                             .onTapGesture {
-                                tappedCourse = course
+                                Haptic.shared.tappedHaptic()
+                                router.showBlurView {
+                                    DetailGradeRowView(course: course)
+                                        .onTapGesture {
+                                            router.isBlured.toggle()
+                                        }
+                                }
                             }
                     }
                 }
@@ -40,14 +40,11 @@ struct GradeView: View {
             }
         }
         .navigationBarTitle(Text(TabBarItemEnum.grade.rawValue), displayMode: .large)
-        .sheet(isPresented: $isShowDetail) {
-            GradeRowDetailView(course: $tappedCourse)
-        }
     }
 }
 
 struct GradeView_Previews: PreviewProvider {
     static var previews: some View {
-        GradeView(viewModel: GradeViewModel(), tappedCourse: MockData.gradeList.first!)
+        GradeView(viewModel: GradeViewModel())
     }
 }

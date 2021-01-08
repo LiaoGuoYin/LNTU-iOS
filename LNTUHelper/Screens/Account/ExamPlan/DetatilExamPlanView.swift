@@ -10,6 +10,7 @@ import SwiftUI
 struct DetatilExamPlanView: View {
     
     @State var course: ExamPlanResponseData
+    @State var courseStatusColor: Color
     let deviceSize = UIScreen.main.bounds
     
     var body: some View {
@@ -27,7 +28,7 @@ struct DetatilExamPlanView: View {
             }
             .font(.headline)
             Spacer()
-            VStack(alignment: .leading, spacing: 16) {
+            VStack(alignment: .center, spacing: 16) {
                 Text(course.name)
                 Text(course.code)
                 Text(course.date)
@@ -36,17 +37,20 @@ struct DetatilExamPlanView: View {
                 Text(course.seatNumber)
                 Text(course.type)
                 Text(course.currentStatus.rawValue)
-                Text(course.comment.isEmpty ? "-" : course.comment)
+                Text(course.comment.isEmpty ? "" : course.comment)
             }
             .padding(.trailing)
         }
         .padding()
         .foregroundColor(.white)
+        .background(courseStatusColor)
+        .cornerRadius(8)
+        .padding()
     }
 }
 
 struct CardDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetatilExamPlanView(course: MockData.examPlanList[2])
+        DetatilExamPlanView(course: MockData.examPlanList[2], courseStatusColor: Color(.systemGreen))
     }
 }

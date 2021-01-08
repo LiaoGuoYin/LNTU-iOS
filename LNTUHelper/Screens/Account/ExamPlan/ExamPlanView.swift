@@ -25,11 +25,8 @@ struct ExamPlanView: View {
             .onTapGesture {
                 Haptic.shared.tappedHaptic()
                 router.showBlurView {
-                    DetatilExamPlanView(course: course)
-                        .background(course.currentStatus == ExamStatus.unknown ?
-                                        Color(.systemGray) : Color(.systemGreen))
-                        .cornerRadius(8)
-                        .padding()
+                    DetatilExamPlanView(course: course, courseStatusColor:
+                                            course.currentStatus == ExamStatus.unknown ? Color(.systemGray): Color(.systemGreen))
                         .onTapGesture {
                             router.isBlured.toggle()
                         }

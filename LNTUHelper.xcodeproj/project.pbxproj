@@ -48,7 +48,6 @@
 		AF5E4AD1254A59A900736FB4 /* GradeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4AD0254A59A900736FB4 /* GradeModel.swift */; };
 		AF5E4AD5254A8ADC00736FB4 /* SemesterPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4AD4254A8ADC00736FB4 /* SemesterPickerView.swift */; };
 		AF5E4AD8254A8B0A00736FB4 /* GradeRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4AD7254A8B0A00736FB4 /* GradeRowView.swift */; };
-		AF5E4ADA254A8BA600736FB4 /* GradeRowDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4AD9254A8BA600736FB4 /* GradeRowDetailView.swift */; };
 		AF5E4ADD254AD95500736FB4 /* NoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4ADC254AD95500736FB4 /* NoticeView.swift */; };
 		AF5E4AE1254AD9A400736FB4 /* NoticeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4AE0254AD9A400736FB4 /* NoticeModel.swift */; };
 		AF5E4AE3254AD9B800736FB4 /* NoticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E4AE2254AD9B800736FB4 /* NoticeViewModel.swift */; };
@@ -73,6 +72,7 @@
 		AF97789E257C63A100BD42EF /* CardExamPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF97789D257C63A100BD42EF /* CardExamPlanView.swift */; };
 		AF9778A6257C63EA00BD42EF /* ExamPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9778A5257C63EA00BD42EF /* ExamPlanView.swift */; };
 		AFA03E5D254EC85A0037E76A /* GradePointAverageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA03E5C254EC85A0037E76A /* GradePointAverageView.swift */; };
+		AFB6EB9B25A8750500147969 /* DetailGradeRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB6EB9A25A8750500147969 /* DetailGradeRowView.swift */; };
 		AFD804F02585CE6A00F06044 /* GroupedListKeysHorizontalScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD804EF2585CE6A00F06044 /* GroupedListKeysHorizontalScrollView.swift */; };
 		AFE199E4258357AD004CA354 /* UserDefaultRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE199E3258357AD004CA354 /* UserDefaultRepository.swift */; };
 		AFE3553F25491E370099B1CB /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE3553E25491E370099B1CB /* AccountView.swift */; };
@@ -142,7 +142,6 @@
 		AF5E4AD0254A59A900736FB4 /* GradeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeModel.swift; sourceTree = "<group>"; };
 		AF5E4AD4254A8ADC00736FB4 /* SemesterPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemesterPickerView.swift; sourceTree = "<group>"; };
 		AF5E4AD7254A8B0A00736FB4 /* GradeRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeRowView.swift; sourceTree = "<group>"; };
-		AF5E4AD9254A8BA600736FB4 /* GradeRowDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeRowDetailView.swift; sourceTree = "<group>"; };
 		AF5E4ADC254AD95500736FB4 /* NoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeView.swift; sourceTree = "<group>"; };
 		AF5E4AE0254AD9A400736FB4 /* NoticeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeModel.swift; sourceTree = "<group>"; };
 		AF5E4AE2254AD9B800736FB4 /* NoticeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewModel.swift; sourceTree = "<group>"; };
@@ -169,6 +168,7 @@
 		AFA03E5C254EC85A0037E76A /* GradePointAverageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradePointAverageView.swift; sourceTree = "<group>"; };
 		AFA91CC92549C07200769B1B /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		AFA91CCB2549C09A00769B1B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		AFB6EB9A25A8750500147969 /* DetailGradeRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailGradeRowView.swift; sourceTree = "<group>"; };
 		AFD804EF2585CE6A00F06044 /* GroupedListKeysHorizontalScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedListKeysHorizontalScrollView.swift; sourceTree = "<group>"; };
 		AFE199E3258357AD004CA354 /* UserDefaultRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultRepository.swift; sourceTree = "<group>"; };
 		AFE3553E25491E370099B1CB /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
@@ -309,8 +309,8 @@
 			isa = PBXGroup;
 			children = (
 				AF9778A5257C63EA00BD42EF /* ExamPlanView.swift */,
-				AF6B7E8025A8648F000D98DB /* DetatilExamPlanView.swift */,
 				AF32A7D5257BB6FF004D1E78 /* ExamPlanViewModel.swift */,
+				AF6B7E8025A8648F000D98DB /* DetatilExamPlanView.swift */,
 				AF97789D257C63A100BD42EF /* CardExamPlanView.swift */,
 				AF95C8A225A5ABE100E819BE /* GrayCardExamPlanView.swift */,
 			);
@@ -350,7 +350,7 @@
 				AFA03E5C254EC85A0037E76A /* GradePointAverageView.swift */,
 				AF5E4AD4254A8ADC00736FB4 /* SemesterPickerView.swift */,
 				AF5E4AD7254A8B0A00736FB4 /* GradeRowView.swift */,
-				AF5E4AD9254A8BA600736FB4 /* GradeRowDetailView.swift */,
+				AFB6EB9A25A8750500147969 /* DetailGradeRowView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -616,7 +616,6 @@
 			files = (
 				AFD804F02585CE6A00F06044 /* GroupedListKeysHorizontalScrollView.swift in Sources */,
 				AF30539625455A6600F849A9 /* AppDelegate.swift in Sources */,
-				AF5E4ADA254A8BA600736FB4 /* GradeRowDetailView.swift in Sources */,
 				AF5E4AEC254AF84900736FB4 /* EducationInfoView.swift in Sources */,
 				AF79D2872545B5DF00C962AE /* ClassroomDetailView.swift in Sources */,
 				AFE3553F25491E370099B1CB /* AccountView.swift in Sources */,
@@ -674,6 +673,7 @@
 				AF5E4AD8254A8B0A00736FB4 /* GradeRowView.swift in Sources */,
 				AF3F618925812DC3002461F9 /* QualityActivityCardView.swift in Sources */,
 				AF3053D125456E2000F849A9 /* AppErrors.swift in Sources */,
+				AFB6EB9B25A8750500147969 /* DetailGradeRowView.swift in Sources */,
 				AF64F2DC25812ABF0041D99C /* QualityActivityViewModel.swift in Sources */,
 				AF32A7AB257BA9D5004D1E78 /* TodoView.swift in Sources */,
 				AF30539A25455A6600F849A9 /* LNTUHelperApp.swift in Sources */,
@@ -851,7 +851,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = primary;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_ASSET_PATHS = "LNTUHelper/Preview\\ Content";
 				DEVELOPMENT_TEAM = M9CCRH8GRW;
 				ENABLE_PREVIEWS = YES;
@@ -875,7 +875,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = primary;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_ASSET_PATHS = "LNTUHelper/Preview\\ Content";
 				DEVELOPMENT_TEAM = M9CCRH8GRW;
 				ENABLE_PREVIEWS = YES;
