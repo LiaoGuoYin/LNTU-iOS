@@ -55,6 +55,20 @@ struct SettingsView: View {
     var logoutButton: some View {
         Button(action: {
             Haptic.shared.tappedHaptic()
+            if let notificationToken = Constants.notificationToken {
+                APIClient.notificationToken(type: .remove, username: Constants.currentUser.username, token: notificationToken) { (result) in
+                    switch result {
+                    case.failure(let error):
+                        print("Nofication Registration To Server Error: " + error.localizedDescription)
+                    case .success(let response):
+                        if response.code != 200 {
+                            print("Notification Remove From Server Responded with Code " + String(response.code) + ":" + response.message)
+                        } else {
+                            print("The Notification token was successfully removed from the server")
+                        }
+                    }
+                }
+            }
             Constants.currentUser.password = ""
             Constants.isLogin = false
             router.banner.type = .Warning

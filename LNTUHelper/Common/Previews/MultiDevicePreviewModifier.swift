@@ -2,7 +2,7 @@
 //  MultiDevicePreviewModifier.swift
 //  LNTUHelper
 //
-//  Created by 于健 on 2021/1/9.
+//  Created by Jingbin Yu on 2021/1/9.
 //
 
 import SwiftUI

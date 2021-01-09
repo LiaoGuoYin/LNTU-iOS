@@ -23,12 +23,19 @@ enum APIEducationRouter: URLRequestConvertible {
     
     case qualityActivity(user: User)
     
+    case notification(type: NotificationRequestType, username: String, token: String)
+    
+    enum NotificationRequestType {
+        case register
+        case remove
+    }
+    
     // MARK: - HTTPMethod
     private var method: HTTPMethod {
         switch self {
         case .classroom, .notice, .initHelperMessage:
             return .get
-        case .data, .info, .courseTable, .grade, .examPlan, .otherExam, .qualityActivity:
+        case .data, .info, .courseTable, .grade, .examPlan, .otherExam, .qualityActivity, .notification:
             return .post
         }
     }
@@ -56,6 +63,13 @@ enum APIEducationRouter: URLRequestConvertible {
             return "/education/other-exam"
         case .qualityActivity:
             return "/quality/activity"
+        case .notification(let type, _, _):
+            switch type {
+            case .register:
+                return "/app/notification-register"
+            default:
+                return "/app/notification-remove"
+            }
         }
     }
     
@@ -84,6 +98,11 @@ enum APIEducationRouter: URLRequestConvertible {
             return [
                 K.Education.username: user.username,
                 K.Education.password: user.password,
+            ]
+        case .notification(_, let username, let token):
+            return [
+                K.Education.username: username,
+                K.Education.token: token
             ]
         default:
             return nil

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A099860525A9E2EE005C9882 /* NotificationResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A099860425A9E2EE005C9882 /* NotificationResponseModel.swift */; };
 		A0DCA14425A9711C00206CE4 /* MultiDevicePreviewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DCA14325A9711C00206CE4 /* MultiDevicePreviewModifier.swift */; };
 		AF12457B254EB6E300FFB1E7 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF12457A254EB6E300FFB1E7 /* SafariView.swift */; };
 		AF171401257F2612009E382A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF171400257F2612009E382A /* SettingsView.swift */; };
@@ -97,6 +98,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A03FFDB525AEBF520088509E /* LNTUHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LNTUHelper.entitlements; sourceTree = "<group>"; };
+		A099860425A9E2EE005C9882 /* NotificationResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationResponseModel.swift; sourceTree = "<group>"; };
 		A0DCA14325A9711C00206CE4 /* MultiDevicePreviewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiDevicePreviewModifier.swift; sourceTree = "<group>"; };
 		AF12457A254EB6E300FFB1E7 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 		AF171400257F2612009E382A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -256,6 +259,7 @@
 		AF30539425455A6600F849A9 /* LNTUHelper */ = {
 			isa = PBXGroup;
 			children = (
+				A03FFDB525AEBF520088509E /* LNTUHelper.entitlements */,
 				AFF0956E257A890A0073D336 /* UIKit Components */,
 				AF79D2832545A0B400C962AE /* Common */,
 				AF3053C625455AC600F849A9 /* API */,
@@ -480,6 +484,7 @@
 				AF3053D3254570CD00F849A9 /* ClassroomModel.swift */,
 				AF5E4AD0254A59A900736FB4 /* GradeModel.swift */,
 				AF64F2D5258129FF0041D99C /* QualityModel.swift */,
+				A099860425A9E2EE005C9882 /* NotificationResponseModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -655,6 +660,7 @@
 				AF64F2E425812ACB0041D99C /* QualityActivityView.swift in Sources */,
 				AF64F2D6258129FF0041D99C /* QualityModel.swift in Sources */,
 				AF7BD7022546F18400771CDA /* CourseTableBodyView.swift in Sources */,
+				A099860525A9E2EE005C9882 /* NotificationResponseModel.swift in Sources */,
 				AF35E9492556FB81008E7AA7 /* LibraryCardView.swift in Sources */,
 				AF7BD6F42545BDAF00771CDA /* ClassroomDetailRowView.swift in Sources */,
 				AF5E4AD1254A59A900736FB4 /* GradeModel.swift in Sources */,
@@ -858,6 +864,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = primary;
+				CODE_SIGN_ENTITLEMENTS = LNTUHelper/LNTUHelper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_ASSET_PATHS = "LNTUHelper/Preview\\ Content";
@@ -882,6 +889,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = primary;
+				CODE_SIGN_ENTITLEMENTS = LNTUHelper/LNTUHelper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_ASSET_PATHS = "LNTUHelper/Preview\\ Content";

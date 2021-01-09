@@ -22,6 +22,7 @@ struct K {
         
         static let week = "week"
         static let buildingName = "name"
+        static let token = "token"
     }
 }
 
@@ -36,6 +37,31 @@ struct Constants {
     static var isLogin = UserDefaults.standard.bool(forKey: SettingsKey.isLogin.rawValue) {
         didSet {
             UserDefaults.standard[.isLogin] = isLogin
+        }
+    }
+    static var notificationToken: Data? {
+        didSet {
+            if let assignedToken = notificationToken, isLogin {
+                APIClient.notificationToken(type: .register, username: currentUser.username, token: assignedToken) { (result) in
+                    var success = false
+                    switch result {
+                    case .failure(let error):
+                        print("Nofication Registration To Server Error: " + error.localizedDescription)
+                    case .success(let response):
+                        if response.code != 200 {
+                            print("Notification Registration To Server Responded with Code " + String(response.code) + ":" + response.message)
+                        } else {
+                            success = true
+                            print("The Notification token was successfully sent to the server")
+                        }
+                    }
+                    
+                    if !success {
+                        Thread.sleep(forTimeInterval: 30*60)
+                        notificationToken = assignedToken
+                    }
+                }
+            }
         }
     }
 }
