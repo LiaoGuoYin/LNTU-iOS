@@ -1,5 +1,5 @@
 //
-//  DetatilExamPlanView.swift
+//  DetailExamPlanView.swift
 //  LNTUHelper
 //
 //  Created by LiaoGuoYin on 2021/1/8.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DetatilExamPlanView: View {
+struct DetailExamPlanView: View {
     
     @State var course: ExamPlanResponseData
     @State var courseStatusColor: Color
@@ -51,6 +51,6 @@ struct DetatilExamPlanView: View {
 
 struct CardDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetatilExamPlanView(course: MockData.examPlanList[2], courseStatusColor: Color(.systemGreen))
+        DetailExamPlanView(course: MockData.examPlanList[2], courseStatusColor: Color(.systemGreen))
     }
 }

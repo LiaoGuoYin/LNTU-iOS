@@ -57,7 +57,7 @@
 		AF64F2D6258129FF0041D99C /* QualityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF64F2D5258129FF0041D99C /* QualityModel.swift */; };
 		AF64F2DC25812ABF0041D99C /* QualityActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF64F2DB25812ABF0041D99C /* QualityActivityViewModel.swift */; };
 		AF64F2E425812ACB0041D99C /* QualityActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF64F2E325812ACB0041D99C /* QualityActivityView.swift */; };
-		AF6B7E8125A8648F000D98DB /* DetatilExamPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6B7E8025A8648F000D98DB /* DetatilExamPlanView.swift */; };
+		AF6B7E8125A8648F000D98DB /* DetailExamPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6B7E8025A8648F000D98DB /* DetailExamPlanView.swift */; };
 		AF79D2852545A0C000C962AE /* BannerModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF79D2842545A0C000C962AE /* BannerModifier.swift */; };
 		AF79D2872545B5DF00C962AE /* ClassroomDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF79D2862545B5DF00C962AE /* ClassroomDetailView.swift */; };
 		AF7BD6F42545BDAF00771CDA /* ClassroomDetailRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7BD6F32545BDAF00771CDA /* ClassroomDetailRowView.swift */; };
@@ -151,7 +151,7 @@
 		AF64F2D5258129FF0041D99C /* QualityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualityModel.swift; sourceTree = "<group>"; };
 		AF64F2DB25812ABF0041D99C /* QualityActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualityActivityViewModel.swift; sourceTree = "<group>"; };
 		AF64F2E325812ACB0041D99C /* QualityActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualityActivityView.swift; sourceTree = "<group>"; };
-		AF6B7E8025A8648F000D98DB /* DetatilExamPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetatilExamPlanView.swift; sourceTree = "<group>"; };
+		AF6B7E8025A8648F000D98DB /* DetailExamPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailExamPlanView.swift; sourceTree = "<group>"; };
 		AF79D2842545A0C000C962AE /* BannerModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerModifier.swift; sourceTree = "<group>"; };
 		AF79D2862545B5DF00C962AE /* ClassroomDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomDetailView.swift; sourceTree = "<group>"; };
 		AF7BD6F32545BDAF00771CDA /* ClassroomDetailRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomDetailRowView.swift; sourceTree = "<group>"; };
@@ -310,7 +310,7 @@
 			children = (
 				AF9778A5257C63EA00BD42EF /* ExamPlanView.swift */,
 				AF32A7D5257BB6FF004D1E78 /* ExamPlanViewModel.swift */,
-				AF6B7E8025A8648F000D98DB /* DetatilExamPlanView.swift */,
+				AF6B7E8025A8648F000D98DB /* DetailExamPlanView.swift */,
 				AF97789D257C63A100BD42EF /* CardExamPlanView.swift */,
 				AF95C8A225A5ABE100E819BE /* GrayCardExamPlanView.swift */,
 			);
@@ -640,7 +640,7 @@
 				AF3053CF25455D6700F849A9 /* Constants.swift in Sources */,
 				AF3053D82545711300F849A9 /* ClassroomViewModel.swift in Sources */,
 				AF599BF52547EDE200E8D769 /* LoginModel.swift in Sources */,
-				AF6B7E8125A8648F000D98DB /* DetatilExamPlanView.swift in Sources */,
+				AF6B7E8125A8648F000D98DB /* DetailExamPlanView.swift in Sources */,
 				AF3053D4254570CD00F849A9 /* ClassroomModel.swift in Sources */,
 				AF32A7C1257BB253004D1E78 /* WeekSelectorView.swift in Sources */,
 				AF5E4ACD254A595300736FB4 /* GradeView.swift in Sources */,
