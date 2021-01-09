@@ -21,7 +21,6 @@ struct ExamPlanView: View {
                     CardExamPlanView(course: course)
                 }
             }
-            .shadow(radius: 8)
             .onTapGesture {
                 Haptic.shared.tappedHaptic()
                 router.showBlurView {

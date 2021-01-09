@@ -25,12 +25,14 @@ struct ExamPlanResponseData: Codable {
     }
     
     var currentStatus: ExamStatus {
-        if secondsIntervalToNow > 365*24*60*60 {
+        if dateTime.timeIntervalSince1970 == 0 {
             return .unknown
-        } else if secondsIntervalToNow > 0 {
-            return .finished
         } else {
-            return .preparing
+            if secondsIntervalToNow > 0 {
+                return .finished
+            } else {
+                return .preparing
+            }
         }
     }
     
