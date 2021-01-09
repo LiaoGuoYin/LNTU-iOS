@@ -32,7 +32,11 @@ struct GrayCardExamPlanView: View {
 }
 
 struct GrayCardExamPlanView_Previews: PreviewProvider {
+    
+    static let devices = ["iPhone 12", "iPhone SE", "iPhone 12 Pro Max"]
+    
     static var previews: some View {
         GrayCardExamPlanView(course: MockData.examPlanList[3])
+            .multiDevicePreview(deviceNames: devices)
     }
 }

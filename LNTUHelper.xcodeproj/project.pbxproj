@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A0DCA14425A9711C00206CE4 /* MultiDevicePreviewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DCA14325A9711C00206CE4 /* MultiDevicePreviewModifier.swift */; };
 		AF12457B254EB6E300FFB1E7 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF12457A254EB6E300FFB1E7 /* SafariView.swift */; };
 		AF171401257F2612009E382A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF171400257F2612009E382A /* SettingsView.swift */; };
 		AF188DCC2588695D00832E5C /* GradeAndQualityActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF188DCB2588695D00832E5C /* GradeAndQualityActivityView.swift */; };
@@ -97,6 +98,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A0DCA14325A9711C00206CE4 /* MultiDevicePreviewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiDevicePreviewModifier.swift; sourceTree = "<group>"; };
 		AF12457A254EB6E300FFB1E7 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 		AF171400257F2612009E382A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		AF188DCB2588695D00832E5C /* GradeAndQualityActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeAndQualityActivityView.swift; sourceTree = "<group>"; };
@@ -202,6 +204,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A0DCA13725A9709300206CE4 /* Previews */ = {
+			isa = PBXGroup;
+			children = (
+				A0DCA14325A9711C00206CE4 /* MultiDevicePreviewModifier.swift */,
+			);
+			path = Previews;
+			sourceTree = "<group>";
+		};
 		AF1713FF257F2603009E382A /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -378,6 +388,7 @@
 		AF79D2832545A0B400C962AE /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				A0DCA13725A9709300206CE4 /* Previews */,
 				AFF09571257A89700073D336 /* View */,
 				AF79D2842545A0C000C962AE /* BannerModifier.swift */,
 				AF525B30254804EC006A2CC9 /* CommonModifiers.swift */,
@@ -628,6 +639,7 @@
 				AFF09574257A8E280073D336 /* MockData.swift in Sources */,
 				AF3053C825455ADC00F849A9 /* APIRouter.swift in Sources */,
 				AF3053D62545710300F849A9 /* ClassroomView.swift in Sources */,
+				A0DCA14425A9711C00206CE4 /* MultiDevicePreviewModifier.swift in Sources */,
 				AF7BD6FA2546BBA200771CDA /* CourseTableModel.swift in Sources */,
 				AF79D2852545A0C000C962AE /* BannerModifier.swift in Sources */,
 				AF7BD6FC2546BBAD00771CDA /* CourseTableViewModel.swift in Sources */,
