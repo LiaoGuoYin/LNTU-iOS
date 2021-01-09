@@ -13,7 +13,6 @@
 		AF188DCC2588695D00832E5C /* GradeAndQualityActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF188DCB2588695D00832E5C /* GradeAndQualityActivityView.swift */; };
 		AF239F4E25A605610079EFF5 /* ExamFinishedModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF239F4D25A605610079EFF5 /* ExamFinishedModifier.swift */; };
 		AF2849A5254C6DB800D78D2C /* HapticModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2849A4254C6DB800D78D2C /* HapticModels.swift */; };
-		AF2E86C325A1EB7D0099BFA9 /* DemoBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2E86C225A1EB7D0099BFA9 /* DemoBlurView.swift */; };
 		AF30539625455A6600F849A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF30539525455A6600F849A9 /* AppDelegate.swift */; };
 		AF30539825455A6600F849A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF30539725455A6600F849A9 /* SceneDelegate.swift */; };
 		AF30539A25455A6600F849A9 /* LNTUHelperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF30539925455A6600F849A9 /* LNTUHelperApp.swift */; };
@@ -104,7 +103,6 @@
 		AF188DCB2588695D00832E5C /* GradeAndQualityActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeAndQualityActivityView.swift; sourceTree = "<group>"; };
 		AF239F4D25A605610079EFF5 /* ExamFinishedModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamFinishedModifier.swift; sourceTree = "<group>"; };
 		AF2849A4254C6DB800D78D2C /* HapticModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticModels.swift; sourceTree = "<group>"; };
-		AF2E86C225A1EB7D0099BFA9 /* DemoBlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoBlurView.swift; sourceTree = "<group>"; };
 		AF30539225455A6600F849A9 /* LNTUHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LNTUHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF30539525455A6600F849A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF30539725455A6600F849A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -271,7 +269,6 @@
 				AF3053A325455A6800F849A9 /* Info.plist */,
 				AF30539B25455A6800F849A9 /* Assets.xcassets */,
 				AF3053A025455A6800F849A9 /* LaunchScreen.storyboard */,
-				AF2E86C225A1EB7D0099BFA9 /* DemoBlurView.swift */,
 			);
 			path = LNTUHelper;
 			sourceTree = "<group>";
@@ -647,7 +644,6 @@
 				AF95C8A325A5ABE100E819BE /* GrayCardExamPlanView.swift in Sources */,
 				AF2849A5254C6DB800D78D2C /* HapticModels.swift in Sources */,
 				AF7BD7002546E38200771CDA /* CourseCellView.swift in Sources */,
-				AF2E86C325A1EB7D0099BFA9 /* DemoBlurView.swift in Sources */,
 				AF5E4ADD254AD95500736FB4 /* NoticeView.swift in Sources */,
 				AF3053CF25455D6700F849A9 /* Constants.swift in Sources */,
 				AF3053D82545711300F849A9 /* ClassroomViewModel.swift in Sources */,

@@ -94,3 +94,7 @@ SampleTests.swift
 
 # Tmp Files
 .DS_Store
+
+
+# Demo View Files
+**/Demo*
