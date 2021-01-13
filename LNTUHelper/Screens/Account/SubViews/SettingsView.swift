@@ -16,6 +16,9 @@ struct SettingsView: View {
             isShowingSheet = true
         }
     }
+    var notificationSectionTitle: String {
+        !router.isLogin ? "通知推送管理（请先登录）" : "通知推送管理"
+    }
     
     var body: some View {
         Form {
@@ -23,6 +26,15 @@ struct SettingsView: View {
                 Toggle(isOn: $router.isOffline) {
                     LabelView(name: "懒加载模式", iconName: "airplane")
                 }
+            }
+            
+            Section(header: Text(notificationSectionTitle)) {
+                List {
+                    ForEach(SubscriptionItem.allCases, id: \.self) { item in
+                        MultiSelectionView(value: item.rawValue, subscribedItems: $router.subscribedItems, title: SubscriptionItem.description[item]!)
+                    }
+                }
+                .disabled(!router.isLogin)
             }
             
             Section(header: Text("关于项目")) {
@@ -56,7 +68,7 @@ struct SettingsView: View {
         Button(action: {
             Haptic.shared.tappedHaptic()
             if let notificationToken = Constants.notificationToken {
-                APIClient.notificationToken(type: .remove, username: Constants.currentUser.username, token: notificationToken) { (result) in
+                APIClient.removeNotificationToken(token: notificationToken, username: Constants.currentUser.username) { (result) in
                     switch result {
                     case.failure(let error):
                         print("Nofication Registration To Server Error: " + error.localizedDescription)
@@ -81,6 +93,40 @@ struct SettingsView: View {
                 Spacer()
             }
             .foregroundColor(Color(.systemPink))
+        }
+    }
+}
+
+struct MultiSelectionView: View {
+    
+    var value: String
+    
+    @Binding var subscribedItems: Set<String>
+    
+    var isSelected: Bool {
+        subscribedItems.contains(value)
+    }
+    
+    var title: String
+    
+    var body: some View {
+        HStack {
+            Text(title)
+            
+            Spacer()
+            
+            if isSelected {
+                Image(systemName: "checkmark")
+                    .foregroundColor(Color("primary"))
+            }
+        }
+        .contentShape(Rectangle())
+        .onTapGesture {
+            if isSelected {
+                subscribedItems.remove(value)
+            } else {
+                subscribedItems.insert(value)
+            }
         }
     }
 }

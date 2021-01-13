@@ -32,6 +32,8 @@ enum SettingsKey: String, CaseIterable {
     case examPlanData
     
     case qualityActivityData
+    
+    case subscribedItems
 }
 
 extension UserDefaults {

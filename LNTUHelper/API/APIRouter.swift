@@ -23,7 +23,7 @@ enum APIEducationRouter: URLRequestConvertible {
     
     case qualityActivity(user: User)
     
-    case notification(type: NotificationRequestType, username: String, token: String)
+    case notification(type: NotificationRequestType, username: String, token: String, subscriptionList: [String])
     
     enum NotificationRequestType {
         case register
@@ -63,11 +63,11 @@ enum APIEducationRouter: URLRequestConvertible {
             return "/education/other-exam"
         case .qualityActivity:
             return "/quality/activity"
-        case .notification(let type, _, _):
+        case .notification(let type, _, _, _):
             switch type {
             case .register:
                 return "/app/notification-register"
-            default:
+            case .remove:
                 return "/app/notification-remove"
             }
         }
@@ -92,20 +92,39 @@ enum APIEducationRouter: URLRequestConvertible {
     }
     
     // MARK: - POST Body Parameters
-    private var parameters: Parameters? {
+    private var parameters: EncodableWrapper? {
+        
+        let value: Encodable?
+        
         switch self {
         case .courseTable(let user, _), .info(let user), .grade(let user), .data(let user), .examPlan(let user, _, _), .otherExam(let user), .qualityActivity(let user):
-            return [
-                K.Education.username: user.username,
-                K.Education.password: user.password,
-            ]
-        case .notification(_, let username, let token):
-            return [
-                K.Education.username: username,
-                K.Education.token: token
-            ]
+            
+            value = UserInfoRequestBody(username: user.username, password: user.password)
+            
+        case .notification(let type, let username, let token, let subscriptionList):
+            switch type {
+            case .register:
+                value = NotificationRegistrationRequestBody(token: token, username: username, subscriptionList: subscriptionList)
+            case .remove:
+                value = NotificationRemoveRequestBody(token: token, username: username)
+            }
         default:
+            value = nil
+        }
+        
+        if let value = value {
+            return EncodableWrapper(wrappedValue: value)
+        } else {
             return nil
+        }
+    }
+    
+    // MARK: - POST Body Encodable Wrapper
+    struct EncodableWrapper: Encodable {
+        let wrappedValue: Encodable
+        
+        func encode(to encoder: Encoder) throws {
+            return try self.wrappedValue.encode(to: encoder)
         }
     }
     
@@ -127,7 +146,7 @@ enum APIEducationRouter: URLRequestConvertible {
         // Body Parameters
         if let parameters = parameters {
             do {
-                urlRequest.httpBody = try JSONSerialization.data(withJSONObject: parameters)
+                urlRequest.httpBody = try JSONEncoder().encode(parameters)
             } catch {
                 throw AFError.parameterEncodingFailed(reason: .jsonEncodingFailed(error: error))
             }

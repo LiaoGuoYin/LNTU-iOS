@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		A099860525A9E2EE005C9882 /* NotificationResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A099860425A9E2EE005C9882 /* NotificationResponseModel.swift */; };
+		A0B4571825AF31F10031DDC0 /* UserInfoRequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B4571725AF31F10031DDC0 /* UserInfoRequestBody.swift */; };
+		A0B4572025AF32C20031DDC0 /* NotificationRegistrationRequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B4571F25AF32C20031DDC0 /* NotificationRegistrationRequestBody.swift */; };
+		A0B4572825AF33BF0031DDC0 /* NotificationRemoveRequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B4572725AF33BF0031DDC0 /* NotificationRemoveRequestBody.swift */; };
+		A0B4572D25AF37290031DDC0 /* SubscriptionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B4572C25AF37290031DDC0 /* SubscriptionItem.swift */; };
 		A0DCA14425A9711C00206CE4 /* MultiDevicePreviewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DCA14325A9711C00206CE4 /* MultiDevicePreviewModifier.swift */; };
 		AF12457B254EB6E300FFB1E7 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF12457A254EB6E300FFB1E7 /* SafariView.swift */; };
 		AF171401257F2612009E382A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF171400257F2612009E382A /* SettingsView.swift */; };
@@ -100,6 +104,10 @@
 /* Begin PBXFileReference section */
 		A03FFDB525AEBF520088509E /* LNTUHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LNTUHelper.entitlements; sourceTree = "<group>"; };
 		A099860425A9E2EE005C9882 /* NotificationResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationResponseModel.swift; sourceTree = "<group>"; };
+		A0B4571725AF31F10031DDC0 /* UserInfoRequestBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoRequestBody.swift; sourceTree = "<group>"; };
+		A0B4571F25AF32C20031DDC0 /* NotificationRegistrationRequestBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationRegistrationRequestBody.swift; sourceTree = "<group>"; };
+		A0B4572725AF33BF0031DDC0 /* NotificationRemoveRequestBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationRemoveRequestBody.swift; sourceTree = "<group>"; };
+		A0B4572C25AF37290031DDC0 /* SubscriptionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionItem.swift; sourceTree = "<group>"; };
 		A0DCA14325A9711C00206CE4 /* MultiDevicePreviewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiDevicePreviewModifier.swift; sourceTree = "<group>"; };
 		AF12457A254EB6E300FFB1E7 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 		AF171400257F2612009E382A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -205,6 +213,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A0B4571625AF31C10031DDC0 /* API POST Request Body */ = {
+			isa = PBXGroup;
+			children = (
+				A0B4571725AF31F10031DDC0 /* UserInfoRequestBody.swift */,
+				A0B4571F25AF32C20031DDC0 /* NotificationRegistrationRequestBody.swift */,
+				A0B4572725AF33BF0031DDC0 /* NotificationRemoveRequestBody.swift */,
+			);
+			path = "API POST Request Body";
+			sourceTree = "<group>";
+		};
 		A0DCA13725A9709300206CE4 /* Previews */ = {
 			isa = PBXGroup;
 			children = (
@@ -476,6 +494,7 @@
 		AFF09572257A89B40073D336 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A0B4571625AF31C10031DDC0 /* API POST Request Body */,
 				AFF09573257A8E280073D336 /* MockData.swift */,
 				AF599BF42547EDE200E8D769 /* LoginModel.swift */,
 				AF7BD6F92546BBA200771CDA /* CourseTableModel.swift */,
@@ -485,6 +504,7 @@
 				AF5E4AD0254A59A900736FB4 /* GradeModel.swift */,
 				AF64F2D5258129FF0041D99C /* QualityModel.swift */,
 				A099860425A9E2EE005C9882 /* NotificationResponseModel.swift */,
+				A0B4572C25AF37290031DDC0 /* SubscriptionItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -638,11 +658,13 @@
 				AF7BD6F82546BB9900771CDA /* CourseTableView.swift in Sources */,
 				AF171401257F2612009E382A /* SettingsView.swift in Sources */,
 				AF32A7B0257BB00F004D1E78 /* InfoRowView.swift in Sources */,
+				A0B4572825AF33BF0031DDC0 /* NotificationRemoveRequestBody.swift in Sources */,
 				AFF09574257A8E280073D336 /* MockData.swift in Sources */,
 				AF3053C825455ADC00F849A9 /* APIRouter.swift in Sources */,
 				AF3053D62545710300F849A9 /* ClassroomView.swift in Sources */,
 				A0DCA14425A9711C00206CE4 /* MultiDevicePreviewModifier.swift in Sources */,
 				AF7BD6FA2546BBA200771CDA /* CourseTableModel.swift in Sources */,
+				A0B4572D25AF37290031DDC0 /* SubscriptionItem.swift in Sources */,
 				AF79D2852545A0C000C962AE /* BannerModifier.swift in Sources */,
 				AF7BD6FC2546BBAD00771CDA /* CourseTableViewModel.swift in Sources */,
 				AF7BD6FE2546BD1F00771CDA /* CommonModels.swift in Sources */,
@@ -677,6 +699,7 @@
 				AF32A7D9257BB6FF004D1E78 /* ExamPlanViewModel.swift in Sources */,
 				AF97789E257C63A100BD42EF /* CardExamPlanView.swift in Sources */,
 				AF5E4AE1254AD9A400736FB4 /* NoticeModel.swift in Sources */,
+				A0B4572025AF32C20031DDC0 /* NotificationRegistrationRequestBody.swift in Sources */,
 				AF525B31254804EC006A2CC9 /* CommonModifiers.swift in Sources */,
 				AF32A7C9257BB3D0004D1E78 /* LabelView.swift in Sources */,
 				AF188DCC2588695D00832E5C /* GradeAndQualityActivityView.swift in Sources */,
@@ -690,6 +713,7 @@
 				AFB6EB9B25A8750500147969 /* DetailGradeRowView.swift in Sources */,
 				AF64F2DC25812ABF0041D99C /* QualityActivityViewModel.swift in Sources */,
 				AF32A7AB257BA9D5004D1E78 /* TodoView.swift in Sources */,
+				A0B4571825AF31F10031DDC0 /* UserInfoRequestBody.swift in Sources */,
 				AF30539A25455A6600F849A9 /* LNTUHelperApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

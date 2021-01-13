@@ -53,8 +53,14 @@ class APIClient {
     static func qualityActivity(user: User, completion: @escaping (Result<QualityActivityResponse, AFError>) -> Void) {
         performRequest(route: APIEducationRouter.qualityActivity(user: user), completion: completion)
     }
-    static func notificationToken(type: APIEducationRouter.NotificationRequestType, username: String, token: Data, completion: @escaping (Result<NotificationResponse, AFError>) -> Void) {
+    
+    static func registerNotificationTokenOrUpdateSubscriptionList(token: Data, username: String, subscriptionList: [String], completion: @escaping (Result<NotificationResponse, AFError>) -> Void) {
         let base64TokenString = token.base64EncodedString()
-        performRequest(route: APIEducationRouter.notification(type: type, username: username, token: base64TokenString), completion: completion)
+        performRequest(route: APIEducationRouter.notification(type: .register, username: username, token: base64TokenString, subscriptionList: subscriptionList), completion: completion)
+    }
+    
+    static func removeNotificationToken(token: Data, username: String, completion: @escaping (Result<NotificationResponse, AFError>) -> Void) {
+        let base64TokenString = token.base64EncodedString()
+        performRequest(route: APIEducationRouter.notification(type: .remove, username: username, token: base64TokenString, subscriptionList: []), completion: completion)
     }
 }
