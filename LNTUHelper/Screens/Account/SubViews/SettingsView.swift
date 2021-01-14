@@ -11,20 +11,32 @@ struct SettingsView: View {
     
     @ObservedObject var router = ViewRouter.router
     @State private var isShowingSheet = false
+    @State private var isShowingAlert = false
     @State private var tappedUrlString = "" {
         didSet {
             isShowingSheet = true
         }
     }
     var notificationSectionTitle: String {
-        !router.isLogin ? "通知推送管理（请先登录）" : "通知推送管理"
+        !router.isLogin ? "推送管理（请先登录）" : "推送管理"
     }
     
     var body: some View {
         Form {
+            
             Section(header: Text("实验功能")) {
-                Toggle(isOn: $router.isOffline) {
-                    LabelView(name: "懒加载模式", iconName: "airplane")
+                Button(action: {
+                    Haptic.shared.tappedHaptic()
+                    self.isShowingAlert = true
+                }) {
+                    HStack {
+                        Text("懒加载模式")
+                        Spacer()
+                        if router.isOffline {
+                            Image(systemName: "checkmark.seal.fill")
+                                .foregroundColor(Color("primary"))
+                        }
+                    }
                 }
             }
             
@@ -38,21 +50,41 @@ struct SettingsView: View {
             
             Section(header: Text("关于项目")) {
                 if #available(iOS 14.0, *) {
-                    ForEach(SettingData.AboutItemList, id: \.urlString) { each in
+                    ForEach(SettingData.AboutProjectList, id: \.urlString) { each in
                         Link(destination: URL(string: each.urlString)!) {
                             LabelView(name: each.name, iconName: each.iconName)
                         }
                     }
+                    .foregroundColor(Color("primary"))
                 } else {
-                    ForEach(SettingData.AboutItemList, id: \.urlString) { each in
+                    ForEach(SettingData.AboutProjectList, id: \.urlString) { each in
                         LabelView(name: each.name, iconName: each.iconName)
                             .onTapGesture {
                                 self.tappedUrlString = each.urlString
                             }
                     }
+                    .foregroundColor(Color("primary"))
                 }
             }
-            .foregroundColor(Color("primary"))
+            
+            Section(header: Text("联系我们")) {
+                if #available(iOS 14.0, *) {
+                    ForEach(SettingData.ContactUsList, id: \.urlString) { each in
+                        Link(destination: URL(string: each.urlString)!) {
+                            ImageLabelView(name: each.name, iconImage: Image(each.iconName))
+                        }
+                    }
+                    .foregroundColor(Color("primary"))
+                } else {
+                    ForEach(SettingData.ContactUsList, id: \.urlString) { each in
+                        ImageLabelView(name: each.name, iconImage: Image(each.iconName))
+                            .onTapGesture {
+                                self.tappedUrlString = each.urlString
+                            }
+                    }
+                    .foregroundColor(Color("primary"))
+                }
+            }
             
             Section {
                 if router.isLogin {
@@ -61,11 +93,22 @@ struct SettingsView: View {
                     loginButton
                 }
             }
+            
         }
         .navigationBarTitle(Text("更多"), displayMode: .inline)
         .sheet(isPresented: $isShowingSheet) {
             SafariView(urlString: tappedUrlString)
         }
+        .alert(isPresented: $isShowingAlert, content: {
+            Alert(title: Text("切换懒加载模式?"),
+                  message: Text("教务在线爆炸时可开启，刷新会得到较旧时候的数据，可供参考使用。为确保数据的及时性，请不要一直开启此模式。"),
+                  primaryButton: Alert.Button.default(Text("关闭"), action: {
+                    self.router.isOffline = false
+                  }),
+                  secondaryButton: Alert.Button.default(Text("开启"), action: {
+                    self.router.isOffline = true
+                  }))
+        })
     }
     
     var loginButton: some View {
@@ -129,18 +172,7 @@ struct MultiSelectionView: View {
     var title: String
     
     var body: some View {
-        HStack {
-            Text(title)
-            
-            Spacer()
-            
-            if isSelected {
-                Image(systemName: "checkmark")
-                    .foregroundColor(Color("primary"))
-            }
-        }
-        .contentShape(Rectangle())
-        .onTapGesture {
+        Button(action: {
             if router.isLogin {
                 if isSelected {
                     subscribedItems.remove(value)
@@ -151,6 +183,15 @@ struct MultiSelectionView: View {
                 router.banner.title = "请先登录"
                 router.banner.content = "请先点击下方按钮登录后再进行订阅管理"
                 router.banner.type = .Error
+            }
+        }) {
+            HStack {
+                Text(title)
+                Spacer()
+                if isSelected {
+                    Image(systemName: "checkmark.seal.fill")
+                        .foregroundColor(Color("primary"))
+                }
             }
         }
     }

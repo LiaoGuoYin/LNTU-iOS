@@ -50,10 +50,13 @@ struct AboutItemModel {
 }
 
 struct SettingData: Hashable {
-    static let AboutItemList = [
-        AboutItemModel(name: "用户反馈群", iconName: "person.2.square.stack", urlString: "mqqapi://card/show_pslcard?src_type=internal&version=1&card_type=group&uin=646177319"),
-        AboutItemModel(name: "联系作者", iconName: "number.square", urlString: "https://weibo.com/liaoguoyin"),
+    static let AboutProjectList = [
         AboutItemModel(name: "用户协议", iconName: "doc.plaintext", urlString: "https://lntu.liaoguoyin.com/privacy.html"),
-        AboutItemModel(name: "开源地址", iconName: "link", urlString: "https://github.com/LiaoGuoYin/LNTU-API"),
+        AboutItemModel(name: "GitHub Repo", iconName: "link", urlString: "https://github.com/LiaoGuoYin/LNTU-API"),
+    ]
+    static let ContactUsList = [
+        AboutItemModel(name: "用户群", iconName: "QQ", urlString: "mqqapi://card/show_pslcard?src_type=internal&version=1&card_type=group&uin=646177319"),
+        AboutItemModel(name: "Xkinler", iconName: "Xkinler", urlString: "https://weibo.com/p/1005051821212433"),
+        AboutItemModel(name: "LiaoGuoYin", iconName: "LiaoGuoYin", urlString: "https://weibo.com/liaoguoyin"),
     ]
 }
