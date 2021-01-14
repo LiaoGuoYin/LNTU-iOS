@@ -34,7 +34,6 @@ struct SettingsView: View {
                         MultiSelectionView(value: item.rawValue, subscribedItems: (!router.isLogin ? .constant(Set()) : $router.subscribedItems), title: SubscriptionItem.description[item]!)
                     }
                 }
-                .disabled(!router.isLogin)
             }
             
             Section(header: Text("关于项目")) {
@@ -56,7 +55,11 @@ struct SettingsView: View {
             .foregroundColor(Color("primary"))
             
             Section {
-                logoutButton
+                if router.isLogin {
+                    logoutButton
+                } else {
+                    loginButton
+                }
             }
         }
         .navigationBarTitle(Text("更多"), displayMode: .inline)
@@ -64,6 +67,20 @@ struct SettingsView: View {
             SafariView(urlString: tappedUrlString)
         }
     }
+    
+    var loginButton: some View {
+        Button(action: {
+            router.isShowLoginView = true
+        }) {
+            HStack {
+                Spacer()
+                Text("登录")
+                Spacer()
+            }
+            .foregroundColor(Color("primary"))
+        }
+    }
+    
     var logoutButton: some View {
         Button(action: {
             Haptic.shared.tappedHaptic()
@@ -99,6 +116,8 @@ struct SettingsView: View {
 
 struct MultiSelectionView: View {
     
+    var router = ViewRouter.router
+    
     var value: String
     
     @Binding var subscribedItems: Set<String>
@@ -122,10 +141,16 @@ struct MultiSelectionView: View {
         }
         .contentShape(Rectangle())
         .onTapGesture {
-            if isSelected {
-                subscribedItems.remove(value)
+            if router.isLogin {
+                if isSelected {
+                    subscribedItems.remove(value)
+                } else {
+                    subscribedItems.insert(value)
+                }
             } else {
-                subscribedItems.insert(value)
+                router.banner.title = "请先登录"
+                router.banner.content = "请先点击下方按钮登录后再进行订阅管理"
+                router.banner.type = .Error
             }
         }
     }
