@@ -31,7 +31,7 @@ struct SettingsView: View {
             Section(header: Text(notificationSectionTitle)) {
                 List {
                     ForEach(SubscriptionItem.allCases, id: \.self) { item in
-                        MultiSelectionView(value: item.rawValue, subscribedItems: $router.subscribedItems, title: SubscriptionItem.description[item]!)
+                        MultiSelectionView(value: item.rawValue, subscribedItems: (!router.isLogin ? .constant(Set()) : $router.subscribedItems), title: SubscriptionItem.description[item]!)
                     }
                 }
                 .disabled(!router.isLogin)
