@@ -42,9 +42,9 @@ class GradeViewModel: ObservableObject {
         if let actualData = UserDefaults.standard.object(forKey: SettingsKey.gradeData.rawValue) as? Data {
             self.gradeList = (try? JSONDecoder().decode([GradeResponseData].self, from: actualData)) ?? []
         }
-//        self.refreshGradeList(completion: {_ in
-//            // self.selectedSemester = self.gradeResultKeyList.first ?? "2020-春"
-//        })
+        //        self.refreshGradeList(completion: {_ in
+        //            // self.selectedSemester = self.gradeResultKeyList.first ?? "2020-春"
+        //        })
     }
 }
 
@@ -67,10 +67,20 @@ extension GradeViewModel {
                     return
                 }
                 
-                
                 self.banner.type = .Success
                 self.banner.title = "刷新成绩、绩点成功"
                 self.gradeList = response.data ?? []
+                self.gradeList.sort { (grade1, grade2) -> Bool in
+                    if let gradeNumber1 = Int(grade1.result) {
+                        if let gradeNumber2 = Int(grade2.result) {
+                            return gradeNumber1 > gradeNumber2
+                        } else {
+                            return true
+                        }
+                    } else {
+                        return false
+                    }
+                }
                 UserDefaults.standard[.gradeData] = try? JSONEncoder().encode(self.gradeList)
                 completion(true)
             }
