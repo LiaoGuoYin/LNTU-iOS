@@ -15,17 +15,17 @@ struct ExamPlanView: View {
     var body: some View {
         List(viewModel.examPlanList, id: \.name) { course in
             VStack {
-                if course.currentStatus == .unknown {
-                    GrayCardExamPlanView(course: course)
-                } else {
+                if course.currentStatus == ExamStatus.preparing {
                     CardExamPlanView(course: course)
+                } else {
+                    GrayCardExamPlanView(course: course)
                 }
             }
             .onTapGesture {
                 Haptic.shared.tappedHaptic()
                 router.showBlurView {
                     DetailExamPlanView(course: course, courseStatusColor:
-                                            course.currentStatus == ExamStatus.unknown ? Color(.systemGray): Color(.systemGreen))
+                                       course.currentStatus == ExamStatus.preparing ? Color(.systemGreen) : Color(.systemGray))
                         .onTapGesture {
                             router.isBlured.toggle()
                         }

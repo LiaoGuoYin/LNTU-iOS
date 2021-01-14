@@ -20,7 +20,7 @@ struct GrayCardExamPlanView: View {
             Text(course.currentStatus.rawValue)
                 .font(.title)
                 .padding()
-                .frame(width: deviceSize.width / 3.3)
+                .frame(width: deviceSize.width / 3)
                 .background(Color("cellBlock"))
         }
         .lineLimit(1)
@@ -28,6 +28,7 @@ struct GrayCardExamPlanView: View {
         .foregroundColor(.white)
         .background(Color(.systemGray))
         .cornerRadius(3)
+        .examFinished(isShowing: course.currentStatus == .finished)
     }
 }
 

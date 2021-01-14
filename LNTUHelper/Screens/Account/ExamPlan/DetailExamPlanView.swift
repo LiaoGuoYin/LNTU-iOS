@@ -45,6 +45,7 @@ struct DetailExamPlanView: View {
         .foregroundColor(.white)
         .background(courseStatusColor)
         .cornerRadius(8)
+        .examFinished(isShowing: course.currentStatus == .finished)
         .padding()
     }
 }

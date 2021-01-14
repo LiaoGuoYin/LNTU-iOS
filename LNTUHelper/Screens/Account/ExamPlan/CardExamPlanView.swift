@@ -10,30 +10,26 @@ import SwiftUI
 struct CardExamPlanView: View {
     
     @State var course: ExamPlanResponseData
-    var deviceSize = UIScreen.main.bounds
     @State private var remainDateTime: String = ""
+    let deviceSize = UIScreen.main.bounds
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
                 Text(course.name)
-                    .padding(.bottom)
+                
+//                Divider()
+//                Text(remainDateTime)
+                
+                Divider()
 
                 HStack {
                     BrandTagView(content: course.date)
                     BrandTagView(content: course.time)
                 }
-                
-                if course.currentStatus == ExamStatus.preparing {
-                    Divider()
-                    Text(remainDateTime)
-                } else {
-                    EmptyView()
-                }
             }
-            .padding(.horizontal)
-            .padding(.top)
+            .padding()
             
             Spacer()
             
@@ -44,10 +40,9 @@ struct CardExamPlanView: View {
                 Text(course.location)
             }
             .padding()
-            .frame(width: deviceSize.width / 3.3)
+            .frame(width: deviceSize.width / 3)
             .background(Color("cellBlock"))
             .cornerRadius(8)
-            .examFinished(isShowing: course.currentStatus == .finished)
         }
         .lineLimit(1)
         .font(.system(.headline, design: .rounded))
