@@ -30,7 +30,7 @@ struct SettingsView: View {
                     self.isShowingAlert = true
                 }) {
                     HStack {
-                        Text("懒加载模式")
+                        Text("离线模式")
                         Spacer()
                         if router.isOffline {
                             Image(systemName: "checkmark.seal.fill")
@@ -100,12 +100,13 @@ struct SettingsView: View {
             SafariView(urlString: tappedUrlString)
         }
         .alert(isPresented: $isShowingAlert, content: {
-            Alert(title: Text("切换懒加载模式?"),
-                  message: Text("教务在线爆炸时可开启，刷新会得到较旧时候的数据，可供参考使用。为确保数据的及时性，请不要一直开启此模式。"),
-                  primaryButton: Alert.Button.default(Text("关闭"), action: {
+            //教务在线爆炸时可开启离线模式，开启后刷新得到的数据并非最新，因此建议在教务在线恢复后切换回正常模式。
+            Alert(title: Text("模式说明"),
+                  message: Text("离线模式：教务在线爆炸后仍能查看以往数据\n正常模式：实时从教务在线获取最新数据"),
+                  primaryButton: Alert.Button.default(Text("正常模式"), action: {
                     self.router.isOffline = false
                   }),
-                  secondaryButton: Alert.Button.default(Text("开启"), action: {
+                  secondaryButton: Alert.Button.default(Text("离线模式"), action: {
                     self.router.isOffline = true
                   }))
         })
