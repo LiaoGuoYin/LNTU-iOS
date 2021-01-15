@@ -17,9 +17,6 @@ struct SettingsView: View {
             isShowingSheet = true
         }
     }
-    var notificationSectionTitle: String {
-        !router.isLogin ? "推送管理（请先登录）" : "推送管理"
-    }
     
     var body: some View {
         Form {
@@ -36,14 +33,6 @@ struct SettingsView: View {
                             Image(systemName: "checkmark.seal.fill")
                                 .foregroundColor(Color("primary"))
                         }
-                    }
-                }
-            }
-            
-            Section(header: Text(notificationSectionTitle)) {
-                List {
-                    ForEach(SubscriptionItem.allCases, id: \.self) { item in
-                        MultiSelectionView(value: item.rawValue, subscribedItems: (!router.isLogin ? .constant(Set()) : $router.subscribedItems), title: SubscriptionItem.description[item]!)
                     }
                 }
             }
@@ -100,7 +89,6 @@ struct SettingsView: View {
             SafariView(urlString: tappedUrlString)
         }
         .alert(isPresented: $isShowingAlert, content: {
-            //教务在线爆炸时可开启离线模式，开启后刷新得到的数据并非最新，因此建议在教务在线恢复后切换回正常模式。
             Alert(title: Text("模式说明"),
                   message: Text("离线模式：教务在线爆炸后仍能查看以往数据\n正常模式：实时从教务在线获取最新数据"),
                   primaryButton: Alert.Button.default(Text("正常模式"), action: {
@@ -128,20 +116,6 @@ struct SettingsView: View {
     var logoutButton: some View {
         Button(action: {
             Haptic.shared.tappedHaptic()
-            if let notificationToken = Constants.notificationToken {
-                APIClient.removeNotificationToken(token: notificationToken, username: Constants.currentUser.username) { (result) in
-                    switch result {
-                    case.failure(let error):
-                        print("Nofication Registration To Server Error: " + error.localizedDescription)
-                    case .success(let response):
-                        if response.code != 200 {
-                            print("Notification Remove From Server Responded with Code " + String(response.code) + ":" + response.message)
-                        } else {
-                            print("The Notification token was successfully removed from the server")
-                        }
-                    }
-                }
-            }
             Constants.currentUser.password = ""
             Constants.isLogin = false
             router.banner.type = .Warning
@@ -158,45 +132,6 @@ struct SettingsView: View {
     }
 }
 
-struct MultiSelectionView: View {
-    
-    var router = ViewRouter.router
-    
-    var value: String
-    
-    @Binding var subscribedItems: Set<String>
-    
-    var isSelected: Bool {
-        subscribedItems.contains(value)
-    }
-    
-    var title: String
-    
-    var body: some View {
-        Button(action: {
-            if router.isLogin {
-                if isSelected {
-                    subscribedItems.remove(value)
-                } else {
-                    subscribedItems.insert(value)
-                }
-            } else {
-                router.banner.title = "请先登录"
-                router.banner.content = "请先点击下方按钮登录后再进行订阅管理"
-                router.banner.type = .Error
-            }
-        }) {
-            HStack {
-                Text(title)
-                Spacer()
-                if isSelected {
-                    Image(systemName: "checkmark.seal.fill")
-                        .foregroundColor(Color("primary"))
-                }
-            }
-        }
-    }
-}
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
