@@ -71,8 +71,8 @@ extension GradeViewModel {
                 self.banner.title = "刷新成绩、绩点成功"
                 self.gradeList = response.data ?? []
                 self.gradeList.sort { (grade1, grade2) -> Bool in
-                    if let gradeNumber1 = Int(grade1.result) {
-                        if let gradeNumber2 = Int(grade2.result) {
+                    if let gradeNumber1 = Double(grade1.result) {
+                        if let gradeNumber2 = Double(grade2.result) {
                             return gradeNumber1 > gradeNumber2
                         } else {
                             return true
@@ -86,13 +86,4 @@ extension GradeViewModel {
             }
         }
     }
-    
-    func loadLocalGrade() {
-        
-    }
-    
-    func exportGradeToLocal() {
-        
-    }
-    
 }

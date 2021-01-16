@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A03CF57F25B12B92005046FD /* TeacherEvaluationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03CF57E25B12B92005046FD /* TeacherEvaluationResponse.swift */; };
+		A03CF58425B1666C005046FD /* TeacherEvaluationRequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03CF58325B1666C005046FD /* TeacherEvaluationRequestBody.swift */; };
 		A099860525A9E2EE005C9882 /* NotificationResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A099860425A9E2EE005C9882 /* NotificationResponseModel.swift */; };
-		A0B4571825AF31F10031DDC0 /* UserInfoRequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B4571725AF31F10031DDC0 /* UserInfoRequestBody.swift */; };
+		A0B4571825AF31F10031DDC0 /* UserCredentialsRequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B4571725AF31F10031DDC0 /* UserCredentialsRequestBody.swift */; };
 		A0B4572025AF32C20031DDC0 /* NotificationRegistrationRequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B4571F25AF32C20031DDC0 /* NotificationRegistrationRequestBody.swift */; };
-		A0B4572825AF33BF0031DDC0 /* NotificationRemoveRequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B4572725AF33BF0031DDC0 /* NotificationRemoveRequestBody.swift */; };
+		A0B4572825AF33BF0031DDC0 /* NotificationRemovalRequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B4572725AF33BF0031DDC0 /* NotificationRemovalRequestBody.swift */; };
 		A0B4572D25AF37290031DDC0 /* SubscriptionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B4572C25AF37290031DDC0 /* SubscriptionItem.swift */; };
 		A0DCA14425A9711C00206CE4 /* MultiDevicePreviewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DCA14325A9711C00206CE4 /* MultiDevicePreviewModifier.swift */; };
+		A0ED6DE425B2E608000BE1A9 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ED6DE325B2E608000BE1A9 /* ActivityIndicator.swift */; };
 		AF12457B254EB6E300FFB1E7 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF12457A254EB6E300FFB1E7 /* SafariView.swift */; };
 		AF171401257F2612009E382A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF171400257F2612009E382A /* SettingsView.swift */; };
 		AF188DCC2588695D00832E5C /* GradeAndQualityActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF188DCB2588695D00832E5C /* GradeAndQualityActivityView.swift */; };
@@ -102,15 +105,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A03CF57E25B12B92005046FD /* TeacherEvaluationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherEvaluationResponse.swift; sourceTree = "<group>"; };
+		A03CF58325B1666C005046FD /* TeacherEvaluationRequestBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherEvaluationRequestBody.swift; sourceTree = "<group>"; };
 		A03FFDB525AEBF520088509E /* LNTUHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LNTUHelper.entitlements; sourceTree = "<group>"; };
 		A099860425A9E2EE005C9882 /* NotificationResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationResponseModel.swift; sourceTree = "<group>"; };
-		A0B4571725AF31F10031DDC0 /* UserInfoRequestBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoRequestBody.swift; sourceTree = "<group>"; };
+		A0B4571725AF31F10031DDC0 /* UserCredentialsRequestBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCredentialsRequestBody.swift; sourceTree = "<group>"; };
 		A0B4571F25AF32C20031DDC0 /* NotificationRegistrationRequestBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationRegistrationRequestBody.swift; sourceTree = "<group>"; };
-		A0B4572725AF33BF0031DDC0 /* NotificationRemoveRequestBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationRemoveRequestBody.swift; sourceTree = "<group>"; };
+		A0B4572725AF33BF0031DDC0 /* NotificationRemovalRequestBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationRemovalRequestBody.swift; sourceTree = "<group>"; };
 		A0B4572C25AF37290031DDC0 /* SubscriptionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionItem.swift; sourceTree = "<group>"; };
 		A0DCA14325A9711C00206CE4 /* MultiDevicePreviewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiDevicePreviewModifier.swift; sourceTree = "<group>"; };
+		A0ED6DE325B2E608000BE1A9 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		AF12457A254EB6E300FFB1E7 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
-		AF171400257F2612009E382A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		AF171400257F2612009E382A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsView.swift; path = ../Settings/SettingsView.swift; sourceTree = "<group>"; };
 		AF188DCB2588695D00832E5C /* GradeAndQualityActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeAndQualityActivityView.swift; sourceTree = "<group>"; };
 		AF239F4D25A605610079EFF5 /* ExamFinishedModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamFinishedModifier.swift; sourceTree = "<group>"; };
 		AF2849A4254C6DB800D78D2C /* HapticModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticModels.swift; sourceTree = "<group>"; };
@@ -216,9 +222,10 @@
 		A0B4571625AF31C10031DDC0 /* API POST Request Body */ = {
 			isa = PBXGroup;
 			children = (
-				A0B4571725AF31F10031DDC0 /* UserInfoRequestBody.swift */,
+				A0B4571725AF31F10031DDC0 /* UserCredentialsRequestBody.swift */,
 				A0B4571F25AF32C20031DDC0 /* NotificationRegistrationRequestBody.swift */,
-				A0B4572725AF33BF0031DDC0 /* NotificationRemoveRequestBody.swift */,
+				A0B4572725AF33BF0031DDC0 /* NotificationRemovalRequestBody.swift */,
+				A03CF58325B1666C005046FD /* TeacherEvaluationRequestBody.swift */,
 			);
 			path = "API POST Request Body";
 			sourceTree = "<group>";
@@ -413,8 +420,8 @@
 				AF525B30254804EC006A2CC9 /* CommonModifiers.swift */,
 				AF7BD6FD2546BD1F00771CDA /* CommonModels.swift */,
 				AF2849A4254C6DB800D78D2C /* HapticModels.swift */,
-				AFE199E3258357AD004CA354 /* UserDefaultRepository.swift */,
 				AF239F4D25A605610079EFF5 /* ExamFinishedModifier.swift */,
+				AFE199E3258357AD004CA354 /* UserDefaultRepository.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -461,6 +468,7 @@
 			isa = PBXGroup;
 			children = (
 				AF12457A254EB6E300FFB1E7 /* SafariView.swift */,
+				A0ED6DE325B2E608000BE1A9 /* ActivityIndicator.swift */,
 			);
 			path = "UIKit Components";
 			sourceTree = "<group>";
@@ -505,6 +513,7 @@
 				AF64F2D5258129FF0041D99C /* QualityModel.swift */,
 				A099860425A9E2EE005C9882 /* NotificationResponseModel.swift */,
 				A0B4572C25AF37290031DDC0 /* SubscriptionItem.swift */,
+				A03CF57E25B12B92005046FD /* TeacherEvaluationResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -658,7 +667,7 @@
 				AF7BD6F82546BB9900771CDA /* CourseTableView.swift in Sources */,
 				AF171401257F2612009E382A /* SettingsView.swift in Sources */,
 				AF32A7B0257BB00F004D1E78 /* InfoRowView.swift in Sources */,
-				A0B4572825AF33BF0031DDC0 /* NotificationRemoveRequestBody.swift in Sources */,
+				A0B4572825AF33BF0031DDC0 /* NotificationRemovalRequestBody.swift in Sources */,
 				AFF09574257A8E280073D336 /* MockData.swift in Sources */,
 				AF3053C825455ADC00F849A9 /* APIRouter.swift in Sources */,
 				AF3053D62545710300F849A9 /* ClassroomView.swift in Sources */,
@@ -681,9 +690,11 @@
 				AF5E4ACD254A595300736FB4 /* GradeView.swift in Sources */,
 				AF64F2E425812ACB0041D99C /* QualityActivityView.swift in Sources */,
 				AF64F2D6258129FF0041D99C /* QualityModel.swift in Sources */,
+				A03CF57F25B12B92005046FD /* TeacherEvaluationResponse.swift in Sources */,
 				AF7BD7022546F18400771CDA /* CourseTableBodyView.swift in Sources */,
 				A099860525A9E2EE005C9882 /* NotificationResponseModel.swift in Sources */,
 				AF35E9492556FB81008E7AA7 /* LibraryCardView.swift in Sources */,
+				A03CF58425B1666C005046FD /* TeacherEvaluationRequestBody.swift in Sources */,
 				AF7BD6F42545BDAF00771CDA /* ClassroomDetailRowView.swift in Sources */,
 				AF5E4AD1254A59A900736FB4 /* GradeModel.swift in Sources */,
 				AF9778A6257C63EA00BD42EF /* ExamPlanView.swift in Sources */,
@@ -696,6 +707,7 @@
 				AFE199E4258357AD004CA354 /* UserDefaultRepository.swift in Sources */,
 				AF5E4AE9254ADE9F00736FB4 /* NoticeRowView.swift in Sources */,
 				AF5E4AD5254A8ADC00736FB4 /* SemesterPickerView.swift in Sources */,
+				A0ED6DE425B2E608000BE1A9 /* ActivityIndicator.swift in Sources */,
 				AF32A7D9257BB6FF004D1E78 /* ExamPlanViewModel.swift in Sources */,
 				AF97789E257C63A100BD42EF /* CardExamPlanView.swift in Sources */,
 				AF5E4AE1254AD9A400736FB4 /* NoticeModel.swift in Sources */,
@@ -713,7 +725,7 @@
 				AFB6EB9B25A8750500147969 /* DetailGradeRowView.swift in Sources */,
 				AF64F2DC25812ABF0041D99C /* QualityActivityViewModel.swift in Sources */,
 				AF32A7AB257BA9D5004D1E78 /* TodoView.swift in Sources */,
-				A0B4571825AF31F10031DDC0 /* UserInfoRequestBody.swift in Sources */,
+				A0B4571825AF31F10031DDC0 /* UserCredentialsRequestBody.swift in Sources */,
 				AF30539A25455A6600F849A9 /* LNTUHelperApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

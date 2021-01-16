@@ -46,21 +46,6 @@ struct GradeAndQualityActivityView: View {
     var refreshButton: some View {
         Button(action: {
             Haptic.shared.tappedHaptic()
-            let center = UNUserNotificationCenter.current()
-            center.requestAuthorization(options: [ .alert, .sound, .badge ]) { granted, error in
-                if let error = error {
-                    print("Notification User Authorization Error: " + error.localizedDescription)
-                }
-                
-                if granted {
-                    DispatchQueue.main.async {
-                        UIApplication.shared.registerForRemoteNotifications()
-                    }
-                } else {
-                    print("User didn't grant to send push notifications to the device")
-                }
-                
-            }
             viewModel.refreshGradeList { (isSuccess) in
                 router.isShowLoginView = isSuccess ? false : true
                 router.banner = viewModel.banner

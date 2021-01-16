@@ -23,7 +23,8 @@ enum APIEducationRouter: URLRequestConvertible {
     
     case qualityActivity(user: User)
     
-    case notification(type: NotificationRequestType, username: String, token: String, subscriptionList: [String])
+    case notification(type: NotificationRequestType, username: String, token: String, subscriptionList: [String]? = nil)
+    case teacherEvaluation(user: User, submit: Bool)
     
     enum NotificationRequestType {
         case register
@@ -35,7 +36,7 @@ enum APIEducationRouter: URLRequestConvertible {
         switch self {
         case .classroom, .notice, .initHelperMessage:
             return .get
-        case .data, .info, .courseTable, .grade, .examPlan, .otherExam, .qualityActivity, .notification:
+        case .data, .info, .courseTable, .grade, .examPlan, .otherExam, .qualityActivity, .notification, .teacherEvaluation:
             return .post
         }
     }
@@ -70,6 +71,8 @@ enum APIEducationRouter: URLRequestConvertible {
             case .remove:
                 return "/app/notification-remove"
             }
+        case .teacherEvaluation:
+            return "/education/evaluation"
         }
     }
     
@@ -99,18 +102,27 @@ enum APIEducationRouter: URLRequestConvertible {
         switch self {
         case .courseTable(let user, _), .info(let user), .grade(let user), .data(let user), .examPlan(let user, _, _), .otherExam(let user), .qualityActivity(let user):
             
-            value = UserInfoRequestBody(username: user.username, password: user.password)
+            value = UserCredentialsRequestBody(username: user.username, password: user.password)
+            
+        case .teacherEvaluation(let user, let submit):
+            
+            value = TeacherEvaluationRequestBody(user: user, submit: submit)
             
         case .notification(let type, let username, let token, let subscriptionList):
             switch type {
             case .register:
-                value = NotificationRegistrationRequestBody(token: token, username: username, subscriptionList: subscriptionList)
+                guard subscriptionList != nil else {
+                    fatalError("SubscriptionList for token registeration shouldn't be nil (it should at least be a empty array \"[]\")")
+                }
+                value = NotificationRegistrationRequestBody(token: token, username: username, subscriptionList: subscriptionList!)
             case .remove:
-                value = NotificationRemoveRequestBody(token: token, username: username)
+                value = NotificationRemovalRequestBody(token: token, username: username)
             }
+            
         default:
             value = nil
         }
+        
         
         if let value = value {
             return EncodableWrapper(wrappedValue: value)

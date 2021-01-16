@@ -12,6 +12,7 @@ enum SettingsKey: String, CaseIterable {
     // Setting
     case isOffline
     case isLogin
+    case lastestSelectedTab
     
     // Account Info
     // case educationAccount

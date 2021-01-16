@@ -61,6 +61,10 @@ class APIClient {
     
     static func removeNotificationToken(token: Data, username: String, completion: @escaping (Result<NotificationResponse, AFError>) -> Void) {
         let base64TokenString = token.base64EncodedString()
-        performRequest(route: APIEducationRouter.notification(type: .remove, username: username, token: base64TokenString, subscriptionList: []), completion: completion)
+        performRequest(route: APIEducationRouter.notification(type: .remove, username: username, token: base64TokenString), completion: completion)
+    }
+    
+    static func evaluateTeacher(user: User, submit: Bool, completion: @escaping (Result<TeacherEvaluationResponse, AFError>) -> Void) {
+        performRequest(route: APIEducationRouter.teacherEvaluation(user: user, submit: submit), completion: completion)
     }
 }

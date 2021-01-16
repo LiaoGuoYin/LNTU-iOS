@@ -38,6 +38,13 @@ class ViewRouter: ObservableObject {
         }
     }
     
+    @Published var selectedTab: TabBarItemEnum = TabBarItemEnum.init(rawValue: UserDefaults.standard.string(forKey: SettingsKey.lastestSelectedTab.rawValue) ?? TabBarItemEnum.account.rawValue)! {
+        // UserDefaults.standard[.lastestSelectedTab] 的来源一定是干净的，即来自 didSet，所以此处用 force unwrap !
+        didSet {
+            UserDefaults.standard[.lastestSelectedTab] = selectedTab.rawValue
+        }
+    }
+    
     @Published var subscribedItems: Set<String> {
         didSet {
             // Try to ask for authorization
