@@ -93,15 +93,6 @@ class ViewRouter: ObservableObject {
     @Published var isBlured = false
     var topView: AnyView?
     
-    init() {
-        self.noticeViewModel = NoticeViewModel()
-        self.classroomViewModel = ClassroomViewModel(form: ClassroomForm(week: 1, campus: .hld))
-        self.loginViewModel = LoginViewModel()
-        self.courseTableViewModel = CourseTableViewModel()
-        self.gradeViewModel = GradeViewModel()
-        self.subscribedItems = Set((UserDefaults.standard.array(forKey: SettingsKey.subscribedItems.rawValue) as? [String]) ?? [])
-    }
-    
     func showBlurView<ViewType: View>(@ViewBuilder view: @escaping () -> ViewType) {
         isBlured = true
         topView = AnyView(
@@ -122,6 +113,16 @@ class ViewRouter: ObservableObject {
     func hideBlurView() {
         isBlured = false
         topView = nil
+    }
+    
+    
+    init() {
+        self.noticeViewModel = NoticeViewModel()
+        self.classroomViewModel = ClassroomViewModel(form: ClassroomForm(week: 1, campus: .hld))
+        self.loginViewModel = LoginViewModel()
+        self.courseTableViewModel = CourseTableViewModel()
+        self.gradeViewModel = GradeViewModel()
+        self.subscribedItems = Set((UserDefaults.standard.array(forKey: SettingsKey.subscribedItems.rawValue) as? [String]) ?? [])
     }
     
     convenience init(isLogin: Bool, isOffline: Bool) {

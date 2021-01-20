@@ -24,6 +24,7 @@ struct K {
         static let buildingName = "name"
         static let token = "token"
     }
+    
 }
 
 struct Constants {
@@ -51,4 +52,9 @@ enum HTTPHeaderField: String {
     case contentType = "Content-Type"
     case acceptType = "Accept"
     case acceptEncoding = "Accept-Encoding"
+}
+
+enum NotificationIdentifiers: String {
+    case grade = "GRADE"
+    case notice = "NOTICE"
 }

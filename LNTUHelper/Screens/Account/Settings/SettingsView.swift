@@ -17,9 +17,12 @@ struct SettingsView: View {
             isShowingSheet = true
         }
     }
-    
     @State var isRated = false
     @State var needsEvaluation = false
+    
+    var notificationSectionTitle: String {
+        !router.isLogin ? "推送管理（请先登录）" : "推送管理"
+    }
     
     var body: some View {
         Form {
@@ -49,6 +52,13 @@ struct SettingsView: View {
                 })
             }
             
+            Section(header: Text(notificationSectionTitle)) {
+                List {
+                    ForEach(SubscriptionItem.allCases, id: \.self) { item in
+                        MultiSelectionView(value: item.rawValue, subscribedItems: (!router.isLogin ? .constant(Set()) : $router.subscribedItems), title: SubscriptionItem.description[item]!)
+                    }
+                }
+            }
             
             Section(header: Text("关于项目")) {
                 if #available(iOS 14.0, *) {
@@ -120,20 +130,20 @@ struct SettingsView: View {
     var logoutButton: some View {
         Button(action: {
             Haptic.shared.tappedHaptic()
-            //            if let notificationToken = Constants.notificationToken {
-            //                APIClient.removeNotificationToken(token: notificationToken, username: Constants.currentUser.username) { (result) in
-            //                    switch result {
-            //                    case.failure(let error):
-            //                        print("Nofication Registration To Server Error: " + error.localizedDescription)
-            //                    case .success(let response):
-            //                        if response.code != 200 {
-            //                            print("Notification Remove From Server Responded with Code " + String(response.code) + ":" + response.message)
-            //                        } else {
-            //                            print("The Notification token was successfully removed from the server")
-            //                        }
-            //                    }
-            //                }
-            //            }
+            if let notificationToken = Constants.notificationToken {
+                APIClient.removeNotificationToken(token: notificationToken, username: Constants.currentUser.username) { (result) in
+                    switch result {
+                    case.failure(let error):
+                        print("Nofication Registration To Server Error: " + error.localizedDescription)
+                    case .success(let response):
+                        if response.code != 200 {
+                            print("Notification Remove From Server Responded with Code " + String(response.code) + ":" + response.message)
+                        } else {
+                            print("The Notification token was successfully removed from the server")
+                        }
+                    }
+                }
+            }
             Constants.currentUser.password = ""
             Constants.isLogin = false
             router.banner.type = .Warning
@@ -150,45 +160,45 @@ struct SettingsView: View {
     }
 }
 
-//struct MultiSelectionView: View {
-//
-//    var router = ViewRouter.router
-//
-//    var value: String
-//
-//    @Binding var subscribedItems: Set<String>
-//
-//    var isSelected: Bool {
-//        subscribedItems.contains(value)
-//    }
-//
-//    var title: String
-//
-//    var body: some View {
-//        Button(action: {
-//            if router.isLogin {
-//                if isSelected {
-//                    subscribedItems.remove(value)
-//                } else {
-//                    subscribedItems.insert(value)
-//                }
-//            } else {
-//                router.banner.title = "请先登录"
-//                router.banner.content = "请先点击下方按钮登录后再进行订阅管理"
-//                router.banner.type = .Error
-//            }
-//        }) {
-//            HStack {
-//                Text(title)
-//                Spacer()
-//                if isSelected {
-//                    Image(systemName: "checkmark.seal.fill")
-//                        .foregroundColor(Color("primary"))
-//                }
-//            }
-//        }
-//    }
-//}
+struct MultiSelectionView: View {
+
+    var router = ViewRouter.router
+
+    var value: String
+
+    @Binding var subscribedItems: Set<String>
+
+    var isSelected: Bool {
+        subscribedItems.contains(value)
+    }
+
+    var title: String
+
+    var body: some View {
+        Button(action: {
+            if router.isLogin {
+                if isSelected {
+                    subscribedItems.remove(value)
+                } else {
+                    subscribedItems.insert(value)
+                }
+            } else {
+                router.banner.title = "请先登录"
+                router.banner.content = "请先点击下方按钮登录后再进行订阅管理"
+                router.banner.type = .Error
+            }
+        }) {
+            HStack {
+                Text(title)
+                Spacer()
+                if isSelected {
+                    Image(systemName: "checkmark.seal.fill")
+                        .foregroundColor(Color("primary"))
+                }
+            }
+        }
+    }
+}
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
