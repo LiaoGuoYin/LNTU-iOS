@@ -23,7 +23,7 @@ enum APIEducationRouter: URLRequestConvertible {
     
     case qualityActivity(user: User)
     
-    case notification(type: NotificationRequestType, username: String, token: String, subscriptionList: [String]? = nil)
+    case notification(type: NotificationRequestType, username: String, token: String, subscriptionList: [SubscriptionItem]? = nil)
     case teacherEvaluation(user: User, submit: Bool)
     
     enum NotificationRequestType {

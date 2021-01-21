@@ -55,7 +55,7 @@ struct SettingsView: View {
             Section(header: Text(notificationSectionTitle)) {
                 List {
                     ForEach(SubscriptionItem.allCases, id: \.self) { item in
-                        MultiSelectionView(value: item.rawValue, subscribedItems: (!router.isLogin ? .constant(Set()) : $router.subscribedItems), title: SubscriptionItem.description[item]!)
+                        MultiSelectionView(value: item, subscribedItems: (!router.isLogin ? .constant(Set()) : $router.subscribedItems), title: SubscriptionItem.description[item]!)
                     }
                 }
             }
@@ -164,9 +164,9 @@ struct MultiSelectionView: View {
 
     var router = ViewRouter.router
 
-    var value: String
+    var value: SubscriptionItem
 
-    @Binding var subscribedItems: Set<String>
+    @Binding var subscribedItems: Set<SubscriptionItem>
 
     var isSelected: Bool {
         subscribedItems.contains(value)

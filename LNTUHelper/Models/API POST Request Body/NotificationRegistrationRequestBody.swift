@@ -10,5 +10,5 @@ import Foundation
 struct NotificationRegistrationRequestBody: Encodable {
     var token: String
     var username: String
-    var subscriptionList: [String]
+    var subscriptionList: [SubscriptionItem]?
 }

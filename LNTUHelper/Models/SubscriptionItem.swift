@@ -7,9 +7,9 @@
 
 import Foundation
 
-enum SubscriptionItem: String, CaseIterable {
-    case notice
-    case grade
+enum SubscriptionItem: String, CaseIterable, Codable {
+    case notice = "NOTICE"
+    case grade = "GRADE"
     
     static let description: [SubscriptionItem: String] = [
         .notice: "教务公告",

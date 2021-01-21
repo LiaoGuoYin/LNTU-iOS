@@ -61,4 +61,38 @@ extension UserDefaults {
             return MockData.user
         }
     }
+    
+    func loadSubscribedItems() -> [SubscriptionItem]? {
+        let subscribedItemsStringArray = UserDefaults.standard.stringArray(forKey: SettingsKey.subscribedItems.rawValue)
+        
+        if let subscribedItemsStringArray = subscribedItemsStringArray {
+            var returnValue = [SubscriptionItem]()
+            
+            for itemString in subscribedItemsStringArray {
+                if let subscribedItem = SubscriptionItem(rawValue: itemString) {
+                    returnValue.append(subscribedItem)
+                } else {
+                    return nil
+                }
+            }
+            
+            return returnValue
+        } else {
+            return nil
+        }
+    }
+    
+    func storeSubscribedItems(_ subscribedItems: [SubscriptionItem]?) {
+        if let subscribedItems = subscribedItems {
+            var valueForUserDefaults = [String]()
+            
+            for item in subscribedItems {
+                valueForUserDefaults.append(item.rawValue)
+                // We need to first convert the enum values to Strings before storing them to
+                // UserDefaults
+            }
+            
+            UserDefaults.standard[.subscribedItems] = valueForUserDefaults
+        }
+    }
 }

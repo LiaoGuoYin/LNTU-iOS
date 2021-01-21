@@ -54,7 +54,7 @@ class APIClient {
         performRequest(route: APIEducationRouter.qualityActivity(user: user), completion: completion)
     }
     
-    static func registerNotificationTokenOrUpdateSubscriptionList(token: Data, username: String, subscriptionList: [String], completion: @escaping (Result<NotificationResponse, AFError>) -> Void) {
+    static func registerNotificationTokenOrUpdateSubscriptionList(token: Data, username: String, subscriptionList: [SubscriptionItem], completion: @escaping (Result<NotificationResponse, AFError>) -> Void) {
         let base64TokenString = token.base64EncodedString()
         performRequest(route: APIEducationRouter.notification(type: .register, username: username, token: base64TokenString, subscriptionList: subscriptionList), completion: completion)
     }

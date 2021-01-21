@@ -45,43 +45,48 @@ class ViewRouter: ObservableObject {
         }
     }
     
-    @Published var subscribedItems: Set<String> {
+    @Published var subscribedItems: Set<SubscriptionItem> {
         didSet {
             // Try to ask for authorization
             ViewRouter.notificationCenter.requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
-                if !granted {
-                    DispatchQueue.main.async {
-                        ViewRouter.router.banner.title = "无法订阅，请先开启通知权限"
-                        ViewRouter.router.banner.content = "请前往设置 > 通知 开启此App的通知权限后再尝试订阅"
-                        ViewRouter.router.banner.type = .Error
-                        
-                        if self.subscribedItems != Set((UserDefaults.standard.array(forKey: SettingsKey.subscribedItems.rawValue) as? [String]) ?? []) {
-                            self.subscribedItems = Set((UserDefaults.standard.array(forKey: SettingsKey.subscribedItems.rawValue) as? [String]) ?? [])
-                        }
-                        
-                        return
-                    }
-                } else {
-                    if let assignedToken = Constants.notificationToken, self.isLogin {
-                        APIClient.registerNotificationTokenOrUpdateSubscriptionList(token: assignedToken, username: Constants.currentUser.username, subscriptionList: Array(self.subscribedItems)) { (result) in
-                            var success = false
-                            switch result {
-                            case .failure(let error):
-                                print("Nofication Registration To Server Error: " + error.localizedDescription)
-                            case .success(let response):
-                                if response.code != 200 {
-                                    print("Notification Registration To Server Responded with Code " + String(response.code) + ":" + response.message)
-                                } else {
-                                    UserDefaults.standard[.subscribedItems] = Array(self.subscribedItems)
-                                    success = true
-                                    print("The Notification token was successfully sent to the server")
-                                }
+                DispatchQueue.global(qos: .background).async {
+                    if !granted {
+                        DispatchQueue.main.async {
+                            ViewRouter.router.banner.title = "无法订阅，请先开启通知权限"
+                            ViewRouter.router.banner.content = "请前往设置 > 通知 开启此App的通知权限后再尝试订阅"
+                            ViewRouter.router.banner.type = .Error
+                            
+                            if self.subscribedItems != Set((UserDefaults.standard.loadSubscribedItems() ?? [])) {
+                                self.subscribedItems = Set((UserDefaults.standard.loadSubscribedItems() ?? []))
                             }
                             
-                            if !success {
-                                Thread.sleep(forTimeInterval: 30*60)
-                                let tmp = self.subscribedItems
-                                self.subscribedItems = tmp
+                            return
+                        }
+                    } else {
+                        if let assignedToken = Constants.notificationToken, self.isLogin {
+                            APIClient.registerNotificationTokenOrUpdateSubscriptionList(token: assignedToken, username: Constants.currentUser.username, subscriptionList: Array(self.subscribedItems)) { (result) in
+                                var success = false
+                                switch result {
+                                case .failure(let error):
+                                    print("Nofication Registration To Server Error: " + error.localizedDescription)
+                                case .success(let response):
+                                    if response.code != 200 {
+                                        print("Notification Registration To Server Responded with Code " + String(response.code) + ":" + response.message)
+                                    } else {
+                                        UserDefaults.standard.storeSubscribedItems(Array(self.subscribedItems))
+                                        success = true
+                                        print("The Notification token was successfully sent to the server")
+                                    }
+                                }
+                                
+                                if !success {
+                                    DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + .seconds(30)) {
+                                        let temp = self.subscribedItems
+                                        DispatchQueue.main.async {
+                                            self.subscribedItems = temp
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
@@ -122,7 +127,7 @@ class ViewRouter: ObservableObject {
         self.loginViewModel = LoginViewModel()
         self.courseTableViewModel = CourseTableViewModel()
         self.gradeViewModel = GradeViewModel()
-        self.subscribedItems = Set((UserDefaults.standard.array(forKey: SettingsKey.subscribedItems.rawValue) as? [String]) ?? [])
+        self.subscribedItems = Set(UserDefaults.standard.loadSubscribedItems() ?? [])
     }
     
     convenience init(isLogin: Bool, isOffline: Bool) {
