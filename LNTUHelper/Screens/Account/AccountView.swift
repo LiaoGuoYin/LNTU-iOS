@@ -86,10 +86,8 @@ struct AccountView: View {
                             }
                         })
                         
-                        if isTeacherEvaluationRequestProcessing {
-                            Spacer()
-                            ActivityIndicator(isAnimating: .constant(true), style: .medium)
-                        }
+                        Spacer()
+                        ActivityIndicator(isAnimating: $isTeacherEvaluationRequestProcessing, style: .medium)
                     }
                 }
                 
