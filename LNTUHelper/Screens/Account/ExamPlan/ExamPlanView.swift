@@ -13,23 +13,30 @@ struct ExamPlanView: View {
     @ObservedObject var viewModel: ExamPlanViewModel
     
     var body: some View {
-        List(viewModel.examPlanList, id: \.name) { course in
-            VStack {
-                if course.currentStatus == ExamStatus.preparing {
-                    CardExamPlanView(course: course)
-                } else {
-                    GrayCardExamPlanView(course: course)
-                }
-            }
-            .onTapGesture {
-                Haptic.shared.tappedHaptic()
-                router.showBlurView {
-                    DetailExamPlanView(course: course, courseStatusColor:
-                                       course.currentStatus == ExamStatus.preparing ? Color(.systemGreen) : Color(.systemGray))
-                        .onTapGesture {
-                            router.isBlured.toggle()
+        VStack {
+            if !viewModel.examPlanList.isEmpty {
+                List(viewModel.examPlanList, id: \.name) { course in
+                    VStack {
+                        if course.currentStatus == ExamStatus.preparing {
+                            CardExamPlanView(course: course)
+                        } else {
+                            GrayCardExamPlanView(course: course)
                         }
+                    }
+                    .onTapGesture {
+                        Haptic.shared.tappedHaptic()
+                        router.showBlurView {
+                            DetailExamPlanView(course: course, courseStatusColor:
+                                               course.currentStatus == ExamStatus.preparing ? Color(.systemGreen) : Color(.systemGray))
+                                .onTapGesture {
+                                    router.isBlured.toggle()
+                                }
+                        }
+                    }
                 }
+            } else {
+                Text("目前没有考试安排")
+                    .foregroundColor(Color.secondary)
             }
         }
         .navigationBarItems(trailing: refreshButton)
