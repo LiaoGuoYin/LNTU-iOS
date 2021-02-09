@@ -10,6 +10,8 @@ import SwiftUI
 struct SettingsView: View {
     
     @ObservedObject var router = ViewRouter.router
+    @ObservedObject var gradeViewModel = ViewRouter.router.gradeViewModel
+    
     @State private var isShowingSheet = false
     @State private var isShowingAlert = false
     @State private var tappedUrlString = "" {
@@ -17,7 +19,6 @@ struct SettingsView: View {
             isShowingSheet = true
         }
     }
-    
     @State var isRated = false
     @State var needsEvaluation = false
     
@@ -49,6 +50,47 @@ struct SettingsView: View {
                 })
             }
             
+//            Section(header: Text(notificationSectionTitle)) {
+//                List {
+//                    ForEach(SubscriptionItem.allCases, id: \.self) { item in
+//                        MultiSelectionView(value: item, subscribedItems: (!router.isLogin ? .constant(Set()) : $router.subscribedItems), title: SubscriptionItem.description[item]!)
+//                    }
+//                }
+//            }
+            
+            Section(header: Text("学期展示方式"), footer: Text("年份：以例如\"2020-秋\"的方式展示学期\n年级：以例如\"大三上\"的方式展示学期")) {
+                
+                Button(action: {
+                    Haptic.shared.tappedHaptic()
+                    gradeViewModel.semesterStyle = .year
+                }, label: {
+                    HStack {
+                        Text("年份")
+                        
+                        if gradeViewModel.semesterStyle == .year {
+                            Spacer()
+                            Image(systemName: "checkmark.seal.fill")
+                                .foregroundColor(Color("primary"))
+                        }
+                    }
+                })
+                
+                Button(action: {
+                    Haptic.shared.tappedHaptic()
+                    router.gradeViewModel.semesterStyle = .tier
+                }, label: {
+                    HStack {
+                        Text("年级")
+                        
+                        if router.gradeViewModel.semesterStyle == .tier {
+                            Spacer()
+                            Image(systemName: "checkmark.seal.fill")
+                                .foregroundColor(Color("primary"))
+                        }
+                    }
+                })
+                
+            }
             
             Section(header: Text("关于项目")) {
                 if #available(iOS 14.0, *) {
