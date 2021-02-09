@@ -33,7 +33,7 @@ class LoginViewModel: ObservableObject {
         self.qualityViewModel = QualityActivityViewModel()
         
         if let actualData = UserDefaults.standard.object(forKey: SettingsKey.educationInfoData.rawValue) as? Data {
-            self.userInfo = (try? JSONDecoder().decode(EducationInfoResponse.self, from: actualData))?.data ?? MockData.educationInfo
+            self.userInfo = (try? JSONDecoder().decode(EducationInfoResponseData.self, from: actualData)) ?? MockData.educationInfo
         }
     }
 }

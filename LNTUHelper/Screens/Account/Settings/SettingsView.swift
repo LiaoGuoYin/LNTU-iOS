@@ -10,6 +10,8 @@ import SwiftUI
 struct SettingsView: View {
     
     @ObservedObject var router = ViewRouter.router
+    @ObservedObject var gradeViewModel = ViewRouter.router.gradeViewModel
+    
     @State private var isShowingSheet = false
     @State private var isShowingAlert = false
     @State private var tappedUrlString = "" {
@@ -23,6 +25,7 @@ struct SettingsView: View {
     var notificationSectionTitle: String {
         !router.isLogin ? "推送管理（请先登录）" : "推送管理"
     }
+    
     
     var body: some View {
         Form {
@@ -58,6 +61,40 @@ struct SettingsView: View {
                         MultiSelectionView(value: item, subscribedItems: (!router.isLogin ? .constant(Set()) : $router.subscribedItems), title: SubscriptionItem.description[item]!)
                     }
                 }
+            }
+            
+            Section(header: Text("学期展示方式"), footer: Text("年份：以例如\"2020-秋\"的方式展示学期\n年级：以例如\"大三上\"的方式展示学期")) {
+                
+                Button(action: {
+                    Haptic.shared.tappedHaptic()
+                    gradeViewModel.semesterStyle = .year
+                }, label: {
+                    HStack {
+                        Text("年份")
+                        
+                        if gradeViewModel.semesterStyle == .year {
+                            Spacer()
+                            Image(systemName: "checkmark.seal.fill")
+                                .foregroundColor(Color("primary"))
+                        }
+                    }
+                })
+                
+                Button(action: {
+                    Haptic.shared.tappedHaptic()
+                    router.gradeViewModel.semesterStyle = .tier
+                }, label: {
+                    HStack {
+                        Text("年级")
+                        
+                        if router.gradeViewModel.semesterStyle == .tier {
+                            Spacer()
+                            Image(systemName: "checkmark.seal.fill")
+                                .foregroundColor(Color("primary"))
+                        }
+                    }
+                })
+                
             }
             
             Section(header: Text("关于项目")) {

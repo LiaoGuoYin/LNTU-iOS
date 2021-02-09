@@ -16,6 +16,7 @@
 		A0B4572D25AF37290031DDC0 /* SubscriptionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B4572C25AF37290031DDC0 /* SubscriptionItem.swift */; };
 		A0DCA14425A9711C00206CE4 /* MultiDevicePreviewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DCA14325A9711C00206CE4 /* MultiDevicePreviewModifier.swift */; };
 		A0ED6DE425B2E608000BE1A9 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ED6DE325B2E608000BE1A9 /* ActivityIndicator.swift */; };
+		A0F50CD225D16F36003E6E97 /* SemesterStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F50CD125D16F36003E6E97 /* SemesterStyle.swift */; };
 		AF12457B254EB6E300FFB1E7 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF12457A254EB6E300FFB1E7 /* SafariView.swift */; };
 		AF171401257F2612009E382A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF171400257F2612009E382A /* SettingsView.swift */; };
 		AF188DCC2588695D00832E5C /* GradeAndQualityActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF188DCB2588695D00832E5C /* GradeAndQualityActivityView.swift */; };
@@ -115,6 +116,7 @@
 		A0B4572C25AF37290031DDC0 /* SubscriptionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionItem.swift; sourceTree = "<group>"; };
 		A0DCA14325A9711C00206CE4 /* MultiDevicePreviewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiDevicePreviewModifier.swift; sourceTree = "<group>"; };
 		A0ED6DE325B2E608000BE1A9 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		A0F50CD125D16F36003E6E97 /* SemesterStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemesterStyle.swift; sourceTree = "<group>"; };
 		AF12457A254EB6E300FFB1E7 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 		AF171400257F2612009E382A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsView.swift; path = ../Settings/SettingsView.swift; sourceTree = "<group>"; };
 		AF188DCB2588695D00832E5C /* GradeAndQualityActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeAndQualityActivityView.swift; sourceTree = "<group>"; };
@@ -514,6 +516,7 @@
 				A099860425A9E2EE005C9882 /* NotificationResponseModel.swift */,
 				A0B4572C25AF37290031DDC0 /* SubscriptionItem.swift */,
 				A03CF57E25B12B92005046FD /* TeacherEvaluationResponse.swift */,
+				A0F50CD125D16F36003E6E97 /* SemesterStyle.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -687,6 +690,7 @@
 				AF6B7E8125A8648F000D98DB /* DetailExamPlanView.swift in Sources */,
 				AF3053D4254570CD00F849A9 /* ClassroomModel.swift in Sources */,
 				AF32A7C1257BB253004D1E78 /* WeekSelectorView.swift in Sources */,
+				A0F50CD225D16F36003E6E97 /* SemesterStyle.swift in Sources */,
 				AF5E4ACD254A595300736FB4 /* GradeView.swift in Sources */,
 				AF64F2E425812ACB0041D99C /* QualityActivityView.swift in Sources */,
 				AF64F2D6258129FF0041D99C /* QualityModel.swift in Sources */,
