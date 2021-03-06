@@ -22,8 +22,8 @@ class APIClient {
         performRequest(route: APIEducationRouter.classroom(week: week, buildingName: buildingName), completion: completion)
     }
     
-    static func courseTable(user: User, semester: String, completion: @escaping (Result<CourseTableResponse, AFError>) -> Void) {
-        performRequest(route: APIEducationRouter.courseTable(user: user, semester: semester), completion: completion)
+    static func courseTable(user: User, completion: @escaping (Result<CourseTableResponse, AFError>) -> Void) {
+        performRequest(route: APIEducationRouter.courseTable(user: user), completion: completion)
     }
     
     static func info(user: User, completion: @escaping (Result<EducationInfoResponse, AFError>) -> Void) {

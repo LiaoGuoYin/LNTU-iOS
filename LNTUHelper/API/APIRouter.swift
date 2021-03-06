@@ -16,7 +16,7 @@ enum APIEducationRouter: URLRequestConvertible {
     
     case data(user: User)
     case info(user: User)
-    case courseTable(user: User, semester: String)
+    case courseTable(user: User)
     case grade(user: User)
     case examPlan(user: User, semester: String, offline: Bool)
     case otherExam(user: User)
@@ -84,8 +84,6 @@ enum APIEducationRouter: URLRequestConvertible {
         case .classroom(let week, let buildingName):
             queryItemParamList.append(contentsOf: [URLQueryItem(name: K.Education.week, value: String(week)),
                                                    URLQueryItem(name: K.Education.buildingName, value: AllBuildingEnum(rawValue: buildingName)?.varName ?? "")])
-        case .courseTable(_, let semester):
-            queryItemParamList.append(contentsOf: [URLQueryItem(name: K.Education.semester, value: semester)])
         case .examPlan(_, let semester, _):
             queryItemParamList.append(contentsOf: [URLQueryItem(name: K.Education.semester, value: semester)])
         default:
@@ -100,7 +98,7 @@ enum APIEducationRouter: URLRequestConvertible {
         let value: Encodable?
         
         switch self {
-        case .courseTable(let user, _), .info(let user), .grade(let user), .data(let user), .examPlan(let user, _, _), .otherExam(let user), .qualityActivity(let user):
+        case .courseTable(let user), .info(let user), .grade(let user), .data(let user), .examPlan(let user, _, _), .otherExam(let user), .qualityActivity(let user):
             
             value = UserCredentialsRequestBody(username: user.username, password: user.password)
             
@@ -159,6 +157,9 @@ enum APIEducationRouter: URLRequestConvertible {
         if let parameters = parameters {
             do {
                 urlRequest.httpBody = try JSONEncoder().encode(parameters)
+                #if DEBUG
+                print("\(self): request body: \(String(data: urlRequest.httpBody ?? Data(), encoding: .utf8) ?? "Not Available")")
+                #endif
             } catch {
                 throw AFError.parameterEncodingFailed(reason: .jsonEncodingFailed(error: error))
             }

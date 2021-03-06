@@ -28,7 +28,7 @@ struct K {
 }
 
 struct Constants {
-    static let currentSemester = "2020-秋"
+    static let currentSemester = "2021-春"
     static var currentUser = UserDefaults.standard.loadLocalUser() {
         didSet {
             UserDefaults.standard[.educationUsername] = currentUser.username
