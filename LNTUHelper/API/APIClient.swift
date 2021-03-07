@@ -46,8 +46,8 @@ class APIClient {
         performRequest(route: APIEducationRouter.initHelperMessage, completion: completion)
     }
     
-    static func examPlan(user: User, semester: String, offline: Bool = false, completion: @escaping (Result<ExamPlanResponse, AFError>) -> Void) {
-        performRequest(route: APIEducationRouter.examPlan(user: user, semester: semester, offline: offline), completion: completion)
+    static func examPlan(user: User, offline: Bool = false, completion: @escaping (Result<ExamPlanResponse, AFError>) -> Void) {
+        performRequest(route: APIEducationRouter.examPlan(user: user, offline: offline), completion: completion)
     }
     
     static func qualityActivity(user: User, completion: @escaping (Result<QualityActivityResponse, AFError>) -> Void) {

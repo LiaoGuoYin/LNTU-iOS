@@ -29,7 +29,7 @@ class ExamPlanViewModel: ObservableObject {
     }
     
     func refreshExamPlanList(completion: @escaping (Bool) -> ()) {
-        APIClient.examPlan(user: Constants.currentUser, semester: MockData.semester) { (result) in
+        APIClient.examPlan(user: Constants.currentUser) { (result) in
             switch result {
             case .failure(let error):
                 self.banner.type = .Error

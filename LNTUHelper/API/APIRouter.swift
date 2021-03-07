@@ -18,7 +18,7 @@ enum APIEducationRouter: URLRequestConvertible {
     case info(user: User)
     case courseTable(user: User)
     case grade(user: User)
-    case examPlan(user: User, semester: String, offline: Bool)
+    case examPlan(user: User, offline: Bool)
     case otherExam(user: User)
     
     case qualityActivity(user: User)
@@ -84,8 +84,6 @@ enum APIEducationRouter: URLRequestConvertible {
         case .classroom(let week, let buildingName):
             queryItemParamList.append(contentsOf: [URLQueryItem(name: K.Education.week, value: String(week)),
                                                    URLQueryItem(name: K.Education.buildingName, value: AllBuildingEnum(rawValue: buildingName)?.varName ?? "")])
-        case .examPlan(_, let semester, _):
-            queryItemParamList.append(contentsOf: [URLQueryItem(name: K.Education.semester, value: semester)])
         default:
             return queryItemParamList
         }
@@ -98,7 +96,7 @@ enum APIEducationRouter: URLRequestConvertible {
         let value: Encodable?
         
         switch self {
-        case .courseTable(let user), .info(let user), .grade(let user), .data(let user), .examPlan(let user, _, _), .otherExam(let user), .qualityActivity(let user):
+        case .courseTable(let user), .info(let user), .grade(let user), .data(let user), .examPlan(let user, _), .otherExam(let user), .qualityActivity(let user):
             
             value = UserCredentialsRequestBody(username: user.username, password: user.password)
             
