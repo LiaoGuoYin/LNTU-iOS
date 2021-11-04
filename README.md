@@ -1,16 +1,22 @@
-#  LNTUHelper-iOS
+# LNTUHelper-iOS
 
-A Handy iOS App for LNTU.
+**This project had been archived, thanks for all the friends that following and supporting it ever.**
 
-# Description
+An iOS App(Demo) for Liaoning Technical University LNTU.
 
-The project is still in schedule, which means that there are countless bugs.
-
-# Screenshot
-
-Coming soon.
+You cloud compile and pair it to develop or use with [LNTU-API.](https://github.com/LiaoGuoYin/LNTU-API)
 
 # Requirements
 
-iOS 13+ / iPadOS 13+
 Xcode 11+
+
+iPadOS 13+ / iOS 13+
+
+# Screenshots
+
+![Course](./Screenshots/Course.PNG)
+![Grade](./Screenshots/Grade.PNG)
+![Classroom](./Screenshots/Classroom.PNG)
+![News](./Screenshots/Login.PNG)
+![Account](./Screenshots/Account.PNG)
+![Login](./Screenshots/Login.PNG)
